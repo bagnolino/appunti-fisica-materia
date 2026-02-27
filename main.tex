@@ -1,0 +1,94 @@
+\documentclass[12pt,a4paper,parskip=half,DIV=14,oneside,chapterprefix=true]{scrreprt}
+
+\input{preamble.tex} % pacchetti e comandi
+
+\title{Appunti di Fisica della Materia}
+\author{Davide Bagnoli}
+\date{\today}
+
+\begin{document}
+%\maketitle
+
+\begin{titlepage}
+    \centering
+    % Intestazione Università
+    {\scshape\LARGE Università degli Studi di Padova \par}
+    \vspace{0.5cm}
+    {\scshape\Large Dipartimento di Fisica e Astronomia \par}
+    \vspace{0.5cm}
+    {\large Corso di Laurea in Fisica \par}
+    
+    \vspace{1.5cm}
+    
+    % Immagine/Logo (Opzionale: scommenta se hai un file logo.png in figures/)
+    % \includegraphics[width=0.3\textwidth]{figures/logo_unipd.png}
+    % \vspace{1.5cm}
+
+    % Titolo e Corso
+    \rule{\linewidth}{0.5mm} \\[0.4cm] % Linea orizzontale spessa
+    {\huge\bfseries Appunti di Fisica della Materia \par}
+    \vspace{0.4cm}
+    \rule{\linewidth}{0.5mm} \\[1.5cm] % Linea orizzontale spessa
+    
+    % Autore e Docente affiancati
+    \begin{minipage}[t]{0.4\textwidth}
+        \begin{flushleft} \large
+            \emph{Autore:}\\
+            Davide \textsc{Bagnoli}
+        \end{flushleft}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.4\textwidth}
+        \begin{flushright} \large
+            \emph{Docente:}\\
+            Prof. Cinzia \textsc{Sada}
+        \end{flushright}
+    \end{minipage}
+
+    \vfill % Spinge tutto il resto in fondo alla pagina
+
+    % Donazione / Link (Opzionale, riprendendo la tua richiesta precedente)
+    {\small \href{https://paypal.me/DavideBagnoli04}{Sostieni il progetto offrendo un caffè}}
+    \vspace{0.5cm}
+
+    % --- AGGIUNTA DATA/VERSIONE ---
+    {\small Scrittura in corso NON DIVULGARE: \today \par} 
+    % Oppure scrivi una data fissa: {\small Versione 1.0 -- 4 Gennaio 2026 \par}
+    \vspace{0.5cm}
+    % ------------------------------
+
+    % Anno Accademico
+    {\Large Anno Accademico 2025/2026}
+    
+\end{titlepage}
+
+
+\tableofcontents
+\newpage
+
+\chapter*{Premessa}
+
+Questi appunti rielaborano le lezioni del corso di Istituzioni di Fisica della Materia, tenute dalla Prof. Cinzia Sada presso il CdL in Fisica dell'Università di Padova nell'A.A. 2025/2026.
+
+%Si ringraziano gli studenti Giovanni Gerardo e Stefano Bastianello per la condivisione dei loro appunti, da cui buona parte della trascrizione proviene.
+
+\begin{attention}
+    Si prega di notare che, nonostante l'attenzione posta nella stesura, questo testo non è esente da possibili errori, imprecisioni o refusi. Questi appunti non intendono sostituire i libri di testo consigliati né il materiale ufficiale fornito dal docente, ma vanno intesi come uno strumento integrativo.
+\end{attention}
+
+Chiunque riscontrasse errori o avesse suggerimenti per migliorare la qualità del lavoro è invitato a contattarmi a \href{bagnolidavide04@gmail.com}{bagnolidavide04@gmail.com} oppure fare affidamento direttamente sulla pagina \href{https://github.com/bagnolino/appunti-meccanica-quantistica.git}{GitHub}. Ogni segnalazione sarà preziosa per le future revisioni del documento.
+
+Se apprezzi il lavoro e vuoi supportarlo, puoi \href{https://paypal.me/DavideBagnoli04}{offrirmi un caffè tramite PayPal}.
+
+\vspace{2cm}
+\hfill Davide Bagnoli
+
+
+
+\input{chapters/chapter1.tex}
+
+
+%\printbibliography
+%\listoflezioni
+
+\end{document}

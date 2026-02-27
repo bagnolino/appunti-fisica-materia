@@ -1,0 +1,203 @@
+% ===================================================================
+% PREAMBOLO DEGLI APPUNTI
+% Questo file contiene tutti i pacchetti e le impostazioni
+% principali del documento.
+% ===================================================================
+
+% -------------------------------------------------------------------
+% LINGUA E CODIFICA
+% -------------------------------------------------------------------
+\usepackage[italian]{babel}      % Gestione della lingua italiana
+\usepackage[T1]{fontenc}         % Codifica dei font (permette di usare le accentate)
+\usepackage[utf8]{inputenc}      % Codifica del file di input
+
+% -------------------------------------------------------------------
+% TIPOGRAFIA E MICRO-TIPOGRAFIA
+% -------------------------------------------------------------------
+\usepackage{microtype}           % Migliora la spaziatura del testo
+\usepackage{setspace}            % Per gestire l interlinea
+\onehalfspacing                  % Interlinea 1.5
+
+% Spaziatura tra i paragrafi
+\AtBeginDocument{
+  \setlength{\parskip}{0.35\baselineskip}%
+}
+
+% -------------------------------------------------------------------
+% LAYOUT DELLA PAGINA (KOMA-Script)
+% -------------------------------------------------------------------
+\usepackage[automark,headsepline]{scrlayer-scrpage} % Intestazioni e pi di pagina avanzati
+\KOMAoptions{headinclude=false,footinclude=false}    % Bilanciamento margini KOMA
+\clearpairofpagestyles
+\ihead{\headmark}  % Titolo del capitolo a sinistra
+\ohead{\pagemark}   % Numero di pagina a destra
+\pagestyle{scrheadings}
+
+% Margini
+\usepackage[
+    a4paper,
+    top=2.5cm,    % Margine superiore
+    bottom=2.5cm, % Margine inferiore (riducilo se vuoi, es. 2cm)
+    left=2.5cm,   % Margine sinistro
+    right=2.5cm,  % Margine destro
+    bindingoffset=0mm, % Se vuoi rilegare, metti es. 5mm
+    heightrounded % Arrotonda l'altezza del testo per evitare righe "mozze"
+]{geometry}
+
+\raggedbottom
+
+
+
+
+
+
+% Formattazione dei titoli di sezione
+\setkomafont{chapter}{\Huge\bfseries} % Stile per i capitoli
+\RedeclareSectionCommand[beforeskip=1.5em plus .2em minus .1em,afterskip=.8em plus .1em minus .1em]{section}
+\RedeclareSectionCommand[beforeskip=1em plus .2em minus .1em,afterskip=.5em plus .1em minus .1em]{subsection}
+
+% -------------------------------------------------------------------
+% MATEMATICA
+% -------------------------------------------------------------------
+\usepackage{amsmath, amssymb, amsthm, mathtools} % Pacchetti base per la matematica
+\usepackage{physics}             % Notazione fisica (derivata, bra-ket, etc.)
+\usepackage{cancel}              % Per barrare espressioni matematiche
+\DeclareSymbolFont{bbold}{U}{bbold}{m}{n}
+\DeclareSymbolFontAlphabet{\mathbbold}{bbold}
+\newcommand{\id}{\scalebox{1.15}{$\mathbbold{1}$}}
+
+% -------------------------------------------------------------------
+% GRAFICA, FIGURE E COLORI
+% -------------------------------------------------------------------
+\usepackage{graphicx}            % Per includere immagini
+\graphicspath{{figures/}}        % Cartella di default per le immagini
+\usepackage{subcaption}          % Sotto-didascalie per le figure
+\usepackage{tikz}                % Per il disegno vettoriale
+\usepackage{pgfplots}            % Per i grafici con TikZ
+\pgfplotsset{compat=1.18}         % Imposta la versione di pgfplots
+\usepackage[most]{tcolorbox}     % Per creare box colorati
+
+% -------------------------------------------------------------------
+% RIFERIMENTI 
+% -------------------------------------------------------------------
+
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=black, citecolor=black]{hyperref} % Link interni ed esterni (deve essere quasi l ultimo)
+\usepackage[nameinlink,noabbrev]{cleveref} % Riferimenti "intelligenti"
+
+% -------------------------------------------------------------------
+% ELENCHI
+% -------------------------------------------------------------------
+\usepackage{enumitem}            % Personalizzazione degli elenchi
+\usepackage{multicol}            % Per usare pi colonne
+
+% ===================================================================
+% AMBIENTI PERSONALIZZATI (Teoremi, Definizioni, etc.)
+% ===================================================================
+
+% -------------------------------------------------------------------
+% AMBIENTI TEOREMICI
+% -------------------------------------------------------------------
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definizione}[section]
+\newtheorem{example}{Esempio}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Osservazione}
+
+\newtheoremstyle{attentionstyle}{3pt}{3pt}{\normalfont}{}{\bfseries}{ }{0pt}{#1#3}
+\theoremstyle{attentionstyle}
+\newtheorem*{attention}{Attenzione!}
+
+% -------------------------------------------------------------------
+% POSTULATI E PRINCIPI (con box colorato)
+% -------------------------------------------------------------------
+% Definizione di uno stile comune "printer-friendly"
+\tcbset{postulatoStyle/.style={
+    colback=blue!5,
+    colframe=blue!50,
+    sharp corners,
+    boxrule=0.5pt,
+    enhanced,
+    breakable
+}}
+
+% Teoremi unici per i postulati, che useranno lo stile tcolorbox
+\newtheorem*{postulato1}{Postulato degli stati}
+\newtheorem*{postulato2}{Postulato delle osservabili}
+\newtheorem*{postulato3}{Postulato degli spettri}
+\newtheorem*{postulato4}{Postulato della probabilità di una misura}
+\newtheorem*{postulato5}{Postulato della misura}
+\newtheorem*{postulato6}{Postulato di quantizzazione canonica}
+\newtheorem*{postulato7}{Postulato di evoluzione causale}
+\newtheorem*{postulato8}{Postulato dello Spin}
+\newtheorem*{postulato9}{Postulato di simmetrizzazione}
+\newtheorem*{pauli}{Principio di esclusione di Pauli}
+
+% Applicazione dello stile tcolorbox agli ambienti dei postulati
+\tcolorboxenvironment{postulato1}{postulatoStyle}
+\tcolorboxenvironment{postulato2}{postulatoStyle}
+\tcolorboxenvironment{postulato3}{postulatoStyle}
+\tcolorboxenvironment{postulato4}{postulatoStyle}
+\tcolorboxenvironment{postulato5}{postulatoStyle}
+\tcolorboxenvironment{postulato6}{postulatoStyle}
+\tcolorboxenvironment{postulato7}{postulatoStyle}
+\tcolorboxenvironment{postulato8}{postulatoStyle}
+\tcolorboxenvironment{postulato9}{postulatoStyle}
+
+% ===================================================================
+% COMANDI PERSONALIZZATI E IMPOSTAZIONI FINALI
+% ===================================================================
+
+% -------------------------------------------------------------------
+% COMANDI UTILI
+% -------------------------------------------------------------------
+\usepackage{marginnote} % Per le note a margine
+% --- Gestione Indice delle Lezioni (Versione Forzata) ---
+\DeclareNewTOC[
+    type=lezione,
+    types=lezioni,
+    listname={Indice delle Lezioni},
+    extension=loz,
+]{loz}
+\setuptoc{loz}{totoc}
+% Questo blocco forza la rimozione degli spazi verticali (addvspace) 
+% specificamente per l'indice con estensione .loz
+\makeatletter
+\BeforeStartingTOC[loz]{%
+  \renewcommand*{\addvspace}[1]{}% Annulla il comando che aggiunge spazio tra capitoli
+}
+\makeatother
+
+\newcommand{\lezione}[2]{%
+  \marginnote{\footnotesize\sffamily\textcolor{blue!50!gray}{\textbf{Lez. #1}\\#2}}%
+  \pdfbookmark[2]{Lezione #1 (#2)}{lez#1}%
+  \addcontentsline{loz}{lezione}{\textbf{Lezione #1} (#2)}%
+}
+
+% Prodotto interno. Nota: il pacchetto 'physics' offre \expval{} e \bra\ket.
+\renewcommand{\ip}[2]{\langle #1, #2 \rangle}
+
+% -------------------------------------------------------------------
+% IMPOSTAZIONI FINALI
+% -------------------------------------------------------------------
+\setcounter{secnumdepth}{3} % Numera fino alle subsubsections
+\setcounter{tocdepth}{2}     % Includi fino alle subsections nell indice
+
+% MarkFormat per capitoli (rimuove "Capitolo X:")
+\automark{chapter}
+\renewcommand*{\chaptermarkformat}{}
+
+
+% --- Soluzione per i titoli a fine pagina ---
+\usepackage{needspace}
+\usepackage{etoolbox}
+
+% Prima di ogni \section, controlla se ci sono almeno 6 righe di spazio (~3cm).
+% Se non ci sono, manda tutto alla pagina successiva.
+\preto\section{\needspace{6\baselineskip}}
+
+% Fa la stessa cosa per le \subsection (richiede un po' meno spazio, es. 4 righe)
+\preto\subsection{\needspace{4\baselineskip}}
+\preto\subsubsection{\needspace{4\baselineskip}}
