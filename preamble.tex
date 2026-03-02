@@ -110,41 +110,6 @@
 \theoremstyle{attentionstyle}
 \newtheorem*{attention}{Attenzione!}
 
-% -------------------------------------------------------------------
-% POSTULATI E PRINCIPI (con box colorato)
-% -------------------------------------------------------------------
-% Definizione di uno stile comune "printer-friendly"
-\tcbset{postulatoStyle/.style={
-    colback=blue!5,
-    colframe=blue!50,
-    sharp corners,
-    boxrule=0.5pt,
-    enhanced,
-    breakable
-}}
-
-% Teoremi unici per i postulati, che useranno lo stile tcolorbox
-\newtheorem*{postulato1}{Postulato degli stati}
-\newtheorem*{postulato2}{Postulato delle osservabili}
-\newtheorem*{postulato3}{Postulato degli spettri}
-\newtheorem*{postulato4}{Postulato della probabilità di una misura}
-\newtheorem*{postulato5}{Postulato della misura}
-\newtheorem*{postulato6}{Postulato di quantizzazione canonica}
-\newtheorem*{postulato7}{Postulato di evoluzione causale}
-\newtheorem*{postulato8}{Postulato dello Spin}
-\newtheorem*{postulato9}{Postulato di simmetrizzazione}
-\newtheorem*{pauli}{Principio di esclusione di Pauli}
-
-% Applicazione dello stile tcolorbox agli ambienti dei postulati
-\tcolorboxenvironment{postulato1}{postulatoStyle}
-\tcolorboxenvironment{postulato2}{postulatoStyle}
-\tcolorboxenvironment{postulato3}{postulatoStyle}
-\tcolorboxenvironment{postulato4}{postulatoStyle}
-\tcolorboxenvironment{postulato5}{postulatoStyle}
-\tcolorboxenvironment{postulato6}{postulatoStyle}
-\tcolorboxenvironment{postulato7}{postulatoStyle}
-\tcolorboxenvironment{postulato8}{postulatoStyle}
-\tcolorboxenvironment{postulato9}{postulatoStyle}
 
 % ===================================================================
 % COMANDI PERSONALIZZATI E IMPOSTAZIONI FINALI
@@ -171,7 +136,7 @@
 \makeatother
 
 \newcommand{\lezione}[2]{%
-  \marginnote{\footnotesize\sffamily\textcolor{blue!50!gray}{\textbf{Lez. #1}\\#2}}%
+  \marginnote{\footnotesize\sffamily\textcolor{blue!50!gray}{\textbf{Lez. #1}\\\makebox[\marginparwidth][l]{#2}}}%
   \pdfbookmark[2]{Lezione #1 (#2)}{lez#1}%
   \addcontentsline{loz}{lezione}{\textbf{Lezione #1} (#2)}%
 }

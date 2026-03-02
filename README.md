@@ -22,10 +22,8 @@ appunti-meccanica-quantistica/
 ├─ figures/             # Immagini e schemi
 ├─ biblio/              # File .bib per la bibliografia
 │  └─ references.bib
-├─ sty/                 # File .sty opzionali per comandi o ambienti
 ├─ Makefile            # Build locale con make
-├─ .latexmkrc          # Configurazione latexmk
-└─ .github/workflows/  # Compilazione automatica PDF (GitHub Actions)
+└─ .latexmkrc          # Configurazione latexmk
 ```
 
 
