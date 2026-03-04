@@ -504,3 +504,236 @@ Dato \(\vec{S} \) e \( \vec{L}\) commutano abbiamo che:
     \vec{S} \cdot \vec{L} = \frac{J^2 - S^2 - L^2}{2}
     \implies \Delta H_{SO} = \xi_z(r) \vec{L} \cdot \vec{S} = \xi_z(r) \left\{ \frac{J^2 - L^2 - S^2}{2} \right\} 
 \end{equation}
+
+\begin{equation}
+    \label{eq: expval_Hso}
+    \mel{j, m_j}{\Delta H_{SO}}{j, m_j} = \mel{j, m_j}{\xi(r)}{j, m_j} \cdot \hbar^2 \left\{ \frac{j(j+1) - \ell(\ell+1) - s(s+1)}{2} \right\}
+\end{equation}
+
+\lezione{3}{02/03/2026}
+
+Ricordiamo che gli autostati della base \(\left\{ \ket{j,m_j} \right\}\) (dove sono impiciti gli autovalori \(n, \ell, s\)) 
+possono essere ottenuti dalla base di autostati di \(H^{(0)}\) \(\left\{ \ket{n, \ell, m_{\ell}, s, m_s} \right\}\) mediante i coefficienti di Clebsch-Gordan:
+
+\begin{equation}
+    \ket{j, m_j} = \sum_{m_{\ell}=-\ell}^{\ell} \sum_{m_s=-s}^{s} \underbrace{\braket{n, \ell, m_{\ell}, s, m_s}{j, m_j}}_{\text{coeff. Clebsch-Gordan}} \ket{n, \ell, m_{\ell},s , m_s}
+\end{equation}
+
+dove gli stati \(\ket{n, \ell, m_{\ell}, s, m_s}\) sono associati alle funzioni d'onda \( R_{n,\ell}(r) Y_{\ell}^{m_{\ell}}(\theta,\phi) \chi_{s,m_s}\) .
+
+Sapendo che \(\xi(r) \propto \frac{1}{r^3}\), possiamo risolvere dunque l'equazione \ref{eq: expval_Hso} 
+calcolando il valore di aspettazione di $\frac{1}{r^3}$ sullo stato $\ket{j, m_j}$. 
+L'integrale si riduce alle sole coordinate spaziali, la parte di spin, infatti, restituisce $1$ quando proiettata su se stessa:
+
+\begin{equation}
+    \mel{j, m_j}{\frac{1}{r^3}}{j, m_j} = (\dots) \int_0^\infty \frac{r^2}{r^3} \abs{R_{n,\ell}(r)}^2 \, dr \underbrace{\int_{\Omega} \abs{Y_{\ell}^{m_{\ell}}(\theta,\phi)}^2 \sin\theta \, d\theta \, d\phi}_{\text{integrale sull'angolo solido}}
+\end{equation}
+
+L'integrale radiale appena ricavato è un risultato noto per le autofunzioni dell'Hamiltoniana imperturbata $H^{(0)}$ di un atomo idrogenoide:
+
+\begin{equation}
+    \underbrace{\mel{n, \ell, m_{\ell}, s, m_s}{\frac{1}{r^3}}{n, \ell, m_{\ell}, s, m_s}}_{\text{autofunz. di } H^{(0)}} = \frac{2}{a^3 n^3 \ell(\ell+1)(2\ell+1)} \qquad \text{con} \quad a = \frac{4\pi \varepsilon_0 \hbar^2}{Z e^2 \mu}
+\end{equation}
+
+Con questo risultato in mente, calcolando l'elemento di matrice dell'operatore di spin-orbita, si ricava la correzione energetica $\Delta E_{SO}$:
+
+\begin{equation}
+    \mel{j, m_j}{\Delta H_{SO}}{j, m_j} = Z^4 \alpha^4 \frac{m_e c^2}{2} \frac{1}{n^3} \frac{j(j+1) - \ell(\ell+1) - s(s+1)}{\ell(\ell+1)(2\ell+1)}
+\end{equation}
+La variazione di energia \(\Delta E_{SO}\) è proporzionale a \(Z^4\) e \(\frac{1}{n^3}\) .
+
+\begin{attention}
+    Questo risultato vale esclusivamente per $\ell \neq 0$. È importante notare che per $\ell = 0$ il termine di spin-orbita è nullo e la trattazione richiede considerazioni differenti (come il termine di Darwin).
+\end{attention}
+
+\subsubsection{Splitting energetici}
+
+La correzione dipende in modo non banale dai numeri quantici. In particolare, il termine di interazione spin-orbita \( \Delta E_{SO} \) dipende dai numeri quantici \( j \), \( \ell \) e \( s \).
+
+Per un atomo idrogenoide, dove lo spin dell'elettrone è \( s = \frac{1}{2} \), i valori possibili per il numero quantico del momento angolare totale sono vincolati dalla relazione:
+\begin{equation}
+    |\ell - s| \le j \le \ell + s \implies j = \ell \pm \frac{1}{2}
+\end{equation}
+
+Valutando il termine accoppiamento \( j(j+1) - \ell(\ell+1) - s(s+1) \) nei due casi possibili, otteniamo:
+\begin{itemize}
+    \item Se \( j = \ell + \frac{1}{2} \):
+    \[ j(j+1) - \ell(\ell+1) - s(s+1) = \ell \]
+    \item Se \( j = \ell - \frac{1}{2} \):
+    \[ j(j+1) - \ell(\ell+1) - s(s+1) = -\ell - 1 \]
+\end{itemize}
+
+L'interazione tra il momento angolare orbitale \( \ell \) e lo spin \( s \) rimuove la degenerazione dei livelli energetici dell'Hamiltoniana imperturbata \( H^{(0)} \). 
+A partire dallo stato \( E^{(0)} \), si osserva uno \textbf{splitting}: una separazione degli stati con conseguente rimozione della degenerazione spaziale.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[node distance=2cm, thick]
+        % Livello imperturbato
+        \draw (0,0) -- (2,0) node[midway, below] {\( E^{(0)} \)};
+        
+        % Linee di splitting (diagonali)
+        \draw (2,0) -- (3,0.8);
+        \draw (2,0) -- (3,-0.8);
+        
+        % Livelli splittati (orizzontali)
+        \draw (3,0.8) -- (5,0.8) node[right] {\( j = \ell + \frac{1}{2} \)};
+        \draw (3,-0.8) -- (5,-0.8) node[right] {\( j = \ell - \frac{1}{2} \)};
+        
+        % Opzionale: tratteggio per evidenziare lo spostamento
+        \draw[dashed, thin, gray] (2,0) -- (5,0);
+    \end{tikzpicture}
+    \caption{Splitting energetico dall'interazione SO}
+\end{figure}
+
+
+L'energia \( E^{(0)} \) vale:
+\begin{equation}
+    E^{(0)} := \frac{\alpha^2 m_e c^2}{2} \simeq 13.6 \text{ eV}
+\end{equation}
+Questa quantità rappresenta l'energia necessaria per estrarre un elettrone dall'atomo e portarlo a distanza infinita, ovvero l'energia di prima ionizzazione. 
+
+L'espressione per la variazione di energia dovuta all'interazione spin-orbita (che costituisce una parte delle correzioni relativistiche) è:
+\begin{equation}
+    \Delta E_{SO} = Z^4 \alpha^2 \frac{E^{(0)}}{n^3} \frac{j(j+1) - \ell(\ell+1) - s(s+1)}{\ell(\ell+1)(2\ell+1)}
+\end{equation}
+Sostituendo il termine dipendente dai numeri quantici calcolato in precedenza, possiamo distinguere i due casi possibili per \( j \):
+\begin{equation}
+    \Delta E_{SO|j=\ell+\frac{1}{2}} = \frac{Z^4 \alpha^2 E^{(0)}}{n^3 (\ell+1)(2\ell+1)} \quad 
+    \Delta E_{SO|j=\ell-\frac{1}{2}} = - \frac{Z^4 \alpha^2 E^{(0)}}{n^3 \ell(2\ell+1)} 
+\end{equation}
+
+
+A partire da un singolo livello degenere, la correzione di spin-orbita rimuove parzialmente la degenerazione La separazione dei livelli porta alla formazione di un \textbf{doppietto}.
+\begin{remark}
+    La correzione \(\Delta E_{SO}\) è di modesta entità: \( 10^{-5} \divisionsymbol 10^{-3} \;eV\) .
+\end{remark}
+
+\begin{attention}
+    È fondamentale sottolineare che questa perturbazione \emph{non} rimuove la degenerazione spaziale legata all'orientazione. Ogni stato splittato mantiene una degenerazione associata al numero quantico \( m_j \) (o \( m_\ell \)), che rimane inalterata.
+\end{attention}
+
+
+\subsubsection{Shifting}
+
+Lo \textbf{shifting} rappresenta la variazione di energia tra un singolo sottolivello del multipletto e l'energia imperturbata del sistema.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[thick, font=\small]
+    % Livello imperturbato di partenza
+    \draw (0,0) -- (2,0) node[midway, below, align=center] {\( E_n^{(0)} \) \\ autoval. \( H^{(0)} \)};
+    
+    % Linee di separazione
+    \draw (2,0) -- (3,1.5);
+    \draw (2,0) -- (3,-1.5);
+    
+    % Linea di riferimento centrale (continuazione del livello imperturbato)
+    \draw[dashed, thin, gray] (2,0) -- (6,0);
+    
+    % Livelli splittati (Doppietto)
+    \draw[blue] (3,1.5) -- (5,1.5) node[right, text=black] {\( E_{\text{MAX}} \quad \left(j = \ell + \frac{1}{2}\right) \)};
+    \draw[blue] (3,-1.5) -- (5,-1.5) node[right, text=black] {\( E_{\text{MIN}} \;\quad \left(j = \ell - \frac{1}{2}\right) \)};
+    
+    % Indicazione dello Splitting (freccia a destra)
+    \draw[<->, purple, >=stealth] (6.5, -1.4) -- (6.5, 1.4) node[midway, right, align=left] {\textbf{SPLITTING} \\ \( E_{\text{MAX}} - E_{\text{MIN}} \)};
+    
+    % Indicazioni dello Shifting (frecce interne)
+    \draw[->, teal, >=stealth] (4, 0.1) -- (4, 1.4) node[midway, left] {Shift 1};
+    \draw[->, teal, >=stealth] (4, -0.1) -- (4, -1.4) node[midway, left] {Shift 2};
+
+\end{tikzpicture}
+\caption{Shifting nel caso di doppietto}
+\end{figure}
+
+Lo shift è calcolato rispetto agli autovalori imperturbati \( H^{(0)} \). 
+Pertanto, esso è definito come la differenza di energia tra il singolo sottolivello del multipletto e il valore corrispondente dell'autovalore imperturbato dell'Hamiltoniana \( H^{(0)} \).
+    
+In caso di multipletti si usa il termine shift per indicare la differenza di energia di due sottolivelli consecutivi.
+
+\begin{figure}[htbp]
+    \centering
+\begin{tikzpicture}[thick, font=\small]
+    % Livello imperturbato di partenza
+    \draw (0,0) -- (2,0) node[midway, below, align=center] {\( E_n^{(0)} \)};
+    
+    % Linee di separazione (Splitting) verso il multipletto
+    \draw (2,0) -- (3, 1.8);
+    \draw (2,0) -- (3, 0.8);
+    \draw (2,0) -- (3, -0.4);
+    \draw (2,0) -- (3, -1.5);
+    
+    % Linea di riferimento centrale
+    \draw[dashed, thin, gray] (2,0) -- (7,0);
+    
+    % Livelli del multipletto (Sottolivelli 1, 2, 3, 4)
+    \draw[blue] (3, 1.8) -- (6, 1.8) node[right, text=black] {1 (\( E_{\text{MAX}} \))};
+    \draw[blue] (3, 0.8) -- (6, 0.8) node[right, text=black] {2};
+    \draw[blue] (3,-0.4) -- (6,-0.4) node[right, text=black] {3};
+    \draw[blue] (3,-1.5) -- (6,-1.5) node[right, text=black] {4 (\( E_{\text{MIN}} \))};
+    
+    % Indicazione dello SHIFT (tra 2 valori consecutivi)
+    \draw[<->, teal, >=stealth] (5.5, 0.9) -- (5.5, 1.7) node[midway, right] {SHIFT};
+    
+    % Indicazione dello SPLITTING (tra MAX e MIN)
+    \draw[<->, purple, >=stealth] (8.5, -1.45) -- (8.5, 1.75) node[midway, right, align=left] {\textbf{SPLITTING} \\ \( E_{\text{MAX}} - E_{\text{MIN}} \)};
+    
+\end{tikzpicture}
+\caption{Shifting nel caso di multipletto}
+\end{figure}
+
+
+\begin{exercise}
+    Calcoliamo lo splitting indotto dall'interazione \( S-O \) per \( n=2 \), \( \ell=1 \), in funzione di \( Z \), e successivamente per \( Z=1 \).
+
+\begin{solution}
+
+Per \( n=2 \) i valori possibili sono \( \ell=0, 1 \). In questo caso specifico consideriamo \( \ell=1 \) (orbitale di tipo \( p \)).
+
+L'energia imperturbata al secondo livello è:
+\begin{equation}
+    E_2^{(0)} = -\frac{1}{2} \mu c^2 \frac{(Z\alpha)^2}{n^2} = -\frac{1}{8} \mu c^2 Z^2 \alpha^2
+\end{equation}
+
+Calcoliamo la correzione da aggiungere \(\Delta E_{SO \substack{n=2 \\ \ell=1}}\), 
+dall'accoppiamento spin-orbita, per \( \ell=1 \), si ottengono i seguenti valori per il numero quantico \( j \):
+\[
+\ell=1 \longrightarrow j = 
+\begin{cases} 
+    \ell - \frac{1}{2} = \frac{1}{2} \\[1ex]
+    \ell + \frac{1}{2} = \frac{3}{2} 
+\end{cases}
+\]
+
+L'indicizzazione per i sottolivelli segue il \textbf{formalismo spettroscopico}:
+\begin{equation}
+    n ^{2s+1} \ell_j
+\end{equation}
+Dunque i due sottolivelli saranno indicati da \( 2^2 p_{\frac{1}{2}} \) e \( 2^2 p_\frac32 \) .
+
+Per lo stato con momento angolare totale minimo \(2^2p_\frac12\), la correzione energetica è data da:
+\[
+    \Delta E_{SO}\eval_{j=1/2} = - \frac{Z^4 \alpha^2 E_0}{n^3 \ell(2\ell+1)}
+    = - \frac{Z^4 \alpha^2 E_0}{2^3 \cdot 1(2 \cdot 1 + 1)} = - \frac{Z^4 \alpha^2 E_0}{24}
+\]
+
+
+Per lo stato con momento angolare totale massimo \(2^2p_{\frac32}\), la correzione è positiva (il livello si alza):
+\[
+    \Delta E_{SO}\eval_{j=3/2} = \frac{Z^4 \alpha^2 E_0}{n^3 (\ell+1)(2\ell+1)}
+    = \frac{Z^4 \alpha^2 E_0}{2^3 (1+1)(2 \cdot 1 + 1)} = \frac{Z^4 \alpha^2 E_0}{48}
+\]
+
+Lo splitting energetico (\( \delta E_{SO} \)) sarà dunque:
+\[
+    \delta E_{SO} = E_{max} - E_{min} =  = \frac{Z^4 \alpha^2 E_0}{48} - \left( - \frac{Z^4 \alpha^2 E_0}{24} \right) = \frac{3 Z^4 \alpha^2 E_0}{48} = \frac{Z^4 \alpha^2 E_0}{16}
+\]
+Per l'atomo di Idrogeno (\( Z=1 \)), questo valore corrisponde a:
+\[
+    \delta E_{SO} \approx 4,5 \cdot 10^{-5} \text{ eV}
+\]
+\end{solution}
+\end{exercise}
+
+\subsubsection{Correzione complessiva}
+\lezione{4}{03/03/2026}
