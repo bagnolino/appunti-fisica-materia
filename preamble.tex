@@ -76,6 +76,7 @@
 \usepackage{pgfplots}            % Per i grafici con TikZ
 \pgfplotsset{compat=1.18}         % Imposta la versione di pgfplots
 \usepackage[most]{tcolorbox}     % Per creare box colorati
+\usepackage{float}
 
 % -------------------------------------------------------------------
 % RIFERIMENTI 
@@ -112,6 +113,38 @@
 \theoremstyle{attentionstyle}
 \newtheorem*{attention}{Attenzione!}
 
+\tcbuselibrary{theorems, breakable} % <--- Aggiungi breakable qui
+
+\newtcbtheorem[number within=section]{note}{Nota}{
+    enhanced,
+    breakable,                      % <--- Questo permette il cambio pagina
+    colback=white,
+    colframe=black,
+    boxrule=0.5pt,
+    sharp corners,
+    fonttitle=\bfseries,
+    description font=\bfseries,
+    coltitle=black,
+    separator sign none,
+    description delimiters={}{},
+    attach title to upper,
+    after title={\par\medskip},
+    left=2mm, right=2mm, top=2mm, bottom=2mm,
+}{nt}
+
+
+% Color box per equazioni importanti
+
+\newtcolorbox{importantbox}{
+    colback=blue!5, 
+    colframe=blue!50, 
+    sharp corners, 
+    boxrule=0.5pt,
+    % Opzioni per gestire meglio lo spazio intorno alle equazioni
+    before skip=10pt,
+    after skip=10pt,
+    left=2mm, right=2mm, top=2mm, bottom=2mm
+}
 
 % ===================================================================
 % COMANDI PERSONALIZZATI E IMPOSTAZIONI FINALI

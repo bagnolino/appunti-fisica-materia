@@ -184,11 +184,11 @@ Introduciamo l'operatore momento angolare orbitale $\vec{L}$. Data la simmetria 
 È quindi possibile scegliere una base comune di autofunzioni per questi tre osservabili.
 
 Nel sistema di riferimento del centro di massa e in coordinate sferiche, per stati legati ($E \le 0$), la soluzione $\psi_E^{(0)}(\vec{r}, \vec{R}_{CM})$ si fattorizza nel prodotto di una componente radiale e una angolare:
-\begin{tcolorbox}[colback=blue!5, colframe=blue!50, sharp corners, boxrule=0.5pt]
+\begin{importantbox}
     \begin{equation}
     \psi_E^{(0)}(\vec{r}, \vec{R}_{CM}) = R_{n,\ell}(r) \cdot Y_\ell^{m_\ell}(\theta, \phi)    
     \end{equation}
-\end{tcolorbox}
+\end{importantbox}
 In questa espressione:
 \begin{itemize}
     \item $R_{n,\ell}(r)$ rappresenta la \textbf{dipendenza radiale};
@@ -737,3 +737,289 @@ Per l'atomo di Idrogeno (\( Z=1 \)), questo valore corrisponde a:
 
 \subsubsection{Correzione complessiva}
 \lezione{4}{03/03/2026}
+In generale, dunque, la correzione complessiva, che chiameremo \textbf{correzione di struttura fine}, sarà:
+\begin{equation}
+    \Delta H_{SF} =  \Delta H_{Darwin} + \Delta H_{rel} + \Delta H_{SO}
+\end{equation}
+
+Per uno stato \(\ket{j, m_{j}}\) (in cui ricordiamo sono sottointesi gli autovalori \(n,\,\ell,\,s\)) sappiamo che:
+\begin{align}
+    \mel{J, m_J}{\Delta H_{\text{Darwin}}}{J, m_J}&> 0 \quad \text{per } \ell = 0\\
+    \mel{J, m_J}{\Delta H_{\text{Darwin}}}{J, m_J} &= 0 \quad \text{per } \ell \neq 0 \\
+    \mel{J, m_J}{\Delta H_{\text{rel}}}{J, m_J} &< 0
+\end{align}
+
+Il contributo complessivo, per un atomo idrogenoide con \(s=\frac12\), sarà dato da:
+\begin{equation}
+    \mel{j, m_j}{\Delta H_{SF}}{j, m_j} = - \frac{1}{2} m_e c^2 Z^4 \alpha^4 \frac{1}{n^4} \left( \frac{n}{j + \frac{1}{2}} - \frac{3}{4} \right) = - \frac{E_0 Z^4 \alpha^2}{n^4} \left( \frac{n}{j + \frac{1}{2}} - \frac{3}{4} \right)
+\end{equation}
+
+\begin{remark}
+    Non è più palese la dipendenza da \(\ell\) (dipende solo da \(n, j\)) e il contributo è negativo.
+\end{remark}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=1.2]
+        % Asse E(eV)
+        \draw[->, thick] (0,-3) -- (0,1.5) node[right] {\(E(\text{eV})\)};
+        
+        % Linea orizzontale superiore (E=0 / limite del continuo)
+        \draw[thick] (-0.5, 1) -- (3.5, 1);
+        
+        % Livello n=2
+        \node[left] at (-0.2, 0) {\(n=2\)};
+        \draw[thick, cyan!80!blue] (0, 0) -- (1.5, 0);
+        \draw[thick, cyan!80!blue] (1.5, 0) -- (1.8, -0.4);
+        \draw[thick, cyan!80!blue] (1.8, -0.4) -- (3.5, -0.4);
+        \draw[dashed, cyan!80!blue] (1.5, 0) -- (3.5, 0);
+        
+        % Livello n=1
+        \node[left] at (-0.2, -2) {\(n=1\)};
+        \draw[thick, cyan!80!blue] (0, -2) -- (1.5, -2) node[midway, above] {\(H^{(0)}\)};
+        \draw[thick, cyan!80!blue] (1.5, -2) -- (1.8, -2.6);
+        \draw[thick, cyan!80!blue] (1.8, -2.6) -- (3.5, -2.6) node[midway, below] {\(H^{(0)} + \Delta H_{SF}\)};
+        \draw[dashed, cyan!80!blue] (1.5, -2) -- (3.5, -2);
+        
+        % Freccetta spaziatura livello n=1
+        \draw[<->, teal, thick] (3.4, -2.05) -- (3.4, -2.55);
+        
+        % Testo esplicativo e freccia
+        \node[teal, align=left] (testo) at (5.2, -1) {le energie diventano \\ più negative};
+        \draw[->, teal, thick, bend right=15] (testo.west) to (2.5, -1.2);
+    \end{tikzpicture}
+    \caption{Rappresentazione qualitativa dello spostamento dei livelli energetici a causa della correzione di struttura fine.}
+\end{figure}
+
+Per avere un ordine di grandezza dei contributi per \(Z=1\), consideriamo i seguenti valori:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\(n\) & \(\ell\) & \(E_{Bohr} \text{ (eV)}\) & \(\Delta E_{SO} \text{ (eV)}\) & \(\Delta E_{REL} \text{ (eV)}\) & \(\Delta E_{Darwin} \text{ (eV)}\) \\ \hline
+1 & \(s_{1/2}\) & \(\sim -13.6\) & 0 & \(-905 \cdot 10^{-6}\) & \(724 \cdot 10^{-6}\) \\ \hline
+2 & \(p_{1/2}, p_{3/2}\) & \(\sim -3.4\) & \(\begin{cases} -30.2 \cdot 10^{-6} \\ 15.1 \cdot 10^{-6} \end{cases}\) & \(-26.4 \cdot 10^{-6}\) & 0 \\ \hline
+\end{tabular}
+\end{center}
+
+In generale, il termine \(\Delta H_{SO}\) peserà molto di più per atomi pesanti (alto \(Z\)), mentre le altre due correzioni risulteranno meno significative in confronto. 
+Inoltre, nei sistemi con più elettroni, ogni elettrone risente dello spin degli altri, portando a schemi di accoppiamento complessi tra i vari momenti angolari orbitali \(\ell\) e di spin \(s\).
+
+\begin{note}{Radiazioni}{notaradiazioni}
+Spettro discreto per un sistema descritto da un hamiltoniano imperturbato \( H^{(0)} \):
+
+\begin{center}
+    \begin{tikzpicture}
+        % Livelli energetici spettro discreto
+        \draw[thick] (0, 1.5) node[left] {\( n=3 \)} -- (3, 1.5);
+        \draw[thick] (0, 0.75) node[left] {\( n=2 \)} -- (3, 0.75);
+        \draw[thick] (0, 0) node[left] {\( n=1 \)} -- (3, 0);
+        \node at (1.5, -0.5) {\( H^{(0)} \)};
+    \end{tikzpicture}
+\end{center}
+
+La differenza di energia per una transizione è proporzionale a:
+\begin{equation}
+    \Delta E_{n_1 \to n_2} \propto \left( \frac{1}{n_2^2} - \frac{1}{n_1^2} \right)
+\end{equation}
+
+\textbf{Transizione radiativa:} transizione da uno stato \( \ket{i} \to \ket{f} \) tale per cui è emessa o assorbita radiazione (Campo Elettromagnetico, CEM).
+
+\textbf{Transizioni non radiative:} transizioni tra due stati \( \ket{i} \to \ket{f} \) che \emph{non} comportano assorbimento o emissione di radiazione (no emissione di fotoni), come ad esempio scambi di energia interna (calore, \dots) tramite vibrazioni o urti.
+
+\begin{center}
+    \begin{tikzpicture}
+        % Livelli energetici
+        \draw[thick] (0, 2) -- (4, 2);
+        \draw[thick] (0, 1) -- (4, 1);
+        \draw[thick] (0, 0) -- (4, 0);
+
+        % Transizione non radiativa
+        % Nota: per usare lo stile 'snake', aggiungi \usetikzlibrary{decorations.pathmorphing} nel tuo preamble.tex
+        % \draw[->, decorate, decoration={snake, amplitude=.4mm, segment length=2mm, post length=1mm}] (2.5, 2) -- (2.5, 1) node[midway, right, align=left, font=\footnotesize] {emiss. NON \\ RADIATIVA};
+        
+        % Versione alternativa tratteggiata (funziona senza librerie aggiuntive)
+        \draw[->, dashed, thick] (2.5, 2) -- (2.5, 0) node[midway, right, align=left, font=\footnotesize] {emiss. NON \\ RADIATIVA};
+
+        % Transizione radiativa (freccia dritta)
+        \draw[->, thick] (1.5, 1) -- (1.5, 0) node[midway, left, align=right, font=\footnotesize] {emiss. \\ RADIATIVA};
+    \end{tikzpicture}
+\end{center}
+
+Non tutte le transizioni sono possibili, solo se nel cambio di stato sono garantite le \textbf{regole di selezione}, dovute alla perturbazione esterna che abbiamo (noi guarderemo quelle dovute al CAMPO EM).
+
+Le transizioni radiative devono soddisfare determinati vincoli sulla parità degli stati \( \ket{i} \) e \( \ket{f} \) (regole di selezione che vedremo in seguito).
+\end{note}
+
+
+
+\begin{exercise}
+
+Dato un atomo idrogenoide \( Z \), calcolare \( \{E_n^{(0)}\}_{n=1,2,3,4} \) e lo schema a livelli.
+Poi si osserva sperimentalmente una transizione radiativa a energia \( \sim 1.9 \; eV \), 
+giustificare da dove può originare se \( Z=1 \) e lo schema a livelli in cui si inserisce tale transizione.\\
+Suggerimenti: si consideri il caso \(\Delta \ell = \pm 1\) (regola di selezione) e si parta dalla serie di Balmer con \(n_f =2 \) .
+
+\begin{solution}
+I valori dell'energia sono dati dalla formula di Bohr:
+\begin{equation}
+    E_n = - \frac{1}{n^2} \frac{\mu}{m_e} Z^2 \cdot 13.6
+\end{equation}
+Da cui possiamo ottenere facilmente lo schema a livelli per \(Z=1\):
+\begin{center}
+    \begin{tikzpicture}[scale=0.7]
+        % Asse energie
+        \draw[->, thick] (0,-5) -- (0,1) node[right] {eV};
+        \node[left, align=center] at (-0.5, 0.5) {Schema \\ a livelli};
+        \draw (0,0) -- (4,0);
+        
+        % Livelli
+        \draw (0,-0.85) node[left] {\( n=4 \ \ -0.85 \)} -- (3,-0.85);
+        \draw (0,-1.51) node[left] {\( n=3 \ \ -1.51 \)} -- (3,-1.51);
+        \draw (0,-3.0) node[left] {\( n=2 \ \ -3.4 \)} -- (3,-3.0);
+        \draw (0,-4.5) node[left] {\( n=1 \ \ -13.6 \)} -- (1.5,-4.5);
+        
+        % Frecce transizioni (Balmer)
+        \draw[->, violet, thick] (1.5, 0) -- (1.5, -3);
+        \draw[->, violet, thick] (2, -0.85) -- (2, -3);
+        \draw[->, violet, thick] (2.5, -1.51) -- (2.5, -3);
+        
+        \node[violet, below] at (2,-3) {BALMER};
+    \end{tikzpicture}
+\end{center}
+Se sperimentalmente osservo una emissione a \(\sim 1.9\; eV\), il valore è molto simile alla differenza di energia: 
+\begin{equation*}
+    \underset{n_i=3 \to n_f=2}{\Delta E_{\text{BOHR}}^{(0)}} \simeq 1.89 \;eV
+\end{equation*}
+
+Abbiamo tuttavia una differenza di \( \sim 0.01 \,eV\) significativa, dobbiamo quindi considerare la correzione di struttura fine e quantificarla.
+
+Consideriamo il livello con numero quantico principale \( n=3 \). I possibili stati associati sono definiti dal numero quantico orbitale \( \ell = 0, 1, 2 \) e dallo spin dell'elettrone \( s = \frac{1}{2} \). Combinandoli, otteniamo i seguenti valori per il momento angolare totale \( j \):
+\begin{itemize}
+    \item Se \( \ell = 0 \implies j = \frac{1}{2} \)
+    \item Se \( \ell = 1 \implies j = \left| 1 \pm \frac{1}{2} \right| \implies j = \frac{1}{2}, \frac{3}{2} \)
+    \item Se \( \ell = 2 \implies j = \left| 2 \pm \frac{1}{2} \right| \implies j = \frac{3}{2}, \frac{5}{2} \)
+\end{itemize}
+
+L'espressione per lo spostamento energetico dovuto alla struttura fine è:
+\begin{equation}
+    \Delta E_{\text{SF}}(n,j) = - \frac{1}{2} m_e Z^4 \alpha^2 c^2 \frac{1}{n^4} \left( \frac{n}{j+\frac{1}{2}} - \frac{3}{4} \right) = - E_0 \alpha^2 \frac{Z^4}{n^4} \left( \frac{n}{j+\frac{1}{2}} - \frac{3}{4} \right)
+\end{equation}
+dove \( E_0 = 13.6 \text{ eV} \) e \( \alpha \simeq \frac{1}{137} \) è la costante di struttura fine.
+
+Specializzando per l'atomo di idrogeno (\( Z=1 \)) e per il livello \( n=3 \), la formula diventa:
+\begin{equation}
+    \Delta E_{\text{SF}}\left(3,j\right) = - \frac{13.6}{(137)^2} \frac{1}{3^4} \left( \frac{3}{j+\frac{1}{2}} - \frac{3}{4} \right)
+\end{equation}
+
+Calcoliamo il termine in parentesi per i tre possibili valori di \( j \):
+\begin{align}
+    \text{Per } j &= \frac{5}{2}: & \left( \frac{3}{\frac{5}{2} + \frac{1}{2}} - \frac{3}{4} \right) &= \frac{3}{3} - \frac{3}{4} = \frac{1}{4} \\
+    \text{Per } j &= \frac{3}{2}: & \left( \frac{3}{\frac{3}{2} + \frac{1}{2}} - \frac{3}{4} \right) &= \frac{3}{2} - \frac{3}{4} = \frac{3}{4} \\
+    \text{Per } j &= \frac{1}{2}: & \left( \frac{3}{\frac{1}{2} + \frac{1}{2}} - \frac{3}{4} \right) &= \frac{3}{1} - \frac{3}{4} = \frac{9}{4}
+\end{align}
+
+Sostituendo questi coefficienti numerici si ricavano gli spostamenti energetici per i vari stati, che rimuovono parzialmente la degenerazione del livello \( n=3 \), abbassando le energie rispetto al livello imperturbato \( E_3^{(0)} \).
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=0.8, every node/.style={scale=0.9}]
+        
+        % Livello imperturbato
+        \draw[dashed, gray, thick] (0,0) -- (11,0) node[right, black] {\( E_3^{(0)} \ \ (n=3) \)};
+
+        % Colonna 1: j = 1/2 (spostamento maggiore)
+        \draw[thick, red] (0.5,-3.5) -- (3.5,-3.5);
+        \draw[<->, red] (2,0) -- (2,-3.5) node[midway, left] {\( -2.0 \cdot 10^{-5} \text{ eV} \)};
+        \node[below, align=center] at (2,-3.6) {\( \mathbf{j = 1/2} \) \\ \( \ell=0, \ s=1/2 \) \\ \( \ell=1, \ s=1/2 \)};
+
+        % Colonna 2: j = 3/2 (spostamento intermedio)
+        \draw[thick, violet] (4,-1.5) -- (7,-1.5);
+        \draw[<->, violet] (5.5,0) -- (5.5,-1.5) node[midway, left] {\( -6.7 \cdot 10^{-6} \text{ eV} \)};
+        \node[below, align=center] at (5.5,-1.6) {\( \mathbf{j = 3/2} \) \\ \( \ell=1, \ s=1/2 \) \\ \( \ell=2, \ s=1/2 \)};
+
+        % Colonna 3: j = 5/2 (spostamento minore)
+        \draw[thick, teal] (7.5,-0.6) -- (10.5,-0.6);
+        \draw[<->, teal] (9,0) -- (9,-0.6) node[midway, left] {\( -2.2 \cdot 10^{-6} \text{ eV} \)};
+        \node[below, align=center] at (9,-0.7) {\( \mathbf{j = 5/2} \) \\ \( \ell=2, \ s=1/2 \)};
+
+    \end{tikzpicture}
+    \caption{Separazione dei livelli (fine structure splitting) per \( n=3 \).}
+\end{figure}
+
+\begin{remark}
+     Si nota che gli stati con lo stesso \( j \) ma diverso \( \ell \) rimangono degeneri.
+\end{remark}
+In un atomo, anche se isolato, il momento angolare orbitale \( \ell \) e lo spin \( s \) si accoppiano attraverso un'interazione proporzionale a \( \vec{L} \cdot \vec{S} \), 
+dunque \(\vec{L}\) e \(\vec{S}\) non possono essere trattati indipendentemente.
+
+
+Tuttavia, dato che \(\left[ H, J^2 \right]=0\), il momento angolare totale si conserva. Calcolando la derivata temporale:
+\begin{equation}
+    \dv{J^2}{t} = 2\vec{J} \cdot \dv{\vec{J}}{t} = 0 \implies \dv{\vec{J}}{t}  = 0 \implies \dv{\vec{S}}{t}  + \dv{\vec{L}}{t}  = 0 \implies \vec{M}_S + \vec{M}_L = 0
+\end{equation}
+dove \( \vec{M} \) rappresenta il momento torcente. Poiché la somma dei momenti torcenti è nulla, i due vettori si scambiano momento angolare ma il totale rimane costante.
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[scale=1.2, every node/.style={scale=0.9}]
+        % Vettore J (asse di precessione)
+        \draw[->, thick] (0,0) -- (0,2.5) node[above] {\( \vec{J} \)};
+        
+        % Vettori L e S
+        \draw[->, thick, blue] (0,0) -- (1,1.5) node[right] {\( \vec{L} \)};
+        \draw[->, thick, teal] (0,0) -- (-1,1) node[left] {\( \vec{S} \)};
+        
+        % Parallelogramma
+        \draw[dashed, gray] (1,1.5) -- (0,2.5);
+        \draw[dashed, gray] (-1,1) -- (0,2.5);
+        
+        % Precessione
+        \draw[->, blue] (0,1.5) ellipse (1 and 0.2);
+        \draw[->, teal] (0,1) ellipse (1 and 0.2);
+    \end{tikzpicture}
+
+    \caption{Accoppiamento di \( \vec{L} \) e \( \vec{S} \) nel modello di struttura fine.}
+\end{figure}
+
+\end{solution}
+
+\end{exercise}
+
+
+
+\section{Interazione con un campo magnetico statico e isotropo}
+In presenza di un campo magnetico esterno \( \vec{B}_{est} \), la dinamica dei momenti angolari subisce un'importante modifica. 
+I momenti magnetici intrinseci associati allo spin (\( \vec{\mu}_S \)) e al momento angolare orbitale (\( \vec{\mu}_L \)) iniziano a precedere attorno alla direzione del campo applicato.\\
+Le loro espressioni sono:
+\begin{equation}
+    \begin{cases}
+    \vec{\mu}_S = -g_S \frac{e}{2m_e} \vec{S} \\[1ex]
+    \vec{\mu}_L = -g_L \frac{e}{2m_e} \vec{L}
+    \end{cases}
+\end{equation}
+
+Per quantificare l'effetto di questa interazione, dobbiamo definire il momento magnetico complessivo dell'atomo, dato dalla somma dei contributi di spin e orbitale:
+\begin{equation}
+    \vec{\mu}_{\text{TOT}} = \vec{\mu}_S + \vec{\mu}_L = -g_S \frac{e}{2m_e} \vec{S} - g_L \frac{e}{2m_e} \vec{L}
+\end{equation}
+
+Sappiamo dalle evidenze sperimentali dell'epoca che i fattori giromagnetici assumono i valori \( g_S \simeq 2 \) e \( g_L = 1 \). Sostituendo questi valori, l'espressione per il momento magnetico totale si semplifica in:
+\begin{equation}
+    \vec{\mu}_{\text{TOT}} = - \frac{e}{2m_e} (2\vec{S} + \vec{L})
+\end{equation}
+
+Ci poniamo ora nel \textbf{regime di Zeeman debole}. In questa condizione, il campo esterno è sufficientemente debole da far sì che l'interazione spin-orbita prevalga. 
+Di conseguenza, \( \vec{L} \) e \( \vec{S} \) continuano a formare un buon momento angolare totale \( \vec{J} = \vec{L} + \vec{S} \). 
+
+Sfruttando questa relazione, otteniamo:
+\begin{equation}
+    \vec{\mu}_{\text{TOT}} = - \frac{e}{2m_e} (2\vec{S} + \vec{L}) = - \frac{e}{2m_e} (\vec{S} + \vec{S} + \vec{L}) = - \frac{e}{2m_e} (\vec{S} + \vec{J})
+\end{equation}
+
+La variazione di energia classica dovuta all'interazione tra questo dipolo magnetico e il campo esterno è data dall'energia potenziale \( \Delta U_{\text{Zeeman}} = - \vec{\mu}_{\text{TOT}} \cdot \vec{B}_{est} \).
+
+Applicando il \emph{principio di corrispondenza}, possiamo passare all'operatore Hamiltoniano per trattare il problema in meccanica quantistica. L'Hamiltoniana perturbativa di Zeeman assume quindi la forma:
+\begin{equation}
+    \Delta H_{\text{Zeeman}} = - \vec{\mu}_{\text{TOT}} \cdot \vec{B}_{est} = - \left[ - \frac{e}{2m_e} (2\vec{S} + \vec{L}) \cdot \vec{B}_{est} \right] = + \frac{e}{2m_e} [\vec{S} + \vec{J}] \cdot \vec{B}_{est}
+\end{equation}
