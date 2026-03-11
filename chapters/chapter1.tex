@@ -988,7 +988,19 @@ dove \( \vec{M} \) rappresenta il momento torcente. Poiché la somma dei momenti
 
 
 
-\section{Interazione con un campo magnetico statico e isotropo}
+\section{Interazione con pertubazioni esterne}
+Un atomo sottoposto ad una perturbazione esterna è descritto da una Hamiltoniana \(H\) che include leffetto di
+tale perturbazione espressa come somma dell'Hamiltoniana descrittiva del sistema in assenza di
+perturbazione (\(H^{(0)}+ \Delta H_{SF}\)) e del termine rappresentativo della perturbazione esterna (\(\Delta H_{ext}\)):
+\begin{equation}
+    H = H^{(0)} +\Delta H_{SF} + \Delta H_{ext}
+\end{equation}
+Le perturbazioni esterne possono esser statiche (ovvero non dipendere dal tempo) o dinamiche (ovvero
+dipendenti dal tempo), isotrope (invarianti spazialmente) o anisotrope. A seconda del tipo di perturbazione
+(elettrica, magnetica, elettromagnetica, meccanica ecc) l'espressione di \(\Delta H_{ext}\) differisce.
+
+\subsection{Interazione con un campo magnetico statico e isotropo}
+
 In presenza di un campo magnetico esterno \( \vec{B}_{est} \), la dinamica dei momenti angolari subisce un'importante modifica. 
 I momenti magnetici intrinseci associati allo spin (\( \vec{\mu}_S \)) e al momento angolare orbitale (\( \vec{\mu}_L \)) iniziano a precedere attorno alla direzione del campo applicato.\\
 Le loro espressioni sono:
@@ -1023,3 +1035,312 @@ Applicando il \emph{principio di corrispondenza}, possiamo passare all'operatore
 \begin{equation}
     \Delta H_{\text{Zeeman}} = - \vec{\mu}_{\text{TOT}} \cdot \vec{B}_{est} = - \left[ - \frac{e}{2m_e} (2\vec{S} + \vec{L}) \cdot \vec{B}_{est} \right] = + \frac{e}{2m_e} [\vec{S} + \vec{J}] \cdot \vec{B}_{est}
 \end{equation}
+
+
+\lezione{5}{09/03/2026}
+Dagli esperimenti si osserva che, nel limite in cui l'effetto del campo magnetico esterno \( \vec{B}_{\text{est}} \) è molto più piccolo rispetto all'effetto del campo magnetico interno \( \vec{B}' \) (presente anche in assenza di campi esterni e generato dal moto orbitale dell'elettrone), le dinamiche dei momenti angolari sono dominate da \textbf{due precessioni} distinte a scale temporali diverse.
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1,
+        % Definizione degli stili per i vettori e gli assi
+        vecB/.style={->, very thick, violet},
+        vecL/.style={->, very thick, red!80!black},
+        vecS/.style={->, very thick, cyan!60!blue},
+        vecJ/.style={->, very thick, black},
+        vecJS/.style={->, very thick, green!60!black},
+        vecMutot/.style={->, very thick, orange},
+        vecMuavg/.style={->, very thick, yellow!90!orange},
+        axis/.style={dashed, thick, violet},
+        Jaxis/.style={dashed, thick, black},
+        cone/.style={densely dotted, thick, gray!80!black}
+        ]
+        
+        % --- Coordinate geometriche ---
+        \coordinate (O) at (0,0);
+        
+        % Vettori superiori
+        \coordinate (J) at (2.5, 2.5);
+        \coordinate (L) at (3.0, 1.0);
+        % S = J - L = (-0.5, 1.5)
+        \coordinate (S1_tip) at (J);
+        \coordinate (JS) at (2.0, 4.0); % J + S = (2.5 - 0.5, 2.5 + 1.5)
+        \coordinate (S2_tip) at (JS);
+        
+        % Vettori inferiori
+        % Mu_tot è proporzionale a -(J+S), lo scaliamo per il disegno
+        \coordinate (Mutot) at (-1.5, -3.0);
+        % Mu_avg è la proiezione di Mu_tot lungo l'asse di J (-1, -1)
+        \coordinate (Muavg) at (-2.25, -2.25);
+        % Estensione dell'asse J
+        \coordinate (Jext) at (-3.2, -3.2);
+        
+        % --- Disegno dei coni di precessione ---
+        % Cono superiore (precessione di J attorno a B)
+        \draw[cone] (0, 2.5) ellipse (2.5 and 0.4);
+        
+        % Cono inferiore orizzontale (precessione di Mu_tot attorno a B)
+        \draw[cone] (0, -3.0) ellipse (1.5 and 0.3);
+        
+        % Cono inclinato (precessione di Mu_tot attorno a Mu_avg)
+        % Centro in Muavg, raggio maggiore = distanza tra Muavg e Mutot = 1.06
+        % Ruotato dell'angolo dell'asse J (45 gradi)
+        \draw[cone, rotate around={45:(-2.25, -2.25)}] (-2.25, -2.25) ellipse (0.25 and 1.06);
+        
+        % --- Disegno degli assi ---
+        \draw[axis] (0,-4.5) -- (0,0);
+        \draw[Jaxis] (0,0) -- (Jext);
+        
+        % --- Disegno dei Vettori ---
+        % Asse B superiore
+        \draw[vecB] (0,0) -- (0, 4.5) node[left, yshift=-10pt] {\textbf{\textsf{B}}$_{\text{\textbf{\textsf{ext,stat}}}}$};
+        
+        % Vettori momento angolare
+        \draw[vecL] (O) -- (L) node[midway, below right, yshift=2pt] {\textbf{\textsf{L}}};
+        \draw[vecJ] (O) -- (J) node[midway, below right, xshift=-2pt] {\textbf{\textsf{J}}};
+        \draw[vecJS] (O) -- (JS) node[midway, above left, yshift=5pt, xshift = 6pt] {\textbf{\textsf{J+S}}};
+        
+        \draw[vecS] (L) -- (S1_tip) node[midway, right] {\textbf{\textsf{S}}};
+        \draw[vecS] (J) -- (S2_tip) node[midway, right] {\textbf{\textsf{S}}};
+        
+        % Vettori momento magnetico
+        \draw[vecMuavg] (O) -- (Muavg) node[midway, above left, xshift=2pt] {$\boldsymbol{\mu}_{\text{\textbf{\textsf{average}}}}$};
+        \draw[vecMutot] (O) -- (Mutot) node[midway, below right, xshift=-2pt] {$\boldsymbol{\mu}_{\text{\textbf{\textsf{TOT}}}}$};
+        
+    \end{tikzpicture}
+    \caption{Accoppiamento vettoriale dei momenti angolari ($\mathbf{L}$, $\mathbf{S}$, $\mathbf{J}$) e dei corrispondenti momenti magnetici.}
+    \label{fig:vettori_momenti_magnetici}
+\end{figure}
+
+\subsubsection{Regime di Zeeman}
+A causa dell'interazione spin-orbita, i vettori momento angolare orbitale \( \vec{L} \) e di spin \( \vec{S} \) non sono costanti nello spazio, ma precessano rapidamente attorno alla loro risultante, il momento angolare totale \( \vec{J} \). Di conseguenza, anche il momento magnetico totale \( \vec{\mu}_{\text{TOT}} \) precessa velocemente attorno alla direzione di \( \vec{J} \).
+
+Poiché questa precessione interna è estremamente veloce rispetto alla scala dei tempi definita dalla debole perturbazione esterna, il campo \( \vec{B}_{\text{est}} \) non "fa in tempo" a interagire con il valore istantaneo di \( \vec{\mu}_{\text{TOT}} \). L'interazione avviene, di fatto, con il \textbf{valor medio} del momento magnetico nel tempo:
+\begin{equation}
+    \bar{\mu}_{\text{TOT}} = -\frac{e}{2m_e} \overline{(\vec{J} + \vec{S})}
+\end{equation}
+
+Per valutare l'interazione effettiva, scomponiamo il vettore momento magnetico totale in una componente parallela a \( \vec{J} \) e una perpendicolare ad esso:
+\begin{equation}
+    \vec{\mu}_{\text{TOT}} = \vec{\mu}_{\text{TOT}\parallel} + \vec{\mu}_{\text{TOT}\perp}
+\end{equation}
+
+
+Valutando il sistema su un ciclo completo (ovvero una rotazione completa attorno a \( \vec{J} \)), la componente perpendicolare ruota spazzando la superficie di un cono. Mediando su un periodo intero, tale componente si annulla rigorosamente (\( \bar{\mu}_{\text{TOT}\perp} = 0 \)).
+Di conseguenza, il valor medio del momento magnetico totale che andrà a interagire attivamente con \( \vec{B}_{\text{est}} \) coincide unicamente con la sua proiezione invariante lungo \( \vec{J} \).\\
+Otteniamo dunque:
+\begin{importantbox}
+    \begin{equation}
+        \Delta H_{\text{Zeeman}} \simeq - \vec{\mu}_{\text{average}} \cdot \vec{B}_{\text{est}} = - \left( \vec{\mu}_{\text{tot}} \cdot \frac{\vec{J}}{\abs{\vec{J}}} \right) \frac{\vec{J}}{\abs{\vec{J}}} \cdot \vec{B}_{\text{est}}
+    \end{equation}
+\end{importantbox}
+
+Se per semplicità supponiamo che \( \vec{B}_{\text{est}} = (0, 0, B_z) \) (tramite una scelta opportuna degli assi cartesiani \( x, y, z \)), possiamo svolgere la proiezione esplicita.
+
+Ricordiamo che, in questo regime, l'interazione spin-orbita legata a \( \vec{L} \cdot \vec{S} \) è predominante e molto più significativa rispetto all'interazione con il campo magnetico esterno \( \vec{B}_{\text{est}} \).
+
+Calcolando la proiezione, l'Hamiltoniana perturbativa diventa:
+\begin{equation*}
+        \Delta H_{\text{Zeeman}} = - \left( -\frac{e}{2m_e} (\vec{J} + \vec{S}) \cdot \frac{\vec{J}}{\abs{\vec{J}}} \right) \frac{J_z}{\abs{\vec{J}}} B_z
+\end{equation*}
+\begin{equation}
+    = + \frac{e}{2m_e} \left( \frac{\vec{J} \cdot \vec{J}}{\abs{\vec{J}}^2} + \frac{\vec{S} \cdot \vec{J}}{\abs{\vec{J}}^2} \right) J_z B_z 
+= \frac{e}{2m_e} \left( 1 + \frac{\vec{S} \cdot \vec{J}}{\abs{\vec{J}}^2} \right) J_z B_z
+\end{equation}
+
+Dato che \( \vec{J} = \vec{L} + \vec{S} \implies \vec{L} = \vec{J} - \vec{S} \implies L^2 = J^2 + S^2 - 2\vec{J} \cdot \vec{S} \), ricaviamo:
+\begin{equation}
+    \vec{J} \cdot \vec{S} = \frac{J^2 + S^2 - L^2}{2}
+\end{equation}
+
+Nella base degli autostati \( \ket{j, m_j} \) si ottiene:
+\begin{align}
+    \mel{j, m_j}{\Delta H_{\text{Zeeman}}}{j, m_j} &= \frac{e}{2m_e} \left( 1 + \frac{\hbar^2 [j(j+1) + s(s+1) - \ell(\ell+1)]}{2j(j+1)\hbar^2} \right) B_z \hbar m_j \nonumber \\[1.5ex]
+    &= \frac{e\hbar}{2m_e} g_{j\ell s} m_j B_z
+\end{align}
+
+Dobbiamo sapere il sottolivello da cui partiamo per valutare \( g_{j\ell s} \), il cosiddetto \textbf{fattore di Landé}:
+\begin{equation}
+    g_{j\ell s} = 1 + \frac{j(j+1) + s(s+1) - \ell(\ell+1)}{2j(j+1)}
+\end{equation}
+
+
+Dato che:
+\begin{equation}
+    \Delta E_{\text{Zeeman}} = \mel{j, m_j}{\Delta H_{\text{Zeeman}}}{j, m_j} = \frac{\hbar e}{2m_e} B_z m_j g_{j\ell s} = \mu_B B_z g_{j\ell s} m_j
+\end{equation}
+
+Dove abbiamo evidenziato:
+\begin{itemize}
+    \item \( \mu_B = \frac{\hbar e}{2m_e} \), che rappresenta il \textbf{magnetone di Bohr}.
+    \item \( m_j \), che può assumere \( 2j+1 \) valori compresi tra \( -j, \dots, j \).
+\end{itemize}
+
+L'interazione con il campo magnetico esterno \( \vec{B}_{\text{est}} \) separa i sottolivelli energetici caratterizzati dagli stessi numeri quantici \( \ell, s, j \), manifestando fisicamente la dipendenza dallo stato magnetico \( m_j \).
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.2]
+        % --- B=0 ---
+        \node[above] at (0.5, 0) {\( \vec{B}_{\text{est}} = 0 \)};
+        \draw[thick, blue!80!black] (0,0) -- (2,0);
+        \node[below, align=left, font=\small, text=blue!80!black] at (0.8, -0.1) {sottolivello \\ \( n, \ell, s, j \) \\ (\( g_{j\ell s} \))};
+        
+        % --- B != 0 ---
+        \node[above, violet, font=\small] at (4.5, 1.8) {\( \vec{B}_{\text{est}} \neq 0 \) (Regime di Zeeman)};
+        
+        % Linee di splitting (Multipletto)
+        \draw[thick, blue!80!black] (2,0) -- (2.8, 1.5) -- (5, 1.5) node[right, text=black] {\( j \)};
+        \draw[thick, blue!80!black] (2,0) -- (2.8, 0.9) -- (5, 0.9) node[right, text=black] {\( j-1 \)};
+        
+        % Livelli intermedi tratteggiati
+        \draw[dashed, thick, blue!80!black] (2.8, 0.3) -- (5, 0.3);
+        \draw[dashed, thick, blue!80!black] (2.8, -0.3) -- (5, -0.3);
+        
+        \draw[thick, blue!80!black] (2,0) -- (2.8, -0.9) -- (5, -0.9) node[right, text=black] {\( -j+1 \)};
+        \draw[thick, blue!80!black] (2,0) -- (2.8, -1.5) -- (5, -1.5) node[right, text=black] {\( -j \)};
+        
+        % Etichette laterali
+        \node[right, blue!80!black] at (5.5, 0.3) {Multipletto};
+        \node[right, red!80!black, font=\small] at (6.5, -0.3) {Rimozione deg. in \( m_j \)};
+        
+    \end{tikzpicture}
+    \caption{Separazione dei livelli energetici indotta dal campo magnetico (rimozione della degenerazione del numero quantico magnetico \( m_j \)).}
+    \label{fig:splitting_zeeman}
+\end{figure}
+
+Il numero totale di sottolivelli generati dallo splitting è pari a \( 2j+1 \):
+\begin{itemize}
+    \item Se \( j \) è \textbf{semintero} (\( \frac{3}{2}, \frac{5}{2}, \dots \)) \(\implies\) avremo un numero \textbf{PARI} di sottolivelli.
+    \item Se \( j \) è \textbf{intero} (\( 1, 2, \dots \)) \(\implies\) avremo un numero \textbf{DISPARI} di sottolivelli.
+\end{itemize}
+Otteniamo inoltre che lo shift e lo splitting valgono rispettivamente:
+\begin{equation}
+    \Delta E_{\text{shift Zeeman}} = \mu_B B_z g_{j\ell s} \big(j - (j-1)\big) 
+    = \mu_B B_z g_{j\ell s}
+\end{equation}
+\begin{equation}
+    \delta E_{\text{splitting Zeeman}} = \mu_B B_z g_{j\ell s} \big(\max(m_j) - \min(m_j)\big) 
+    = \mu_B B_z g_{j\ell s} (2j)
+\end{equation}
+
+In sintesi, l'effetto Zeeman rimuove la degenerazione associata al numero quantico magnetico \( m_j \) per un dato stato caratterizzato dai numeri quantici \( j, \ell, s \).
+
+Quando si studia un sistema perturbato, il primo passo fondamentale è valutare l'entità delle correzioni rispetto all'Hamiltoniana imperturbata \( H^{(0)} \), per determinare quale interazione sia dominante. Nel caso dell'atomo di idrogeno (in regime di campo magnetico debole), l'Hamiltoniana totale è:
+\begin{equation}
+    H = H^{(0)} + \Delta H_{SF} + \Delta H_{\text{Zeeman}}
+\end{equation}
+Poiché \( \Delta H_{SF} \gg \Delta H_{\text{Zeeman}} \), la correzione di struttura fine domina. Il fattore di Landé \( g_{j\ell s} \) è ben definito proprio in questo livello intermedio, poiché dipende dai numeri quantici iniziali \( \ell, s, j \) fissati dalla struttura fine. Per calcolare lo splitting di Zeeman, dobbiamo quindi sempre identificare con precisione da quale stato quantico (e con quali numeri quantici) stiamo partendo.
+
+\textbf{Evidenza sperimentale} \\
+Per osservare sperimentalmente la rimozione di questa degenerazione, si illumina un gas (approssimabile come un insieme di atomi non interagenti) con uno spettro continuo di radiazione elettromagnetica (luce bianca). Le frequenze assorbite dal gas produrranno delle righe scure nello spettro di assorbimento. 
+
+Attivando un campo magnetico esterno \( \vec{B}_{\text{est}} \), si osserva che quella che prima era una singola riga di assorbimento si divide in un multipletto di righe molto vicine tra loro. L'entità di questo \textit{splitting} (e del relativo \textit{shift}) varia a seconda dell'intensità di \( \vec{B}_{\text{est}} \).
+Tuttavia, se l'intensità di \( \vec{B}_{\text{est}} \) diventa eccessivamente grande, le righe si spostano in posizioni diverse da quelle previste da questo modello: il campo esterno "rompe" l'accoppiamento spin-orbita, originando un fenomeno diverso (l'effetto Paschen-Back).
+
+\begin{attention}
+    Per identificare univocamente lo stato di partenza \(\ket{n, \ell, s, j, m_j}\) da cui valutare l'effetto Zeeman, si utilizza tipicamente la \textbf{notazione spettroscopica}:
+    \begin{equation*}
+        n \, ^{2s+1}\ell_j
+    \end{equation*}
+    Da questo termine spettroscopico è possibile dedurre tutti i numeri quantici necessari alla risoluzione del problema.
+\end{attention}
+
+\subsubsection{Regime di Paschen-Back}
+Passiamo ora ad analizzare il caso in cui il campo magnetico esterno \( \vec{B}_{\text{est}} \) è \textbf{forte}. In questo regime, il campo applicato è talmente intenso da sovrastare il campo magnetico interno dell'atomo.
+
+Il momento magnetico totale dell'elettrone, che interagisce con il campo esterno, rimane sempre:
+\begin{equation}
+    \vec{\mu}_{\text{TOT}} = \vec{\mu}_S + \vec{\mu}_L = -\frac{e}{2m_e} (2\vec{S} + \vec{L})
+\end{equation}
+
+Tuttavia, la cinematica del sistema cambia radicalmente. L'interazione con \( \vec{B}_{\text{est}} \) provoca una precessione che questa volta è dettata direttamente dal campo esterno:
+\begin{itemize}
+    \item \( \vec{L} \) precessa attorno a \( \vec{B}_{\text{est}} \).
+    \item \( \vec{S} \) precessa in modo indipendente attorno a \( \vec{B}_{\text{est}} \).
+\end{itemize}
+
+Vince prima la precessione promossa da \( \vec{B}_{\text{est}} \), perché il campo esterno è così grande da sopraffare l'accoppiamento spin-orbita. Questo porta a una conseguenza fisica fondamentale: l'accoppiamento \( \vec{L} \cdot \vec{S} \) viene "rotto" e diventa del tutto \textbf{trascurabile}.
+
+Per fare chiarezza, ricapitoliamo la differenza tra i due limiti:
+\begin{itemize}
+    \item \textbf{Se \( \vec{B}_{\text{est}} \) è piccolo (Regime di Zeeman):} vince l'interazione spin-orbita. I vettori \( \vec{L} \) e \( \vec{S} \) rimangono saldamente accoppiati e si combinano per formare prima \( \vec{J} \) (\( \vec{J} = \vec{L} + \vec{S} \)). Solo in un secondo momento il blocco rigido \( \vec{J} \) interagisce con il debole campo esterno.
+    \item \textbf{Se \( \vec{B}_{\text{est}} \) è elevato (Regime di Paschen-Back):} il campo vede l'elettrone in modo "disgiunto", separando nettamente il moto orbitale dal moto di spin. I vettori \( \vec{L} \) e \( \vec{S} \) si comportano come momenti indipendenti e \textbf{disaccoppiati}.
+\end{itemize}
+
+Alla luce di questo disaccoppiamento, i risultati sperimentali vengono spiegati con rigore calcolando l'interazione dei due momenti magnetici in modo separato. L'Hamiltoniana perturbativa per il campo intenso diventa la semplice somma dei due contributi:
+\begin{align}
+    \Delta H_{B_{\text{est}} \text{ intenso}} &= -\vec{\mu}_{\text{TOT}} \cdot \vec{B}_{\text{est}} \nonumber \\[1.5ex]
+    &= \underbrace{- \vec{\mu}_S \cdot \vec{B}_{\text{est}}}_{\text{contributo di spin}} \underbrace{- \vec{\mu}_L \cdot \vec{B}_{\text{est}}}_{\text{contributo orbitale}} \nonumber \\[1.5ex]
+    &= + \frac{2e}{2m_e} \vec{S} \cdot \vec{B}_{\text{est}} + \frac{e}{2m_e} \vec{L} \cdot \vec{B}_{\text{est}}
+\end{align}
+
+Assumendo come di consueto che il campo sia allineato lungo l'asse \( z \) (\( \vec{B}_{\text{est}} = (0, 0, B_z) \)), possiamo calcolare lo shift energetico. 
+
+Poiché in questo regime l'accoppiamento spin-orbita è rotto, non ha più senso utilizzare la base degli autostati del momento angolare totale \( \ket{j, m_j} \). Dobbiamo invece scegliere la base dei momenti angolari "disaccoppiati", definita dai singoli numeri quantici \( \ket{n, \ell, s, m_\ell, m_s} \). 
+Il calcolo del valore di aspettazione dell'Hamiltoniana restituisce:
+\begin{align}
+    \Delta E_{B_{\text{est}} \text{ intenso}} &= \mel{n, \ell, s, m_\ell, m_s}{\Delta H_{B_{\text{est}} \text{ intenso}}}{n, \ell, s, m_\ell, m_s} \nonumber \\[1.5ex]
+    &= \frac{e}{2m_e} B_z \hbar (2m_s + m_\ell) \nonumber \\[1.5ex]
+    &= \mu_B B_z (2m_s + m_\ell)
+\end{align}
+
+Dove le proiezioni assumono i consueti valori:
+\begin{itemize}
+    \item \( m_\ell = -\ell, \dots, \ell \quad (2\ell+1 \text{ valori possibili}) \)
+    \item \( m_s = -s, \dots, s \quad (2s+1 \text{ valori possibili}) \)
+\end{itemize}
+
+L'entità di questa separazione energetica è così marcata che, in questo regime, si può verificare un'\textbf{intersezione tra i sottolivelli} appartenenti a multipletti originariamente distinti.
+
+\begin{note}{Microstati}{notamicrostati}
+    Ogni specifica combinazione dei numeri quantici definisce un singolo \textbf{microstato}.
+\end{note}
+
+ Per ottenere il diagramma dei livelli energetici corretto, è necessario calcolare l'equazione precedente per \textit{ogni} singolo microstato.
+
+
+\begin{example}
+Consideriamo uno stato definito da \( n=2 \), \( \ell=1 \) e \( s=\frac{1}{2} \). I possibili valori per le proiezioni sono:
+\begin{equation*}
+    m_\ell = -1, 0, 1 \qquad
+    m_s = -\frac{1}{2}, \frac{1}{2}
+\end{equation*}
+Se scegliamo di valutare il microstato particolare identificato da \( m_\ell = 0 \) e \( m_s = \frac{1}{2} \), il suo spostamento energetico sarà:
+\begin{equation*}
+    \Delta E_{B_{\text{est}}} = \mu_B B_z \left[ 2 \left(\frac{1}{2}\right) + 0 \right] = \mu_B B_z
+\end{equation*} 
+\end{example}
+
+
+Questo limite fisico, caratterizzato da campi magnetici forti che rompono l'accoppiamento spin-orbita, prende il nome di \textbf{Regime di Paschen-Back}.
+In questo regime, l'osservazione sperimentale degli spettri di assorbimento/emissione si semplifica rispetto al regime di Zeeman anomalo: troviamo esattamente tante righe spettrali quanti sono i microstati accessibili.
+
+Infine, questo limite rappresenta un'ottima verifica del principio di corrispondenza: la meccanica quantistica conferma la sua validità formale poiché, effettuando il limite per campi molto intensi, permette di ritrovare esattamente le previsioni della fisica classica relative al momento di un dipolo magnetico immerso in un campo.
+\subsection{Interazione con il Campo Elettromagnetico}
+
+Dagli esperimenti di illuminazione con "luce" (ovvero l'interazione con un Campo Elettromagnetico, CEM), si osserva che non tutti i sottolivelli danno luogo a transizioni radiative. Questo implica l'esistenza di precise \textbf{regole di selezione}, le quali devono emergere in modo naturale inserendo opportunamente il termine perturbativo \( \Delta H_{\text{CEM}} \) nell'Hamiltoniana.
+
+L'introduzione del campo elettromagnetico richiede due considerazioni fondamentali:
+\begin{enumerate}
+    \item La perturbazione \( \Delta H_{\text{CEM}} = \Delta H_{\text{CEM}}(t) \) \textbf{dipende esplicitamente dal tempo}, e va aggiunta come correzione all'Hamiltoniana del sistema.
+    \item Valutando il \textbf{limite classico}, dobbiamo ritrovare la descrizione standard dell'elettrostatica e del magnetismo, mantenendo una rigorosa coerenza fisica per conciliare il comportamento ondulatorio e corpuscolare della radiazione.
+\end{enumerate}
+
+Questa coerenza viene assicurata dall'introduzione di un opportuno operatore \textbf{potenziale vettore} \( \vec{A}(x,y,z) \). Esso costituisce il corrispettivo quantistico del potenziale vettore \( \vec{A} \) della fisica classica, a patto di definire una \textit{gauge} appropriata per il problema (tipicamente si adotta la gauge di Coulomb).
+
+Nel passaggio da un sistema isolato (\( \text{CEM} = 0 \)) a uno interagente (\( \text{CEM} \neq 0 \)), l'operatore impulso \( \vec{p} \) subisce la cosiddetta sostituzione minimale: 
+\begin{equation}
+    \vec{p} \longrightarrow \vec{p} - q\vec{A}
+\end{equation}
+
+Ricordando che per l'elettrone la carica è \( q = -e \), il termine di energia cinetica nel sistema di riferimento del laboratorio si trasforma sviluppando il quadrato del binomio:
+\begin{equation}
+    \frac{p^2}{2m_e} \longrightarrow \frac{(\vec{p} + e\vec{A})^2}{2m_e} = \frac{p^2}{2m_e} + \frac{e^2 A^2}{2m_e} + \frac{e}{2m_e} (\vec{p} \cdot \vec{A} + \vec{A} \cdot \vec{p})
+\end{equation}
+
+\begin{attention}
+    In generale, l'operatore impulso e il potenziale vettore \textbf{non commutano} (\( [\vec{p}, \vec{A}] \neq 0 \)). Pertanto, i due termini misti \( \vec{p} \cdot \vec{A} \) e \( \vec{A} \cdot \vec{p} \) non possono essere fusi in un unico termine \( 2\vec{A} \cdot \vec{p} \) senza prima aver fissato esplicitamente le condizioni di gauge.
+\end{attention}
+
+\lezione{6}{10/03/2025}
+
