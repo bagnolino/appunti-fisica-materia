@@ -606,7 +606,7 @@ Sostituendo il termine dipendente dai numeri quantici calcolato in precedenza, p
 
 A partire da un singolo livello degenere, la correzione di spin-orbita rimuove parzialmente la degenerazione La separazione dei livelli porta alla formazione di un \textbf{doppietto}.
 \begin{remark}
-    La correzione \(\Delta E_{SO}\) è di modesta entità: \( 10^{-5} \divisionsymbol 10^{-3} \;eV\) .
+    La correzione \(\Delta E_{SO}\) è di modesta entità: \( 10^{-5} \divisionsymbol 10^{-3} \;\text{eV}\) .
 \end{remark}
 
 \begin{attention}
@@ -1722,3 +1722,38 @@ Quanto descritto finora considera gli stati \( \ket{i} \) e \( \ket{f} \) come a
 \end{itemize}
 
 In conclusione, non tutte le transizioni tra sottolivelli Zeeman indotte da un campo magnetico esterno possono essere osservate, ma solo quelle che rispettano i vincoli di simmetria imposti dalle regole di selezione.
+
+
+\subsection{Altre interazioni}
+\lezione{7}{16/03/2026}
+Ci possono essere altri meccanismi che si mettono in atto oltre al dipolo elettrico \(\vec{D}\), indipendentemente dalla frequenza e dalla lunghezza d'onda \(\lambda\). Ci sono per esempio:
+\begin{itemize}
+    \item Momento di quadrupolo;
+    \item Quando \(\vec{B}\) interagisce con il campo elettromagnetico (CEM): Momento di quadrupolo magnetico.
+\end{itemize}
+
+Quando è presente un campo elettrico \(\vec{E}\) statico, questo può interagire con un atomo isolato. In questo caso dobbiamo aggiungere un termine correttivo \(\Delta H_{E_{\text{statico}}}\) all'Hamiltoniana imperturbata \(H^{(0)}\) per tenere conto dell'interazione:
+
+\begin{equation}
+    H = H^{(0)} + \Delta H_{E_{\text{statico}}}
+\end{equation}
+
+\textbf{Effetto Stark}
+Si manifesta quando il campo elettrico \(\vec{E}\) è intenso, tipicamente nell'ordine di \(10^7\) V/m, ma non così elevato da interferire con la struttura nucleare. Si possono distinguere due contributi a seconda dell'entità del campo \(\vec{E}\) statico:
+
+\begin{itemize}
+    \item \textbf{Effetto Stark lineare}: \(\Delta H_{E, \text{Stark}}\) con dipendenza lineare da \(\vec{E}\);
+    \item \textbf{Effetto Stark quadratico}: \(\Delta H_{E, \text{Stark}}\) con dipendenza quadratica da \(\vec{E}\).
+\end{itemize}
+
+Per descrivere questa interazione, si può dimostrare che se il campo è orientato lungo l'asse \(z\), ovvero \(\vec{E} = (0, 0, E_z)\), l'Hamiltoniana di perturbazione assume la forma:
+
+\begin{equation}
+    \Delta H_{E, \text{Stark}} = e E_z z
+\end{equation}
+
+In questa espressione, \(z\) rappresenta la componente lungo l'asse \(z\) dell'operatore posizione \(\vec{r}\). Si nota esplicitamente la dipendenza lineare dal campo applicato.
+
+Questa correzione gioca un ruolo fondamentale nella determinazione del colore dei materiali, in quanto rimuove la degenerazione dei livelli quantistici del sistema. In ambito di fisica dello stato solido, nei cristalli è possibile introdurre un atomo con struttura chimica diversa dall'ospite; questo si comporta come un atomo isolato all'interno del reticolo, risentendo del cosiddetto \textbf{effetto di campo cristallino}, che agisce analogamente a un campo \(\vec{E}\) statico esterno.
+
+
