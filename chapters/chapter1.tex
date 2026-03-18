@@ -1316,7 +1316,7 @@ Questo limite fisico, caratterizzato da campi magnetici forti che rompono l'acco
 In questo regime, l'osservazione sperimentale degli spettri di assorbimento/emissione si semplifica rispetto al regime di Zeeman anomalo: troviamo esattamente tante righe spettrali quanti sono i microstati accessibili.
 
 Infine, questo limite rappresenta un'ottima verifica del principio di corrispondenza: la meccanica quantistica conferma la sua validità formale poiché, effettuando il limite per campi molto intensi, permette di ritrovare esattamente le previsioni della fisica classica relative al momento di un dipolo magnetico immerso in un campo.
-\subsection{Interazione con il Campo Elettromagnetico}
+\subsection{Interazione con il campo elettromagnetico}
 
 Dagli esperimenti di illuminazione con "luce" (ovvero l'interazione con un Campo Elettromagnetico, CEM), si osserva che non tutti i sottolivelli danno luogo a transizioni radiative. Questo implica l'esistenza di precise \textbf{regole di selezione}, le quali devono emergere in modo naturale inserendo opportunamente il termine perturbativo \( \Delta H_{\text{CEM}} \) nell'Hamiltoniana.
 
@@ -1342,5 +1342,383 @@ Ricordando che per l'elettrone la carica è \( q = -e \), il termine di energia 
     In generale, l'operatore impulso e il potenziale vettore \textbf{non commutano} (\( [\vec{p}, \vec{A}] \neq 0 \)). Pertanto, i due termini misti \( \vec{p} \cdot \vec{A} \) e \( \vec{A} \cdot \vec{p} \) non possono essere fusi in un unico termine \( 2\vec{A} \cdot \vec{p} \) senza prima aver fissato esplicitamente le condizioni di gauge.
 \end{attention}
 
+
 \lezione{6}{10/03/2025}
 
+Consideriamo la \textbf{Gauge di Coulomb}, che risulta particolarmente comoda per l'elettrostatica. Questa scelta consiste nell'imporre che la divergenza del potenziale vettore \( \vec{A} \) sia nulla:
+\begin{equation}
+    \nabla \cdot \vec{A} = 0
+\end{equation}
+
+Con questa specifica scelta di gauge, l'operatore impulso \( \vec{p} \) e il potenziale vettore \( \vec{A} \) \textbf{commutano}, ovvero \( [\vec{p}, \vec{A}] = 0 \). 
+
+Possiamo dimostrarlo esplicitamente applicando l'operatore a una generica funzione d'onda scalare \( \varphi \). Ricordando l'espressione dell'operatore impulso (\( \vec{p} = -i\hbar\nabla \)), calcoliamo l'azione di \( \vec{p} \cdot \vec{A} \):
+\begin{equation}
+    -i\hbar \big( \nabla \cdot (\vec{A} \varphi) \big) = -i\hbar \big[ (\nabla \cdot \vec{A})\varphi + \vec{A} \cdot (\nabla \varphi) \big]
+\end{equation}
+
+Poiché abbiamo imposto \( \nabla \cdot \vec{A} = 0 \), il primo termine si annulla (\( \cancel{\nabla \cdot \vec{A}} \)). L'equazione si riduce quindi a:
+\begin{equation}
+    \vec{A} \cdot (-i\hbar \nabla \varphi) \quad \forall \varphi \text{ scalare}
+\end{equation}
+
+Essendo valida per qualsiasi funzione scalare \( \varphi \), possiamo dedurre l'uguaglianza tra gli operatori:
+\begin{equation}
+    \vec{p} \cdot \vec{A} = \vec{A} \cdot \vec{p}
+\end{equation}
+La condizione \( \nabla \cdot \vec{A} = 0 \) risulta essere una buona approssimazione per i fenomeni elettrostatici e per campi elettromagnetici che variano in maniera "poco significativa" nel tempo e nello spazio, specialmente quando si studia la dinamica di un singolo atomo isolato.
+
+Affinché la teoria sia coerente, l'operatore potenziale vettore \( \vec{A} \) deve essere compatibile con il limite classico dell'elettromagnetismo (studiato in Fisica 2). Questa compatibilità si costruisce conciliando le tre seguenti caratteristiche:
+
+\textbf{a) Descrizione ondulatoria} \\
+Si assume che l'espressione dell'energia mantenga la stessa forma sia nel limite classico che in quello quantistico. Consideriamo un'onda elettromagnetica monocromatica, ovvero con frequenza \( \omega \) fissata. L'intensità della radiazione \( I(\omega) \) è legata alla densità di energia \( \rho(\omega) \) e alla velocità della luce \( c \) dalla relazione:
+\begin{equation}
+    I(\omega) = c \rho(\omega)
+\end{equation}
+A sua volta, la densità di energia in funzione dell'ampiezza del potenziale vettore \( A(\omega) \) è espressa classicamente come:
+\begin{equation}
+    \rho(\omega) = \frac{1}{2} \varepsilon_0 \omega^2 A^2(\omega)
+\end{equation}
+
+\textbf{b) Descrizione corpuscolare} \\
+Considerando la natura quantizzata del campo, la radiazione di frequenza \( \omega \) è composta da fotoni, ciascuno con energia \( E = \hbar\omega \). Se indichiamo con \( \mathcal{N}(\omega) \) il numero di fotoni aventi energia \( \hbar\omega \) all'interno di un determinato volume \( V \), la densità di energia può essere scritta come:
+\begin{equation}
+    \rho(\omega) = \frac{\mathcal{N}(\omega)}{V} \hbar\omega
+\end{equation}
+
+Affinché il modello sia consistente, la densità di energia calcolata con l'approccio corpuscolare e quella calcolata con l'approccio ondulatorio devono coincidere. Uguagliando le due espressioni, possiamo ricavare l'ampiezza attesa per il potenziale vettore nel limite classico:
+\begin{equation}
+    \frac{1}{2} \varepsilon_0 \omega^2 A^2(\omega) = \frac{\mathcal{N}(\omega)}{V} \hbar\omega \implies A(\omega) = \sqrt{\frac{\mathcal{N}(\omega)}{V} \frac{2\hbar}{\varepsilon_0 \omega}}
+\end{equation}
+
+\textbf{c) Processi di interazione osservabili} \\
+Infine, la struttura matematica dell'operatore \( \vec{A} \) deve poter descrivere i reali processi di interazione tra l'atomo e il campo elettromagnetico. 
+Tali processi consistono nell'\textbf{assorbimento} e nell'\textbf{emissione} di radiazione, fenomeni che, come ben sappiamo dalle evidenze sperimentali, avvengono producendo uno spettro rigorosamente discreto in energia.\\
+Le transizioni in emissione (decadimento da uno stato a energia maggiore verso uno a energia minore) si dividono in due categorie principali:
+\begin{itemize}
+    \item \textbf{Emissione Stimolata (o Indotta)}\\
+All'istante $t=0$, l'atomo si trova in uno stato eccitato con energia $E_i$ ed è immerso in un campo elettromagnetico non nullo ($CEM \neq 0$). In particolare, un fotone incidente di energia $\hbar\omega$ interagisce con l'atomo. 
+Fisicamente, il campo elettromagnetico incidente "scuote" l'elettrone agendo in modo tale da frenarne l'oscillazione, compiendo lavoro negativo su di esso. L'elettrone perde quindi energia e decade verso il livello inferiore $E_f$. L'energia persa dall'elettrone non svanisce nel nulla, ma viene riversata nel campo elettromagnetico, amplificando l'onda stessa. Questa energia aggiunta al campo costituisce il \textbf{secondo fotone}.
+All'istante $t \gg 0$, avremo quindi due fotoni in uscita. Questi fotoni sono \textbf{coerenti}, ovvero possiedono la stessa energia ($\hbar\omega = E_i - E_f$), la stessa fase e la stessa polarizzazione. Questo fenomeno di \textit{emissione coerente} è il principio fisico alla base del funzionamento del \textbf{LASER}.
+    \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.1, 
+        photon/.style={->, teal, thick, decorate, decoration={snake, amplitude=.4mm, segment length=2.5mm, post length=1mm}}]
+        
+        % t=0
+        \node[teal, font=\small] at (0, 3.5) {\( t=0 \)};
+        \draw[thick] (-1.5, 2.5) -- (1.5, 2.5) node[right] {\( E_i \)};
+        \draw[thick] (-1.5, 1) -- (1.5, 1) node[right] {\( E_f \)};
+        
+        \filldraw[violet] (0, 2.5) circle (1.5pt);
+        \draw[photon] (-2, 1.7) -- (-0.5, 1.7) node[midway, above] {\( \hbar\omega \)};
+        
+        % Freccia temporale (opzionale, per dividere)
+        \draw[->, thick, gray] (2, 2.0) -- (3, 2.0);
+        
+        % t >> 0
+        \node[teal, font=\small] at (5, 3.5) {\( t \gg 0 \)};
+        \draw[thick] (3.5, 2.5) -- (6.5, 2.5) node[right] {\( E_i \)};
+        \draw[thick] (3.5, 1) -- (6.5, 1) node[right] {\( E_f \)};
+        
+        \filldraw[violet] (5, 1) circle (1.5pt);
+        \draw[->, violet, dashed, thick] (5, 2.4) -- (5, 1.1);
+        
+        \draw[photon] (5.2, 2) -- (6.7, 2) node[midway, above] {\( \hbar\omega \)};
+        \draw[photon] (5.2, 1.5) -- (6.7, 1.5) node[midway, below] {\( \hbar\omega \)};
+        
+    \end{tikzpicture}
+    \caption{Schema dell'emissione stimolata.}
+    \label{fig:emissione_stimolata}
+\end{figure}
+    \item \textbf{Emissione Spontanea} \\
+All'istante $t=0$, l'atomo si trova nello stato eccitato $E_i$ in totale assenza di campo elettromagnetico esterno ($CEM = 0$). Dopo un certo intervallo di tempo ($t \gg 0$), l'atomo decade spontaneamente verso lo stato $E_f$, emettendo un singolo fotone di energia $\hbar\omega = E_i - E_f$. Questa transizione avviene per fluttuazioni quantistiche del vuoto e \textit{non} è indotta da alcun CEM esterno.
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.1, 
+        photon/.style={->, teal, thick, decorate, decoration={snake, amplitude=.4mm, segment length=2.5mm, post length=1mm}}]
+        
+        % t=0
+        \node[teal, font=\small] at (0, 3.5) {\( t=0 \)};
+        \draw[thick] (-1.5, 2.5) -- (1.5, 2.5) node[right] {\( E_i \)};
+        \draw[thick] (-1.5, 1.5) -- (1.5, 1.5) node[right] {\( E_f \)};
+        
+        \filldraw[violet] (0, 2.5) circle (1.5pt);
+        
+        % Freccia temporale
+        \draw[->, thick, gray] (2, 2.0) -- (3, 2.0);
+        
+        % t >> 0
+        \node[teal, font=\small] at (5, 3.5) {\( t \gg 0 \)};
+        \draw[thick] (3.5, 2.5) -- (6.5, 2.5) node[right] {\( E_i \)};
+        \draw[thick] (3.5, 1.5) -- (6.5, 1.5) node[right] {\( E_f \)};
+        
+        \filldraw[violet] (5, 1.5) circle (1.5pt);
+        \draw[->, violet, dashed, thick] (5, 2.4) -- (5, 1.6);
+        
+        \draw[photon] (5.2, 2.0) -- (6.7, 2.0) node[midway, above] {\( \hbar\omega \)};
+        
+    \end{tikzpicture}
+    \caption{Schema dell'emissione spontanea.}
+    \label{fig:emissione_spontanea}
+\end{figure}
+\end{itemize}
+In generale, la probabilità di transizione da uno stato iniziale $\ket{i}$ a uno stato finale $\ket{f}$ è diversa da 1. Affinché avvenga una transizione radiativa (sia in assorbimento che in emissione), deve essere rigorosamente rispettata la condizione di conservazione dell'energia:
+\begin{equation}
+    |E_i - E_f| = \hbar\omega
+\end{equation}
+
+Per garantire matematicamente questa condizione di risonanza e calcolare le probabilità di transizione non nulle, si utilizza la \textbf{Golden Rule di Fermi} (Regola d'oro di Fermi) per costruire in modo opportuno la forma dell'operatore potenziale vettore $\vec{A}$.
+Per garantire che la transizione radiativa (sia in assorbimento che in emissione) soddisfi la condizione di risonanza \( |E_i - E_f| = \hbar\omega \), utilizziamo la \textbf{Golden Rule di Fermi} per costruire la forma matematica dell'operatore \( \vec{A} \).
+
+Consideriamo un operatore hermitiano \( O(t) \) dipendente dal tempo e sia \( H \) l'Hamiltoniana totale del sistema quantistico, definita come:
+\begin{equation}
+    H = H_0 + O(t)
+\end{equation}
+dove l'Hamiltoniana imperturbata \( H_0 \) non dipende esplicitamente dal tempo \( t \).
+
+Supponiamo che la perturbazione \( O(t) \) abbia una dipendenza armonica, assumendo la forma:
+\begin{equation}
+    O(t) = \Gamma(\vec{r})e^{i\omega t} + \Gamma^\dagger(\vec{r})e^{-i\omega t}
+\end{equation}
+dove \( \Gamma^\dagger(\vec{r}) \) rappresenta l'operatore aggiunto di \( \Gamma(\vec{r}) \).
+
+Sotto queste ipotesi, possiamo valutare il \textbf{rate di transizione}, definito come il limite della probabilità di occorrenza di una transizione normalizzata all'intervallo di tempo \( \Delta t \) in cui essa avviene. Questo rate rappresenta, di fatto, la probabilità di transizione nell'unità di tempo di osservazione (nell'ipotesi in cui tale probabilità si mantenga piccola):
+\begin{equation}
+    \lim_{\Delta t \to 0} \frac{\abs{\mel{f}{O(t)}{i}}^2}{\Delta t} = W_{i \to f}^+ + W_{i \to f}^-
+\end{equation}
+
+Senza addentrarci nella dimostrazione esplicita della separazione dell'operatore (che omettiamo, prendendo per buona la formula derivata), giungiamo al celebre risultato della Regola d'Oro di Fermi per i due rate di transizione:
+
+\begin{importantbox}
+    \begin{equation}
+        W_{i \to f} = \frac{2\pi}{\hbar} \abs{\mel{f}{\Gamma^\dagger(\vec{r})}{i}}^2 \delta_D(E_f - E_i - \hbar\omega) + \frac{2\pi}{\hbar} \abs{\mel{f}{\Gamma(\vec{r})}{i}}^2 \delta_D(E_f - E_i + \hbar\omega)
+    \end{equation}
+\end{importantbox}
+
+La presenza della delta di Dirac (\( \delta_D \)) all'interno dei due termini garantisce matematicamente la rigorosa conservazione dell'energia per i processi di assorbimento e di emissione mediati dal campo.
+
+\begin{note}{Definizioni: Probabilità e Rate di transizione}{def_transizioni}
+    \textbf{Probabilità di transizione} \\
+    La probabilità che il sistema compia una transizione da uno stato iniziale $\ket{i}$ a uno stato finale $\ket{f}$ a causa della perturbazione è definita come:
+    \begin{equation}
+        W_{i \to f} = \abs{\mel{f}{O(t)}{i}}^2
+    \end{equation}
+
+    \textbf{Rate di transizione} \\
+    Il rate di transizione quantifica la probabilità di transizione per unità di tempo. Per evitare ambiguità di notazione, lo indichiamo con il simbolo $\Gamma_{i \to f}$:
+    \begin{equation}
+        \Gamma_{i \to f} = \lim_{\Delta t \to 0} \frac{W_{i \to f}}{\Delta t}
+    \end{equation}
+\end{note}
+
+Per conciliare la descrizione classica e quella quantistica, analizziamo la forma matematica del potenziale vettore $\vec{A}$ per un'onda elettromagnetica monocromatica.
+
+\textbf{Limite Classico} \\
+Classicamente, un'onda monocromatica di frequenza $\omega$ può essere scritta sfruttando la forma esponenziale del coseno:
+\begin{equation}
+    \vec{A}(\vec{r}, t) = A(\omega) \hat{\varepsilon} \left[ \frac{e^{i(\vec{k} \cdot \vec{r} - \omega t)} + e^{-i(\vec{k} \cdot \vec{r} - \omega t)}}{2} \right]
+\end{equation}
+Analizzando i termini di questa espressione riconosciamo:
+\begin{itemize}
+    \item $A(\omega)$: l'ampiezza del potenziale vettore (attenzione a non confondere la frequenza angolare $\omega$ con il rate di transizione $W$).
+    \item $\hat{\varepsilon}$: il versore che definisce la direzione di \textbf{polarizzazione} dell'onda.
+    \item $\vec{k}$: il vettore d'onda.
+\end{itemize}
+
+\textbf{Descrizione in Meccanica Quantistica} \\
+In Meccanica Quantistica, risulta estremamente conveniente riorganizzare i termini esponenziali isolando la dipendenza spaziale $\vec{r}$ da quella temporale $t$:
+\begin{equation}
+    \vec{A}(\vec{r}, t) = A(\omega) \hat{\varepsilon} \left[ \frac{e^{i\vec{k} \cdot \vec{r}} e^{-i\omega t} + e^{-i\vec{k} \cdot \vec{r}} e^{i\omega t}}{2} \right]
+\end{equation}
+I due addendi all'interno della parentesi sono l'uno il complesso coniugato dell'altro. 
+Se confrontiamo questa equazione con l'operatore hermitiano generico dipendente dal tempo richiesto per applicare la \textbf{Golden Rule di Fermi} ($O(t) = \Gamma^\dagger(\vec{r})e^{-i\omega t} + \Gamma(\vec{r})e^{i\omega t}$), notiamo che hanno la medesima struttura formale!
+
+Possiamo quindi identificare per confronto diretto le espressioni degli operatori puramente spaziali $\Gamma(\vec{r})$ e $\Gamma^\dagger(\vec{r})$ del nostro campo elettromagnetico:
+\begin{align}
+    \Gamma^\dagger(\vec{r}) &= \frac{A(\omega)}{2} \hat{\varepsilon} e^{i\vec{k} \cdot \vec{r}} \\[1.5ex]
+    \Gamma(\vec{r}) &= \frac{A(\omega)}{2} \hat{\varepsilon} e^{-i\vec{k} \cdot \vec{r}}
+\end{align}
+
+Sostituendo queste definizioni, il potenziale vettore assume esplicitamente la forma di una perturbazione armonica:
+\begin{equation}
+    \vec{A}(\vec{r}, t) = \Gamma^\dagger(\vec{r}) e^{-i\omega t} + \Gamma(\vec{r}) e^{i\omega t}
+\end{equation}
+Questo dimostra matematicamente come l'interazione con un'onda elettromagnetica fornisca un'Hamiltoniana perturbativa che si inserisce perfettamente nel framework della Regola d'Oro di Fermi.
+
+\begin{importantbox}
+    \begin{equation}
+        A(\vec{r},t) \longleftrightarrow O(t) \quad \text{OP. HERM. di F.G.R.}
+    \end{equation}
+\end{importantbox}
+
+Quando applichiamo la \textbf{Fermi's Golden Rule} (F.G.R.), la presenza della funzione delta di Dirac determina la natura del processo:
+\begin{equation}
+    \delta_D(E_f - E_i - \hbar\omega) \longrightarrow \text{ASSORBIMENTO}
+\end{equation}
+
+In questo caso, la conservazione dell'energia impone che \( E_f - E_i - \hbar\omega = 0 \), da cui ricaviamo la condizione per cui il livello finale è più energetico di quello iniziale: \(E_f> E_i\) .
+
+
+Al contrario, la presenza di un termine additivo per l'energia del fotone identifica il processo inverso:
+\begin{equation}
+    \delta_D(E_f - E_i + \hbar\omega) \longrightarrow \text{EMISSIONE}
+\end{equation}
+In questa configurazione, la condizione \( E_f - E_i + \hbar\omega = 0 \) implica che il sistema scende di livello energetico (\( E_i > E_f \)).
+
+L'espressione che abbiamo ricavato per \( \bar{A} \) risulta coerente con la fenomenologia osservata, tuttavia questo formalismo non è ancora in grado di spiegare l'origine dell'emissione spontanea.
+
+\begin{note}{Emissione stimolata e spontanea}{notae-emissione}
+    \textbf{EMISS. STIMOLATA:} La sola presenza di un fotone con l'energia corretta in prossimità di un atomo eccitato è sufficiente a generare una probabilità di transizione verso il basso in modo radiativo. 
+    In questo processo non avviene l'assorbimento del fotone incidente; tuttavia, esso perturba la regione atomica che risente dell'effetto del \( CEM \). 
+    Il fotone risultante è emesso in modo \textbf{coerente} (ovvero segue la direzione del \( CEM \)).
+
+    \vspace{0.8em}
+
+    \textbf{EMISS. SPONTANEA:} L'atomo può trovarsi in uno stato eccitato per diversi motivi fenomenologici:
+    \begin{itemize}
+        \item Collisioni tra atomi (con rilascio di energia in forma impulsiva);
+        \item Temperature elevate (acquisizione di energia termica in seguito a riscaldamento);
+        \item Eccitazioni di natura vibrazionale, ecc.
+    \end{itemize}
+    Esistono quindi molteplici interazioni, oltre al \( CEM \), in grado di eccitare l'atomo, il quale tenderà naturalmente a decadere dallo stato eccitato. In questa circostanza, il fotone viene emesso in modo \textbf{non coerente} (è nota solo l'energia, ma non la direzione, la polarizzazione, ecc.).
+\end{note}
+
+Dobbiamo scrivere un'espressione universale per l'operatore che descriva entrambe le emissioni. Modificando l'espressione di partenza valida nel limite classico, otteniamo una formula unica:
+
+\begin{equation}
+    A(\omega) = \sqrt{\frac{N(\omega) + 1}{V} \cdot \frac{2\hbar}{\omega\varepsilon_0}}
+\end{equation}
+
+In questa formulazione:
+\begin{itemize}
+    \item \( N(\omega) \) rappresenta il numero di fotoni associati al campo elettromagnetico esterno;
+    \item Il termine adimensionale \( +1 \) al numeratore è fondamentale poiché tiene conto dell'\textbf{emissione spontanea}.
+\end{itemize}
+
+Infatti, in assenza di un campo elettromagnetico esterno (\( \text{CEM} = 0 \)), segue che \( N(\omega) = 0 \). In questo caso l'operatore non si annulla, ma sopravvive solo l'\( 1 \) al numeratore, il quale garantisce l'esistenza dell'emissione spontanea.
+
+Questa espressione tiene conto dell'intensità della luce emessa o assorbita, in quanto legata all'ampiezza del potenziale vettore. Tuttavia, sappiamo fenomenologicamente che non tutti i livelli energetici danno luogo a transizioni permesse.
+
+\subsubsection{Regole di Selezione}
+Affinché avvenga una transizione radiativa (che si tratti di emissione o di assorbimento), è condizione necessaria che la probabilità di transizione associata a quel salto energetico sia strettamente diversa da zero:
+\begin{equation}
+    \abs{\mel{f}{O(t)}{i}}^2 \neq 0
+\end{equation}
+
+In questo contesto, l'operatore \( O(t) \) corrisponde a \( \Delta H_{CEM} \), ovvero la correzione all'Hamiltoniana del sistema (imperturbata e comprensiva di struttura fine, \( H^{(0)} + \Delta H_{SF} \)) dovuta alla presenza del campo elettromagnetico. Pertanto, la condizione da studiare diventa:
+\begin{equation}
+    \abs{\mel{f}{\Delta H_{CEM}}{i}}^2 \neq 0
+\end{equation}
+
+Scegliendo di lavorare nel \textbf{Gauge di Coulomb} (\( \nabla \cdot \vec{A} = 0 \)), l'espressione per la perturbazione si scrive come:
+\begin{equation}
+    \Delta H_{CEM} = \frac{e^2 A^2}{2m_e} + \frac{e}{m_e} \vec{p} \cdot \vec{A}
+\end{equation}
+
+Quando ci troviamo in presenza di campi elettromagnetici non troppo intensi, il termine quadratico nel potenziale vettore risulta trascurabile rispetto a quello lineare:
+\begin{equation*}
+    \frac{e^2 A^2}{2m_e} \ll \frac{e}{m_e} \vec{p} \cdot \vec{A}
+\end{equation*}
+
+Inoltre, le evidenze sperimentali mostrano che l'interazione con il \( CEM \) non deforma in modo apprezzabile l'atomo. 
+Consideriamo una radiazione con pulsazione \( \omega \) appartenente allo spettro visibile, ovvero con lunghezze d'onda \( \lambda_0 \simeq 400 \divisionsymbol 750 \text{ nm} \). 
+Poiché \( \lambda_0 \) è di ordini di grandezza superiore rispetto alle dimensioni atomiche, l'argomento dell'esponenziale spaziale è molto piccolo. 
+Possiamo quindi arrestare lo sviluppo in serie al primo ordine:
+\begin{equation}
+    e^{i\vec{k}\cdot\vec{r}} \approx 1 + \dots
+\end{equation}
+
+La condizione \( \vec{k}\cdot\vec{r} \ll 1 \) è nota come \textbf{approssimazione di dipolo elettrico}. Fisicamente, questo implica che l'atomo percepisce un campo elettromagnetico spazialmente uniforme, rendendo sufficiente l'utilizzo della legge di Coulomb.
+
+In conclusione, all'interno di questo limitato intervallo di frequenze, l'Hamiltoniana perturbativa si approssima a:
+\begin{equation}
+    \Delta H_{CEM} \approx \frac{e}{m_e} \vec{p} \cdot \vec{A} \propto \vec{p} \cdot \hat{\varepsilon}
+\end{equation}
+dove abbiamo esplicitato che il potenziale vettore assume la forma \( \vec{A}(\vec{r}) \sim 1 \cdot A(\omega)\hat{\varepsilon} \), in cui \( \hat{\varepsilon} \) rappresenta il versore di polarizzazione della luce incidente.
+
+
+
+In base a quanto visto, possiamo stabilire un criterio per le regole di selezione valutando l'elemento di matrice dell'operatore perturbativo:
+\begin{itemize}
+    \item Se \( \abs{\mel{f}{\vec{p} \cdot \hat{\varepsilon}}{i}}^2 = 0 \), non si osservano transizioni radiative;
+    \item Se \( \abs{\mel{f}{\vec{p} \cdot \hat{\varepsilon}}{i}}^2 \neq 0 \), la transizione radiativa è permessa.
+\end{itemize}
+
+Possiamo riscrivere l'operatore impulso sfruttando l'equazione del moto di Heisenberg, ricordando che la derivata dell'operatore posizione è legata al commutatore con l'Hamiltoniano imperturbato \( H^{(0)} \):
+\begin{equation}
+    \vec{p} = m_e \dv{\vec{r}}{t} = \frac{m_e}{i\hbar} [\vec{r}, H^{(0)}] = \frac{m_e}{i\hbar} (\vec{r} H^{(0)} - H^{(0)} \vec{r})
+\end{equation}
+
+Sostituendo questa espressione all'interno dell'elemento di matrice e applicando \( H^{(0)} \) agli stati iniziale e finale, in prima approssimazione otteniamo che la probabilità di transizione è proporzionale a:
+\begin{equation}
+    \abs{\mel{f}{\vec{p} \cdot \hat{\varepsilon}}{i}}^2 \propto \abs{\mel{f}{-e\vec{r} \cdot \hat{\varepsilon} (E_f - E_i)}{i}}^2
+\end{equation}
+
+In questa espressione riconosciamo l'\textbf{operatore momento di dipolo elettrico}, definito come:
+\begin{equation}
+    \vec{D} := -e \vec{r}
+\end{equation}
+
+Questa formulazione è fondamentale per garantire il principio di corrispondenza: nel limite classico, una carica in oscillazione emette sempre radiazione elettromagnetica (\( CEM \)). Era quindi necessario trovare l'analogo quantistico per la descrizione di tale fenomeno.
+
+Questa approssimazione risulta valida sotto l'ipotesi che le correzioni di struttura fine \( \Delta H_{SF} \) siano sufficientemente piccole. In tale regime, è come se l'azione del campo elettromagnetico interagisse direttamente con l'atomo descritto dalla sola Hamiltoniana imperturbata \( H^{(0)} \). Questo modello vale rigorosamente per un atomo idrogenoide, poiché non si tiene conto dell'interazione coulombiana repulsiva elettrone-elettrone.
+
+Tutto lo studio delle regole di selezione si riconduce quindi a valutare la seguente condizione:
+\begin{equation}
+    \label{eq: transazione_radiativa}
+    \abs{\mel{f}{\vec{D} \cdot \hat{\varepsilon}}{i}}^2 \neq 0 \implies \text{Transizione radiativa permessa}
+\end{equation}
+
+L'operatore momento di dipolo elettrico \(\vec{D} := -e\vec{r}\) è un operatore \textbf{dispari} sotto l'operazione di inversione spaziale (parità), definita dalla mappatura \(\vec{r} \longrightarrow -\vec{r}\). 
+
+In coordinate sferiche, tale trasformazione si riflette nelle seguenti relazioni:
+\begin{equation}
+    \begin{cases}
+        r \longrightarrow r \\
+        \theta \longrightarrow \pi - \theta \\
+        \phi \longrightarrow \pi + \phi
+    \end{cases}
+\end{equation}
+
+Gli stati iniziale \(\ket{i}\) e finale \(\ket{f}\) del sistema sono descritti in termini delle autofunzioni dell'Hamiltoniana imperturbata \(H^{(0)}\):
+\begin{equation}
+    \psi_{n,\ell,m_\ell}(r, \theta, \phi) = R_{n,\ell}(r) Y_{\ell}^{m_{\ell}}(\theta, \phi)
+\end{equation}
+Questa descrizione è sempre fattibile, permettendoci di esprimere i vettori di stato come combinazioni lineari di stati imperturbati, il che risulta particolarmente comodo per il calcolo degli elementi di matrice. Nello specifico, definiamo:
+\begin{itemize}
+    \item Stato iniziale: \(\ket{i} = \ket{n, \ell, m_{\ell}, m_s}\)
+    \item Stato finale: \(\ket{f} = \ket{n', \ell', m_{\ell}', m_s'}\)
+\end{itemize}
+
+Dunque la condizione \ref{eq: transazione_radiativa} è verificata \textbf{solo se} gli stati \(\ket{i}\) e \(\ket{f}\) hanno \textbf{parità opposta}. Poiché l'operatore \(\vec{D}\) è dispari, l'integrale sull'intero spazio dell'elemento di matrice è diverso da zero solo se il prodotto delle parità degli stati iniziale e finale è dispari, garantendo così che l'integranda totale sia una funzione pari.
+
+
+Ricordiamo che la parità degli stati \( \ket{n, \ell, m_{\ell}, m_s} \) e \( \ket{n', \ell', m_{\ell}', m_s'} \) è determinata dalle armoniche sferiche. La condizione affinché l'elemento di matrice sia non nullo, \( \abs{\mel{f}{\vec{D} \cdot \hat{\varepsilon}}{i}}^2 \neq 0 \), impone le seguenti \textbf{regole di selezione}:
+\begin{importantbox}
+    \begin{equation}
+    \Delta \ell = \ell' - \ell = \pm 1, \quad \Delta m_{\ell} = 0, \pm 1
+\end{equation}
+\end{importantbox}
+
+
+\begin{remark}
+In queste transizioni lo \textbf{spin si conserva}, poiché l'operatore di interazione \( \Delta H_{CEM} \) non agisce sulle variabili di spin, dunque:
+\begin{equation}
+    \Delta m_s = 0
+\end{equation}
+\end{remark}
+
+Analizzando la proiezione del dipolo \( \vec{D} \) sul versore di polarizzazione \( \hat{\varepsilon} \), per transizioni con \( \Delta n \neq 0 \) e \( \Delta \ell = \pm 1 \), si distinguono due casi:
+\begin{itemize}
+    \item \textbf{\(\Delta m_{\ell} = 0\)}: Corrisponde a una \textbf{polarizzazione lineare}. Si verifica quando il campo è polarizzato lungo l'asse di quantizzazione (\( \hat{\varepsilon} \parallel \text{asse } z \)).
+    \item \textbf{\(\Delta m_{\ell} = \pm 1\)}: Corrisponde a una \textbf{polarizzazione circolare}. In questo caso il versore \( \hat{\varepsilon} \) giace nel piano \( xy \) e la direzione di propagazione è \( \vec{k} \parallel \text{asse } z \).
+\end{itemize}
+
+Quanto descritto finora considera gli stati \( \ket{i} \) e \( \ket{f} \) come autostati di \( H^{(0)} \). Se invece utilizziamo la base \( \ket{j, m_j} \) (necessaria ad esempio per descrivere i sottolivelli Zeeman in presenza di un campo \( \vec{B}_{est} \)), le regole si trovano in modo equivalente:
+\begin{itemize}
+    \item \(\Delta m_j = 0, \pm 1\) (rispettivamente per pol. lineare e circolare);
+    \item \(\Delta j = 0, \pm 1\), con la condizione che la transizione \( j_i = 0 \longrightarrow j_f = 0 \) è \textbf{proibita}.
+\end{itemize}
+
+In conclusione, non tutte le transizioni tra sottolivelli Zeeman indotte da un campo magnetico esterno possono essere osservate, ma solo quelle che rispettano i vincoli di simmetria imposti dalle regole di selezione.
