@@ -184,6 +184,9 @@ Si osserva che gli stati \(\chi_1, \chi_+\) e \(\chi_4\) formano il \textbf{trip
     \label{fig:tabella_stati_spin_larga}
 \end{figure}
 
+\subsection{Autofunzioni Spaziali}
+
+
 Applicando l'Hamiltoniana imperturbata alla funzione d'onda totale dello stato fondamentale, otteniamo l'energia totale come somma dei singoli contributi:
 \begin{equation}
     H^{(0)} \Psi_{E,\pm} \chi_{s,m_s} = E^{(0)} \Psi_{E,\pm} \chi_{s,m_s} \implies E^{(0)} = E_1^{(0)} + E_2^{(0)}
@@ -215,3 +218,305 @@ Tuttavia, questo calcolo risulta notevolmente diverso dalle evidenze sperimental
 \end{equation}
 
 \lezione{8}{17/03/2026}
+
+Consideriamo le correzioni \(\Delta V_{ee}\), \(\Delta H_{SO}\) e altre componenti minori che non prenderemo in esame. 
+Dato che il valore di aspettazione dell'interazione elettrone-elettrone è dell'ordine dell'elettronvolt:
+\begin{equation}
+    \expval{\Delta V_{ee}} \sim \text{eV}
+\end{equation}
+ne consegue che tale termine risulta dominante rispetto alla correzione di spin-orbita:
+\begin{equation}
+    \expval{\Delta V_{ee}} \gg \expval{\Delta H_{SO}} \sim 10^{-4} \divisionsymbol 10^{-3} \text{ eV}   
+\end{equation}
+
+\subsubsection{Approccio perturbativo}
+\begin{equation}
+    \Delta V_{ee} = \frac{e^2}{4\pi \epsilon_0 r_{12}}
+\end{equation}
+
+Consideriamo il set completo di autofunzioni dell'Hamiltoniana imperturbata \( H^{(0)} = H_1^{(0)} + H_2^{(0)} \). In prima approssimazione, la correzione energetica è data dal valore di aspettazione del termine di interazione:
+\begin{equation}
+    \mel{\Psi_E^{(0)}}{\frac{e^2}{4\pi \epsilon_0 r_{12}}}{\Psi_E^{(0)}}
+\end{equation}
+
+Se la funzione d'onda (assumendo la parte spaziale simmetrica per lo stato fondamentale) è data dal prodotto delle soluzioni per i singoli elettroni:
+\begin{equation}
+    \Psi_E^{(0)} = \psi_{n_1 \ell_1 m_{\ell_1}}(\vec{r}_1) \cdot \psi_{n_2 \ell_2 m_{\ell_2}}(\vec{r}_2)
+\end{equation}
+si ottiene per il termine correttivo un valore di:
+\begin{equation}
+    \mel{\Psi_E^{(0)}}{\frac{e^2}{4\pi \epsilon_0 r_{12}}}{\Psi_E^{(0)}} \simeq +34 \text{ eV}
+\end{equation}
+
+L'energia dello stato fondamentale per l'atomo di Elio (\(He\)) può quindi essere stimata come:
+\begin{equation}
+    E_{S.FOND}^{He} \simeq \underbrace{E^{(0)}}_{-108.8 \text{ eV}} + \underbrace{\mel{\Psi_E^{(0)}}{\frac{e^2}{4\pi \epsilon_0 r_{12}}}{\Psi_E^{(0)}}}_{+34 \text{ eV}} \sim -75 \text{ eV}
+\end{equation}
+
+Il valore calcolato (\(\sim -75 \text{ eV}\)) risulta prossimo al dato sperimentale (\(\sim -79 \text{ eV}\)), tuttavia la discrepanza osservata suggerisce che il modello necessiti di ulteriori affinamenti. Nello specifico, ci si deve interrogare se l'approssimazione sulla funzione d'onda sia stata troppo restrittiva o se vi siano effetti fisici non ancora considerati. 
+
+In un sistema a due elettroni, la natura dinamica delle cariche implica che l'interazione mutua crei una densità di carica spaziale che agisce schermando la carica del nucleo.
+
+\begin{attention}
+\textbf{Verifiche da effettuare:} \\
+La differenza tra il valore teorico e quello sperimentale può dipendere dai seguenti fattori:
+\begin{enumerate}
+    \item \textbf{Principio di Pauli}: La funzione d'onda \(\Psi_E^{(0)}\) adottata in questa trattazione non soddisfa automaticamente il principio di esclusione di Pauli (ovvero il requisito di antisimmetria totale per lo scambio di particelle identiche).
+    \item \textbf{Effetto di schermo}: Bisogna tenere conto dello schermaggio della carica nucleare operato dagli elettroni stessi; all'aumentare del numero di elettroni presenti nel sistema, l'efficacia di tale schermaggio cresce, riducendo la carica efficace percepita.
+\end{enumerate}
+\end{attention}
+
+\subsubsection{Metodo variazionale}
+
+Il metodo variazionale si basa sul principio intuitivo che è sempre possibile costruire un \textbf{funzionale energia} definito come:
+\begin{equation}
+    E[\psi] = \frac{\mel{\psi}{H}{\psi}}{\braket{\psi}{\psi}}
+\end{equation}
+dove \(\psi\) è una generica \textit{funzione di prova} (non necessariamente un'autofunzione dell'Hamiltoniana).
+
+Per qualsiasi funzione d'onda di prova \(\psi\), il valore di aspettazione dell'energia è sempre maggiore o uguale all'energia dello stato fondamentale del sistema:
+\begin{equation}
+    E[\psi] \ge E_{\text{stato fondamentale}}
+\end{equation}
+
+La scelta della funzione \(\psi\) deve essere fisicamente sensata per descrivere il sistema in oggetto. Tipicamente, si parametrizza la funzione di prova facendola dipendere da un set di parametri \(\{\theta_i\} = \theta_1, \theta_2, \dots, \theta_N\).
+
+Per trovare la migliore approssimazione possibile, si impone la condizione di stazionarietà (minimo) del funzionale rispetto ai parametri:
+\begin{equation}
+    \begin{cases}
+        \displaystyle \pdv{E[\psi]}{\theta_1} = 0 \\
+        \vdots \\
+        \displaystyle \pdv{E[\psi]}{\theta_N} = 0
+    \end{cases}
+\end{equation}
+
+Risolvendo questo sistema si ottiene il set di valori ottimali \(\{\theta_i^*\}\) che minimizza il funzionale. Il valore \(E[\psi(\{\theta_i^*\})]\) rappresenta la \textbf{migliore approssimazione} dell'energia dello stato fondamentale ottenibile con quella specifica forma funzionale.
+
+Scegliamo la funzione di prova \(\psi\) facendola dipendere dal parametro variazionale \(Z_{\text{eff}}\). L'obiettivo è descrivere l'effetto di schermo assumendo che ogni elettrone "veda" una carica nucleare ridotta a causa della presenza dell'altro. In prima approssimazione, la funzione d'onda totale del sistema a due elettroni è data dal prodotto di due funzioni d'onda idrogenoidi:
+
+\begin{equation}
+    \psi_{Z_{\text{eff}}} = \psi_{n_1, \ell_1, m_{\ell_1}}^{(0)}(\vec{r}_1; Z_{\text{eff}}) \cdot \psi_{n_2, \ell_2, m_{\ell_2}}^{(0)}(\vec{r}_2; Z_{\text{eff}})
+\end{equation}
+
+Per lo stato fondamentale dell'atomo di Elio, i numeri quantici sono \(n_1 = n_2 = 1\) e \(\ell_1 = \ell_2 = 0\). Ricordando che per un atomo idrogenoide la funzione d'onda spaziale si fattorizza in una parte radiale e una angolare:
+\begin{equation}
+    \psi_{n, \ell, m_{\ell}}^{(0)}(\vec{r}) = R_{n, \ell}(r) Y_{\ell}^{m_{\ell}}(\theta, \phi)
+\end{equation}
+
+Nello specifico, per lo stato \(1s\) (\(n=1, \ell=0\)), la dipendenza radiale è proporzionale a:
+\begin{equation}
+    \psi_{1, 0, 0}^{(0)} \propto \sqrt{Z_{\text{eff}}^3} e^{-\frac{Z_{\text{eff}} r}{a_0}}
+\end{equation}
+dove l'andamento esponenziale riflette la natura schermata dell'interazione. 
+
+Di conseguenza, la funzione di prova totale per il sistema assume la forma:
+\begin{equation}
+    \psi_{Z_{\text{eff}}} \propto \left( \sqrt{Z_{\text{eff}}^3} \right)^2 e^{-\frac{Z_{\text{eff}} (r_1 + r_2)}{a_0}} = Z_{\text{eff}}^3 e^{-\frac{Z_{\text{eff}} (r_1 + r_2)}{a_0}}
+\end{equation}
+
+L'Hamiltoniana completa del sistema, comprensiva del termine di interazione elettrone-elettrone, è definita come:
+\begin{equation}
+    H = H_1^{(0)} + H_2^{(0)} + \Delta V_{ee}
+\end{equation}
+
+Valutiamo i singoli contributi al valore di aspettazione dell'energia utilizzando la funzione di prova \(\psi_{Z_{\text{eff}}}\). 
+Nelle unità di misura del Hartree (\([Hartree]= \frac{\hbar^2}{m_e a_0^2}\)):
+
+\begin{itemize}
+    \item \textbf{Energia cinetica} (per i due elettroni):
+    \begin{equation}
+        \mel{\psi_{Z_{\text{eff}}}}{-\frac{\hbar^2}{2\mu} \nabla_1^2 - \frac{\hbar^2}{2\mu} \nabla_2^2}{\psi_{Z_{\text{eff}}}} = + Z_{\text{eff}}^2 [Hartree]
+    \end{equation}
+    
+    \item \textbf{Interazione Nucleo-Elettrone}:
+    \begin{equation}
+        \mel{\psi_{Z_{\text{eff}}}}{-\frac{Z e^2}{4\pi \epsilon_0 r_1} - \frac{Z e^2}{4\pi \epsilon_0 r_2}}{\psi_{Z_{\text{eff}}}} = - 2 Z Z_{\text{eff}} [Hartree]
+    \end{equation}
+    
+    \item \textbf{Interazione Elettrone-Elettrone}:
+    \begin{equation}
+        \mel{\psi_{Z_{\text{eff}}}}{\frac{e^2}{4\pi \epsilon_0 r_{12}}}{\psi_{Z_{\text{eff}}}} = + \frac{5}{8} Z_{\text{eff}} [Hartree]
+    \end{equation}
+\end{itemize}
+
+Sommando i termini, otteniamo il funzionale energia complessivo:
+\begin{equation}
+    E[Z_{\text{eff}}] = \mel{\psi_{Z_{\text{eff}}}}{H}{\psi_{Z_{\text{eff}}}} = Z_{\text{eff}}^2 - 2 Z Z_{\text{eff}} + \frac{5}{8} Z_{\text{eff}} [Hartree]
+\end{equation}
+
+
+Applichiamo la condizione di minimo per trovare il valore ottimale del parametro variazionale:
+\begin{equation}
+    \dv{E}{Z_{\text{eff}}} = 0 \implies 2 Z_{\text{eff}} - 2 Z + \frac{5}{8} = 0
+\end{equation}
+
+Il valore ottimale della carica nucleare efficace risulta quindi:
+\begin{importantbox}
+    \begin{equation}
+        Z_{\text{eff}}^* = Z - \frac{5}{16}
+    \end{equation}
+\end{importantbox}
+
+
+Il termine \(\frac{5}{16} \approx 0.31\) rappresenta fisicamente l'\textbf{effetto di schermo} esercitato da un elettrone sull'altro. 
+
+Per l'atomo di Elio (\(Z=2\)), sostituendo \(Z_{\text{eff}}^* = 1.69\) nel funzionale, otteniamo:
+\begin{equation}
+    E[Z_{\text{eff}}^*]_{He} \approx -77.46 \text{ eV}
+\end{equation}
+
+Il valore ottenuto (\(\sim -77.5 \text{ eV}\)) è estremamente vicino alla stima sperimentale di \(\sim -79 \text{ eV}\). 
+Questo dimostra come l'introduzione di un singolo parametro fisico (lo schermo della carica nucleare) permetta di recuperare gran parte dell'energia di correlazione elettronica trascurata nel modello a particelle indipendenti.
+
+\subsubsection{Simmetrizzazione e Integrali di Scambio}
+
+L'utilizzo di funzioni d'onda simmetrizzate (\(\Psi_{E+}^{(0)}\)) o antisimmetrizzate (\(\Psi_{E-}^{(0)}\)) ha un impatto diretto sulla stima dell'energia e descrive correttamente la distribuzione degli elettroni nel sistema. La funzione d'onda totale (spaziale) assume la forma:
+
+\begin{equation}
+    \Psi_{E\pm}^{(0)} = K \left[ \psi_{n_1 \ell_1 m_{\ell_1}}^{(0)}(\vec{r}_1) \psi_{n_2 \ell_2 m_{\ell_2}}^{(0)}(\vec{r}_2) \pm \psi_{n_1 \ell_1 m_{\ell_1}}^{(0)}(\vec{r}_2) \psi_{n_2 \ell_2 m_{\ell_2}}^{(0)}(\vec{r}_1) \right]
+\end{equation}
+
+dove \(K\) è la costante di normalizzazione. Calcolando il valore di aspettazione dell'operatore di interazione elettrone-elettrone su questi stati:
+
+\begin{equation}
+    \mel{\Psi_{E\pm}^{(0)}}{\frac{e^2}{4\pi \epsilon_0 r_{12}}}{\Psi_{E\pm}^{(0)}}
+\end{equation}
+
+si ottengono due contributi fisicamente distinti:
+
+\begin{itemize}
+    \item \textbf{a) Contributo di Coulomb (\(J\))}:
+    Rappresenta l'energia di repulsione elettrostatica classica tra due densità di carica:
+    \begin{equation}
+        J \propto \int \abs{\psi_{n_1 \ell_1 m_{\ell_1}}(\vec{r}_1)}^2 \frac{e^2}{4\pi \epsilon_0 r_{12}} \abs{\psi_{n_2 \ell_2 m_{\ell_2}}(\vec{r}_2)}^2 \, dV_1 dV_2
+    \end{equation}
+    Data l'indistinguibilità, l'integrale è identico scambiando le coordinate \(\vec{r}_1\) e \(\vec{r}_2\).
+
+    \item \textbf{b) Contributo di Scambio (\(K_{exc}\))}:
+    Termine puramente quantistico che non ha analoghi classici, derivante dalla sovrapposizione delle funzioni d'onda:
+    \begin{equation}
+        K_{exc} = \int \psi_{n_1 \ell_1 m_{\ell_1}}^*(\vec{r}_1) \psi_{n_2 \ell_2 m_{\ell_2}}^*(\vec{r}_2) \frac{e^2}{4\pi \epsilon_0 r_{12}} \psi_{n_1 \ell_1 m_{\ell_1}}(\vec{r}_2) \psi_{n_2 \ell_2 m_{\ell_2}}(\vec{r}_1) \, dV_1 dV_2
+    \end{equation}
+\end{itemize}
+
+
+\begin{note}{Stati genuinamente discreti}{gen-disc}
+Si definisce \textbf{stato genuinamente discreto} uno stato dell'atomo di Elio tale per cui un elettrone rimane vincolato nello stato fondamentale, mentre il secondo occupa un livello eccitato:
+\begin{equation}
+    \begin{cases}
+        n_1 = 1, \quad \ell_1 = 0 \quad \longrightarrow \text{elettrone in } 1s \\
+        n_2 = n \\
+        \ell_2 \in \{0, 1, \dots, n-1\}
+    \end{cases}
+\end{equation}
+
+Queste configurazioni (come ad esempio $1s 2s$, $1s 2p$, ecc.) appartengono allo \textbf{spettro discreto} dell'atomo, poiché l'energia totale del sistema rimane negativa:
+\begin{equation}
+    E_{n_1, n_2} =: E_{1n} < 0
+\end{equation}   
+\end{note}
+
+Consideriamo il valore di aspettazione dell'interazione coulombiana \(\mel{\Psi_{E\pm}^{(0)}}{\frac{e^2}{4\pi\epsilon_0 r_{12}}}{\Psi_{E\pm}^{(0)}}\) calcolato su stati genuinamente discreti. Tale calcolo si scompone nei seguenti contributi:
+
+\textbf{Integrali di Coulomb:}
+Rappresentano l'interazione tra le densità di carica statiche dei due elettroni.
+\begin{align}
+    I_{\text{coulomb},1} &\propto \int \psi_{100}^*(\vec{r}_1) \psi_{n\ell m_\ell}^*(\vec{r}_2) \frac{e^2}{4\pi\epsilon_0 r_{12}} \psi_{100}(\vec{r}_1) \psi_{n\ell m_\ell}(\vec{r}_2) \, dV_1 dV_2 \nonumber \\
+    &= \int |\psi_{100}(\vec{r}_1)|^2 \frac{e^2}{4\pi\epsilon_0 r_{12}} |\psi_{n\ell m_\ell}(\vec{r}_2)|^2 \, dV_1 dV_2
+\end{align}
+\begin{align}
+    I_{\text{coulomb},2} &\propto \int \psi_{100}^*(\vec{r}_2) \psi_{n\ell m_\ell}^*(\vec{r}_1) \frac{e^2}{4\pi\epsilon_0 r_{12}} \psi_{100}(\vec{r}_2) \psi_{n\ell m_\ell}(\vec{r}_1) \, dV_1 dV_2 \nonumber \\
+    &= \int |\psi_{100}(\vec{r}_2)|^2 \frac{e^2}{4\pi\epsilon_0 r_{12}} |\psi_{n\ell m_\ell}(\vec{r}_1)|^2 \, dV_1 dV_2
+\end{align}
+Per l'indistinguibilità delle particelle, si ha \(I_{\text{coulomb},1} = I_{\text{coulomb},2}\).
+
+\textbf{Integrali di Scambio:}
+Termini di natura puramente quantistica dovuti alla sovrapposizione delle funzioni d'onda.
+\begin{equation}
+    I_{\text{scambio},1} \propto \int dV_1 dV_2 \, \psi_{100}^*(\vec{r}_1) \psi_{n\ell m_\ell}^*(\vec{r}_2) \frac{e^2}{4\pi\epsilon_0 r_{12}} \psi_{100}(\vec{r}_2) \psi_{n\ell m_\ell}(\vec{r}_1)
+\end{equation}
+\begin{equation}
+    I_{\text{scambio},2} \propto \int dV_1 dV_2 \, \psi_{100}^*(\vec{r}_2) \psi_{n\ell m_\ell}^*(\vec{r}_1) \frac{e^2}{4\pi\epsilon_0 r_{12}} \psi_{100}(\vec{r}_1) \psi_{n\ell m_\ell}(\vec{r}_2)
+\end{equation}
+Anche in questo caso, per simmetria, i due contributi sono identici: \(I_{\text{scambio},1} = I_{\text{scambio},2}\).
+
+Per sintesi, definiamo l'integrale di Coulomb (\(J_{n\ell}\)) e l'integrale di scambio (\(K_{n\ell}\)) come segue:
+\begin{equation}
+    J_{n\ell} := I_{\text{coulomb},1} + I_{\text{coulomb},2}
+\end{equation}
+\begin{equation}
+    K_{n\ell} := I_{\text{scambio},1} + I_{\text{scambio},2}
+\end{equation}
+
+Si osserva sperimentalmente e analiticamente che entrambi i termini sono positivi.\\ 
+La correzione energetica finale per il sistema è dunque:
+\begin{importantbox}
+    \begin{equation}
+        \mel{\Psi_{E\pm}^{(0)}}{\frac{e^2}{4\pi\epsilon_0 r_{12}}}{\Psi_{E\pm}^{(0)}} = J_{n\ell} \pm K_{n\ell}
+    \end{equation}
+\end{importantbox}
+Il segno positivo corrisponde alla soluzione spaziale simmetrica (Paraelio), mentre il segno negativo alla soluzione spaziale antisimmetrica (Ortoelio).
+\begin{figure}[htbp]
+    \centering
+\begin{tikzpicture}[
+    scale=1.2, 
+    font=\sffamily,
+    >=stealth,
+    level/.style={very thick, blue!80!black},
+    connect/.style={dashed, gray, thick},
+    coulomb_arrow/.style={<->, thick, violet},
+    exchange_arrow/.style={<->, thick, teal}
+]
+
+    % --- 1. STATO IMPERTURBATO (H0) ---
+    % Linea di base (energia H0 degeneri)
+    \draw[level] (0, 3) -- (2, 3) node[midway, above] {$1s 2s$ e $1s 2p$};
+    \node[below, align=center] at (1, 2.8) {Stati degeneri in $H^{(0)}$ \\ $\expval{H^{(0)}}$};
+    
+    % Stato fondamentale di riferimento (molto più in basso)
+    \draw[level] (0, 0) -- (2, 0) node[midway, above] {$1s^2$ (Stato Fond.)};
+    \draw[dashed, gray] (2, 0) -- (10, 0);
+
+    % --- 2. INTERAZIONE DI COULOMB (Shift) ---
+    % Connessioni
+    \draw[connect] (2, 3) -- (3, 4.5); % Verso 1s 2s
+    \draw[connect] (2, 3) -- (3, 6.5); % Verso 1s 2p
+    
+    % Livelli shiftati (J20 e J21)
+    \draw[level] (3, 4.5) -- (5, 4.5) node[midway, above] {$1s 2s$};
+    \draw[level] (3, 6.5) -- (5, 6.5) node[midway, above] {$1s 2p$};
+    
+    % Frecce Coulomb
+    \draw[coulomb_arrow] (2.8, 3) -- (2.8, 4.5) node[midway, right] {$J_{20}$};
+    \draw[coulomb_arrow] (2.5, 3) -- (2.5, 6.5) node[midway, left] {$J_{21}$};
+    
+    % Didascalia Coulomb
+    \node[below, align=center, violet] at (5, 2.8) {\textbf{Termine di Coulomb} \\ (Shift energetico)};
+    \draw[dashed, gray] (0, 3) -- (10, 3); % Linea di riferimento H0 estesa
+
+    % --- 3. INTERAZIONE DI SCAMBIO (Splitting) ---
+    % Connessioni per 1s 2s
+    \draw[connect] (5, 4.5) -- (6, 5.2); % Singoletto
+    \draw[connect] (5, 4.5) -- (6, 3.8); % Tripletto
+    
+    % Connessioni per 1s 2p
+    \draw[connect] (5, 6.5) -- (6, 7.3); % Singoletto
+    \draw[connect] (5, 6.5) -- (6, 5.7); % Tripletto
+
+    % Livelli splittati 1s 2s
+    \draw[level] (6, 5.2) -- (8.5, 5.2) node[right] {Singoletto ($J_{20} + K_{20}$)};
+    \draw[level] (6, 3.8) -- (8.5, 3.8) node[right] {Tripletto ($J_{20} - K_{20}$)};
+    \draw[exchange_arrow] (8, 3.8) -- (8, 5.2) node[midway, left] {$2K_{20}$};
+    
+    % Livelli splittati 1s 2p
+    \draw[level] (6, 7.3) -- (8.5, 7.3) node[right] {Singoletto ($J_{21} + K_{21}$)};
+    \draw[level] (6, 5.7) -- (8.5, 5.7) node[right] {Tripletto ($J_{21} - K_{21}$)};
+    \draw[exchange_arrow] (8, 5.7) -- (8, 7.3) node[midway, left] {$2K_{21}$};
+    
+    % Didascalia Scambio
+    \node[below, align=center, teal] at (9.25, 2.8) {\textbf{Termine di Scambio} \\ (Rimozione degenerazione)};
+    
+
+\end{tikzpicture}
+\caption{Separazione dei livelli energetici per l'atomo di elio}
+\end{figure}
