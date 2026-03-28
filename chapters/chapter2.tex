@@ -184,7 +184,7 @@ Si osserva che gli stati \(\chi_1, \chi_+\) e \(\chi_4\) formano il \textbf{trip
     \label{fig:tabella_stati_spin_larga}
 \end{figure}
 
-\subsection{Autofunzioni Spaziali}
+\section{Autofunzioni Spaziali}
 
 
 Applicando l'Hamiltoniana imperturbata alla funzione d'onda totale dello stato fondamentale, otteniamo l'energia totale come somma dei singoli contributi:
@@ -369,6 +369,7 @@ Il valore ottenuto (\(\sim -77.5 \text{ eV}\)) è estremamente vicino alla stima
 Questo dimostra come l'introduzione di un singolo parametro fisico (lo schermo della carica nucleare) permetta di recuperare gran parte dell'energia di correlazione elettronica trascurata nel modello a particelle indipendenti.
 
 \subsubsection{Simmetrizzazione e Integrali di Scambio}
+\label{sec: integrali_scambio}
 
 L'utilizzo di funzioni d'onda simmetrizzate (\(\Psi_{E+}^{(0)}\)) o antisimmetrizzate (\(\Psi_{E-}^{(0)}\)) ha un impatto diretto sulla stima dell'energia e descrive correttamente la distribuzione degli elettroni nel sistema. La funzione d'onda totale (spaziale) assume la forma:
 
@@ -520,3 +521,1024 @@ Il segno positivo corrisponde alla soluzione spaziale simmetrica (Paraelio), men
 \end{tikzpicture}
 \caption{Separazione dei livelli energetici per l'atomo di elio}
 \end{figure}
+
+
+\section{Altre correzioni}
+
+\subsection{Interazione spin-orbita}
+
+\lezione{9}{23/03/2026}
+Oltre alle interazioni fondamentali, lo spettro dell'elio richiede l'inclusione del termine di accoppiamento spin-orbita \(\Delta H_{so}\). I momenti angolari si combinano secondo le relazioni:
+
+\begin{equation}
+    \vec{S} = \vec{S}_1 + \vec{S}_2 \quad \implies \quad |S_1 - S_2| \le S \le S_1 + S_2
+\end{equation}
+\begin{equation}
+    \vec{L} = \vec{L}_1 + \vec{L}_2 \quad \implies \quad |\ell_1 - \ell_2| \le L \le \ell_1 + \ell_2
+\end{equation}
+\begin{equation}
+    \vec{J} = \vec{L} + \vec{S} \quad \implies \quad |L - S| \le J \le L + S
+\end{equation}
+
+Gli stati sono definiti dai termini spettroscopici \(^{2S+1}L_J\). L'operatore dell'interazione spin-orbita è espresso dalla forma:
+\begin{equation}
+    \Delta H_{so} = \xi_{Z, L}(\vec{r}_1, \vec{r}_2) \vec{L} \cdot \vec{S}
+\end{equation}
+
+Per lo stato fondamentale, il valore di aspettativa dell'interazione elettrone-elettrone è \(\langle \Delta V_{ee} \rangle \sim 34 \text{ eV}\). Poiché:
+\begin{equation}
+    \langle \Delta V_{ee} \rangle \gg \langle \Delta H_{so} \rangle
+\end{equation}
+l'interazione coulombiana repulsiva risulta predominante rispetto alla correzione spin-orbita.
+
+Per la descrizione dei momenti angolari \(\vec{L}\) e \(\vec{S}\), si introduce una base di autofunzioni comune. L'Hamiltoniana completa del sistema è definita come:
+
+\begin{equation}
+    H = T + V_{e-n} + V_{ee} + \Delta H_{so}
+\end{equation}
+
+La base naturale per i termini non perturbativi è costituita dagli autostati \(\{ \ket{L, S, M_L, M_S } \}\), definiti dai numeri quantici degli operatori \(L^2, S^2, L_z, S_z\). Tuttavia, l'inclusione del termine di interazione spin-orbita \(\Delta H_{so}\) richiede il passaggio alla base accoppiata \(\{ |J, M_J \rangle \}\). 
+
+Tale cambio di base si effettua combinando gli stati della base precedente attraverso i coefficienti di Clebsch-Gordan. In questa rappresentazione, l'elemento di matrice dell'interazione spin-orbita assume la forma:
+
+\begin{equation}
+    \langle J, M_J | \Delta H_{so} | J, M_J \rangle = \frac{\hbar^2}{2} \left[ J(J+1) - L(L+1) - S(S+1) \right] \langle J, M_J | \xi_Z(r_1, r_2) | J, M_J \rangle
+\end{equation}
+
+Si nota che il calcolo del valore di aspettativa della funzione radiale \(\xi_Z(r_1, r_2)\) risulta analiticamente complesso.
+
+Per la quantificazione dell'interazione si ricorre spesso al confronto con i dati sperimentali, definendo il parametro:
+\begin{equation}
+    \langle J, M_J | \xi_Z(r_1, r_2) | J, M_J \rangle =: \tilde{A}_{Z, L}
+\end{equation}
+Tale valore dipende dal numero atomico \(Z\) e dal momento angolare orbitale \(L\), variando in base al termine spettroscopico \(^{2S+1}L_J\) analizzato.
+
+L'energia di spostamento spin-orbita \(\Delta E_{so} = \langle \Delta H_{so} \rangle\) è caratterizzata dalle seguenti proprietà:
+\begin{itemize}
+    \item Dipende strettamente dai numeri quantici \(J, L, S\).
+    \item È nulla quando \(S=0\) (e conseguentemente \(J=L\)), poiché il termine cinematico si annulla:
+    \begin{equation}
+        J(J+1) - L(L+1) - S(S+1) = 0
+    \end{equation}
+    \item È nulla quando \(L=0\) (e conseguentemente \(J=S\)), seguendo la medesima logica algebrica.
+\end{itemize}
+
+Queste osservazioni spiegano perché le sub-shell e gli orbitali completamente occupati non manifestano interazione spin-orbita: in questi sistemi, infatti, lo spin totale è nullo (\(S=0\)). Analogamente, l'interazione risulta assente in tutti gli orbitali simmetrici caratterizzati da \(L=0\).
+
+Considerando l'atomo di Elio (He) come esempio, si osserva come l'introduzione di termini correttivi nell'Hamiltoniana porti alla progressiva rimozione della degenerazione dei livelli energetici. Il processo segue la gerarchia:
+
+\begin{equation}
+    H^{(0)} = T + V_{e-n} \longrightarrow T + V_{e-n} + V_{ee} \longrightarrow T + V_{e-n} + V_{ee} + \Delta H_{so}
+\end{equation}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[scale=1.2, >=stealth]
+        % Definizione stili per coerenza
+        \tikzset{
+            level/.style={thick, blue!80!black},
+            split_line/.style={dashed, gray!60},
+            sublevel/.style={blue!80!black, semithick}
+        }
+
+        % --- COORDINATE ---
+        % H0 (Idrogenoide)
+        \coordinate (A1) at (0,0);
+        \coordinate (A2) at (1.5,0);
+        
+        % H0 + Vee (Spostamento Coulombiano)
+        \coordinate (B1) at (3, 1.2);
+        \coordinate (B2) at (4.5, 1.2);
+        
+        % H0 + Vee + Hso (Struttura Fine - Molteplici livelli)
+        \coordinate (C_start) at (5, 1.2);
+        \def\xend{7.5}
+
+        % --- DISEGNO LIVELLI ---
+        
+        % 1. Livello imperturbato
+        \draw[level] (A1) -- (A2) node[midway, below=3pt] {\( H^{(0)}=  T + V_{e-n} \)};
+
+        % 2. Effetto repulsione Vee (Shift verso l'alto)
+        \draw[split_line] (A2) -- (B1);
+        \draw[level] (B1) -- (B2) node[midway, below=3pt] {\( H^{(0)} + V_{ee} \)};
+
+        % 3. Splitting Spin-Orbita (Molteplici lineette)
+        \draw[split_line] (B2) -- (C_start);
+        
+        % Rappresentazione di un multipletto complesso (es. 6 livelli)
+        \foreach \y/\label in {1.9/1, 1.7/2, 1.5/3, 1.3/4, 0.9/5, 0.6/6} {
+            \draw[split_line] (C_start) -- (5.8, \y);
+            \draw[sublevel] (5.8, \y) -- (\xend, \y);
+        }
+
+        % --- ANNOTAZIONI ---
+        
+        % Parentesi graffa per evidenziare il multipletto
+        \draw[decorate, decoration={brace, amplitude=5pt}] (\xend+0.2, 0.6) -- (\xend+0.2, 1.9) 
+            node[midway, right=6pt, align=left, font=\footnotesize] {
+                \textbf{Multipletto} \\ 
+                Rimozione della \\ 
+                degenerazione in \( J, L, S \)
+            };
+
+        % Titolo sopra la sezione finale
+        \node[blue!80!black, above, font=\footnotesize\bfseries] at (6.5, 2.1) {\( T + V_{e-n} + V_{ee} + \Delta H_{so} \)};
+
+
+    \end{tikzpicture}
+    \caption{Diagramma dettagliato della rimozione della degenerazione energetica nell'atomo di Elio.}
+\end{figure}
+
+La suddivisione in sottolivelli dipende dai numeri quantici \(J, L, S\) e determina lo spostamento energetico \(\Delta E_{so}\). È importante sottolineare che lo shift non è necessariamente simmetrico rispetto al livello imperturbato e la configurazione dei sottolivelli (sopra o sotto la soglia precedente) è funzione della combinazione specifica dei momenti angolari.
+
+Le principali difficoltà teoriche risiedono nel:
+\begin{itemize}
+    \item Identificare correttamente il livello di partenza per l'applicazione della teoria delle perturbazioni atta a rimuovere la degenerazione.
+    \item Costruire le funzioni d'onda totali appropriate.
+\end{itemize}
+
+A tal fine, è necessario distinguere tra:
+\begin{itemize}
+    \item \textbf{Elettroni equivalenti}: caratterizzati dagli stessi numeri quantici \(n\) e \(\ell\).
+    \item \textbf{Elettroni non equivalenti}: caratterizzati da coppie \((n, \ell)\) e \((n', \ell')\) differenti.
+\end{itemize}
+
+Nella costruzione della funzione d'onda antisimmetrica per elettroni non equivalenti (come negli stati eccitati dell'He), gli elettroni risultano "distinguibili" per via dei diversi numeri quantici spaziali. In questo caso particolare, il principio di esclusione di Pauli non pone le stesse restrizioni sulla combinazione dei momenti \(L\) e \(S\) che si riscontrano invece per gli elettroni equivalenti.
+
+\begin{note}{Riempimento orbitali}{orbitali}
+Gli orbitali atomici si riempiono secondo questo schema:
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[>=stealth, x=1.8cm, y=1.2cm]
+        
+        % --- Frecce diagonali di riempimento (disegnate sotto i nodi) ---
+        \tikzstyle{arrow} = [->, cyan!80!blue, thick]
+        
+        \draw[arrow] (0.5, -0.5) -- (-0.5, 0.5); % 1s
+        \draw[arrow] (0.5, 0.5) -- (-0.5, 1.5);  % 2s
+        \draw[arrow] (1.5, 0.5) -- (-0.5, 2.5);  % 2p -> 3s
+        \draw[arrow] (1.5, 1.5) -- (-0.5, 3.5);  % 3p -> 4s
+        \draw[arrow] (2.5, 1.5) -- (-0.5, 4.5);  % 3d -> 4p -> 5s
+        \draw[arrow] (2.5, 2.5) -- (-0.5, 5.5);  % 4d -> 5p -> 6s
+        \draw[arrow] (3.5, 2.5) -- (-0.5, 6.5);  % 4f -> 5d -> 6p -> 7s
+        \draw[arrow] (3.5, 3.5) -- (0.5, 6.5);   % 5f -> 6d -> 7p
+        
+        % --- Asse y (Energia / Numero quantico principale) ---
+        \draw[->, thick, gray!80] (-1, -0.5) -- (-1, 7.5) node[above, black] {\( n \) (Energia)};
+        
+        \foreach \n in {1, 2, 3, 4, 5, 6, 7} {
+            \node[left, purple!90!black, font=\small] at (-1.1, \n-1) {\( n=\n \)};
+        }
+
+        % --- Etichette asse x (Momento angolare orbitale) ---
+        \node[purple!90!black, font=\bfseries] at (0, -1) {s (\( \ell=0 \))};
+        \node[purple!90!black, font=\bfseries] at (1, -1) {p (\( \ell=1 \))};
+        \node[purple!90!black, font=\bfseries] at (2, -1) {d (\( \ell=2 \))};
+        \node[purple!90!black, font=\bfseries] at (3, -1) {f (\( \ell=3 \))};
+
+        % --- Nodi Orbitali ---
+        % Lo stile con fill=white permette di nascondere la freccia che passa "sotto" al testo
+        \tikzstyle{orb} = [circle, fill=white, inner sep=2pt, font=\small\bfseries, text=black]
+        
+        % Livello n = 1
+        \node[orb] at (0, 0) {1s};
+        % Livello n = 2
+        \node[orb] at (0, 1) {2s}; \node[orb] at (1, 1) {2p};
+        % Livello n = 3
+        \node[orb] at (0, 2) {3s}; \node[orb] at (1, 2) {3p}; \node[orb] at (2, 2) {3d};
+        % Livello n = 4
+        \node[orb] at (0, 3) {4s}; \node[orb] at (1, 3) {4p}; \node[orb] at (2, 3) {4d}; \node[orb] at (3, 3) {4f};
+        % Livello n = 5
+        \node[orb] at (0, 4) {5s}; \node[orb] at (1, 4) {5p}; \node[orb] at (2, 4) {5d}; \node[orb] at (3, 4) {5f};
+        % Livello n = 6
+        \node[orb] at (0, 5) {6s}; \node[orb] at (1, 5) {6p}; \node[orb] at (2, 5) {6d};
+        % Livello n = 7
+        \node[orb] at (0, 6) {7s}; \node[orb] at (1, 6) {7p};
+
+    \end{tikzpicture}
+    \caption{Schema della regola di Madelung (o principio di Aufbau) per il riempimento degli orbitali atomici, con energia crescente dal basso verso l'alto.}
+    \label{fig:madelung_rule}
+\end{figure}
+\end{note}
+
+
+\begin{exercise}
+ 
+Esprimere giustificando la risposta i termini spettroscopici per He associati alla configurazione dello stato fondamentale \( 1s^2 \) e degli stati eccitati: \( 1s 2s \) e \( 1s 2p \).
+Nota: \( E_{1s^2} < E_{1s 2s} \) e  \( E_{1s^2} < E_{1s 2p} \).
+
+
+\begin{solution}
+Per la configurazione \( 1s^2 \):
+\[ n_1 = 1, \ell_1 = 0, s_1 = \frac{1}{2} \qquad n_2 = 1, \ell_2 = 0, s_2 = \frac{1}{2} \]
+Si tratta di elettroni equivalenti, in quanto possiedono lo stesso numero quantico principale \( n \) e orbitale \( \ell \).\\
+Il momento angolare orbitale totale \( L \) è dato da:
+\begin{equation}
+    \vec{L} = \sum_{i=1}^{2} \vec{\ell}_i \implies |\ell_1 - \ell_2| \le L \le \ell_1 + \ell_2 \implies 0 \le L \le 0 \implies L = 0
+\end{equation}
+
+Il momento di spin totale \( S \) è dato da:
+\begin{equation}
+    \vec{S} = \sum_{i=1}^{2} \vec{s}_i \implies |s_1 - s_2| \le S \le s_1 + s_2 \implies 0 \le S \le 1 \implies S = 0, 1
+\end{equation}
+
+Il momento angolare totale \( J \) si ottiene dall'accoppiamento di \( \vec{L} \) e \( \vec{S} \):
+\begin{equation}
+    \vec{J} = \vec{L} + \vec{S} \implies |L - S| \le J \le L + S \implies J = 0, 1
+\end{equation}\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        % Il \rule garantisce lo spazio dal bordo superiore e inferiore
+        \rule[-2.5ex]{0pt}{6ex} \( L \) & 
+        {\renewcommand{\arraystretch}{1.0}\begin{tabular}{@{}c@{}}Simmetria \\ spaziale\end{tabular}} & 
+        \( S \) & 
+        {\renewcommand{\arraystretch}{1.0}\begin{tabular}{@{}c@{}}Simmetria \\ di spin\end{tabular}} & 
+        \( J \) & 
+        {\renewcommand{\arraystretch}{1.0}\begin{tabular}{@{}c@{}}Termine \\ spettroscopico\end{tabular}} & 
+        {\renewcommand{\arraystretch}{1.0}\begin{tabular}{@{}c@{}}Stato \\ Ammesso\end{tabular}} \\ 
+        \hline
+        0 & simm. & 0 & antisimm. & 0 & \( ^{1}S_{0} \) & AMMESSO \\ 
+        \hline
+        0 & simm. & 1 & simm. & 1 & \( ^{3}S_{1} \) & NON AMMESSO \\ 
+        \hline
+    \end{tabular}
+    \caption{Analisi della simmetria della funzione d'onda per gli elettroni equivalenti della configurazione \( 1s^2 \).}
+\end{table}
+
+Nella configurazione \(1s 2s \), gli elettroni non sono equivalenti. Tenendo conto delle regole di combinazione del momento angolare prima esposte, otteniamo:
+\begin{equation}
+    L = 0 \quad 
+    S = 0, 1 \quad 
+    J = 0, 1
+\end{equation}
+Si definiscono due casi in base alla simmetria della funzione d'onda di spin:
+\begin{itemize}
+    \item \textbf{Paraelio (PARA)}: parte di spin antisimmetrica (\( S = 0 \)).
+    \item \textbf{Ortoelio (ORTO)}: parte di spin simmetrica (\( S = 1 \)).
+\end{itemize}
+
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \rule[-2.5ex]{0pt}{6ex} \( L \) & 
+        {\renewcommand{\arraystretch}{1.0}\begin{tabular}{@{}c@{}}Simmetria \\ spaziale\end{tabular}} & 
+        \( S \) & 
+        {\renewcommand{\arraystretch}{1.0}\begin{tabular}{@{}c@{}}Simmetria \\ di spin\end{tabular}} & 
+        \( J \) & 
+        {\renewcommand{\arraystretch}{1.0}\begin{tabular}{@{}c@{}}Termine \\ spettroscopico\end{tabular}} \\ 
+        \hline
+        0 & simm. & 0 & antisimm. & 0 & \( ^{1}S_{0} \) (Singoletto, PARA) \\ 
+        \hline
+        0 & simm. & 1 & simm. & 1 & \( ^{3}S_{1} \) (Tripletto, ORTO) \\ 
+        \hline
+    \end{tabular}
+    \caption{Analisi della simmetria della funzione d'onda per gli elettroni non equivalenti della configurazione \( 1s 2s \).}
+\end{table}
+
+A differenza dello stato fondamentale, qui \textbf{tutti gli stati sono ammessi}. Poiché gli elettroni si trovano in orbitali differenti (\( 1s \) e \( 2s \)), essi risultano spazialmente non equivalenti e distinguibili tramite il numero quantico principale. Di conseguenza, il principio di esclusione di Pauli è già intrinsecamente soddisfatto, senza la necessità di porre vincoli restrittivi sulla combinazione di simmetria tra la parte spaziale e quella di spin.
+
+Per la configurazione dello stato eccitato \( 1s 2p \), i numeri quantici orbitali dei singoli elettroni sono \( \ell_1 = 0 \) e \( \ell_2 = 1 \). Dalle regole di composizione dei momenti angolari si ottiene:
+
+\begin{equation}
+    L = 1 \quad
+    S = 0, 1 \quad 
+    J = 0, 1, 2
+\end{equation}
+
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \rule[-2.5ex]{0pt}{6ex} \( L \) & 
+        {\renewcommand{\arraystretch}{1.0}\begin{tabular}{@{}c@{}}Simmetria \\ spaziale\end{tabular}} & 
+        \( S \) & 
+        {\renewcommand{\arraystretch}{1.0}\begin{tabular}{@{}c@{}}Simmetria \\ di spin\end{tabular}} & 
+        \( J \) & 
+        {\renewcommand{\arraystretch}{1.0}\begin{tabular}{@{}c@{}}Termine \\ spettroscopico\end{tabular}} \\ 
+        \hline
+        1 & antisimm. & 0 & antisimm. & 1 & \( ^{1}P_{1} \) \\ 
+        \hline
+        1 & antisimm. & 1 & simm. & 2 & \( ^{3}P_{2} \) \\ 
+        \hline
+        1 & antisimm. & 1 & simm. & 0 & \( ^{3}P_{0} \) \\ 
+        \hline
+        1 & antisimm. & 1 & simm. & 1 & \( ^{3}P_{1} \) \\ 
+        \hline
+    \end{tabular}
+    \caption{Analisi della configurazione \( 1s 2p \).}
+\end{table}
+
+I termini spettroscopici risultanti dalla combinazione sono i seguenti:
+\begin{itemize}
+    \item \( ^{1}P_{1} \): Singoletto.
+    \item \( ^{3}P_{0,1,2} \): Tripletto, che genera 3 termini spettroscopici distinti (\( ^{3}P_{0} \), \( ^{3}P_{1} \), \( ^{3}P_{2} \)) a causa dell'accoppiamento spin-orbita.
+\end{itemize}
+
+Poiché gli elettroni occupano orbitali con numeri quantici distinti (\( n \) e \( \ell \) differenti), essi sono non equivalenti. Di conseguenza, tutti gli stati derivati dall'accoppiamento sono fisicamente ammessi dal principio di esclusione di Pauli.
+
+L'evidenza sperimentale sugli spettri dell'atomo di elio mostra che, a parità di configurazione elettronica per stati eccitati (come \( 1s 2s \) o \( 1s 2p \)), i livelli energetici associati ai termini di tripletto si trovano sistematicamente ad energie inferiori rispetto ai corrispondenti termini di singoletto. 
+
+Possiamo schematizzare questo ordinamento energetico come segue:
+\begin{equation}
+    E(^{3}S_{1}) < E(^{1}S_{0}) \quad \text{per la configurazione } 1s 2s
+\end{equation}
+\begin{equation}
+    E(^{3}P_{0,1,2}) < E(^{1}P_{1}) \quad \text{per la configurazione } 1s 2p
+\end{equation}
+
+Questa separazione energetica non è imputabile all'interazione spin-orbita, ma è da attribuire all'\textbf{interazione di scambio} ( vedi sezione \ref{sec: integrali_scambio}), una conseguenza diretta del Principio di Esclusione di Pauli e della natura fermionica degli elettroni. 
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.2]
+        % Stili
+        \tikzstyle{level} = [thick, blue!80!black]
+        \tikzstyle{trans} = [dashed, gray!60]
+        \tikzstyle{anno}  = [font=\small, text=black]
+
+        % Coordinate X
+        \def\xone{0}   \def\xtwo{1.5}
+        \def\xthree{3} \def\xfour{4.5}
+        \def\xfive{6}  \def\xsix{7.5}
+
+        % Livello di partenza (Configurazione senza interazione di scambio)
+        \draw[level] (\xone, 2) -- (\xtwo, 2) node[midway, above=3pt] {\( 1s 2p \)};
+        \node[anno, below] at (0.75, 1.8) {\( L=1 \)};
+
+        % Separazione Singoletto / Tripletto (Interazione di scambio)
+        % Singoletto (energia maggiore)
+        \draw[trans] (\xtwo, 2) -- (\xthree, 3.5);
+        \draw[level] (\xthree, 3.5) -- (\xfour, 3.5) node[midway, above=3pt] {\( S=0 \) (Singoletto)};
+        
+        % Tripletto (energia minore)
+        \draw[trans] (\xtwo, 2) -- (\xthree, 0.5);
+        \draw[level] (\xthree, 0.5) -- (\xfour, 0.5) node[midway, below=3pt] {\( S=1 \) (Tripletto)};
+
+        % Splitting Spin-Orbita
+        % Singoletto
+        \draw[trans] (\xfour, 3.5) -- (\xfive, 3.5);
+        \draw[level] (\xfive, 3.5) -- (\xsix, 3.5) node[right] {\( ^{1}P_{1} \) (\( J=1 \))};
+
+        % Tripletto (J = 0, 1, 2)
+        \draw[trans] (\xfour, 0.5) -- (\xfive, 1.2);
+        \draw[level] (\xfive, 1.2) -- (\xsix, 1.2) node[right] {\( ^{3}P_{2} \) (\( J=2 \))};
+        
+        \draw[trans] (\xfour, 0.5) -- (\xfive, 0.5);
+        \draw[level] (\xfive, 0.5) -- (\xsix, 0.5) node[right] {\( ^{3}P_{1} \) (\( J=1 \))};
+        
+        \draw[trans] (\xfour, 0.5) -- (\xfive, -0.2);
+        \draw[level] (\xfive, -0.2) -- (\xsix, -0.2) node[right] {\( ^{3}P_{0} \) (\( J=0 \))};
+
+        % Etichette in basso
+        \node[anno, align=center, purple!80!black] at (3.75, -1) {Interazione \\ di Scambio};
+        \node[anno, align=center, purple!80!black] at (6.75, -1) {Accoppiamento \\ Spin-Orbita};
+
+    \end{tikzpicture}
+    \caption{Rappresentazione qualitativa della rimozione della degenerazione per la configurazione eccitata \( 1s 2p \). L'interazione di scambio separa macroscopicamente il singoletto dal tripletto, mentre l'accoppiamento spin-orbita produce la struttura fine del tripletto.}
+    \label{fig:splitting_1s2p}
+\end{figure}
+
+Per comprendere fisicamente tale ordinamento, è necessario analizzare la simmetria della funzione d'onda totale del sistema a due elettroni:
+\begin{itemize}
+    \item \textbf{Stato di Singoletto (\( S=0 \)):} La funzione d'onda di spin è \textit{antisimmetrica}. Di conseguenza, la componente spaziale deve essere \textit{simmetrica} rispetto allo scambio delle coordinate (\( \vec{r}_1 \leftrightarrow \vec{r}_2 \)). Una parte spaziale simmetrica implica una maggiore densità di probabilità di trovare i due elettroni vicini nello spazio. Questa vicinanza massimizza la repulsione elettrostatica coulombiana, innalzando l'energia totale del sistema.
+    \item \textbf{Stato di Tripletto (\( S=1 \)):} La funzione d'onda di spin è \textit{simmetrica}. Pertanto, la componente spaziale deve essere \textit{antisimmetrica}. Tale funzione si annulla identicamente quando le coordinate spaziali dei due elettroni coincidono (\( \vec{r}_1 = \vec{r}_2 \)), creando il cosiddetto "buco di Fermi". Questa separazione spaziale forzata minimizza la repulsione coulombiana interelettronica, abbassando notevolmente l'energia dello stato.
+\end{itemize}
+
+Questo comportamento è formalizzato dalla prima \textbf{regola di Hund}, una regola empirica e fenomenologica che stabilisce che, per una data configurazione elettronica, il termine spettroscopico a energia minore è quello caratterizzato dalla massima molteplicità di spin (\( 2S+1 \)). Sebbene la regola di Hund sia strettamente definita per determinare lo stato fondamentale in presenza di elettroni equivalenti, lo stesso principio di minimizzazione dell'energia coulombiana tramite l'antisimmetrizzazione spaziale governa anche gli stati eccitati costituiti da elettroni non equivalenti.
+
+
+\end{solution}
+
+
+\end{exercise}
+
+
+
+
+\begin{exercise}
+
+Per le configurazioni \( 1s^2 \), \( 1s 2s \) e \( 1s 2p \), stimare lo shift energetico spin-orbita \( \Delta E_{so} \) in funzione del parametro \( \tilde{A}_L \).
+\begin{solution}
+In via generale, l'interazione spin-orbita risulta nulla nelle seguenti condizioni:
+\begin{equation}
+    L = 0 \implies \Delta E_{so} = 0
+\end{equation}
+\begin{equation}
+    S = 0 \implies \Delta E_{so} = 0
+\end{equation}
+Di conseguenza, i termini \( ^3S_1 \) e \( ^1S_0 \) non presentano alcuno splitting spin-orbita.
+
+Analizziamo i termini che originano dalla configurazione \( 1s 2p \). L'elemento di matrice dell'Hamiltoniana di spin-orbita è definito come:
+\begin{equation}
+    \langle J, M_J | \Delta H_{so} | J, M_J \rangle = \frac{\hbar^2}{2} \left[ J(J+1) - L(L+1) - S(S+1) \right] \langle J, M_J | \xi_Z(r_1, r_2) | J, M_J \rangle
+\end{equation}
+
+Identificando l'integrale radiale con il parametro \( \tilde{A}_1 \) (essendo \( L=1 \)), possiamo determinare lo shift energetico per ogni termine del multipletto calcolando il coefficiente moltiplicativo:
+
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|c|l|c|}
+        \hline
+        \textbf{Termine} & \textbf{Fattore} \( \frac{1}{2} \left[ J(J+1) - L(L+1) - S(S+1) \right] \) & \textbf{Shift} (\( \Delta E_{so} \)) \\
+        \hline
+        \( ^1P_1 \) & \( \Delta E_{so} = 0 \) (essendo \( S=0 \)) & \( 0 \) \\
+        \hline
+        \( ^3P_0 \) & \( \frac{1}{2} [0(1) - 1(2) - 1(2)] = -2 \) & \( -2\hbar^2\tilde{A}_1 \) \\
+        \hline
+        \( ^3P_1 \) & \( \frac{1}{2} [1(2) - 1(2) - 1(2)] = -1 \) & \( -\hbar^2\tilde{A}_1 \) \\
+        \hline
+        \( ^3P_2 \) & \( \frac{1}{2} [2(3) - 1(2) - 1(2)] = +1 \) & \( +\hbar^2\tilde{A}_1 \) \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.2]
+        % Definizione stili
+        \tikzstyle{level} = [thick, blue!80!black]
+        \tikzstyle{trans} = [dashed, blue!80!black]
+        \tikzstyle{arrow} = [->, thick, purple!80!black]
+        \tikzstyle{baseline} = [dashed, gray!80]
+
+        % Livello di partenza imperturbato
+        \draw[level] (0, 0) -- (2, 0) node[midway, above] {\( 1s 2p \)};
+        \draw[baseline] (2, 0) -- (6, 0);
+
+        % Sottolivelli splittati (spaziati in base alla regola degli intervalli di Landé)
+        \draw[trans] (2, 0) -- (3, 1);
+        \draw[level] (3, 1) -- (5, 1) node[right] {\( ^3P_2 \)};
+
+        \draw[trans] (2, 0) -- (3, -1);
+        \draw[level] (3, -1) -- (5, -1) node[right] {\( ^3P_1 \)};
+
+        \draw[trans] (2, 0) -- (3, -2);
+        \draw[level] (3, -2) -- (5, -2) node[right] {\( ^3P_0 \)};
+
+        % Frecce indicatrici degli shift
+        \draw[arrow] (3.8, 0) -- (3.8, 1) node[midway, left] {\( +\hbar^2\tilde{A}_1 \)};
+        \draw[arrow] (4.7, 0) -- (4.7, -1) node[midway, right] {\( -\hbar^2\tilde{A}_1 \)};
+        \draw[arrow] (3.2, 0) -- (3.2, -2) node[midway, left] {\( -2\hbar^2\tilde{A}_1 \)};
+
+        % Freccia dello splitting totale
+        \draw[<->, teal, thick] (7, -2) -- (7, 1) node[midway, fill=white, font=\footnotesize, align=center] {SPLITTING \\ \( 3\hbar^2\tilde{A}_1 \)};
+        
+
+    \end{tikzpicture}
+    \caption{Schema a livelli che illustra la rimozione della degenerazione per effetto spin-orbita sul termine di tripletto \( ^3P \).}
+\end{figure}
+
+\end{solution}
+
+
+\end{exercise}
+
+
+
+\subsection{Effetto Zeeman}
+
+Stante la presenza dell'accoppiamento spin-orbita \(\Delta H_{so}\), si applica un campo magnetico esterno \(\vec{B}_{ext}\) di entità piccola per osservare il regime Zeeman:
+\begin{equation}
+    \langle \Delta H_{B_{ext}} \rangle \ll \langle \Delta H_{so} \rangle \quad \text{(Effetto Zeeman)}
+\end{equation}
+
+Per spiegare gli esperimenti, si deve assumere che l'interazione del campo \(\vec{B}_{ext}\) avvenga con i momenti angolari totali del sistema:
+\begin{equation}
+    \vec{L} = \sum_{i=1}^{2} \vec{\ell}_i \qquad \vec{S} = \sum_{i=1}^{2} \vec{s}_i
+\end{equation}
+\begin{equation}
+    \vec{J} = \vec{L} + \vec{S}
+\end{equation}
+
+Ciò vale anche per atomi a più elettroni. La descrizione dell'effetto effettuata per l'atomo idrogenoide si adatta applicando le seguenti trasformazioni (passando dal caso idrogenoide al caso con più elettroni):
+\begin{equation}
+    j \longrightarrow J \qquad \ell \longrightarrow L \qquad s \longrightarrow S
+\end{equation}
+In questo modo, si opera una sostituzione formale anche per il fattore giromagnetico:
+\begin{equation}
+    g_{j\ell s} \longrightarrow g_{JLS} = 1 + \frac{J(J+1) - L(L+1) + S(S+1)}{2J(J+1)}
+\end{equation}
+
+In questa espressione, \( g_{j\ell s} \) rappresenta il fattore giromagnetico relativo all'atomo idrogenoide, mentre l'espressione di destra definisce il \textbf{fattore di Landé} per l'atomo a più elettroni (ed è applicabile, in particolare, per l'atomo di Elio).\\
+Assumendo che il campo magnetico esterno sia allineato lungo l'asse di quantizzazione, tipicamente l'asse \( z \), lo esprimiamo come:
+\begin{equation}
+    \vec{B}_{ext} = (0, 0, B_{ext,z})
+\end{equation}
+Di conseguenza, l'espressione per lo spostamento energetico associato all'effetto Zeeman, nota per l'atomo idrogenoide, viene generalizzata per il caso di atomi a più elettroni. Si passa dalla formulazione per il singolo elettrone:
+\begin{equation}
+    \Delta E_{zeeman} = \mu_B m_j B_z g_{j\ell s} \quad \text{(atomo idrogenoide)}
+\end{equation}
+alla sua controparte per il sistema multielettronico:
+\begin{equation}
+    \Delta E_{zeeman} = \mu_B m_J B_z g_{JLS} \quad \text{(atomo a più elettroni)}
+\end{equation}
+Nella quale ovviamente il numero quantico magnetico totale \( m_J \) descrive le proiezioni lungo l'asse \( z \) ed è definito nell'intervallo:
+\begin{equation}
+    m_J = -J, -J+1, \dots, J
+\end{equation}
+mentre i valori ammessi per il momento angolare totale \( J \) obbediscono alla regola di composizione di Clebsch-Gordan:
+\begin{equation}
+    |L - S| \le J \le L + S
+\end{equation}
+
+Considerando ad esempio i casi precedenti per l'atomo di Elio (He) nelle configurazioni \( 1s^2 \), \( 1s 2s \) e \( 1s 2p \), in cui si considera \( [\langle \Delta H_{so} \rangle = 0] \), i valori calcolati per il fattore di Landé \( g_{JLS} \) sono riportati nella tabella seguente. Si osserva che per i termini in cui il momento angolare totale è nullo (\( J=0 \)), il fattore non è definito.
+
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|c|c||c|c|}
+        \hline
+        \textbf{Termine} & \textbf{Fattore } \( g_{JLS} \) & \textbf{Termine} & \textbf{Fattore } \( g_{JLS} \) \\
+        \hline
+        \( ^3S_1 \) & \( 2 \) & \( ^3P_0 \) & non definito \\
+        \hline
+        \( ^1S_0 \) & non definito & \( ^3P_1 \) & \( 2 \) \\
+        \hline
+        \( ^1P_1 \) & \( 1 \) & \( ^3P_2 \) & \( \frac{3}{2} \) \\
+        \hline
+    \end{tabular}
+    \caption{Fattori di Landé calcolati per i vari termini spettroscopici dell'Elio.}
+\end{table}
+
+L'introduzione di un campo magnetico esterno rimuove la degenerazione dei livelli energetici rispetto alla componente \( z \) del momento angolare totale. Un livello caratterizzato da un dato \( J \) si suddivide in \( 2J+1 \) sottolivelli Zeeman, corrispondenti ai possibili valori del numero quantico magnetico \( m_J \).
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.2]
+        % Definizioni stili per chiarezza e coerenza
+        \tikzset{
+            level/.style={thick, blue!80!black},
+            trans/.style={thick, blue!80!black}
+        }
+
+        % --- Rimozione degenerazione per il livello ^3P_2 ---
+        \draw[level] (0, 2) -- (2, 2) node[midway, above=3pt] {\( ^3P_2 \)} node[midway, below=3pt] {\( J=2 \)};
+        
+        % Frecce/Linee di splitting
+        \draw[trans] (2, 2) -- (3.5, 3.2);
+        \draw[trans] (2, 2) -- (3.5, 2.6);
+        \draw[trans] (2, 2) -- (3.5, 2);
+        \draw[trans] (2, 2) -- (3.5, 1.4);
+        \draw[trans] (2, 2) -- (3.5, 0.8);
+
+        % Sottolivelli m_J
+        \draw[level] (3.5, 3.2) -- (5, 3.2) node[right=2pt] {\( 2 \)};
+        \draw[level] (3.5, 2.6) -- (5, 2.6) node[right=2pt] {\( 1 \)};
+        \draw[level] (3.5, 2) -- (5, 2) node[right=2pt] {\( 0 \)};
+        \draw[level] (3.5, 1.4) -- (5, 1.4) node[right=2pt] {\( -1 \)};
+        \draw[level] (3.5, 0.8) -- (5, 0.8) node[right=2pt] {\( -2 \)};
+
+        \node[above, font=\bfseries] at (5.3, 3.5) {\( m_J \)};
+        \node[teal, right, align=left] at (6, 2) {Rimozione per \\ Zeeman in \\ 5 sottolivelli};
+
+        % --- Rimozione degenerazione per il livello ^3P_1 ---
+        \draw[level] (0, -1) -- (2, -1) node[midway, above=3pt] {\( ^3P_1 \)} node[midway, below=3pt] {\( J=1 \)};
+
+        % Frecce/Linee di splitting
+        \draw[trans] (2, -1) -- (3.5, -0.2);
+        \draw[trans] (2, -1) -- (3.5, -1);
+        \draw[trans] (2, -1) -- (3.5, -1.8);
+
+        % Sottolivelli m_J
+        \draw[level] (3.5, -0.2) -- (5, -0.2) node[right=2pt] {\( 1 \)};
+        \draw[level] (3.5, -1) -- (5, -1) node[right=2pt] {\( 0 \)};
+        \draw[level] (3.5, -1.8) -- (5, -1.8) node[right=2pt] {\( -1 \)};
+
+        \node[above, font=\bfseries] at (5.3, 0.1) {\( m_J \)};
+        \node[teal, right] at (6, -1) {TRIPLETTO};
+
+    \end{tikzpicture}
+    \caption{Schema della rimozione della degenerazione per effetto Zeeman. Il livello superiore (\( ^3P_2 \)) si suddivide in 5 sottolivelli, mentre quello inferiore (\( ^3P_1 \)) si divide in 3 sottolivelli (tripletto Zeeman).}
+\end{figure}
+
+Si definiscono elettroni otticamente attivi quegli elettroni che possono essere promossi tramite una transizione radiativa ricadente all'interno dello spettro ottico (\( \sim 400 \text{ nm} - 800 \text{ nm} \)). Tale comportamento si osserva per gli elettroni che non appartengono a subshell chiuse.
+
+Ad esempio, consideriamo la seguente configurazione elettronica:
+\begin{equation}
+    [1s^2 2s^2] 2p^2
+\end{equation}
+
+In base a questa notazione:
+\begin{itemize}
+    \item Le subshell racchiuse tra parentesi quadre (\( [1s^2 2s^2] \)) indicano le configurazioni chiuse, i cui elettroni non partecipano alle transizioni ottiche.
+    \item L'attività ottica si concentra esclusivamente sugli elettroni della subshell esterna parzialmente riempita, che in questo caso specifico è la \( 2p^2 \).
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tikzpicture}[>=stealth]
+        
+        % --- Definizione Stili ---
+        \tikzset{
+            level/.style={thick, blue!80!black},
+            baseline/.style={dashed, blue!80!black},
+            splitline/.style={semithick, blue!80!black},
+            energyarrow/.style={<->, thick, purple!80!black},
+            shiftarrow/.style={->, thick, purple!80!black},
+            label/.style={font=\small, text=black},
+            mjlabel/.style={font=\scriptsize, text=blue!80!black}
+        }
+
+        % --- Coordinate X Dilatate (Per evitare l'effetto "schiacciato") ---
+        \def\xHstart{0}
+        \def\xHend{1.8}
+        
+        \def\xVeestart{4.5}
+        \def\xVeeend{6.3}
+        
+        \def\xSOstart{9.0}
+        \def\xSOend{10.8}
+        
+        \def\xBstart{13.5}
+        \def\xBend{15.3}
+
+        % --- Intestazioni delle colonne (centrate rispetto ai nuovi blocchi) ---
+        \node[label, font=\large\bfseries] at (0.9, 3.5) {\( H^{(0)} \)};
+        \node[label, font=\large\bfseries] at (5.4, 3.5) {\(+ V_{ee} \)};
+        \node[label, font=\large\bfseries] at (9.9, 3.5) {\( +\Delta H_{so} \)};
+        \node[label, font=\large\bfseries] at (14.4, 3.5) {\( + \Delta H_{B,ext} \)};
+
+        % ==========================================
+        % STADIO 1: H(0) (Campo Centrale)
+        % ==========================================
+        
+        \draw[level] (\xHstart, -4.5) -- (\xHend, -4.5) node[midway, below] {\( 1s^2 \)};
+        \draw[level] (\xHstart, -3.0) -- (\xHend, -3.0) node[midway, below] {\( 1s2s \)};
+        \draw[level] (\xHstart, 0) -- (\xHend, 0) node[midway, below] {\( 1s2p \)};
+
+        % ==========================================
+        % STADIO 2: V_ee (Scambio e Repulsione)
+        % ==========================================
+        
+        % --- Collegamento per 1s2s ---
+        \draw[baseline] (\xHend, -3.0) -- (\xVeestart-1.5, -3.0);
+        \draw[shiftarrow] (\xVeestart-1.5, -3.0) -- (\xVeestart-1.5, -1.5) node[midway, left] {\( \bar{J}_{20} \)};
+        \draw[baseline] (\xVeestart-1.5, -1.5) -- (\xVeestart-0.8, -1.5);
+        \draw[splitline] (\xVeestart-0.8, -1.5) -- (\xVeestart, -1.0);
+        \draw[splitline] (\xVeestart-0.8, -1.5) -- (\xVeestart, -2.0);
+
+        % Livelli di Singoletto e Tripletto 1s2s
+        \draw[level] (\xVeestart, -1.0) -- (\xVeeend, -1.0) node[right, label] {\( ^1S_0 \)};
+        \draw[level] (\xVeestart, -2.0) -- (\xVeeend, -2.0) node[right, label] {\( ^3S_1 \)};
+        \draw[energyarrow] (5.4, -2.0) -- (5.4, -1.0) node[midway, right] {\( 2K_{20} \)};
+
+        % --- Collegamento per 1s2p ---
+        \draw[baseline] (\xHend, 0) -- (\xVeestart-1.5, 0);
+        \draw[shiftarrow] (\xVeestart-1.5, 0) -- (\xVeestart-1.5, 1.6) node[midway, left] {\( \bar{J}_{21} \)};
+        \draw[baseline] (\xVeestart-1.5, 1.6) -- (\xVeestart-0.8, 1.6);
+        \draw[splitline] (\xVeestart-0.8, 1.6) -- (\xVeestart, 2.4);
+        \draw[splitline] (\xVeestart-0.8, 1.6) -- (\xVeestart, 0.8);
+
+        % Livelli di Singoletto e Tripletto 1s2p
+        \draw[level] (\xVeestart, 2.4) -- (\xVeeend, 2.4) node[right, label] {\( ^1P_1 \)};
+        \draw[level] (\xVeestart, 0.8) -- (\xVeeend, 0.8) node[right, label] {\( ^3P_{0,1,2} \)};
+        \draw[energyarrow] (5.4, 0.8) -- (5.4, 2.4) node[midway, right] {\( 2K_{21} \)};
+
+        % ==========================================
+        % STADIO 3: Struttura Fine (Spin-Orbita)
+        % ==========================================
+        
+        % ^1P_1 
+        \draw[baseline] (\xVeeend, 2.4) -- (\xSOstart, 2.4);
+        \draw[level] (\xSOstart, 2.4) -- (\xSOend, 2.4) node[right, label] {\( ^1P_1 \)};
+        
+        % ^3P
+        \draw[baseline] (\xVeeend, 0.8) -- (\xSOstart-1.2, 0.8);
+        \draw[splitline] (\xSOstart-1.2, 0.8) -- (\xSOstart, 1.6);
+        \draw[splitline] (\xSOstart-1.2, 0.8) -- (\xSOstart, 0.8);
+        \draw[splitline] (\xSOstart-1.2, 0.8) -- (\xSOstart, 0.0);
+        
+        \draw[level] (\xSOstart, 1.6) -- (\xSOend, 1.6) node[right, label] {\( ^3P_2 \)};
+        \draw[level] (\xSOstart, 0.8) -- (\xSOend, 0.8) node[right, label] {\( ^3P_1 \)};
+        \draw[level] (\xSOstart, 0.0) -- (\xSOend, 0.0) node[right, label] {\( ^3P_0 \)};
+        
+        % ^1S_0 
+        \draw[baseline] (\xVeeend, -1.0) -- (\xSOstart, -1.0);
+        \draw[level] (\xSOstart, -1.0) -- (\xSOend, -1.0) node[right, label] {\( ^1S_0 \)};
+        
+        % ^3S_1 
+        \draw[baseline] (\xVeeend, -2.0) -- (\xSOstart, -2.0);
+        \draw[level] (\xSOstart, -2.0) -- (\xSOend, -2.0) node[right, label] {\( ^3S_1 \)};
+
+        % ==========================================
+        % STADIO 4: Effetto Zeeman (Campo Magnetico)
+        % ==========================================
+        
+        \node[label, purple!80!black] at (\xBend+0.5, -2.9) {\( m_j \)};
+
+        % ^1P_1 (J=1)
+        \draw[baseline] (\xSOend, 2.4) -- (\xBstart-1.2, 2.4);
+        \draw[splitline] (\xBstart-1.2, 2.4) -- (\xBstart, 2.6);
+        \draw[splitline] (\xBstart-1.2, 2.4) -- (\xBstart, 2.4);
+        \draw[splitline] (\xBstart-1.2, 2.4) -- (\xBstart, 2.2);
+        
+        \draw[level] (\xBstart, 2.6) -- (\xBend, 2.6) node[right, mjlabel] {\( 1 \)};
+        \draw[level] (\xBstart, 2.4) -- (\xBend, 2.4) node[right, mjlabel] {\( 0 \)};
+        \draw[level] (\xBstart, 2.2) -- (\xBend, 2.2) node[right, mjlabel] {\( -1 \)};
+
+        % ^3P_2 (J=2)
+        \draw[baseline] (\xSOend, 1.6) -- (\xBstart-1.2, 1.6);
+        \draw[splitline] (\xBstart-1.2, 1.6) -- (\xBstart, 2.0);
+        \draw[splitline] (\xBstart-1.2, 1.6) -- (\xBstart, 1.8);
+        \draw[splitline] (\xBstart-1.2, 1.6) -- (\xBstart, 1.6);
+        \draw[splitline] (\xBstart-1.2, 1.6) -- (\xBstart, 1.4);
+        \draw[splitline] (\xBstart-1.2, 1.6) -- (\xBstart, 1.2);
+        
+        \draw[level] (\xBstart, 2.0) -- (\xBend, 2.0) node[right, mjlabel] {\( 2 \)};
+        \draw[level] (\xBstart, 1.8) -- (\xBend, 1.8) node[right, mjlabel] {\( 1 \)};
+        \draw[level] (\xBstart, 1.6) -- (\xBend, 1.6) node[right, mjlabel] {\( 0 \)};
+        \draw[level] (\xBstart, 1.4) -- (\xBend, 1.4) node[right, mjlabel] {\( -1 \)};
+        \draw[level] (\xBstart, 1.2) -- (\xBend, 1.2) node[right, mjlabel] {\( -2 \)};
+
+        % ^3P_1 (J=1)
+        \draw[baseline] (\xSOend, 0.8) -- (\xBstart-1.2, 0.8);
+        \draw[splitline] (\xBstart-1.2, 0.8) -- (\xBstart, 1.0);
+        \draw[splitline] (\xBstart-1.2, 0.8) -- (\xBstart, 0.8);
+        \draw[splitline] (\xBstart-1.2, 0.8) -- (\xBstart, 0.6);
+        
+        \draw[level] (\xBstart, 1.0) -- (\xBend, 1.0) node[right, mjlabel] {\( 1 \)};
+        \draw[level] (\xBstart, 0.8) -- (\xBend, 0.8) node[right, mjlabel] {\( 0 \)};
+        \draw[level] (\xBstart, 0.6) -- (\xBend, 0.6) node[right, mjlabel] {\( -1 \)};
+
+        % ^3P_0 (J=0)
+        \draw[baseline] (\xSOend, 0.0) -- (\xBstart-1.2, 0.0);
+        \draw[splitline] (\xBstart-1.2, 0.0) -- (\xBstart, 0.0);
+        \draw[level] (\xBstart, 0.0) -- (\xBend, 0.0) node[right, mjlabel] {\( 0 \)};
+
+        % ^1S_0 (J=0)
+        \draw[baseline] (\xSOend, -1.0) -- (\xBstart-1.2, -1.0);
+        \draw[splitline] (\xBstart-1.2, -1.0) -- (\xBstart, -1.0);
+        \draw[level] (\xBstart, -1.0) -- (\xBend, -1.0) node[right, mjlabel] {\( 0 \)};
+
+        % ^3S_1 (J=1)
+        \draw[baseline] (\xSOend, -2.0) -- (\xBstart-1.2, -2.0);
+        \draw[splitline] (\xBstart-1.2, -2.0) -- (\xBstart, -1.8);
+        \draw[splitline] (\xBstart-1.2, -2.0) -- (\xBstart, -2.0);
+        \draw[splitline] (\xBstart-1.2, -2.0) -- (\xBstart, -2.2);
+        
+        \draw[level] (\xBstart, -1.8) -- (\xBend, -1.8) node[right, mjlabel] {\( 1 \)};
+        \draw[level] (\xBstart, -2.0) -- (\xBend, -2.0) node[right, mjlabel] {\( 0 \)};
+        \draw[level] (\xBstart, -2.2) -- (\xBend, -2.2) node[right, mjlabel] {\( -1 \)};
+
+    \end{tikzpicture}
+    }
+    \caption{Schema riassuntivo e gerarchia degli shift energetici per i primi livelli eccitati dell'Elio.}
+    \label{fig:elio_all_interactions}
+\end{figure}
+
+\begin{note}{Termine spettroscopico}{term_spettr}
+    Il \textbf{termine spettroscopico} rappresenta un insieme di stati quantistici che, in assenza di interazioni di struttura fine (accoppiamento spin-orbita), possiedono il medesimo valore di energia. Sperimentalmente, l'introduzione dell'interazione spin-orbita rimuove parzialmente tale degenerazione, suddividendo il termine in diversi livelli energetici distinti dal numero quantico del momento angolare totale \( J \).
+
+La notazione convenzionale utilizzata per identificare un termine è:
+\begin{equation}
+^{2S+1}L_J
+\end{equation}
+
+
+
+\end{note}
+
+
+\section{Atomo ad N elettroni}
+\lezione{10}{24/03/2026}
+
+L'Hamiltoniana per un atomo a \( N \) elettroni è formulata considerando l'energia cinetica degli elettroni (\( T_e \)), l'energia cinetica del nucleo (\( T_N \)), l'attrazione coulombiana elettrone-nucleo (\( V_{e-N} \)), la repulsione interelettronica (\( V_{ee} \)) e i termini di struttura fine (\( \Delta H_{SF} \)):
+
+\begin{equation}
+    H = \underbrace{-\frac{\hbar^2}{2m} \sum_{i=1}^{N} \nabla_{\vec{r}_i}^2}_{T_e} \underbrace{-\frac{\hbar^2}{2M_N} \nabla_{\vec{R}_N}^2}_{T_N} \underbrace{- \sum_{i=1}^{N} \frac{Z e^2}{4\pi\varepsilon_0 r_i}}_{V_{e-N}} + \underbrace{\frac{e^2}{4\pi\varepsilon_0} \sum_{i < j} \frac{1}{r_{ij}}}_{V_{ee}} + \Delta H_{SF}
+\end{equation}
+
+Il termine di interazione \( V_{ee} \) rende l'equazione di Schrödinger irrisolvibile in forma chiusa e non separabile, a causa della dipendenza dalla distanza relativa tra le particelle \( |\vec{r}_i - \vec{r}_j| = r_{ij} \). 
+
+La sommatoria della repulsione interelettronica possiede in totale \( \frac{N(N-1)}{2} \) termini e può essere riscritta per esteso includendo il fattore \( \frac{1}{2} \) per eliminare i conteggi doppi (es. le coppie A,B e B,A):
+
+\begin{equation}
+    V_{ee} = \frac{e^2}{4\pi\varepsilon_0} \frac{1}{2} \sum_{i \neq j} \frac{1}{r_{ij}}
+\end{equation}
+
+Il nostro obiettivo è dunque risolvere l'equazione di Schrödinger stazionaria del sistema:
+
+\begin{equation}
+    H \Psi_E = E \Psi_E
+\end{equation}
+
+La funzione d'onda completa dell'atomo dipende dai gradi di libertà spaziali e di spin di tutti gli \( N \) elettroni e dalle coordinate del nucleo:
+
+\begin{equation}
+    \Psi_E(\vec{r}_1, \dots, \vec{r}_N, \vec{R}_N, \vec{s}_1, \dots, \vec{s}_N)
+\end{equation}
+
+Per semplificare l'espressione, si definisce la coordinata generalizzata \( \vec{q}_i = (\vec{r}_i, \vec{s}_i) \). Data la struttura dell'Hamiltoniana, il moto del nucleo (\( \vec{R}_N \)) risulta separabile dal moto degli elettroni. Di conseguenza, la funzione d'onda può essere fattorizzata come segue:
+
+\begin{equation}
+    \Psi_E = \Psi_{E,e}(\vec{q}_1, \dots, \vec{q}_N)\Psi_{E,N}(\vec{R}_N)
+\end{equation}
+
+Ci focalizzeremo solo sulla componente elettronica della funzione d'onda: \( \Psi_{E,e}(\vec{q}_1, \dots, \vec{q}_N) \).
+
+All'interno dell'Hamiltoniana per atomi "leggeri", il termine di repulsione interelettronica \( V_{ee} \) domina rispetto al termine di struttura fine \( \Delta H_{SF} \). Per questo motivo, si valuta prima il suo effetto come perturbazione principale.
+
+\begin{note}{ }{leggeri_pesanti}
+    \textbf{Atomi "leggeri" (\( Z \lesssim 40 \)):} \\
+    I momenti angolari orbitali e di spin si accoppiano prima separatamente tra loro (accoppiamento LS):
+    \begin{equation}
+        \vec{S} = \sum_{i=1}^{N} \vec{s}_i \qquad \vec{L} = \sum_{i=1}^{N} \vec{\ell}_i
+    \end{equation}
+    Successivamente, i momenti totali si accoppiano, definendo il termine di spin-orbita:
+    \begin{equation}
+        \vec{J} = \vec{L} + \vec{S} \implies \Delta H_{so} = \tilde{A}_L \vec{L} \cdot \vec{S}
+    \end{equation}
+
+    \vspace{0.3cm}
+    \textbf{Atomi "pesanti" (\( Z \gtrsim 40 \)):} \\
+    Prevale l'interazione \( jj \). I momenti orbitale e di spin di ciascun singolo elettrone si accoppiano per primi:
+    \begin{equation}
+        \vec{j}_i = \vec{\ell}_i + \vec{s}_i \implies \Delta H_{so} = \sum_{i=1}^{N} \xi_Z(r_i) \vec{\ell}_i \cdot \vec{s}_i
+    \end{equation}
+
+La demarcazione tra i regimi di accoppiamento non costituisce una soglia netta, ma descrive piuttosto un comportamento prevalente dettato dagli ordini di grandezza delle interazioni in gioco.
+
+\end{note}
+
+
+\subsection{Interazione elettronica}   
+
+Il problema dei molti corpi in meccanica quantistica è intrinsecamente non separabile a causa del termine di repulsione coulombiana interelettronica esatta. L'approssimazione di Hartree affronta questo ostacolo assumendo che l'interazione repulsiva globale possa essere approssimata come la somma di contributi individuali dipendenti unicamente dalle coordinate del singolo elettrone:
+
+\begin{equation}
+    V_{ee} \simeq \sum_{i=1}^{N} V_{ee,\text{Hartree}}(\vec{r}_i)
+\end{equation}
+
+Ogni elettrone percepisce l'effetto complessivo sotto forma di un \textbf{campo medio} (potenziale centrale). 
+
+Questo permette di definire per ogni elettrone un potenziale efficace totale \( V_i(\vec{r}_i) \), dato dalla somma dell'attrazione nucleare nuda e della repulsione media esercitata dalla nuvola elettronica circostante:
+
+\begin{equation}
+    V_i(\vec{r}_i) = -\frac{Ze^2}{4\pi\varepsilon_0 r_i} + V_{ee,\text{Hartree}}(\vec{r}_i)
+\end{equation}
+
+Trascurando l'energia cinetica del nucleo (\( T_N \)), l'Hamiltoniana complessiva del sistema si disaccoppia in una somma di \( N \) Hamiltoniane indipendenti di singolo elettrone (Hamiltoniane di Hartree):
+
+\begin{equation}
+    H \approx \sum_{i=1}^{N} \underbrace{\left[ -\frac{\hbar^2}{2m_e} \nabla_{\vec{r}_i}^2 + V_i(\vec{r}_i) \right]}_{H_{\text{Hartree}, i} \text{ per l'elettrone } i\text{-esimo}}
+\end{equation}
+
+Poiché l'Hamiltoniana totale è ora espressa come somma di termini a singola particella, le variabili spaziali \( \{ \vec{r}_i \} \) (e conseguentemente anche quelle di spin \( \{ \vec{s}_i \} \)) risultano separabili matematicamente. L'approccio di Hartree semplifica drasticamente il problema permettendo di scrivere la funzione d'onda elettronica totale come un semplice prodotto di funzioni d'onda di singolo elettrone:
+
+\begin{equation}
+    \Psi_{E,e}(\vec{r}_1, \dots, \vec{r}_N) = \prod_{i=1}^{N} \psi_{E,e,i}(\vec{r}_i)
+\end{equation}
+Per tener conto del contributo dello spin nella funzione d'onda, si introducono le coordinate generalizzate \( \vec{q}_i \). La funzione d'onda elettronica totale viene quindi scritta come prodotto di orbitali di singola particella:
+
+\begin{equation}
+    \Psi_{E,e}(\vec{q}_1, \dots, \vec{q}_N) = \prod_{i=1}^{N} \psi_{E,e,i}(\vec{q}_i)
+\end{equation}
+
+Tale funzione è costruita affinché ogni singolo orbitale sia soluzione dell'equazione agli autovalori per l'Hamiltoniana di Hartree di singola particella:
+
+\begin{equation}
+    H_{\text{Hartree}, i} \psi_{E,e,i}(\vec{q}_i) = E_{\text{Hartree}, i} \psi_{E,e,i}(\vec{q}_i) \quad \forall i
+\end{equation}
+Il prodotto di Hartree tratta gli elettroni come distinguibili, violando il Principio di Pauli. Per i fermioni, la funzione d'onda deve essere rigorosamente antisimmetrica rispetto allo scambio delle coordinate generalizzate (spazio e spin) \(\vec{q}_i\). Si introduce quindi il determinante di Slater:
+
+\begin{equation}
+    \Psi_{E,e}(\vec{q}_1, \dots, \vec{q}_N) = \frac{1}{\sqrt{N!}}  \begin{vmatrix}
+\Psi_{E,e,1}(\vec{q}_1) & \cdots & \Psi_{E,e,N}(\vec{q}_1) \\
+\vdots & \ddots & \vdots \\
+\Psi_{E,e,1}(\vec{q}_N) & \cdots & \Psi_{E,e,N}(\vec{q}_N)
+\end{vmatrix}
+=\frac{1}{\sqrt{N!}} \det[\psi_j(\vec{q}_i)]
+\end{equation}
+
+Lo scambio di due righe (elettroni) inverte il segno del determinante, garantendo l'antisimmetria.
+
+Tuttavia, i singoli determinanti di Slater in genere non sono autofunzioni degli operatori \(L^2\) e \(S^2\). Per determinare i termini spettroscopici, è necessario costruire combinazioni lineari di determinanti per ottenere stati con \(L\) e \(S\) ben definiti. Si definisce così la base di stati disaccoppiati:
+
+\begin{equation}
+    \ket{\gamma, L, S, M_L, M_S}
+\end{equation}
+
+dove \(\gamma\) è il \textit{Seniority Index} (indice di anzianità di Racah), un numero quantico aggiuntivo essenziale per distinguere stati degeneri in \(L\) e \(S\) nel caso di elettroni equivalenti.
+
+In presenza di interazione spin-orbita, \(M_L\) e \(M_S\) non si conservano. Si accoppiano i momenti angolari tramite i coefficienti di Clebsch-Gordan, passando alla base accoppiata (autofunzioni simultanee di \(L^2, S^2, J^2\) e \(J_z\)):
+
+\begin{equation}
+    \ket{J, M_J} \quad \text{(forma sintetica per } \ket{\gamma, L, S, J, M_J}\text{)}
+\end{equation}
+
+Questa notazione compatta sottende una complessa struttura algebrica, necessaria per gestire rigorosamente la composizione dei momenti vettoriali nei sistemi a molti corpi.
+
+\subsection{Trattazione di Hartree-Fock}
+
+L'energia dello stato fondamentale calcolata tramite l'approssimazione di Hartree differisce dal valore sperimentale:
+\begin{equation}
+    E_{\text{stato fond. (Hartree)}} \neq E_{\text{stato fond. (sperimentale)}}
+\end{equation}
+
+L'approccio di Hartree-Fock si basa sull'osservazione che il termine di repulsione interelettronica \( V_{ee} \) può essere approssimato come la somma di una componente centrale preponderante e una componente non centrale di correzione:
+\begin{equation}
+    V_{ee} \simeq V_{ee,\text{centrale}} + V_{ee,NC}
+\end{equation}
+
+Per esplicitare questa separazione all'interno del potenziale totale \( V_{TOT} \), si introduce un termine di schermo (Screening, indicato con \( S \)), sommandolo e sottraendolo all'espressione originaria:
+\begin{equation}
+    V_{TOT} = V_{e-N} + V_{ee} = \underbrace{V_{e-N} + S}_{\substack{\text{parte centrale} \\ \text{di } V_{TOT}}} + \underbrace{V_{ee} - S}_{\substack{\text{parte non centrale} \\ \text{residua in } V_{TOT}}}
+\end{equation}
+
+Per semplicità notazionale, si definiscono il potenziale non centrale \( V_{NC} \) e il potenziale efficace centrale \( V_{eff,c} \):
+\begin{align}
+    V_{NC} &= V_{ee} - S \\
+    V_{eff,c} &= V_{e-N} + S
+\end{align}
+
+Un'ulteriore ipotesi cruciale di Fock impone che il termine di schermo \( S \) debba assumere una forma additiva dipendente unicamente dalle coordinate radiali dei singoli elettroni. Questa specifica struttura è necessaria per garantire che il problema ammetta la separazione delle variabili:
+\begin{equation}
+    S = \sum_{i=1}^{N} S_i(r_i)
+\end{equation}
+
+Assumendo l'esistenza di tale termine di schermo \( S \), il potenziale efficace centrale totale \( V_{eff,c} \) può essere espresso come la somma dei contributi agenti sui singoli elettroni:
+
+\begin{equation}
+    V_{eff,c} = \sum_{i=1}^{N} \left\{ \underbrace{-\frac{Ze^2}{4\pi\varepsilon_0 r_i}}_{\text{interazione } e-N} + \underbrace{S_i(r_i)}_{\text{parte centrale repulsione } ee} \right\} = \sum_{i=1}^{N} V_{eff,c,i}(r_i)
+\end{equation}
+
+Sostituendo questa espressione, l'Hamiltoniana del sistema assume la seguente forma approssimata:
+
+\begin{equation}
+    H \simeq \sum_{i=1}^{N} \left[ -\frac{\hbar^2}{2m_e} \nabla_{\vec{r}_i}^2 + V_{eff,c,i}(r_i) \right] + V_{NC}
+\end{equation}
+
+In questa fase della trattazione, si trascura il contributo di struttura fine \( \Delta H_{SF} \), che verrà reintrodotto successivamente come piccola perturbazione. Parallelamente, il termine non centrale \( V_{NC} \) viene isolato dal resto del potenziale: questa scomposizione è costruita appositamente per far sì che \( V_{NC} \) rappresenti una correzione sufficientemente piccola da poter essere calcolata tramite il teorema delle perturbazioni.
+
+Ignorando temporaneamente queste piccole correzioni, il problema dell'atomo a \( N \) elettroni viene ricondotto alla risoluzione della seguente equazione di Schrödinger:
+
+\begin{equation}
+    \sum_{i=1}^{N} \Big( T_i + V_{eff,c,i}(r_i) \Big) \Psi_{E,e,\text{Hartree-Fock}} = E_{\text{Hartree-Fock}} \Psi_{E,e,\text{Hartree-Fock}}
+\end{equation}
+
+Poiché l'operatore all'interno della sommatoria agisce esclusivamente sulle coordinate dell'\( i \)-esimo elettrone, il sistema a molti corpi ammette la rigorosa separazione delle variabili. 
+La funzione d'onda totale viene quindi fattorizzata nelle funzioni d'onda di singolo elettrone \( \psi_{E,e,\text{HF},i} \).\\
+Le combinazioni lineari antisimmetriche saranno poi date dal determinante di Slater di queste autofunzioni.
+
+\subsubsection{Caratterizzazione di S}
+
+\textbf{Caso limite}: Elettrone \( i \)-esimo molto lontano dal nucleo.\\
+Quando la distanza dell'elettrone \( i \) è molto maggiore rispetto a quella degli altri elettroni (\( |\vec{r}_j| \ll |\vec{r}_i| \)), il vettore distanza relativa è approssimabile a \( \vec{r}_{ij} \approx \vec{r}_i \). In questa situazione asintotica, ci si aspetta che il potenziale efficace tenda a:
+\begin{equation}
+    -\frac{Ze^2}{4\pi\varepsilon_0 r_i} + S_i(r_i) \longrightarrow -\frac{e^2}{4\pi\varepsilon_0 r_i} \big( Z - (N - 1) \big)
+\end{equation}
+Fisicamente, l'elettrone periferico vede la carica nucleare \( Z \) schermata quasi integralmente dalla carica negativa dei restanti \( N-1 \) elettroni che si interpongono tra lui e il nucleo.
+
+\textbf{Caso estremo}: Elettrone \( i \)-esimo prossimo al nucleo.\\
+Se l'elettrone si trova molto più vicino al nucleo rispetto al resto della nuvola elettronica (\( |\vec{r}_i| \ll |\vec{r}_j| \)), la distanza relativa diventa dipendente quasi solo dalla posizione degli altri elettroni (\( \vec{r}_{ij} \approx \vec{r}_j \)). Il potenziale efficace si riduce a:
+\begin{equation}
+    -\frac{Ze^2}{4\pi\varepsilon_0 r_i} + S_i(r_i) \longrightarrow -\frac{Ze^2}{4\pi\varepsilon_0 r_i} + C_i
+\end{equation}
+In questo caso limite, l'elettrone penetra lo schermo e risente appieno dell'attrazione nucleare nuda. Il termine di schermo si riduce a una costante \( C_i \), che rappresenta l'energia di interazione media repulsiva esercitata dalla "grande nuvola" dei restanti \( N-1 \) elettroni distribuiti più esternamente in modo efficace.
+
+\subsubsection{Costruzione di S}
+
+Per costruire esplicitamente il termine di schermo \( S_i(r_i) \), si calcola l'energia potenziale media sentita dall'\( i \)-esimo elettrone ed esercitata dalla distribuzione di carica dei restanti \( N-1 \) elettroni. Questo si ottiene integrando la repulsione coulombiana pesata sulla densità di probabilità spaziale degli altri elettroni:
+
+\begin{equation}
+    S_i(r_i) = \sum_{\substack{j=1 \\ j \neq i}}^{N} \int_V \frac{e^2}{4\pi\varepsilon_0 r_{ij}} |\psi_j(r_j)|^2 d^3 r_j
+\end{equation}
+
+dove \( |\psi_j(r_j)|^2 \) rappresenta la densità di probabilità associata alla funzione d'onda dell'elettrone \( j \)-esimo.
+
+Poiché le funzioni d'onda esatte degli elettroni non sono note a priori (servono per calcolare il potenziale, ma il potenziale serve per calcolare le funzioni d'onda), il problema viene affrontato con un approccio iterativo. Si parte da una "guess" (ipotesi) iniziale per le funzioni d'onda:
+
+\begin{equation}
+    \psi_{E_j}(r_j) \approx \psi_{E_j}^{(0)}(r_j)
+\end{equation}
+
+Come guess iniziale si utilizzano tipicamente le autofunzioni idrogenoidi esatte, espresse come prodotto di una parte radiale e una angolare: \( R_{n,l}(r_j)Y_l^{m_l}(\theta_j, \phi_j) \).
+
+Inserendo queste funzioni d'onda iniziali nell'espressione integrale, si ottiene la prima approssimazione (ordine zero) del termine di schermo:
+
+\begin{equation}
+    S_i^{(0)}(r_i) = \sum_{\substack{j=1 \\ j \neq i}}^{N} \int_V \frac{e^2}{4\pi\varepsilon_0 r_{ij}} |\psi_j^{(0)}(r_j)|^2 d^3 r_j
+\end{equation}
+
+A questo punto, si inserisce il termine di schermo \( S_i^{(0)}(r_i) \) nell'equazione di Schrödinger di singola particella, impostando il problema per ogni elettrone \( i \):
+\begin{equation}
+    \left[ T_i - \frac{Ze^2}{4\pi\varepsilon_0 r_i} + S_i^{(0)}(r_i) \right] \psi_{E_i}(r_i) = E_{E_i} \psi_{E_i}(r_i) \quad \forall i
+\end{equation}
+
+Risolvendo matematicamente questa equazione, si trova un nuovo set di soluzioni al problema. Questo nuovo set viene indicato come \( \{ \psi_{E_i}^{(1)}(r_i) \} \) e costituisce la famiglia di autofunzioni di schermatura di primo ordine.
+
+Avendo ottenuto delle funzioni d'onda migliori, si avvia il secondo step dell'algoritmo calcolando un termine di schermo aggiornato:
+\begin{equation}
+    S_i^{(1)}(r_i) = \sum_{\substack{j=1 \\ j \neq i}}^{N} \int_V \frac{e^2}{4\pi\varepsilon_0 r_{ij}} |\psi_{E_j}^{(1)}(r_j)|^2 d^3 r_j
+\end{equation}
+Il ciclo iterativo si ferma quando la differenza tra i contributi calcolati al passo \( n \) e quelli al passo \( n-1 \) risulta talmente piccola da non essere più apprezzabile. Questa condizione di convergenza (raggiungimento dell'autocoerenza) si esprime come:
+\begin{equation}
+    \psi_{E,i}^{(n)} \approx \psi_{E,i}^{(n-1)}
+\end{equation}
+All'\( n \)-esimo passo, ovvero al termine dell'algoritmo, si ottiene il set definitivo di autofunzioni ottimali per i singoli elettroni \( \{ \psi_{E,i}^{(n)} \} \). 
