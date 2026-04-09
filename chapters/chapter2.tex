@@ -1542,3 +1542,270 @@ Il ciclo iterativo si ferma quando la differenza tra i contributi calcolati al p
     \psi_{E,i}^{(n)} \approx \psi_{E,i}^{(n-1)}
 \end{equation}
 All'\( n \)-esimo passo, ovvero al termine dell'algoritmo, si ottiene il set definitivo di autofunzioni ottimali per i singoli elettroni \( \{ \psi_{E,i}^{(n)} \} \). 
+
+
+
+\lezione{11}{30/03/2026}
+
+\begin{note}{Tavola periodica}{tav_per}
+    La Tavola periodica raggruppa le specie chimiche per comportamento simile.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[>=stealth, thick, scale=1.2, every node/.style={align=center}]
+        
+        % Titolo centrale
+
+        % Blocco 1: Alcalini
+        \draw (0,0) rectangle (0.6, 4);
+        \draw (0,3.4) rectangle (0.6, 4) node[midway, blue!80!black] {1};
+        \node[teal!80!black, left] at (0.3, 4.2) {Alcalini};
+
+        % Blocco 2: Alcalino terrosi
+        \draw (0.6,0) rectangle (1.2, 3.4);
+        \draw (0.6,2.8) rectangle (1.2, 3.4) node[midway, blue!80!black] {2};
+        \node[teal!80!black, right] at (1, 3.7) {Alcalino \\ terrosi};
+
+        % Blocco centrale: Metalli e terre rare
+        \draw (1.2,0) rectangle (7.0, 2.8);
+        \node[teal!80!black] at (4.1, 1.4) {Metalli e terre rare};
+
+        % Blocco 17: Alogeni
+        \draw (7.0,0) rectangle (7.6, 3.4);
+        \draw (7.0,2.8) rectangle (7.6, 3.4) node[midway, blue!80!black] {17};
+        \node[teal!80!black, left] at (7.3, 3.7) {Alogeni};
+
+        % Blocco 18: Elementi nobili
+        \draw (7.6,0) rectangle (8.2, 4);
+        \draw (7.6,3.4) rectangle (8.2, 4) node[midway, blue!80!black] {18};
+        \node[teal!80!black, right] at (8, 4.2) {Elementi \\ nobili};
+            
+    \end{tikzpicture}
+    \caption{Schema qualitativo semplificato della Tavola Periodica.}
+    \label{fig:tavola_periodica_semplificata}
+\end{figure}
+Si fa presente che il riempimento, specialmente degli orbitali \( 4f, 5d \), non è sempre progressivo. 
+Gli \( e^- \) esterni sono meno vincolati al nucleo, è sufficiente un campo elettromangetico esterno e si muovono allontanandosi dal nucleo, determinando la \textbf{conducibilità elettrica}.
+
+\end{note}
+
+\begin{note}{Regole di Hund (per \(e^-\) equivalenti) per gli atomi a \(N\)-elettroni}{hund}
+\begin{enumerate}
+    \item \(^{2S+1}L_J\): ha energia inferiore il termine che ha molteplicità di SPIN più alta (\(^3P_{0,1,2} < \text{singoletto}\)). \\
+    \textit{Solo per termini con \(e^-\) equivalenti (tipo per quelli di \(2p^2\), no \(2s^1\) e \(3p^1\)).} 
+
+    \item Se \(S\) è fissato (spin totale) il valore \(L\) maggiore tende ad assumere energia minore.
+
+    \item Se \(L\) (momento angolare totale) è fissato:
+    \begin{itemize}
+        \item nel caso in cui la subshell sia meno che mezza piena \\
+        (es. \(2p^2\) - l'orbitale \(p\) può contenere 6 \(e^-\)), \\
+        il termine con \(J\) minimo è tendenzialmente a energia minima.
+        \begin{equation}
+            \text{Energia: } ^3P_0 < {^3P_1} < {^3P_2}
+        \end{equation}
+        \item per subshell almeno semipiena
+        (es. \(2p^3, 2p^4, \dots\)), \\
+        il termine a \(J_{\text{MAX}}\) tende ad avere energia minore.
+    \end{itemize}
+\end{enumerate}
+
+
+\end{note} 
+
+
+\subsubsection{Interazione con CEM}
+
+L'interazione tra un atomo a \(N_e\) elettroni e il CEM si modella introducendo il potenziale vettore \(\vec{A}\) nell'hamiltoniana:
+\begin{equation}
+    \sum_{i=1}^{N_e} \frac{p_i^2}{2m_e} \longrightarrow \sum_{i=1}^{N_e} \frac{(\vec{p}_i + e\vec{A}(\vec{r}_i, t))^2}{2m_e}
+\end{equation}
+Da questo sviluppo di interazione emerge il contributo dominante dell'operatore di \textbf{dipolo elettrico} \(\vec{D}\). 
+Nella pratica, gli elettroni di valenza (più esterni) interagiscono in modo preponderante con il CEM, poiché quelli interni sono fortemente vincolati e schermati dal nucleo.
+
+L'operatore momento di dipolo elettrico totale per il sistema è:
+\begin{equation}
+    \vec{D} = -e \sum_{i=1}^{N_e} \vec{r}_i = -e\vec{R}
+\end{equation}
+
+
+La probabilità che un atomo effettui una transizione di dipolo elettrico da uno stato iniziale \(\ket{i}\) a uno finale \(\ket{f}\) è governata dall'elemento di matrice \(\mel{f}{\vec{D}}{i}\):
+\begin{itemize}
+    \item \(\mel{f}{\vec{D}}{i} = 0 \implies\) Transizione \textbf{inibita} (proibita).
+    \item \(\mel{f}{\vec{D}}{i} \neq 0 \implies\) Transizione \textbf{permessa}.
+\end{itemize}
+
+
+Calcolare esplicitamente l'elemento di matrice per sistemi a molti elettroni è complesso. Ci si affida a regole di selezione che dipendono dal tipo di accoppiamento (es. \(LS\) per atomi leggeri, \(JJ\) per atomi pesanti).
+
+Per il predominante \textbf{accoppiamento LS}, le transizioni ammesse richiedono:
+\begin{itemize}
+    \item \(\Delta S = 0\) (la radiazione di dipolo elettrico non interagisce con lo spin).
+    \item \(\Delta L = 0, \pm 1\) (con la transizione \(L=0 \to L=0\) \textbf{rigorosamente proibita}).
+    \item \(\Delta M_L = 0, \pm 1\).
+\end{itemize}
+
+\begin{remark}[Ruolo della parte angolare]
+    Una transizione di dipolo elettrico richiede un cambiamento di parità, che è legata alla parte angolare della funzione d'onda (le armoniche sferiche \(Y_\ell^m\)). Una transizione in cui cambia solo la funzione radiale (\(R_{n\ell}\)), ad esempio da \(R_{10}Y_0^0\) a \(R_{20}Y_0^0\), non è ammessa poiché non varia la distribuzione angolare (\(\Delta \ell = 0\)).
+\end{remark}
+
+
+Se l'atomo è immerso in un campo magnetico esterno, subentra la quantizzazione spaziale legata a \(J\). Le regole di selezione per i salti tra i sottolivelli magnetici diventano:
+\begin{equation}
+    \Delta J = 0 \qquad \Delta M_J = 0, \pm 1
+\end{equation}
+
+
+
+\begin{exercise}
+    Per l'atomo di Elio (He), consideriamo il primo elettrone nello stato \( 1s \) con coordinata spaziale \( \vec{r}_1 \) (lo identifichiamo numericamente per semplicità di notazione, pur ricordando che gli elettroni sono quantisticamente indistinguibili).
+
+    La funzione d'onda completa per questo stato si scrive come:
+    \begin{equation}
+        \psi_{1s}(\vec{r}_1) = 2 \left( \frac{Z}{a_0} \right)^{3/2} \underbrace{\frac{1}{\sqrt{4\pi}}}_{Y_0^0(\theta_1, \phi_1)} e^{-Z \frac{r_1}{a_0}}
+    \end{equation}
+    dove \( a_0 \) rappresenta il raggio di Bohr.
+
+    Nelle applicazioni pratiche e per la risoluzione dei problemi, il testo richiede tipicamente di adottare le seguenti approssimazioni:
+    \begin{equation}
+        \mu \simeq m_e \qquad \text{e} \qquad a_\mu \simeq a_0
+    \end{equation}
+
+    \begin{attention}
+        Nei testi d'esame vengono spesso fornite delle autofunzioni approssimate ad hoc per il problema. È fondamentale utilizzare sempre le espressioni fornite esplicitamente dalla docente, piuttosto che fare affidamento su formule generali pre-imparate o presenti nei formulari.
+    \end{attention}
+Energia potenziale:
+\begin{equation}
+    u(r_2) = \underbrace{-\frac{Z e^2}{4\pi\varepsilon_0 r_2}}_{\text{interazione con nucleo}} + \overbrace{\frac{e^2}{4\pi\varepsilon_0} \int_V d^3r_1 \frac{|\psi_{1s}(r_1, \theta_1, \phi_1)|^2}{r_{12}}}^{\text{campo medio di Hartree}}
+\end{equation}
+
+Bisogna ricordarsi di scrivere all'esame l'integrale esplicitando l'angolo solido e la parte radiale:
+\begin{equation}
+    \int_0^\infty (4\pi) \frac{r_1^2}{r_{12}} |R_{10}(r_1)|^2 \, dr_1
+\end{equation}
+
+dove il fattore \( 4\pi \) deriva dall'integrale in angolo solido, che va specificato:
+\begin{equation}
+    \int_\Omega |Y_0^0|^2 \, d\Omega = 4\pi
+\end{equation}
+
+mentre la funzione d'onda radiale per l'orbitale è data da:
+\begin{equation}
+    R_{10}(r_1) = 2 \left( \frac{Z}{a_0} \right)^{\frac{3}{2}} e^{-\frac{Z r_1}{a_0}}
+\end{equation}
+
+\begin{remark}
+    Non è richiesto nella prova parziale risolvere tali integrali (il conto per il termine di Hartree viene fornito in esame), ma di seguito sono riportati alcuni \textit{hint} per l'eventuale risoluzione:
+    \begin{enumerate}
+        \item Utilizzare il teorema del coseno per la distanza relativa: \( r_{12} = \sqrt{r_1^2 + r_2^2 - 2r_1 r_2 \cos\theta} \)
+        \item Procedere per sostituzioni cambiando le variabili.
+    \end{enumerate}
+\end{remark}
+
+L'energia potenziale repulsiva \( u_{ee}(r_2) \) si ottiene dividendo l'integrale in due domini di integrazione rispetto alla variabile radiale:
+\begin{equation}
+    u_{ee}(r_2) = \frac{e^2}{4\pi\varepsilon_0} \left\{ \frac{1}{r_2} \int_0^{r_2} 4\pi r_1^2 |R_{10}(r_1)|^2 \, dr_1 + \int_{r_2}^\infty 4\pi \frac{r_1^2}{r_1} |R_{10}(r_1)|^2 \, dr_1 \right\}
+\end{equation}
+
+Risolvendo gli integrali, si ottiene il seguente risultato:
+\begin{equation}
+    u_{ee}(r_2) = \frac{e^2}{4\pi\varepsilon_0} \left\{ \frac{1}{r_2} - e^{-\frac{2Z r_2}{a_0}} \left( \frac{1}{r_2} + \frac{Z}{a_0} \right) \right\}
+\end{equation}
+
+Andando a comporre l'interazione totale, si osserva esplicitamente come il primo elettrone schermi il secondo dal nucleo. Sommando il contributo del potenziale nucleare e quello repulsivo interelettronico si ha:
+\begin{equation}
+    u(r_2) = -\frac{Ze^2}{4\pi\varepsilon_0 r_2} + u_{ee}(r_2) = -\frac{(Z-1)e^2}{4\pi\varepsilon_0 r_2} - \frac{e^2}{4\pi\varepsilon_0} e^{-\frac{2Z r_2}{a_0}} \left( \frac{1}{r_2} + \frac{Z}{a_0} \right)
+\end{equation}
+
+\begin{attention}
+    All'esame è tipicamente richiesto di fare esplicitamente questa somma e commentare il risultato ottenuto, evidenziando in particolar modo il termine di schermo \( (Z-1) \).
+\end{attention}
+
+Per semplificare i conti nel metodo di Hartree, è utile ricordare il seguente "trucco" per le conversioni di energia (definizione di Hartree):
+\begin{equation}
+    \frac{e^2}{4\pi\varepsilon_0 a_0} = 1 \text{ Hartree} \simeq 27.2 \text{ eV}
+\end{equation}
+
+Valutando il potenziale repulsivo (generato dal primo elettrone in \( 1s \)) per una distanza \( r_2 = \frac{a_0}{2} \), si trova che:
+\begin{equation}
+    u_{ee}\left(\frac{a_0}{2}\right) \simeq 39.7 \text{ eV}
+\end{equation}
+
+Inoltre, ricordando quanto già calcolato per l'atomo di Elio (\( He \)) nel metodo variazionale, l'energia potenziale di interazione con il nucleo valutata a tale distanza è:
+\begin{equation}
+    -\frac{Z e^2}{4\pi\varepsilon_0 \left(\frac{a_0}{2}\right)} \simeq -108.8 \text{ eV}
+\end{equation}
+
+Di conseguenza, il potenziale totale percepito dal secondo elettrone nell'atomo di \( He \) (assumendo il primo elettrone nello stato \( 1s \) e il secondo a distanza \( r_2 \)) risulta essere circa:
+\begin{equation}
+    u_{2^\circ \text{el. in He}} (1^\circ e^- \in 1s, \, 2^\circ \text{ a } r_2) \simeq -108.8 \text{ eV} + 39.7 \text{ eV} \simeq -69.2 \text{ eV}
+\end{equation}
+\end{exercise}
+
+\begin{note}{Teorema del Viriale}{teorema_viriale}
+    Per giustificare il calcolo del valore di $-108.8 \text{ eV}$, consideriamo un \textbf{atomo idrogenoide} descritto dalla base di autostati \( \{ \ket{n, \ell, m_\ell, m_s} \} \). 
+    Dal teorema del viriale si trova che vale la seguente relazione tra il valore di aspettazione dell'energia cinetica \( T \) e dell'energia potenziale \( V \):
+    
+    \begin{equation}
+        2 \mel{n, \ell, m_\ell, m_s}{T}{n, \ell, m_\ell, m_s} = - \mel{n, \ell, m_\ell, m_s}{V}{n, \ell, m_\ell, m_s}
+    \end{equation}
+    
+    dove gli operatori sono definiti come:
+    \begin{itemize}
+        \item \( T = -\frac{\hbar^2}{2m_e} \nabla_{\vec{r}_e}^2 \)
+        \item \( V = -\frac{Ze^2}{4\pi\varepsilon_0 r} \)
+    \end{itemize}
+    
+    Sapendo che l'energia totale è data da \( E = \expval{T} + \expval{V} \), possiamo sostituire \( \expval{T} = -\frac{1}{2}\expval{V} \) ottenendo così \( E = \frac{1}{2}\expval{V} \). Ne consegue la relazione:
+    \begin{equation}
+        \mel{n, \ell, m_\ell, m_s}{V}{n, \ell, m_\ell, m_s} = 2 E_n^{(0)}
+    \end{equation}
+    
+    dove l'energia imperturbata del livello \( n \) è data dalla nota formula:
+    \begin{equation}
+        E_n^{(0)} = -\frac{1}{2} \mu c^2 \frac{(Z\alpha)^2}{n^2}
+    \end{equation}
+    
+    \textbf{Per esempio:} ponendoci nello stato fondamentale (\( n=1 \)) per un nucleo con \( Z=2 \) (Elio idrogenoide), sappiamo che \( E_1^{(0)} \simeq -54.4 \text{ eV} \). 
+    Di conseguenza, il valore di aspettazione dell'energia potenziale risulterà:
+    \begin{equation}
+        \mel{1, \ell, m_\ell, m_s}{V}{1, \ell, m_\ell, m_s} = 2 E_1^{(0)} \simeq -108.8 \text{ eV}
+    \end{equation}
+\end{note}
+
+
+
+\begin{exercise}
+    Stimare il potenziale cui è sottoposto un elettrone in \( 2s \), se altri 2 elettroni sono in \( 1s \) (configurazione \( 1s^2 \)), come nel caso dell'atomo di Litio (\( Z=3 \)).
+
+    \textbf{Assunzioni:} \\
+    Assumere \( a_\mu = a_0 \) e \( \mu \sim m_e \). La funzione d'onda per i 2 elettroni nello stato \( 1s \) è data da:
+    \begin{equation}
+        \psi_{1s}(r_i, \theta_i, \phi_i) = R_{10}(r_i) Y_0^0(\theta_i, \phi_i) \qquad \text{(vale per i 2 } e^- \text{ in } 1s)
+    \end{equation}
+    dove la parte radiale e la parte angolare valgono rispettivamente:
+    \begin{equation}
+        R_{10}(r_i) = 2 \left( \frac{Z}{a_0} \right)^{\frac{3}{2}} e^{-\frac{Z r_i}{a_0}}, \qquad Y_0^0 = \frac{1}{\sqrt{4\pi}}
+    \end{equation}
+    Per il terzo elettrone (\( 3^\circ e^- \)) nello stato \( 2s \):
+    \begin{equation}
+        \psi_{2s}(\vec{r}) = R_{20} Y_0^0
+    \end{equation}
+    con \( R_{20} \) corrispondente alla soluzione dell'atomo idrogenoide.
+
+    \textbf{Svolgimento proposto (con errori intenzionali):}\\
+    Viene proposta la seguente espressione per calcolare il potenziale \( V(r_3) \) percepito dal terzo elettrone:
+    \begin{equation}
+        V(r_3) = \underbrace{-\frac{Ze}{4\pi\varepsilon_0 r_3}}_{\substack{\uparrow \\ \text{errori}}} + \frac{e}{4\pi\varepsilon_0} \left\{ \int \frac{|\psi_{1s}(\vec{r}_1)|^2}{r_{13}} \, d^3r_1 + \underbrace{\int \frac{|\psi_{1s}(\vec{r}_2)|^2}{r_{23}} \, d^3r_2}_{\text{da calcolare per casa}} + \underbrace{\cancel{\int \frac{|\psi_{1s}(\dots)|^2}{r_{12}} \, d^3r_2}}_{\substack{\text{termine repulsione} \\ \text{tra } e_1, e_2 \text{, non} \\ \text{c'entra con } e_3}} \right\}
+    \end{equation}
+    
+    A fine esercizio, valutando il potenziale per \( r_3 = \frac{a_0}{2} \), si ottiene \( V\left(\frac{a_0}{2}\right) \sim -65 \text{ V} \). \\
+    \textbf{È sensato? Ci sono errori, quali?}
+
+    \begin{solution}
+        Il risultato non è sensato perché l'impostazione iniziale contiene due importanti errori concettuali evidenziati durante la lezione:
+        \begin{enumerate}
+            \item \textbf{Confusione tra Potenziale ed Energia Potenziale (segni delle cariche):} L'espressione richiede di calcolare il \textit{potenziale elettrico} (\( V \)), non l'energia potenziale (\( U \)). Il potenziale generato dal nucleo di carica \( +Ze \) deve avere segno positivo (\( +\frac{Ze}{4\pi\varepsilon_0 r_3} \)), mentre il potenziale generato dalla distribuzione di carica dei due elettroni (\( -e \)) deve avere segno negativo. I segni davanti ai due termini principali sono quindi invertiti.
+            \item \textbf{Terzo integrale errato:} L'ultimo termine di integrale contiene a denominatore la distanza \( r_{12} \) e descrive l'interazione repulsiva tra il primo e il secondo elettrone. Dato che stiamo cercando il potenziale totale percepito dal \textit{terzo} elettrone, questo termine non contribuisce al campo in \( \vec{r}_3 \) e deve essere eliminato dalla formula.
+        \end{enumerate}
+    \end{solution}
+\end{exercise}
