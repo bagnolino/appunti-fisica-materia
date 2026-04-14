@@ -10,7 +10,7 @@ Si definisca inoltre \( \vec{r}_{e,1-2} = \vec{r}_{e,2} - \vec{r}_{e,1} \) la po
         \draw[->, thick] (0,0) -- (0,3) node[left] {Z};
         \draw[->, thick] (0,0) -- (3.5,0) node[below] {Y};
         \draw[->, thick] (0,0) -- (-1.2,-1.2) node[below] {X};
-        \node[below left] at (0,0) {O};
+        \node[ left] at (0,0) {O};
 
         % Coordinate
         \coordinate (N) at (1.2, 1.2);   % Nucleo
@@ -18,12 +18,12 @@ Si definisca inoltre \( \vec{r}_{e,1-2} = \vec{r}_{e,2} - \vec{r}_{e,1} \) la po
         \coordinate (E2) at (3.2, 1.8); % Elettrone 2
 
         % Vettori posizione dal SR LAB (in blu)
-        \draw[->, thick, blue!80!black] (0,0) -- (N) node[midway, right, xshift=-2pt] {\( \vec{R}_N \)};
+        \draw[->, thick, blue!80!black] (0,0) -- (N) node[midway, above right, yshift=+13pt,xshift = -2 pt] {\( \vec{R}_N \)};
         \draw[->, thick, blue!80!black] (0,0) -- (E1) node[midway, left] {\( \vec{r}_{e,1} \)};
         \draw[->, thick, blue!80!black] (0,0) -- (E2) node[midway, below right] {\( \vec{r}_{e,2} \)};
 
         % Vettori relativi (in rosso)
-        \draw[->, thick, red!70!black] (N) -- (E1) node[midway, left] {\( \vec{r}_1 \)};
+        \draw[->, thick, red!70!black] (N) -- (E1) node[midway, right] {\( \vec{r}_1 \)};
         \draw[->, thick, red!70!black] (N) -- (E2) node[midway, above] {\( \vec{r}_2 \)};
         \draw[->, thick, red!70!black] (E1) -- (E2) node[midway, above right] {\( \vec{r}_{e,1-2} \)};
     \end{tikzpicture}
@@ -377,28 +377,7 @@ L'utilizzo di funzioni d'onda simmetrizzate (\(\Psi_{E+}^{(0)}\)) o antisimmetri
     \Psi_{E\pm}^{(0)} = K \left[ \psi_{n_1 \ell_1 m_{\ell_1}}^{(0)}(\vec{r}_1) \psi_{n_2 \ell_2 m_{\ell_2}}^{(0)}(\vec{r}_2) \pm \psi_{n_1 \ell_1 m_{\ell_1}}^{(0)}(\vec{r}_2) \psi_{n_2 \ell_2 m_{\ell_2}}^{(0)}(\vec{r}_1) \right]
 \end{equation}
 
-dove \(K\) è la costante di normalizzazione. Calcolando il valore di aspettazione dell'operatore di interazione elettrone-elettrone su questi stati:
-
-\begin{equation}
-    \mel{\Psi_{E\pm}^{(0)}}{\frac{e^2}{4\pi \epsilon_0 r_{12}}}{\Psi_{E\pm}^{(0)}}
-\end{equation}
-
-si ottengono due contributi fisicamente distinti:
-
-\begin{itemize}
-    \item \textbf{a) Contributo di Coulomb (\(J\))}:
-    Rappresenta l'energia di repulsione elettrostatica classica tra due densità di carica:
-    \begin{equation}
-        J \propto \int \abs{\psi_{n_1 \ell_1 m_{\ell_1}}(\vec{r}_1)}^2 \frac{e^2}{4\pi \epsilon_0 r_{12}} \abs{\psi_{n_2 \ell_2 m_{\ell_2}}(\vec{r}_2)}^2 \, dV_1 dV_2
-    \end{equation}
-    Data l'indistinguibilità, l'integrale è identico scambiando le coordinate \(\vec{r}_1\) e \(\vec{r}_2\).
-
-    \item \textbf{b) Contributo di Scambio (\(K_{exc}\))}:
-    Termine puramente quantistico che non ha analoghi classici, derivante dalla sovrapposizione delle funzioni d'onda:
-    \begin{equation}
-        K_{exc} = \int \psi_{n_1 \ell_1 m_{\ell_1}}^*(\vec{r}_1) \psi_{n_2 \ell_2 m_{\ell_2}}^*(\vec{r}_2) \frac{e^2}{4\pi \epsilon_0 r_{12}} \psi_{n_1 \ell_1 m_{\ell_1}}(\vec{r}_2) \psi_{n_2 \ell_2 m_{\ell_2}}(\vec{r}_1) \, dV_1 dV_2
-    \end{equation}
-\end{itemize}
+dove \(K\) è la costante di normalizzazione. 
 
 
 \begin{note}{Stati genuinamente discreti}{gen-disc}
@@ -528,10 +507,11 @@ Il segno positivo corrisponde alla soluzione spaziale simmetrica (Paraelio), men
 \subsection{Interazione spin-orbita}
 
 \lezione{9}{23/03/2026}
-Oltre alle interazioni fondamentali, lo spettro dell'elio richiede l'inclusione del termine di accoppiamento spin-orbita \(\Delta H_{so}\). I momenti angolari si combinano secondo le relazioni:
+Oltre alle interazioni fondamentali, lo spettro dell'elio richiede l'inclusione del termine di accoppiamento spin-orbita \(\Delta H_{so}\). 
+I momenti angolari si combinano secondo le relazioni (indichiamo con le lettere maiuscole le combinazioni degli autovalori):
 
 \begin{equation}
-    \vec{S} = \vec{S}_1 + \vec{S}_2 \quad \implies \quad |S_1 - S_2| \le S \le S_1 + S_2
+    \vec{S} = \vec{S}_1 + \vec{S}_2 \quad \implies \quad |s_1 - s_2| \le S \le s_1 + s_2
 \end{equation}
 \begin{equation}
     \vec{L} = \vec{L}_1 + \vec{L}_2 \quad \implies \quad |\ell_1 - \ell_2| \le L \le \ell_1 + \ell_2

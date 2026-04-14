@@ -555,3 +555,294 @@ L'autovalore dell'energia interna \(E_{\mu, AB}\) tiene conto della struttura e 
     \item \textbf{Rotazioni} della molecola;
     \item \textbf{Vibrazioni} della molecola.
 \end{itemize}
+
+\lezione{13}{13/04/2026}
+
+Passiamo ora alla descrizione in coordinate sferiche \( (r = R_{AB}, \theta, \phi) \). La funzione d'onda può essere fattorizzata nel prodotto di una componente radiale e una angolare:
+
+\begin{equation}
+    \Phi_{\mu, AB}(\vec{R}_{AB}) = f(R_{AB}) Y(\theta, \phi)
+\end{equation}
+
+Tale formulazione introduce i numeri quantici caratteristici del sistema molecolare. Sebbene la struttura matematica risulti analoga a quella atomica, il significato fisico dei parametri coinvolti è differente: avremo infatti il numero quantico principale molecolare (\(n_{mol}\)), il momento angolare orbitale molecolare (\(J_{mol}\)) e la relativa proiezione lungo l'asse di quantizzazione (\(M_{J, mol}\)). La parte angolare è dunque descritta dalle armoniche sferiche:
+
+\begin{equation}
+    Y_{J_{mol}}^{M_{J, mol}}(\theta, \phi)
+\end{equation}
+
+Nello specifico, l'equazione radiale derivante dal cambiamento di variabili in coordinate sferiche assume la seguente forma:
+
+\begin{equation}
+    -\frac{\hbar^2}{2\mu_{AB}} \left[ \frac{1}{R_{AB}^2} \pdv{R_{AB}} \left( R_{AB}^2 \pdv{R_{AB}} \right) + \frac{J_{mol}^2 \hbar^2}{2\mu_{AB} R_{AB}^2} + U_{eff}(R_{AB}) \right] \Phi = E \Phi
+\end{equation}
+
+Dove il termine centrifugo emerge naturalmente dalla trasformazione del Laplaciano. Definiamo \(\vec{J}_{mol}\) come l'operatore momento angolare associato alla molecola, le cui proprietà di quantizzazione sono espresse dalle relazioni:
+
+\begin{equation}
+    \begin{cases} 
+        J_{mol}^2 Y_{J_{mol}}^{M_{J, mol}} = \hbar^2 J_{mol}(J_{mol} + 1) Y_{J_{mol}}^{M_{J, mol}}(\theta, \phi) \\
+        J_{mol, z} Y_{J_{mol}}^{M_{J, mol}} = \hbar M_{J, mol} Y_{J_{mol}}^{M_{J, mol}}(\theta, \phi)
+    \end{cases}
+\end{equation}
+
+Si utilizzano quindi le consuete armoniche sferiche, sebbene, come sottolineato, il contesto fisico sia differente. In conclusione, lo spettro energetico della molecola comprende sia il contributo rotazionale sia le vibrazioni del sistema attorno alla posizione di equilibrio, corrispondenti ai moti di oscillazione (avvicinamento e allontanamento) dei nuclei.
+
+Il termine associato alla parte rotazionale evidenzia delle rotazioni quantizzate, descritte dalla quantità:
+
+\begin{equation}
+    \frac{\hbar^2 J_{mol}(J_{mol}+1)}{2\mu_{AB} R_{AB}^2}
+\end{equation}
+
+dove il numero quantico associato alla proiezione del momento angolare varia come \( M_{J,mol} = -J_{mol}, \dots, J_{mol} \) a passi interi, originando una degenerazione dei livelli. 
+In presenza di un campo esterno, la molecola si orienta in virtù del proprio momento magnetico; tuttavia, rispetto a quanto accade per i singoli elettroni, tale orientamento richiede l'applicazione di campi magnetici notevolmente più intensi.
+
+Si introduce a questo punto il concetto di \textbf{momento di inerzia} della molecola, indicato con la lettera greca maiuscola \( \Theta \), il quale dipende strettamente dalla distanza nucleo-nucleo. Considerando la molecola in una configurazione stabile alla distanza di equilibrio \( R_{AB,eq} \), il momento di inerzia viene definito come:
+
+\begin{equation}
+    \Theta_{R_{AB} = R_{AB,eq}} := \mu_{AB} R_{AB,eq}^2
+\end{equation}
+
+Infine, si ricorda che all'interno dell'equazione radiale compare il termine di potenziale efficace, che assume la forma:
+
+\begin{equation}
+    U_{eff}(R_{AB}) = \frac{Z_A Z_B e^2}{4\pi\epsilon_0 R_{AB}} + E_e(R_{AB})
+\end{equation}
+
+in cui \( E_e(R_{AB}) \) rappresenta lo specifico contributo elettronico all'energia del sistema.
+
+Se la molecola è stabile, deve esistere un minimo del potenziale efficace \( U_{eff} \) in corrispondenza della distanza di equilibrio \( R_{AB} = R_{AB,eq} \). Questa condizione implica che la derivata prima del potenziale si annulli in tale punto:
+
+\begin{equation}
+    \left. \frac{d U_{eff}(R_{AB})}{d R_{AB}} \right|_{R_{AB,eq}} = 0
+\end{equation}
+
+Considerando un intervallo di tempo sufficientemente grande in cui la condizione di stabilità viene raggiunta, è possibile approssimare l'andamento del potenziale tramite uno sviluppo in serie di Taylor centrato nel punto di equilibrio:
+
+\begin{equation}
+    U_{eff}(R_{AB}) \approx \underbrace{U_{eff}(R_{AB,eq})}_{\text{pot. all'equilibrio}} + \underbrace{\frac{1}{2} \left. \frac{d^2 U_{eff}}{d R_{AB}^2} \right|_{R_{AB,eq}} (R_{AB} - R_{AB,eq})^2}_{\text{oscillatore armonico quantistico}}
+\end{equation}
+
+Introduciamo quindi \( K_{mol} \), definita come la costante elastica della molecola:
+
+\begin{equation}
+    K_{mol} := \left. \frac{d^2 U_{eff}(R_{AB})}{d R_{AB}^2} \right|_{R_{AB} = R_{AB,eq}}
+\end{equation}
+
+La forza del legame chimico influisce direttamente sulla capacità dei nuclei di muoversi (oscillare) lungo l'asse che li congiunge.
+
+Lo spettro in energia derivante da questo moto oscillatorio attorno alla posizione di equilibrio definisce le \textbf{vibrazioni molecolari}.
+Lo spettro vibrazionale risulta quantizzato tramite il numero quantico \( n_v = 0, 1, 2, \dots \), e i relativi livelli energetici sono espressi da:
+
+\begin{equation}
+    E_{n_v} = \hbar\omega_0 \left( n_v + \frac{1}{2} \right) = h\nu_0 \left( n_v + \frac{1}{2} \right)
+\end{equation}
+
+Ne consegue che l'energia vibrazionale minima è strettamente diversa da zero. Tale valore (energia di punto zero), ottenuto per \( n_v = 0 \), è pari a:
+
+\begin{equation}
+    E_{n_v=0} = \frac{\hbar\omega_0}{2} = \frac{h\nu_0}{2}
+\end{equation}
+
+In generale, gli spettri delle molecole risultano complessi poiché includono simultaneamente contributi legati alle vibrazioni, alle rotazioni e alle traslazioni. 
+Complessivamente, l'energia associata alla parte nucleare assume la forma:
+
+\begin{equation}
+    E_N = \underbrace{E_{n_v}}_{\text{vibrazione}} + \frac{\hbar^2 J_{mol}(J_{mol}+1)}{2\Theta} + \frac{\hbar^2 K^2}{2M_{TOT}} + E_{residuo}
+\end{equation}
+
+Poiché la trattazione analitica si basa su diverse approssimazioni, si sceglie di raggruppare tutte le correzioni necessarie all'interno del termine \( E_{residuo} \).
+
+Dall'analisi della curva del potenziale efficace si possono dedurre diverse caratteristiche fondamentali del sistema molecolare:
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.2]
+        % Assi
+        \draw[->, thick] (0, -2.5) -- (0, 2.5) node[left] {\( U_{eff} \)};
+        \draw[->, thick] (-0.3, 0) -- (6, 0) node[below] {\( R_{AB} \)};
+        
+        % Asintoto
+        \node[left, align=center,] at (-0.4, 0) {\( 0 \)};
+        
+        % Curva di potenziale
+        \draw[thick, blue!80!black] (0.2, 2.0) 
+            .. controls (0.2, -1.8) and (0.8, -2.5) .. (1.5, -2.0)
+            .. controls (2.5, -1.3) and (4.0, -0.2) .. (5.5, -0.05);
+
+        % Posizione di equilibrio
+        \draw[thick, teal] (1.2, 0.3) node[above] {\( R_{AB,eq} \)} -- (1.2, -2.1);
+
+        % Livelli discreti (vibrazionali/rotazionali)
+        \draw[thick, violet] (0.65, -1.6) -- (2.5, -1.6);
+        \draw[thick, violet] (0.55, -1.2) -- (2.9, -1.2);
+        \draw[thick, violet] (0.45, -0.6) -- (3.6, -0.6);
+
+        % Freccia di transizione
+        \draw[<->, thick, red] (1.5, -1.6) -- (1.5, -0.6);
+
+        % Etichetta livelli
+        \node[right, violet, align=left] at (3.6, -1.1) {
+            discreti \( \begin{cases} \text{rotaz.} \\ \text{vibraz.} \end{cases} \)
+        };
+    \end{tikzpicture}
+    \caption{Curva del potenziale efficace molecolare in funzione della distanza internucleare. Sono evidenziati i livelli energetici discreti e le possibili transizioni.}
+    \label{fig:potenziale_efficace_molecolare}
+\end{figure}
+
+All'interno della buca di potenziale, non tutti i livelli energetici sono possibili: l'energia risulta quantizzata in \textbf{livelli discreti}, che racchiudono i contributi legati alle vibrazioni e alle rotazioni della molecola.
+
+Di conseguenza, se il sistema viene illuminato con una radiazione incidente, si osserveranno dei salti (transizioni) \textit{esclusivamente} in corrispondenza dei livelli energetici ammessi. Questo limite fisico porta naturalmente all'introduzione delle \textbf{regole di selezione}.
+
+Infine, per descrivere in modo univoco lo stato quantico del sistema, ogni livello energetico all'interno della buca viene rigorosamente indicizzato mediante un \textbf{termine spettroscopico molecolare}.
+
+
+\begin{exercise}
+    Come applicazione pratica, consideriamo la molecola di acido cloridrico (\( \text{HCl} \)). Sono note le masse atomiche dei costituenti:
+    \begin{itemize}
+        \item \( m_H = 1.0078 \text{ amu} \)
+        \item \( m_{Cl} = 34.9688 \text{ amu} \)
+    \end{itemize}
+    (ricordando che \( 1 \text{ amu} \simeq 1.66 \cdot 10^{-27} \text{ kg} \)).
+
+    Dalle osservazioni sperimentali è noto che:
+    \begin{enumerate}
+        \item Si osserva una transizione radiativa tra il livello vibrazionale fondamentale e il primo livello eccitato con una differenza di energia \( \Delta E \simeq 0.36 \text{ eV} \).
+        \item La riga spettroscopica a \( \tilde{\nu} = 83.03 \text{ cm}^{-1} \) è associata alla transizione rotazionale tra gli stati \( J_{mol} = 3 \) e \( J_{mol} = 4 \).
+    \end{enumerate}
+
+    Sulla base di questi dati, si chiede di stimare la costante elastica molecolare \( K_{mol} \) e la distanza di legame all'equilibrio \( R_{AB,eq} \).
+
+\begin{solution}
+    Calcoliamo innanzitutto la massa ridotta del sistema binuclere:
+    \begin{equation}
+        \mu_{HCl} = \frac{m_H m_{Cl}}{m_H + m_{Cl}} \simeq 0.97957 \text{ amu} \simeq 1.6266 \cdot 10^{-27} \text{ kg}
+    \end{equation}
+
+    Per quanto concerne lo spettro vibrazionale, l'energia dei livelli quantizzati è data da \( E_{n_v} = \hbar\omega_0 \left( n_v + \frac{1}{2} \right) \). La transizione dal livello fondamentale (\( n_v = 0 \)) al primo stato eccitato (\( n_v = 1 \)) restituisce il valore di \(\hbar\omega_0\):
+    \begin{equation}
+        \Delta E = E_1 - E_0 = \hbar\omega_0 \frac{3}{2} - \hbar\omega_0 \frac{1}{2} = \hbar\omega_0 \simeq 0.36 \text{ eV}
+    \end{equation}
+    Da questo risultato possiamo dedurre la pulsazione classica equivalente \( \omega_0 \simeq 5.471 \cdot 10^{14} \text{ rad/s} \).
+
+    In analogia con la fisica classica, la costante elastica della molecola \( K_{mol} \), definita formalmente come la derivata seconda del potenziale efficace valutata all'equilibrio (\( K_{mol} = \left. \frac{d^2 U_{eff}}{d R_{AB}^2} \right|_{R_{AB,eq}} \)), è legata alla pulsazione dalla relazione \( \omega_0 = \sqrt{\frac{K_{mol}}{\mu_{HCl}}} \). Invertendo l'espressione otteniamo il primo risultato:
+    \begin{equation}
+        K_{mol} = \mu_{HCl} \omega_0^2 \simeq 486.89 \frac{\text{N}}{\text{m}}
+    \end{equation}
+
+    Procediamo ora utilizzando le informazioni relative allo spettro rotazionale per risolvere il secondo quesito. L'energia dei livelli dello spettro discreto rotazionale è espressa da:
+    \begin{equation}
+        E_{J_{mol}} = \frac{\hbar^2 J_{mol}(J_{mol}+1)}{2\mu_{AB} R_{AB,eq}^2}
+    \end{equation}
+    
+    Prendiamo in considerazione il modulo della differenza di energia tra i due livelli rotazionali (poiché a priori il modello non specifica se si tratti di emissione o assorbimento):
+    \begin{equation}
+        |E_{ROT, J_{mol}=3} - E_{ROT, J_{mol}=4}| = 83.03 \text{ cm}^{-1}
+    \end{equation}
+    Ricordiamo la conversione tra numero d'onda ed energia (\( \tilde{\nu} \equiv \frac{E}{hc} \)), sapendo che \( 1 \text{ cm}^{-1} \simeq 0.00012 \text{ eV} \).
+    
+    Sviluppiamo esplicitamente la differenza di energia inserendo la formula dei livelli rotazionali:
+    \begin{equation}
+        |E_3 - E_4|_{ROT} = \left| \frac{\hbar^2}{2\mu_{AB} R_{AB,eq}^2} \big[ 3(3+1) - 4(4+1) \big] \right| = \frac{4\hbar^2}{\mu_{AB} R_{AB,eq}^2}
+    \end{equation}
+
+    Conoscendo il divario energetico e la massa ridotta, possiamo isolare e calcolare la distanza di legame all'equilibrio:
+    \begin{equation}
+        R_{AB,eq} \simeq 1.31 \text{ \AA} \simeq 0.131 \text{ nm}
+    \end{equation}
+    (ricordando che \( 1 \text{ \AA} = 10^{-10} \text{ m} \)).
+\end{solution}
+\end{exercise}
+
+\begin{exercise}
+    Come esercizio tipico, consideriamo la molecola di ossigeno (\( \text{O}_2 \)), sapendo che la massa di un singolo atomo di ossigeno è \( m_O \simeq 16 \text{ amu} \).
+
+    È noto che il potenziale efficace \( U_{eff} \) in funzione della distanza internucleare \( R_{AB} \) (distanza O-O) può essere modellizzato dalla seguente espressione (nota come potenziale di Morse):
+    \begin{equation}
+        U_{eff}(R_{AB}) = U_0 \left\{ \left[ 1 - e^{-\alpha(R_{AB} - R_0)} \right]^2 - 1 \right\}
+    \end{equation}
+    (Nota: concettualmente questa formula descrive l'energia potenziale del legame, ma nel nostro contesto la medesima forma analitica viene adottata per trattare il potenziale efficace totale).
+
+    I parametri empirici del potenziale sono forniti come:
+    \begin{itemize}
+        \item \( U_0 \simeq 5.210 \text{ eV} \)
+        \item \( \alpha \simeq 2.78 \text{ \AA}^{-1} \)
+    \end{itemize}
+
+    Si richiede di:
+    \begin{enumerate}
+        \item Stimare lo spettro vibrazionale per lo stato fondamentale e per i primi due livelli eccitati (\( E_0, E_1, E_2 \)).
+        \item Stimare l'energia di dissociazione.
+        \item Valutare l'ordine di grandezza dell'estensione spaziale della vibrazione attorno alla posizione di equilibrio.
+    \end{enumerate}
+
+\begin{solution}
+    Calcoliamo innanzitutto la massa ridotta della molecola omonucleare:
+    \begin{equation}
+        \mu = \frac{m_O^2}{2m_O} = \frac{m_O}{2} \simeq 1.328 \cdot 10^{-26} \text{ kg}
+    \end{equation}
+
+    Per descrivere il moto vibrazionale, ricorriamo all'approssimazione di piccole oscillazioni (vibrazioni armoniche) attorno al punto di minimo del potenziale. La costante elastica \( K_{O_2} \) è definita come la derivata seconda del potenziale efficace valutata nella posizione di equilibrio \( R_{AB,eq} \):
+    \begin{equation}
+        K_{O_2} = \left. \frac{d^2 U_{eff}}{d R_{AB}^2} \right|_{R_{AB,eq}}
+    \end{equation}
+
+    Sfruttando la similitudine con l'oscillatore armonico della fisica classica, la pulsazione caratteristica del sistema è:
+    \begin{equation}
+        \omega_0 = \sqrt{\frac{K_{O_2}}{\mu}}
+    \end{equation}
+
+    Eseguendo la derivata seconda della forma analitica di \( U_{eff}(R_{AB}) \), si dimostra che nel punto di minimo vale la relazione:
+    \begin{equation}
+        \left. \frac{d^2 U_{eff}(R_{AB})}{d R_{AB}^2} \right|_{R_{AB,eq}} = 2\alpha^2 U_0
+    \end{equation}
+
+    Prestando attenzione alla conversione delle unità di misura (\( \alpha = 2.78 \text{ \AA}^{-1} = 2.78 \cdot 10^{10} \text{ m}^{-1} \)), calcoliamo il valore numerico della costante elastica molecolare:
+    \begin{equation}
+        K_{mol} = 2\alpha^2 U_0 \simeq 1.288 \cdot 10^3 \,\frac{\text{N}}{\text{m}}
+    \end{equation}
+
+    Sostituendo \( K_{mol} \) e \( \mu \) nell'espressione della pulsazione, otteniamo le frequenze caratteristiche dell'oscillatore:
+    \begin{equation}
+        \omega_0 \simeq 3.144 \cdot 10^{14} \text{ rad/s} \quad \implies \quad \nu_0 = \frac{\omega_0}{2\pi} \simeq 4.957 \cdot 10^{13} \text{ Hz}
+    \end{equation}
+
+    I livelli energetici quantizzati associati al moto vibrazionale seguono la legge:
+    \begin{equation}
+        E_{n_v} = \hbar\omega_0 \left( n_v + \frac{1}{2} \right)
+    \end{equation}
+
+    Valutando questa espressione per lo stato fondamentale (\( n_v = 0 \)) e per i primi due stati eccitati (\( n_v = 1, 2 \)), otteniamo i valori dello spettro:
+    \begin{align}
+        E_0 &= \frac{\hbar\omega_0}{2} \simeq 0.102 \text{ eV} \\
+        E_1 &= \frac{3}{2}\hbar\omega_0 \simeq 0.308 \text{ eV} \\
+        E_2 &= \frac{5}{2}\hbar\omega_0 \simeq 0.513 \text{ eV}
+    \end{align}
+    
+    Questi risultati teorici, derivati dall'approssimazione armonica, si rivelano in ottimo accordo e molto simili ai valori misurati sperimentalmente per la molecola di ossigeno.
+\end{solution}
+\end{exercise}
+
+
+\textbf{Ripasso veloce}
+
+\begin{enumerate}
+    \item \textbf{Regola di Hund}: è una regola di natura empirica (sperimentale) e risulta rigorosamente valida solo per elettroni \emph{equivalenti} (ovvero elettroni caratterizzati dagli stessi numeri quantici \(n\) ed \(\ell\)).
+    
+    \begin{attention}
+        Spesso viene applicata anche in altri contesti, ma si tratta di un errore concettuale: al di fuori del caso degli elettroni equivalenti, la regola di Hund perde il suo potere predittivo e non è formalmente applicabile.
+    \end{attention}
+
+    \item \textbf{Transizioni radiative} (fenomeni di emissione e assorbimento di luce):
+    \begin{itemize}
+        \item Le transizioni principali sono promosse dall'operatore \textbf{momento di dipolo elettrico} \(\vec{D} = -e\vec{r}\). Le regole di selezione associate impongono che:
+        \begin{equation*}
+            \Delta n \neq 0, \quad \Delta \ell \neq 0
+        \end{equation*}
+        \item Esistono anche transizioni di ordine superiore, indotte da momenti di \textbf{quadrupolo elettrico}, oppure di \textbf{dipolo e quadrupolo magnetico} (tuttavia, l'analisi dettagliata di questi meccanismi esula dagli argomenti trattati in questo corso).
+    \end{itemize}
+    
+    Qualora il sistema sia immerso in un campo magnetico esterno \(\vec{B}_{est}\), al set precedente occorre aggiungere le ulteriori regole di selezione per i momenti angolari totali (effetto Zeeman):
+    \begin{equation*}
+        \Delta J = 0, \pm 1 \qquad \Delta m_J = 0, \pm 1
+    \end{equation*}
+\end{enumerate}

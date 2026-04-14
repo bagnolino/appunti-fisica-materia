@@ -437,7 +437,7 @@ Ricordiamo che il momento magnetico di spin è direttamente proporzionale al vet
 \begin{equation}
     \vec{\mu}_s = -g_s \frac{\mu_B}{\hbar} \vec{S}
 \end{equation}
-in cui $g_s \simeq 2,0$ è il fattore giromagnetico di spin dell'elettrone e $\mu_B$ è il magnetone di Bohr.
+in cui $g_s \simeq 2,0$ è il fattore giromagnetico di spin dell'elettrone e $\mu_B = \frac{\hbar e}{2m_e}$ è il magnetone di Bohr.
 La correzione all'Hamiltoniana derivante dall'interazione spin-orbita è costituita, in prima battuta, dall'energia di interazione associata al dipolo magnetico immerso nel campo $\vec{B}'$:
 \begin{equation}
     \Delta H_{\text{int } \vec{B}'-\vec{s}} = - \vec{\mu}_s \cdot \vec{B}'
@@ -445,7 +445,7 @@ La correzione all'Hamiltoniana derivante dall'interazione spin-orbita è costitu
 
 Sostituendo le espressioni precedentemente ricavate per il momento magnetico di spin ($\vec{\mu}_s$) e per il campo magnetico ($\vec{B}'$), i segni meno si elidono e otteniamo:
 \begin{equation}
-    \Delta H_{\text{int } \vec{B}'-\vec{s}} = + g_s \frac{\mu_B}{\hbar} K_Z(r) (\vec{S} \cdot \vec{L})
+    \Delta H_{\text{int } \vec{B}'-\vec{s}} = + g_s \frac{\mu_B}{\hbar} K_Z(r) (\vec{S} \cdot \vec{L}) = \frac{e}{m_e} K_Z(r) (\vec{L} \cdot \vec{S})
 \end{equation}
 Come si evince dall'equazione, questo termine correttivo risulta direttamente proporzionale al prodotto scalare $\vec{S} \cdot \vec{L}$, motivo per cui tale effetto prende il nome di interazione ``spin-orbita''.
 
@@ -704,11 +704,14 @@ dall'accoppiamento spin-orbita, per \( \ell=1 \), si ottengono i seguenti valori
     \ell + \frac{1}{2} = \frac{3}{2} 
 \end{cases}
 \]
-
-L'indicizzazione per i sottolivelli segue il \textbf{formalismo spettroscopico}:
+\begin{note}{Formalismo spettroscopico}{spetrr.}
+    L'indicizzazione per i sottolivelli segue il \textbf{formalismo spettroscopico}:
 \begin{equation}
     n ^{2s+1} \ell_j
 \end{equation}
+\end{note}
+
+
 Dunque i due sottolivelli saranno indicati da \( 2^2 p_{\frac{1}{2}} \) e \( 2^2 p_\frac32 \) .
 
 Per lo stato con momento angolare totale minimo \(2^2p_\frac12\), la correzione energetica è data da:
@@ -1502,13 +1505,13 @@ La presenza della delta di Dirac (\( \delta_D \)) all'interno dei due termini ga
     \textbf{Probabilità di transizione} \\
     La probabilità che il sistema compia una transizione da uno stato iniziale $\ket{i}$ a uno stato finale $\ket{f}$ a causa della perturbazione è definita come:
     \begin{equation}
-        W_{i \to f} = \abs{\mel{f}{O(t)}{i}}^2
+        \Gamma_{i \to f} = \abs{\mel{f}{O(t)}{i}}^2
     \end{equation}
 
     \textbf{Rate di transizione} \\
-    Il rate di transizione quantifica la probabilità di transizione per unità di tempo. Per evitare ambiguità di notazione, lo indichiamo con il simbolo $\Gamma_{i \to f}$:
+    Il rate di transizione quantifica la probabilità di transizione per unità di tempo:
     \begin{equation}
-        \Gamma_{i \to f} = \lim_{\Delta t \to 0} \frac{W_{i \to f}}{\Delta t}
+         W_{i \to f}= \lim_{\Delta t \to 0} \frac{\Gamma_{i \to f}}{\Delta t}
     \end{equation}
 \end{note}
 
@@ -1521,7 +1524,7 @@ Classicamente, un'onda monocromatica di frequenza $\omega$ può essere scritta s
 \end{equation}
 Analizzando i termini di questa espressione riconosciamo:
 \begin{itemize}
-    \item $A(\omega)$: l'ampiezza del potenziale vettore (attenzione a non confondere la frequenza angolare $\omega$ con il rate di transizione $W$).
+    \item $A(\omega)$: l'ampiezza del potenziale vettore.
     \item $\hat{\varepsilon}$: il versore che definisce la direzione di \textbf{polarizzazione} dell'onda.
     \item $\vec{k}$: il vettore d'onda.
 \end{itemize}

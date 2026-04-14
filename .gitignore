@@ -9,3 +9,4 @@ build/
 *.toc
 *.synctex.gz
 *DS_Store
+*output.md
