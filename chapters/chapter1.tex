@@ -3,13 +3,13 @@
 
 \lezione{1}{23/02/2026}
 
-\section{Elementi essenziali}
+
 
 L''analisi dell'atomo idrogenoide costituisce il punto di partenza fondamentale per lo studio della struttura atomica nella meccanica quantistica moderna. 
 Per atomo idrogenoide si intende un sistema legato composto da un nucleo di carica elettrica $+Ze$ (dove $Z$ è il numero atomico) e da un singolo elettrone di carica $-e$.
 
 
-\subsection{Descrizione quantistica}
+\section{Modello imperturbato}
 
 Consideriamo l'Hamiltoniano imperturbato di un atomo isolato, definito dalla somma dell'energia cinetica ($T$) e del potenziale ($V$):
 \begin{equation}
@@ -355,12 +355,12 @@ Il modello dell'atomo idrogenoide funziona bene anche per atomi con più elettro
 Le shell interne sono chiuse e schermano la carica del nucleo, andrà dunque considerata solo la \textbf{carica efficace} del nucleo.
 
 
-\subsection{Correzioni}
+\section{Correzioni}
 L'espressione di \(H^{(0)}\) non tiene conto del fatto che l'elettrone è una particella relativistica dotata di spin e, infatti,
 lo studio degli spettri di emissione e assorbimento degli atomi idrogenoidi non è pienamente soddisfacente,
 specialmente per giustificare la presenza di multipletti.
 
-\subsubsection{Correzione di Darwin}
+\subsection{Correzione di Darwin}
 Il primo termine correttivo da considerare è la \textbf{correzione di Darwin} \(\Delta H_D\):
 \begin{equation}
     \Delta H_D = \frac{\pi \hbar^2}{2m_e^2 c^2} \frac{Ze^2}{4\pi \epsilon_0}\delta_D(\vec{r})
@@ -372,7 +372,7 @@ Il valore medio per un certo autostato \(\ket{n,\ell,m_\ell, m_s}\):
 \end{equation}
 che scala come \(Z^4\) e \(\frac{1}{n^3}\). 
 
-\subsubsection{Correzione relativistica}
+\subsection{Correzione relativistica}
 Espressione relativistica dell'energia cinetica:
 \begin{equation}
     E = \sqrt{p^2 c^2 + m_e^2 c^4} \qquad T = E - m_e c^2
@@ -399,7 +399,7 @@ L'ordine di grandezza risulta:
 \end{equation}
 Sarà rilevante dunque solo in apparati ad alta risoluzione.
 
-\subsubsection{Interazione Spin-orbita}
+\subsection{Interazione Spin-orbita}
 
 L'interazione tra l'elettrone ($e^-$) e il campo elettrico $\vec{E}$ generato dal nucleo viene percepita come un campo magnetico $\vec{B}$ dall'elettrone stesso.
 
@@ -738,7 +738,7 @@ Per l'atomo di Idrogeno (\( Z=1 \)), questo valore corrisponde a:
 \end{solution}
 \end{exercise}
 
-\subsubsection{Correzione complessiva}
+\subsection{Correzione complessiva}
 \lezione{4}{03/03/2026}
 In generale, dunque, la correzione complessiva, che chiameremo \textbf{correzione di struttura fine}, sarà:
 \begin{equation}
@@ -991,7 +991,7 @@ dove \( \vec{M} \) rappresenta il momento torcente. Poiché la somma dei momenti
 
 
 
-\section{Interazione con pertubazioni esterne}
+\section{Interazione con perturbazioni esterne}
 Un atomo sottoposto ad una perturbazione esterna è descritto da una Hamiltoniana \(H\) che include leffetto di
 tale perturbazione espressa come somma dell'Hamiltoniana descrittiva del sistema in assenza di
 perturbazione (\(H^{(0)}+ \Delta H_{SF}\)) e del termine rappresentativo della perturbazione esterna (\(\Delta H_{ext}\)):

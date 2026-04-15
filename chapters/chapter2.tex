@@ -30,6 +30,9 @@ Si definisca inoltre \( \vec{r}_{e,1-2} = \vec{r}_{e,2} - \vec{r}_{e,1} \) la po
     \caption{Sistema di riferimento e coordinate vettoriali per l'atomo di elio.}
     \label{fig:atomo_elio_vettori}
 \end{figure}
+
+\section{Hamiltoniana e il problema dei due corpi}
+
 L'operatore Hamiltoniano \( H \) per l'atomo di He è fornito dalla seguente espressione:
 \begin{equation}
     H = -\frac{\hbar^2}{2M_N} \nabla_{\vec{R}_N}^2 - \frac{\hbar^2}{2m_e} \nabla_{\vec{r}_{e,1}}^2 - \frac{\hbar^2}{2m_e} \nabla_{\vec{r}_{e,2}}^2 - \frac{Ze^2}{4\pi\epsilon_0 r_1} - \frac{Ze^2}{4\pi\epsilon_0 r_2} + \frac{e^2}{4\pi\epsilon_0 r_{e,1-2}} + \Delta H_{SF}
@@ -59,7 +62,7 @@ Per stimare lo spettro in energia di He, la prima ipotesi è \( H \approx H^{(0)
     H^{(0)} = \underbrace{(T_1 + V_{N-1})}_{H_1} + \underbrace{(T_2 + V_{N-2})}_{H_2}
 \end{equation}
 
-\subsubsection{Proprietà autofunzioni}
+\subsection{Proprietà autofunzioni}
 Per l'Hamiltoniana imperturbata è possibile separare per variabili le autofunzioni:
 \begin{equation}
     \Psi_E(\vec{r}_1, \vec{r}_2, \vec{R}_{CM}, s_1, s_2)= \Psi^{(0)}_E(\vec{r}_1, \vec{r}_2)\chi(s_1,s_2)   \Phi(\vec{R}_{CM})
@@ -102,7 +105,7 @@ Definiamo in modo contratto tali stati con il simbolo \(\Psi_{E, \pm}^{(0)}(\vec
     \item \(\Psi_{E, -}^{(0)}\): combinazione \textbf{antisimmetrica} rispetto allo scambio \(\vec{r}_1 \leftrightarrow \vec{r}_2\).
 \end{itemize}
 
-\subsubsection{Autofunzioni di Spin}Consideriamo la funzione d'onda di spin complessiva \(\chi(1, 2)\). Per ogni elettrone (\(i=1,2\)), definiamo l'operatore di spin di singola particella \(\vec{S}_i\) tramite le sue componenti:
+\subsection{Autofunzioni di Spin}Consideriamo la funzione d'onda di spin complessiva \(\chi(1, 2)\). Per ogni elettrone (\(i=1,2\)), definiamo l'operatore di spin di singola particella \(\vec{S}_i\) tramite le sue componenti:
 \begin{equation}
     \vec{S}_i = (S_{ix}, S_{iy}, S_{iz})
 \end{equation}
@@ -229,7 +232,7 @@ ne consegue che tale termine risulta dominante rispetto alla correzione di spin-
     \expval{\Delta V_{ee}} \gg \expval{\Delta H_{SO}} \sim 10^{-4} \divisionsymbol 10^{-3} \text{ eV}   
 \end{equation}
 
-\subsubsection{Approccio perturbativo}
+\subsection{Approccio perturbativo}
 \begin{equation}
     \Delta V_{ee} = \frac{e^2}{4\pi \epsilon_0 r_{12}}
 \end{equation}
@@ -266,7 +269,7 @@ La differenza tra il valore teorico e quello sperimentale può dipendere dai seg
 \end{enumerate}
 \end{attention}
 
-\subsubsection{Metodo variazionale}
+\subsection{Metodo variazionale}
 
 Il metodo variazionale si basa sul principio intuitivo che è sempre possibile costruire un \textbf{funzionale energia} definito come:
 \begin{equation}
@@ -368,7 +371,7 @@ Per l'atomo di Elio (\(Z=2\)), sostituendo \(Z_{\text{eff}}^* = 1.69\) nel funzi
 Il valore ottenuto (\(\sim -77.5 \text{ eV}\)) è estremamente vicino alla stima sperimentale di \(\sim -79 \text{ eV}\). 
 Questo dimostra come l'introduzione di un singolo parametro fisico (lo schermo della carica nucleare) permetta di recuperare gran parte dell'energia di correlazione elettronica trascurata nel modello a particelle indipendenti.
 
-\subsubsection{Simmetrizzazione e Integrali di Scambio}
+\subsection{Simmetrizzazione e Integrali di Scambio}
 \label{sec: integrali_scambio}
 
 L'utilizzo di funzioni d'onda simmetrizzate (\(\Psi_{E+}^{(0)}\)) o antisimmetrizzate (\(\Psi_{E-}^{(0)}\)) ha un impatto diretto sulla stima dell'energia e descrive correttamente la distribuzione degli elettroni nel sistema. La funzione d'onda totale (spaziale) assume la forma:
@@ -1593,7 +1596,7 @@ Gli \( e^- \) esterni sono meno vincolati al nucleo, è sufficiente un campo ele
 \end{note} 
 
 
-\subsubsection{Interazione con CEM}
+\subsection{Interazione con CEM}
 
 L'interazione tra un atomo a \(N_e\) elettroni e il CEM si modella introducendo il potenziale vettore \(\vec{A}\) nell'hamiltoniana:
 \begin{equation}

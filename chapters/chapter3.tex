@@ -97,6 +97,8 @@ Approfondiremo quindi la soluzione dell'equazione agli autovalori limitandoci es
     H_e \Psi_{E,e}(\tilde{r}_{N_e}) = \underbrace{E_e(\tilde{R}_{N_N})}_{\text{fissi (param.)}} \Psi_{E,e}(\tilde{r}_{N_e})
 \end{equation}
 
+\subsection{Metodo LCAO}
+
 Usiamo il metodo \textbf{LCAO} (Linear Combination of Atomic Orbitals).
 È un metodo approssimato per lo studio delle molecole che prevede le seguenti ipotesi:
 
@@ -513,6 +515,8 @@ Esplicitando i termini cinetico e potenziale inter-nucleare, si ottiene:
 \begin{equation}
     H_N = \sum_{k=1}^{N_N} -\frac{\hbar^2}{2M_k} \nabla_{\vec{R}_k}^2 + \frac{1}{2} \sum_{\substack{k,\ell \\ k \neq \ell}} \frac{Z_k Z_\ell e^2}{4\pi\varepsilon_0 |\vec{R}_k - \vec{R}_\ell|} + E_e(\tilde{R}_{N_N})
 \end{equation}
+
+\subsection{Separazioni dei moti}
 Passiamo al sistema di riferimento del Centro di Massa (SR CM) dei nuclei. La soluzione per la funzione d'onda nucleare si può fattorizzare nel prodotto di due contributi:
 \begin{equation}
     \Psi_{E,N}(\tilde{R}_{N_N}) \simeq \underbrace{\Phi_{E,N}(\vec{R}_{CM,N})}_{\text{parte spaziale CM}} \cdot \underbrace{\Phi_{E,\mu}(\vec{R}_\mu)}_{\text{parte spaziale massa ridotta}}
@@ -544,6 +548,8 @@ dove \(\vec{k}\) è il vettore d'onda associato al centro di massa. La soluzione
 \begin{equation}
     \Phi_{E,N}(\vec{R}_{CM,N}) \propto e^{i \vec{k} \cdot \vec{R}_{CM,N}}
 \end{equation}
+
+\subsection{Spettro rotazionale e vibrazionali}
 
 Per quanto riguarda il moto della \textbf{massa ridotta} (che descrive la dinamica interna della molecola), l'equazione diventa:
 \begin{equation}
