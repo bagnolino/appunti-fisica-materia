@@ -426,16 +426,6 @@ Gli andamenti delle funzioni d'onda e delle relative densità di probabilità ri
             \draw[<-, purple!80!black] (0, 0.9) .. controls (-0.1, 1) and (-0.4, 1.2) .. (-0.6, 1.6) 
                 node[above, align=center, font=\footnotesize] {prob \( \neq 0 \) qui \\ legame};
                 
-            % Rappresentazione nube elettronica
-            \begin{scope}[xshift=5.5cm, yshift=0.8cm]
-                \node at (-0.8, 0) {H};
-                \node at (0.8, 0) {H};
-                \draw[dotted, purple!80!black] (0, 0) ellipse (1.5 and 0.5);
-                % Puntini extra per la densità
-                \foreach \i in {1,...,15} {
-                    \fill[purple!80!black, opacity=0.5] ({-1 + 2*rnd}, {-0.3 + 0.6*rnd}) circle (0.5pt);
-                }
-            \end{scope}
         \end{scope}
 
         % ----------------------------------------------------
@@ -472,13 +462,6 @@ Gli andamenti delle funzioni d'onda e delle relative densità di probabilità ri
             \draw[<-, purple!80!black] (0, 0.1) -- (0, 0.8) 
                 node[above, align=center, font=\footnotesize] {prob \( = 0 \) qui \\ antilegame};
                 
-            % Rappresentazione nubi elettroniche separate
-            \begin{scope}[xshift=5.5cm, yshift=0.8cm]
-                \node at (-0.8, 0) {H};
-                \node at (0.8, 0) {H};
-                \draw[dotted, purple!80!black] (-0.8, 0) circle (0.4);
-                \draw[dotted, purple!80!black] (0.8, 0) circle (0.4);
-            \end{scope}
         \end{scope}
 
     \end{tikzpicture}
