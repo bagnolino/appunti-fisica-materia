@@ -483,3 +483,181 @@ Conoscendo le direzioni normali, è immediato calcolare l'angolo \( \theta \) d'
 \end{equation}
 
 In sintesi, il costrutto matematico del reticolo reciproco gode di proprietà geometriche di estrema utilità, in quanto consente di descrivere analiticamente distanze e angoli interplanari, fornendo così la base necessaria per comprendere l'impatto della periodicità strutturale sul comportamento dei solidi cristallini.
+
+
+\subsubsection{Diffrazione da raggi X}
+Quando un campo elettromagnetico (CEM) incide su un cristallo, è fondamentale conoscere i parametri caratteristici dell'onda incidente, in particolare la lunghezza d'onda \( \lambda \) e la frequenza \( \nu \). Affinché la struttura cristallina possa agire da \textbf{reticolo di diffrazione}, è strettamente necessario che la lunghezza d'onda della radiazione sia comparabile con il parametro di cella \( a \); essi devono cioè possedere il medesimo ordine di grandezza (\( \lambda \approx a \)). 
+
+Nel momento in cui il CEM interagisce con gli atomi del cristallo, l'onda incidente subisce un processo di diffusione. Il fenomeno è concettualmente analogo a quello che avviene in presenza di fenditure, con la differenza che in questo contesto i centri diffusori (gli ostacoli) sono rappresentati dai singoli atomi disposti periodicamente. 
+
+Ogni atomo perturbato fornisce una propria risposta, generando un'onda sferica diffusa. La successiva sovrapposizione spaziale di tutte queste onde secondarie dà luogo a fenomeni di interferenza. La catena logica ineccepibile che descrive il processo fisico è pertanto la seguente:
+\textbf{Diffusione} (interazione sui singoli atomi) \( \rightarrow \) \textbf{Interferenza} (sovrapposizione tra le onde diffuse) \( \rightarrow \) \textbf{Generazione della figura di Diffrazione} (il fenomeno macroscopico che viene effettivamente osservato).
+
+Se il modulo del vettore d'onda si conserva inalterato durante il processo, ci si trova in un regime di \textbf{diffusione elastica}. In assenza di perdita o trasferimento di energia, si creano le condizioni ideali per assistere a un'interferenza stabile e ben definita.
+
+Questa dinamica è formalizzabile attraverso il \textbf{Principio di Huygens}: ogni atomo investito dall'onda primaria si comporta come una sorgente puntiforme da cui si genera un'onda di diffusione. Spostandosi a una distanza macroscopica dal cristallo, individuata da un vettore di posizione \( \vec{R}' \), queste molteplici onde secondarie si andranno a combinare linearmente, restituendo il campo elettromagnetico diffratto dal reticolo atomico.
+
+Nel caso specifico in cui si utilizzino raggi X, la risposta del singolo atomo risulta fortemente dipendente dall'energia della radiazione incidente:
+\begin{itemize}
+    \item Impiegando raggi X a \textbf{bassa energia}, l'onda elettromagnetica interagisce prevalentemente con gli elettroni dei livelli energetici più esterni.
+    \item Utilizzando raggi X ad \textbf{alta energia}, la radiazione è sufficientemente penetrante da arrivare a perturbare gli elettroni più vicini al nucleo (elettroni di core).
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, thick, font=\sffamily]
+
+        % Coordinate principali (fondamentale che siano definite prima di usarle)
+        \coordinate (S) at (0,0);
+        \coordinate (P) at (3.5, 3.5);
+        \coordinate (B) at (10, 1.5);
+
+        % --- CRISTALLO ---
+        % Le opzioni di lisciatura passate direttamente a plot
+        \draw[fill=cyan!10, draw=cyan!70!black] plot[smooth cycle, tension=0.7] coordinates {(2.5, 3.2) (3.8, 2.7) (4.5, 3.8) (3.6, 4.6) (2.8, 4.2)};
+        
+        % Punto P e volumetto dV
+        \filldraw[cyan!70!black] (P) circle (1.5pt) node[above right, text=cyan!70!black] {$P = \text{punto del cristallo in posizione } \vec{r}$};
+        \node[right=0.3cm,below = 0.7cm ,font=\small, text=teal!80!black] at (P) {$dV$};
+
+        % --- SORGENTE ---
+        \filldraw (S) circle (2pt) node[below=0.1cm] {$S$};
+        \node[align=center, below=0.5cm] at (S) {Sorgente raggi X};
+
+        % --- OSSERVATORE / RIVELATORE ---
+        \filldraw (B) circle (2pt) node[right=0.2cm] {$B$};
+        \node[align= center , right=0.6cm, below=0.5cm,text=purple!80!black] at (B) {Osservatore Rivelatore};
+
+        % --- VETTORI ---
+        \draw[->, blue!80!black] (S) -- (P) node[midway, above left] {$\vec{r}$};
+        \draw[->, purple!70!black] (S) -- (B) node[midway, below=0.1cm] {$\vec{R}'$};
+        \draw[->, red!80!black] (P) -- (B) node[midway, above right] {$\vec{R}' - \vec{r}$};
+
+    \end{tikzpicture}
+    \caption{Rappresentazione schematica della geometria di un esperimento di diffrazione da raggi X.}
+    \label{fig:xray_diffraction_setup}
+\end{figure}
+
+
+Consideriamo un punto \( P \) all'interno del cristallo, individuato dal vettore posizione \( \vec{r} \). L'interazione con il campo elettromagnetico (CEM) incidente genera in \( P \) una risposta caratterizzata da un'ampiezza \( A_P \), proporzionale alla fase dell'onda incidente:
+\begin{equation}
+    A_P \propto e^{i \vec{k} \cdot \vec{r}}
+\end{equation}
+dove \( \vec{k} = \frac{2\pi}{\lambda} \hat{u}_k \) rappresenta il vettore d'onda del CEM incidente.
+
+L'onda diffusa dal punto \( P \) e misurata in un punto di osservazione \( B \) (individuato dal vettore posizione \( \vec{R}' \)) avrà un'ampiezza \( A_B \) che dipende dal cammino ottico percorso dopo l'interazione e dall'attenuazione dell'onda sferica:
+\begin{equation}
+    A_B \propto A_P \frac{e^{i \vec{k}' \cdot (\vec{R}' - \vec{r})}}{|\vec{R}' - \vec{r}|}
+\end{equation}
+dove \( \vec{k}' \) è il vettore d'onda diffuso, il quale può differire da \( \vec{k} \) quantomeno nella direzione di propagazione.
+
+L'ampiezza totale osservata, \( A_{B,TOT} \), relativa all'intero cristallo, è data dalla "somma" (ovvero dall'integrazione sul volume) di tutti i singoli contributi generati da ogni centro diffusore. Sostituendo l'espressione di \( A_P \) si ottiene:
+\begin{equation}
+    A_{B,TOT} \propto \int_{\text{CRISTALLO}} \frac{e^{i \vec{k} \cdot \vec{r}} \cdot e^{i \vec{k}' \cdot (\vec{R}' - \vec{r})}}{|\vec{R}' - \vec{r}|} dV
+\end{equation}
+
+Raccogliendo e riordinando i termini all'esponente in funzione della variabile di integrazione \( \vec{r} \):
+\begin{equation}
+    A_{B,TOT} \propto \int_{\text{CRISTALLO}} e^{-i (\vec{k}' - \vec{k}) \cdot \vec{r}} \underbrace{\frac{e^{i \vec{k}' \cdot \vec{R}'}}{|\vec{R}' - \vec{r}|}}_{:= F(\vec{r})} dV
+\end{equation}
+A distanze di osservazione macroscopiche, una volta fissate le posizioni (essendo \( |\vec{R}'| \gg |\vec{r}| \)), il termine indicato come \( F(\vec{r}) \) è soggetto a variazioni trascurabili e può essere considerato approssimativamente costante.
+
+Definendo il vettore di trasferimento d'onda (o vettore di scattering) come \( \Delta\vec{k} = \vec{k}' - \vec{k} \), l'integrale si riscrive in forma compatta:
+\begin{equation}
+    A_{B,TOT} \propto \int_{V_{\text{cristallo}}} e^{-i \Delta\vec{k} \cdot \vec{r}} F(\vec{r}) dV
+\end{equation}
+
+Sfruttando la simmetria traslazionale del cristallo, quest'ultimo può essere visto come una singola cella unitaria replicata nello spazio secondo i vettori reticolari \( \vec{R} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3 \). L'integrale sul volume macroscopico può quindi essere ricondotto all'integrale sul volume di una singola cella moltiplicato per il numero totale di celle, \( N_{\text{celle}} \). 
+Introducendo esplicitamente la densità elettronica \( n(\vec{r}) \) per quantificare la capacità di diffusione locale, l'ampiezza totale diventa:
+\begin{equation}
+    A_{B,TOT} \propto N_{\text{celle}} \int_{V_{\text{cella}}} e^{-i \Delta\vec{k} \cdot \vec{r}} F(\vec{r}, \vec{R}') n(\vec{r}) dV
+\end{equation}
+
+Affinché si osservi un segnale diffratto macroscopico (\( A_{B,TOT} \neq 0 \)), è necessario analizzare questo contributo elementare. Poiché la diffusione di un campo elettromagnetico a bassa energia è operata prevalentemente dagli elettroni esterni, la parte preponderante dell'intensità è descritta proprio dall'integrale sulla singola cella:
+\begin{equation}
+    \int_{V_{\text{cella}}} n(\vec{r}) e^{-i \Delta\vec{k} \cdot \vec{r}} F(\vec{r}, \vec{R}') dV
+\end{equation}
+
+Valutando il contributo di una generica cella traslata di un vettore reticolare, e sfruttando l'invarianza per traslazione, l'espressione per l'integrale diventa:
+\begin{equation}
+    I = \int_{V_{\text{cella}}} n(\vec{r} + \vec{R}) e^{-i \Delta\vec{k} \cdot (\vec{r} + \vec{R})} F(\vec{r}, \vec{R}') dV
+\end{equation}
+
+In questa formulazione si evidenziano due contributi analitici distinti: il termine esponenziale \( e^{-i \Delta\vec{k} \cdot (\vec{r} + \vec{R})} \), che dipende esplicitamente dalla variazione di fase \( \Delta\vec{k} \), e la funzione \( F(\vec{r}, \vec{R}') \), che funge da termine modulatore dell'intensità.
+
+Applicando il \textbf{Principio di Neumann}, sappiamo che la distribuzione di carica elettronica deve rispettare la medesima periodicità del reticolo spaziale. Pertanto, la densità elettronica è una funzione periodica tale per cui:
+\begin{equation}
+    n(\vec{r} + \vec{R}) = n(\vec{r}) \quad \forall \vec{R} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3
+\end{equation}
+
+Poiché \( \vec{R} \) è un vettore appartenente al cristallo, il Principio di Neumann assicura che il profilo di densità \( n(\vec{r}) \) sia rigorosamente uguale per ogni cella. Di conseguenza, è analiticamente rigoroso e sufficiente calcolare l'integrale di diffusione prendendo come riferimento una cella unitaria qualsiasi del reticolo.
+Otteniamo dunque la seguente uguaglianza:
+\begin{equation}
+    \Rightarrow \int_{V_{\text{cella}}} n(\vec{r}) e^{-i \Delta\vec{k} \cdot \vec{r}} f(\vec{r}, \vec{R}') dV = \int_{V_{\text{cella}}} n(\vec{r}) e^{-i \Delta\vec{k} \cdot (\vec{r} + \vec{R})} f(\vec{r}, \vec{R}') dV
+\end{equation}
+(passaggio in cui si è usato \( n(\vec{r}) = n(\vec{r} + \vec{R}) \), ovvero l'invarianza traslazionale).
+
+Poiché \( \vec{R} \in \) reticolo diretto generato dai vettori di base \( (\vec{a}_1, \vec{a}_2, \vec{a}_3) \):
+\begin{equation}
+    \Rightarrow e^{-i \Delta\vec{k} \cdot \vec{R}} = 1 \quad \forall \vec{R}
+\end{equation}
+
+Ma tale relazione è intrinsecamente soddisfatta se consideriamo un vettore \( \vec{G} \in \) reticolo reciproco:
+\begin{equation}
+    \vec{G}_{hkl} = h\vec{b}_1 + k\vec{b}_2 + l\vec{b}_3
+\end{equation}
+per cui vale:
+\begin{equation}
+    e^{-i \vec{G}_{hkl} \cdot \vec{R}} = 1 \quad \forall \vec{R}
+\end{equation}
+data la proprietà di biortogonalità \( \vec{a}_i \cdot \vec{b}_j = 2\pi\delta_{ij} \).
+
+Pertanto, affinché l'ampiezza totale non si annulli (\( A_{B,TOT} \neq 0 \)), deve valere la condizione:
+\begin{equation}
+    \Delta\vec{k} = \vec{G}_{hkl}
+\end{equation}
+
+Come conseguenza della condizione di diffrazione, la variazione del vettore d'onda $\Delta\vec{k}$ può assumere valori appartenenti unicamente a un sottoinsieme discreto di vettori $\vec{G}$. Questi vettori variano a passi interi e costituiscono il \textbf{reticolo reciproco}, il quale è interamente contenuto all'interno del più ampio spazio reciproco.
+
+Considerando che la variazione del vettore d'onda è la differenza tra il vettore d'onda diffuso $\vec{k}'$ e quello incidente $\vec{k}$:
+\begin{equation}
+    \Delta\vec{k} = \vec{k}' - \vec{k}
+\end{equation}
+Si possono distinguere due principali regimi di interazione tra il campo elettromagnetico (tipicamente raggi X) e il cristallo:
+
+\begin{itemize}
+    \item \textbf{a) Interazione Elastica (Diffusione Elastica):} \\
+    È un'interazione tale per cui il modulo del vettore d'onda si conserva inalterato. Non essendoci trasferimento netto di energia, la lunghezza d'onda $\lambda$ rimane costante:
+    \begin{equation}
+        |\vec{k}| = |\vec{k}'| = \frac{2\pi}{\lambda}
+    \end{equation}
+
+    \item \textbf{b) Interazione Inelastica:} \\
+    Si verifica quando il modulo del vettore d'onda non si conserva in seguito all'urto con il reticolo:
+    \begin{equation}
+        |\vec{k}| \neq |\vec{k}'|
+    \end{equation}
+    In questo scenario, una parte dell'energia della radiazione incidente viene ceduta al cristallo oppure assorbita da esso. Tale "scambio di energia" è tipicamente mediato da specifici canali di interazione interni al materiale, come ad esempio l'eccitazione delle vibrazioni reticolari (fenomeno che verrà analizzato più avanti nel corso).
+\end{itemize}
+
+
+La condizione vettoriale appena ricavata prende il nome di \textbf{Legge di Laue} e governa il fenomeno della diffusione dei raggi X da parte di un cristallo:
+\begin{equation}
+    \Delta\vec{k} = \vec{G}_{hkl}
+\end{equation}
+Come diretta conseguenza di questa legge, l'intensità della radiazione diffusa non è distribuita in modo continuo, ma si concentra in "picchi" di intensità distribuiti periodicamente nello spazio; tale distribuzione spaziale riflette specularmente la periodicità del reticolo reciproco, come dimostrato storicamente dall'esperimento di Laue del 1913.
+
+In parallelo a questa formulazione, W. L. Bragg propose un approccio fenomenologico alternativo trattando la propagazione dei raggi X attraverso i principi dell'ottica geometrica. Nella visione di Bragg, il fenomeno viene interpretato come un'interferenza costruttiva tra le onde riflesse da \textbf{piani reticolari consecutivi}. 
+
+Definendo \( \theta \) come l'angolo radente compreso tra il vettore d'onda incidente \( \vec{k} \) e il piano reticolare (e non la normale al piano), la condizione per osservare un picco di diffrazione è espressa dalla celebre \textbf{Legge di Bragg}:
+\begin{equation}
+    2d_{hkl} \sin\theta = m\lambda \quad \text{con } m \in \mathbb{Z}
+\end{equation}
+dove \( d_{hkl} \) è la distanza interplanare della famiglia di piani considerata. È importante ricordare che questa relazione è formulata nell'ipotesi di diffusione elastica, ovvero quando il modulo del vettore d'onda si conserva (\( |\vec{k}| = |\vec{k}'| \)).
+
+Nonostante le differenze concettuali di partenza, \textbf{le due visioni sono perfettamente equivalenti} e descrivono la medesima fisica:
+\begin{itemize}
+    \item L'approccio di \textbf{Bragg} ragiona in modo pragmatico sui \textbf{picchi di intensità}, fornendo una relazione scalare (\( 2d_{hkl}\sin\theta = m\lambda \)) che individua in modo diretto la posizione angolare a cui si manifestano.
+    \item L'approccio vettoriale di \textbf{Laue} (\( \Delta\vec{k} = \vec{G}_{hkl} \)) risulta invece una trattazione più rigorosa e generale: essa prevede intrinsecamente sia le direzioni in cui si verificano i massimi di intensità, sia le cosiddette estinzioni (ovvero le direzioni in cui l'interferenza è distruttiva).
+\end{itemize}
+
