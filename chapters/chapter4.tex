@@ -485,7 +485,7 @@ Conoscendo le direzioni normali, è immediato calcolare l'angolo \( \theta \) d'
 In sintesi, il costrutto matematico del reticolo reciproco gode di proprietà geometriche di estrema utilità, in quanto consente di descrivere analiticamente distanze e angoli interplanari, fornendo così la base necessaria per comprendere l'impatto della periodicità strutturale sul comportamento dei solidi cristallini.
 
 
-\subsubsection{Diffrazione da raggi X}
+\subsection{Diffrazione da raggi X}
 Quando un campo elettromagnetico (CEM) incide su un cristallo, è fondamentale conoscere i parametri caratteristici dell'onda incidente, in particolare la lunghezza d'onda \( \lambda \) e la frequenza \( \nu \). Affinché la struttura cristallina possa agire da \textbf{reticolo di diffrazione}, è strettamente necessario che la lunghezza d'onda della radiazione sia comparabile con il parametro di cella \( a \); essi devono cioè possedere il medesimo ordine di grandezza (\( \lambda \approx a \)). 
 
 Nel momento in cui il CEM interagisce con gli atomi del cristallo, l'onda incidente subisce un processo di diffusione. Il fenomeno è concettualmente analogo a quello che avviene in presenza di fenditure, con la differenza che in questo contesto i centri diffusori (gli ostacoli) sono rappresentati dai singoli atomi disposti periodicamente. 
@@ -558,32 +558,32 @@ L'ampiezza totale osservata, \( A_{B,TOT} \), relativa all'intero cristallo, è 
 
 Raccogliendo e riordinando i termini all'esponente in funzione della variabile di integrazione \( \vec{r} \):
 \begin{equation}
-    A_{B,TOT} \propto \int_{\text{CRISTALLO}} e^{-i (\vec{k}' - \vec{k}) \cdot \vec{r}} \underbrace{\frac{e^{i \vec{k}' \cdot \vec{R}'}}{|\vec{R}' - \vec{r}|}}_{:= F(\vec{r})} dV
+    A_{B,TOT} \propto \int_{\text{CRISTALLO}} e^{-i (\vec{k}' - \vec{k}) \cdot \vec{r}} \underbrace{\frac{e^{i \vec{k}' \cdot \vec{R}'}}{|\vec{R}' - \vec{r}|}}_{:= f(\vec{r})} dV
 \end{equation}
-A distanze di osservazione macroscopiche, una volta fissate le posizioni (essendo \( |\vec{R}'| \gg |\vec{r}| \)), il termine indicato come \( F(\vec{r}) \) è soggetto a variazioni trascurabili e può essere considerato approssimativamente costante.
+A distanze di osservazione macroscopiche, una volta fissate le posizioni (essendo \( |\vec{R}'| \gg |\vec{r}| \)), il termine indicato come \( f(\vec{r}) \) è soggetto a variazioni trascurabili e può essere considerato approssimativamente costante.
 
 Definendo il vettore di trasferimento d'onda (o vettore di scattering) come \( \Delta\vec{k} = \vec{k}' - \vec{k} \), l'integrale si riscrive in forma compatta:
 \begin{equation}
-    A_{B,TOT} \propto \int_{V_{\text{cristallo}}} e^{-i \Delta\vec{k} \cdot \vec{r}} F(\vec{r}) dV
+    A_{B,TOT} \propto \int_{V_{\text{cristallo}}} e^{-i \Delta\vec{k} \cdot \vec{r}} f(\vec{r}) dV
 \end{equation}
 
 Sfruttando la simmetria traslazionale del cristallo, quest'ultimo può essere visto come una singola cella unitaria replicata nello spazio secondo i vettori reticolari \( \vec{R} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3 \). L'integrale sul volume macroscopico può quindi essere ricondotto all'integrale sul volume di una singola cella moltiplicato per il numero totale di celle, \( N_{\text{celle}} \). 
 Introducendo esplicitamente la densità elettronica \( n(\vec{r}) \) per quantificare la capacità di diffusione locale, l'ampiezza totale diventa:
 \begin{equation}
-    A_{B,TOT} \propto N_{\text{celle}} \int_{V_{\text{cella}}} e^{-i \Delta\vec{k} \cdot \vec{r}} F(\vec{r}, \vec{R}') n(\vec{r}) dV
+    A_{B,TOT} \propto N_{\text{celle}} \int_{V_{\text{cella}}} e^{-i \Delta\vec{k} \cdot \vec{r}} f(\vec{r}, \vec{R}') n(\vec{r}) dV
 \end{equation}
 
 Affinché si osservi un segnale diffratto macroscopico (\( A_{B,TOT} \neq 0 \)), è necessario analizzare questo contributo elementare. Poiché la diffusione di un campo elettromagnetico a bassa energia è operata prevalentemente dagli elettroni esterni, la parte preponderante dell'intensità è descritta proprio dall'integrale sulla singola cella:
 \begin{equation}
-    \int_{V_{\text{cella}}} n(\vec{r}) e^{-i \Delta\vec{k} \cdot \vec{r}} F(\vec{r}, \vec{R}') dV
+    \int_{V_{\text{cella}}} n(\vec{r}) e^{-i \Delta\vec{k} \cdot \vec{r}} f(\vec{r}, \vec{R}') dV
 \end{equation}
 
 Valutando il contributo di una generica cella traslata di un vettore reticolare, e sfruttando l'invarianza per traslazione, l'espressione per l'integrale diventa:
 \begin{equation}
-    I = \int_{V_{\text{cella}}} n(\vec{r} + \vec{R}) e^{-i \Delta\vec{k} \cdot (\vec{r} + \vec{R})} F(\vec{r}, \vec{R}') dV
+    I = \int_{V_{\text{cella}}} n(\vec{r} + \vec{R}) e^{-i \Delta\vec{k} \cdot (\vec{r} + \vec{R})} f(\vec{r}, \vec{R}') dV
 \end{equation}
 
-In questa formulazione si evidenziano due contributi analitici distinti: il termine esponenziale \( e^{-i \Delta\vec{k} \cdot (\vec{r} + \vec{R})} \), che dipende esplicitamente dalla variazione di fase \( \Delta\vec{k} \), e la funzione \( F(\vec{r}, \vec{R}') \), che funge da termine modulatore dell'intensità.
+In questa formulazione si evidenziano due contributi analitici distinti: il termine esponenziale \( e^{-i \Delta\vec{k} \cdot (\vec{r} + \vec{R})} \), che dipende esplicitamente dalla variazione di fase \( \Delta\vec{k} \), e la funzione \( f(\vec{r}, \vec{R}') \), che funge da termine modulatore dell'intensità.
 
 Applicando il \textbf{Principio di Neumann}, sappiamo che la distribuzione di carica elettronica deve rispettare la medesima periodicità del reticolo spaziale. Pertanto, la densità elettronica è una funzione periodica tale per cui:
 \begin{equation}
@@ -647,6 +647,8 @@ La condizione vettoriale appena ricavata prende il nome di \textbf{Legge di Laue
 \end{equation}
 Come diretta conseguenza di questa legge, l'intensità della radiazione diffusa non è distribuita in modo continuo, ma si concentra in "picchi" di intensità distribuiti periodicamente nello spazio; tale distribuzione spaziale riflette specularmente la periodicità del reticolo reciproco, come dimostrato storicamente dall'esperimento di Laue del 1913.
 
+\subsubsection{Equivalenza formulazioni di Bragg e Laue}
+
 In parallelo a questa formulazione, W. L. Bragg propose un approccio fenomenologico alternativo trattando la propagazione dei raggi X attraverso i principi dell'ottica geometrica. Nella visione di Bragg, il fenomeno viene interpretato come un'interferenza costruttiva tra le onde riflesse da \textbf{piani reticolari consecutivi}. 
 
 Definendo \( \theta \) come l'angolo radente compreso tra il vettore d'onda incidente \( \vec{k} \) e il piano reticolare (e non la normale al piano), la condizione per osservare un picco di diffrazione è espressa dalla celebre \textbf{Legge di Bragg}:
@@ -660,4 +662,377 @@ Nonostante le differenze concettuali di partenza, \textbf{le due visioni sono pe
     \item L'approccio di \textbf{Bragg} ragiona in modo pragmatico sui \textbf{picchi di intensità}, fornendo una relazione scalare (\( 2d_{hkl}\sin\theta = m\lambda \)) che individua in modo diretto la posizione angolare a cui si manifestano.
     \item L'approccio vettoriale di \textbf{Laue} (\( \Delta\vec{k} = \vec{G}_{hkl} \)) risulta invece una trattazione più rigorosa e generale: essa prevede intrinsecamente sia le direzioni in cui si verificano i massimi di intensità, sia le cosiddette estinzioni (ovvero le direzioni in cui l'interferenza è distruttiva).
 \end{itemize}
+
+
+\lezione{16}{21/04/2026}
+
+\textbf{Dimostrazione dell'Equivalenza tra Bragg e Laue} \\
+Per dimostrare analiticamente che le due formulazioni descrivono la medesima condizione fisica, è sufficiente partire dal calcolo della differenza di cammino ottico tra le onde diffratte da piani reticolari consecutivi. 
+
+Affinché vi sia interferenza costruttiva, la variazione del percorso ottico \( \Delta s \) deve essere pari a un multiplo intero della lunghezza d'onda \( m\lambda \). Definiamo il vettore reticolare \( \vec{R}_{hkl} \), che congiunge due piani adiacenti muovendosi lungo la direzione normale, come:
+\begin{equation}
+    \vec{R}_{hkl} = d_{hkl}\hat{n}_{hkl}
+\end{equation}
+
+Indicando con \( \hat{u}_{k} \) e \( \hat{u}_{k'} \) i versori che identificano le direzioni di propagazione dell'onda incidente e di quella diffusa rispettivamente, la differenza di cammino ottico si può ricavare per proiezione geometrica:
+\begin{equation}
+    \Delta s = \vec{R}_{hkl} \cdot (\hat{u}_{k'} - \hat{u}_{k}) = m\lambda
+\end{equation}
+
+Moltiplicando ambo i membri dell'equazione per la quantità costante \( \frac{2\pi}{\lambda} \), si ottiene:
+\begin{equation}
+    \frac{2\pi}{\lambda} (\hat{u}_{k'} - \hat{u}_{k}) \cdot \vec{R}_{hkl} = \frac{2\pi}{\lambda} m\lambda = 2\pi m
+\end{equation}
+
+A questo punto si introduce l'ipotesi di \textbf{interazione elastica}, per la quale non vi è perdita di energia e i moduli dei vettori d'onda si conservano: \( |\vec{k}| = |\vec{k}'| = \frac{2\pi}{\lambda} \). Sfruttando questa proprietà, possiamo assorbire il termine \( \frac{2\pi}{\lambda} \) all'interno della parentesi, passando dai versori ai vettori d'onda completi:
+\begin{equation}
+    (\vec{k}' - \vec{k}) \cdot \vec{R}_{hkl} = 2\pi m
+\end{equation}
+
+Sostituendo infine la variazione del vettore d'onda \( \Delta\vec{k} = \vec{k}' - \vec{k} \), l'equazione assume la sua forma più eloquente:
+\begin{equation}
+    \Delta\vec{k} \cdot \vec{R}_{hkl} = 2\pi m \quad \text{con } m \in \mathbb{Z}
+\end{equation}
+
+Questa equazione esprime un concetto fondamentale: il prodotto scalare tra il momento trasferito \( \Delta\vec{k} \) e un vettore del reticolo diretto fornisce sempre un multiplo di \( 2\pi \). Per la definizione stessa di spazio reciproco che abbiamo visto in precedenza, tale relazione risulta verificata se e \textbf{solo se} \( \Delta\vec{k} \) coincide esattamente con un vettore del reticolo reciproco. Abbiamo così ri-ottenuto e dimostrato la validità universale della condizione di Laue:
+\begin{equation}
+    \Delta\vec{k} = \vec{G}_{hkl}
+\end{equation}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[scale=1.5, >=stealth]
+    % Parametri geometrici
+    \def\d{2}       % Distanza interplanare
+    \def\theta{35}  % Angolo radente (theta)
+
+    % Nodi principali
+    \coordinate (O) at (0,0);
+    \coordinate (B) at (0,-\d);
+    
+    % Direzioni dei raggi
+    \coordinate (InTop) at ({180-\theta}:3.5);
+    \coordinate (OutTop) at ({\theta}:3.5);
+    \coordinate (InBot) at ($(InTop) + (0,-\d)$);
+    \coordinate (OutBot) at ($(OutTop) + (0,-\d)$);
+
+    % Piani reticolari
+    \draw[thick] (-3.5, 0) -- (3.5, 0) node[right, font=\Large] {$hkl$};
+    \draw[thick] (-3.5, -\d) -- (3.5, -\d);
+
+    % Normale al piano
+    \draw[ultra thick] (0, 0) -- (0, 1.5);
+    
+    % Vettore distanza interplanare d_hkl
+    \draw[<->, thick, violet] (0, -0.05) -- (0, -\d+0.05) node[midway, right] {$d_{hkl}$};
+
+    % Raggi sul piano superiore
+    \draw[thick, blue, ->] (InTop) -- (O) node[midway, above left, font=\Large] {$\vec{K}$};
+    \draw[thick, blue, ->] (O) -- (OutTop) node[midway, above right, font=\Large] {$\vec{K}'$};
+    
+    % Raggi sul piano inferiore
+    \draw[thick, blue, ->] (InBot) -- (B);
+    \draw[thick, blue, ->] (B) -- (OutBot);
+
+    % Proiezioni per i fronti d'onda (calcolo esatto)
+    \coordinate (ProjIn) at ($(InBot)!(O)!(B)$);
+    \coordinate (ProjOut) at ($(B)!(O)!(OutBot)$);
+
+    % Fronti d'onda perpendicolari
+    \draw[thick, teal] (O) -- (ProjIn);
+    \draw[thick, teal] (O) -- (ProjOut);
+
+    % Differenza di cammino ottico evidenziata (2d sin(theta))
+    \draw[ultra thick, teal] (ProjIn) -- (B) node[midway, below left] {$\sim$};
+    \draw[ultra thick, teal] (B) -- (ProjOut) node[midway, below right] {$\sim$};
+
+    % Angolo di incidenza theta
+    \draw[thick, blue] (-1.2, 0) arc (180:{180-\theta}:1.2) node[midway, left=2pt] {$\theta$};
+
+    % Simboli di angolo retto per i fronti d'onda
+    \draw[teal, thin] ($(ProjIn)!0.15!(O)$) -- ($(ProjIn)!0.15!(O)!0.15!(B)$) -- ($(ProjIn)!0.15!(B)$);
+    \draw[teal, thin] ($(ProjOut)!0.15!(O)$) -- ($(ProjOut)!0.15!(O)!0.15!(B)$) -- ($(ProjOut)!0.15!(B)$);
+
+\end{tikzpicture}
+    \caption{Rappresentazione schematica dell'equivalenza tra Bragg e Laue.}
+    \label{fig:bragg_laue_equivalence}
+\end{figure}
+
+Partendo invece dalla condizione di Laue, la la dimostrazine la si può ottenere per via geometrica. Considerando la diffusione elastica, i vettori d'onda incidente \( \vec{k} \) e diffuso \( \vec{k}' \) formano un rombo con il vettore momento trasferito \( \Delta\vec{k} \). Conservandosi il modulo, abbiamo:
+\begin{equation}
+    k = k' = \frac{2\pi}{\lambda}
+\end{equation}
+
+Dalla trigonometria della figura, sapendo che \( \theta \) è l'angolo radente rispetto al piano, la lunghezza del vettore differenza risulta pari a:
+\begin{equation}
+    |\Delta\vec{k}| = 2k \sin\theta
+\end{equation}
+
+Imponendo la condizione di diffrazione di Laue in termini di moduli, ovvero \( |\Delta\vec{k}| = |\vec{G}_{hkl}| \), e richiamando la relazione che lega il vettore reciproco alla distanza interplanare \( d_{hkl} = \frac{2\pi m}{|\vec{G}_{hkl}|} \rightarrow |\vec{G}_{hkl}| = \frac{2\pi m}{d_{hkl}} \), possiamo eguagliare le due quantità:
+\begin{equation}
+    2k \sin\theta = \frac{2\pi m}{d_{hkl}}
+\end{equation}
+
+Sostituendo l'espressione di \( k \) all'interno di questa uguaglianza, otteniamo:
+\begin{equation}
+    2 \left( \frac{2\pi}{\lambda} \right) \sin\theta = \frac{2\pi m}{d_{hkl}}
+\end{equation}
+
+Semplificando il termine \( 2\pi \) presente in entrambi i membri della relazione e riorganizzando i fattori, si perviene in modo diretto alla Condizione di Bragg:
+\begin{equation}
+    2d_{hkl} \sin\theta = m\lambda
+\end{equation}
+
+\begin{attention}
+    Nonostante questo passaggio algebrico mostri la stretta connessione tra le due leggi, non si tratta di un'equivalenza matematica perfetta a tutti i livelli. 
+    Entrambi gli approcci (Bragg e Laue) consentono di individuare con successo le posizioni angolari in cui si verificano i massimi di intensità.
+    Tuttavia, la formulazione vettoriale di Laue risulta essere più completa e ricca di informazioni: essa è in grado di prevedere le cosiddette \textbf{estinzioni sistematiche}, 
+    ovvero specifiche configurazioni di diffrazione in cui si verifica un'interferenza completamente distruttiva, facendo "scomparire" picchi di intensità che, limitandosi alla sola visione geometrica di Bragg, dovrebbero teoricamente manifestarsi.
+
+\end{attention}
+
+\subsubsection{Quantificazione della diffrazione}
+Riprendendo l'espressione dell'ampiezza di diffusione totale, essa è proporzionale al numero di celle e all'integrale sul volume della singola cella:
+\begin{equation}
+    A \propto N_{\text{celle}} \int_{V_{\text{cella}}} n(\vec{r}) e^{-i \Delta\vec{k} \cdot \vec{r}} f(\vec{r}, \vec{R}') d^3r
+\end{equation}
+dove \( n(\vec{r}) \) rappresenta la densità elettronica locale.
+
+Il termine \( f(\vec{r}, \vec{R}') \), che descrive l'ampiezza dell'onda sferica diffusa, è inversamente proporzionale alla distanza tra il punto di scattering e il punto di osservazione:
+\begin{equation}
+    f(\vec{r}, \vec{R}') \propto \frac{1}{|\vec{R}' - \vec{r}|}
+\end{equation}
+Dal momento che il rivelatore è posizionato a distanze macroscopiche rispetto alle dimensioni atomiche (\( |\vec{R}'| \gg |\vec{r}| \)), questo termine varia in modo del tutto trascurabile all'interno della cella unitaria. Pertanto, può essere considerato approssimativamente costante ai fini dell'integrazione.
+
+Sotto questa approssimazione, il \textbf{fattore dominante} che governa l'intensità e la modulazione del segnale diffratto è dato esclusivamente dall'integrale della densità di carica pesato per il fattore di fase:
+\begin{equation}
+    \int_{V_{\text{cella}}} n(\vec{r}) e^{-i \Delta\vec{k} \cdot \vec{r}} d^3r
+\end{equation}
+
+Fisicamente, all'interno di ogni singola cella, sono gli elettroni a subire i processi di scattering e a generare il pattern di diffrazione. Per calcolare esplicitamente questo integrale per un materiale reale, è necessario prima identificare la base associata al reticolo, ovvero determinare il numero minimo di atomi abbinati alla cella unitaria in grado di rappresentare in modo completo la struttura del cristallo.
+
+Consideriamo ad esempio un reticolo cubico a corpo centrato (BCC): pur presentando atomi su tutti gli 8 vertici e uno al centro, la sua base è costituita da soli $s = 2$ atomi (convenzionalmente, un atomo nell'origine e uno posizionato al centro del cubo). Traslando questa coppia di atomi lungo i nodi del reticolo di Bravais associato, si coprono perfettamente tutti i vertici e tutti i centri. Una scelta errata della base, ad esempio prendendo due vertici, porterebbe a sovrastimare alcune posizioni a causa delle condivisioni e a omettere del tutto gli atomi centrali.
+
+Denotando con $\vec{d}_j$ il vettore posizione del $j$-esimo atomo della base rispetto all'origine della cella unitaria, la densità elettronica totale $n(\vec{r})$ all'interno della cella può essere espressa come la somma dei contributi locali $n_j$ dei singoli $s$ atomi:
+\begin{equation}
+    n(\vec{r}) = \sum_{j=1}^{s} n_j(\vec{r} - \vec{d}_j)
+\end{equation}
+
+Sostituendo questa scomposizione all'interno dell'integrale che definisce il fattore dominante per l'ampiezza di diffusione, otteniamo:
+\begin{equation}
+    I = \int_{V_{\text{cella}}} n(\vec{r}) e^{-i \Delta\vec{k} \cdot \vec{r}} d^3r = \sum_{j=1}^{s} \int_{V_{\text{cella}}} n_j(\vec{r} - \vec{d}_j) e^{-i \Delta\vec{k} \cdot \vec{r}} d^3r
+\end{equation}
+
+Per agevolare la risoluzione, si opera un cambio di variabile definendo un vettore posizione locale per ogni atomo: $\vec{\rho} = \vec{r} - \vec{d}_j$, da cui banalmente $\vec{r} = \vec{\rho} + \vec{d}_j$. Riscrivendo l'esponenziale per tenere conto del cambio di coordinate e portando fuori dall'integrale i termini indipendenti dalla variabile d'integrazione, la formula diviene:
+\begin{equation}
+    I = \sum_{j=1}^{s} e^{-i \Delta\vec{k} \cdot \vec{d}_j} \int_{V_{\text{cella}}} n_j(\vec{\rho}) e^{-i \Delta\vec{k} \cdot \vec{\rho}} d^3\rho
+\end{equation}
+
+Analizzando quest'ultima espressione, l'integrale al suo interno dipende unicamente dalla distribuzione di densità elettronica locale $n_j(\vec{\rho})$ dell'atomo $j$-esimo. 
+Il termine appena individuato prende il nome di \textbf{fattore di forma} ed è definito analiticamente come:
+\begin{equation}
+    f_j = \int_{\text{atomo } j\text{-esimo}} n_j(\vec{\rho}) e^{-i \Delta\vec{k} \cdot \vec{\rho}} d^3\rho
+\end{equation}
+Questo parametro quantifica la capacità di scattering del singolo atomo. Essendo legato alla densità elettronica, è una grandezza specifica per ogni elemento chimico e risulta approssimativamente proporzionale al suo numero atomico (\( f_j \propto Z_j \)). Naturalmente, se il fattore di forma di uno specifico centro diffusore fosse nullo (\( f_j = 0 \)), esso non genererebbe alcuna diffrazione, contribuendo solo all'estinzione del segnale.
+
+Sostituendo il fattore di forma nell'equazione generale che descrive l'ampiezza diffusa dalla cella unitaria, si ottiene:
+\begin{equation}
+    I = \sum_{j=1}^{s} f_j e^{-i \Delta\vec{k} \cdot \vec{d}_j}
+\end{equation}
+
+Sapendo che i picchi di diffrazione macroscopici si osservano unicamente quando è soddisfatta la condizione di Laue (\( \Delta\vec{k} = \vec{G}_{hkl} \)), possiamo valutare questa quantità proprio in corrispondenza dei nodi del reticolo reciproco. Questa valutazione definisce il \textbf{fattore di struttura} \( S_{hkl} \):
+\begin{equation}
+    S_{hkl} = I \Big|_{\Delta\vec{k} = \vec{G}_{hkl}} = \sum_{j=1}^{s} f_j e^{-i \vec{G}_{hkl} \cdot \vec{d}_j}
+\end{equation}
+
+Il fattore di struttura è la quantità fisica fondamentale che determina l'intensità (e quindi la presenza o l'assenza) dei picchi di diffrazione previsti geometricamente dal reticolo. Per verificare se in corrispondenza di un set di indici di Miller \( (hkl) \) comparirà effettivamente un picco, dobbiamo analizzare il risultato di questa sommatoria:
+\begin{itemize}
+    \item \textbf{Se} \( S_{hkl} = 0 \): i contributi di fase dei vari atomi della base si elidono a vicenda. In questo caso si verifica un'interferenza totalmente distruttiva e si parla di \textbf{estinzione} (il picco previsto dalla legge di Bragg scompare).
+    \item \textbf{Se} \( S_{hkl} \neq 0 \): i contributi non si annullano, si ha interferenza costruttiva e si osserva un netto picco di \textbf{diffrazione}.
+\end{itemize}
+
+
+\begin{exercise}
+    
+\textbf{da Esame} \\
+Si consideri un cristallo di Rame (Cu) caratterizzato da una struttura FCC. Dai dati di letteratura si ha:
+\begin{itemize}
+    \item Massa molare: \( P_{Cu} = 63.55 \, \text{g/mol} \)
+    \item Densità di massa: \( \rho_{Cu} = 8.9 \, \text{g/cm}^3 \)
+\end{itemize}
+
+\textbf{Richieste:}
+\begin{enumerate}
+    \item[a)] Calcolare il parametro di cella \( a \) (lato del cubo della cella cartesiana).
+    \item[b)] Calcolare la distanza interplanare \( d_{hkl} \) per la famiglia di piani (220).
+    \item[c)] Calcolare l'angolo \( \theta \) compreso tra i piani (220) e (211).
+\end{enumerate}
+
+
+\begin{solution}
+    \textbf{a)}
+Iniziamo con la definizione geometrica della \textbf{cella cartesiana} (è buona norma specificare sempre i vettori di base in funzione della cella scelta). Fissata una terna di versori ortonormali \( \{\hat{x}, \hat{y}, \hat{z}\} \) e indicato con \( a \) il parametro di cella, i vettori generatori del reticolo diretto sono:
+\begin{equation}
+\begin{cases}
+    \vec{a}_1 = a\hat{x} \\
+    \vec{a}_2 = a\hat{y} \\
+    \vec{a}_3 = a\hat{z}
+\end{cases}
+\end{equation}
+
+Per definizione, il volume della cella cartesiana si ottiene attraverso il prodotto misto dei vettori base:
+\begin{equation}
+    V_{\text{cella}} = \vec{a}_1 \cdot (\vec{a}_2 \wedge \vec{a}_3) = a\hat{x} \cdot (a\hat{y} \wedge a\hat{z}) = a^3
+\end{equation}
+
+Introduciamo il concetto di \textbf{densità atomica} (\( \rho_{\text{atomica}} \)), che esprime il numero di atomi racchiusi nell'unità di volume:
+\begin{equation}
+    \rho_{\text{atomica}} = \frac{n^\circ \text{ atomi}}{V_{\text{cella}}}
+\end{equation}
+
+Per il reticolo Cubico a Facce Centrate (FCC) in esame, il numero di atomi equivalenti per cella unitaria si calcola sommando i contributi dei nodi condivisi:
+\begin{equation}
+    n^\circ \text{ atomi}_{\text{FCC}} = \left( \frac{1}{8} \cdot 8 \text{ vertici} \right) + \left( \frac{1}{2} \cdot 6 \text{ facce} \right) = 1 + 3 = 4
+\end{equation}
+Ne consegue che la densità atomica in funzione del parametro incognito risulta essere:
+\begin{equation}
+    \rho_{\text{atomica}} = \frac{4}{a^3}
+\end{equation}
+
+Trattandosi di un cristallo monoelementale di Cu, la \textbf{densità di massa macroscopica} (\( \rho_{\text{massa}} \)) si ricava semplicemente moltiplicando la massa di un singolo atomo (\( m_{Cu} \)) per la densità atomica. Sapendo che la massa di un singolo atomo è pari al rapporto tra la massa molare \( P_{Cu} \) e il numero di Avogadro \( N_A \):
+\begin{equation}
+    \rho_{\text{massa}} = m_{Cu} \cdot \rho_{\text{atomica}} \quad \Rightarrow \quad \rho_{\text{massa}} = \frac{P_{Cu}}{N_A} \cdot \rho_{\text{atomica}}
+\end{equation}
+
+Sostituendo l'espressione analitica della densità atomica, otteniamo l'equazione finale per la densità di massa, da cui si potrà estrarre il parametro \( a \):
+\begin{equation}
+    \rho_{\text{massa}} = 8.9 \, \text{g/cm}^3 = \frac{P_{Cu}}{N_A} \cdot \frac{4}{a^3} \implies a \simeq 0.36 \, \text{nm}
+\end{equation}
+L'ordine di grandezza  di \(10^{-10} \, \text{m}\) è quello che ci aspettiamo.
+
+\textbf{b)} 
+La distanza interplanare (intesa come distanza minima tra i piani della famiglia) è legata al modulo del vettore del reticolo reciproco corrispondente dalla relazione:
+\begin{equation}
+    d_{220} = \frac{2\pi}{|\vec{G}_{220}|}
+\end{equation}
+
+Per ricavare tale vettore, è necessario prima esplicitare i vettori di base del reticolo reciproco $\{\vec{b}_1, \vec{b}_2, \vec{b}_3\}$, coniugati alla base del reticolo diretto $\{\vec{a}_1, \vec{a}_2, \vec{a}_3\}$. Sapendo dal punto precedente che $V_{\text{cella}} = a^3$:
+\begin{equation}
+\begin{cases}
+    \vec{b}_1 = \frac{2\pi}{V_{\text{cella}}} (\vec{a}_2 \wedge \vec{a}_3) = \frac{2\pi}{a^3} (a\hat{y} \wedge a\hat{z}) = \frac{2\pi}{a} \hat{x} \\
+    \vec{b}_2 = \frac{2\pi}{V_{\text{cella}}} (\vec{a}_3 \wedge \vec{a}_1) = \frac{2\pi}{a^3} (a\hat{z} \wedge a\hat{x}) = \frac{2\pi}{a} \hat{y} \\
+    \vec{b}_3 = \frac{2\pi}{V_{\text{cella}}} (\vec{a}_1 \wedge \vec{a}_2) = \frac{2\pi}{a^3} (a\hat{x} \wedge a\hat{y}) = \frac{2\pi}{a} \hat{z}
+\end{cases}
+\end{equation}
+
+Possiamo ora costruire il vettore reciproco $\vec{G}_{220}$ tramite la combinazione lineare indicata dagli indici di Miller:
+\begin{equation}
+    \vec{G}_{220} = 2\vec{b}_1 + 2\vec{b}_2 + 0\vec{b}_3 = 2 \cdot \frac{2\pi}{a} (\hat{x} + \hat{y})
+\end{equation}
+
+Il modulo di questo vettore risulta essere:
+\begin{equation}
+    |\vec{G}_{220}| = \frac{4\pi}{a} \sqrt{1^2 + 1^2} = 4\sqrt{2} \frac{\pi}{a}
+\end{equation}
+
+Sostituendo il modulo appena trovato nella formula per la distanza interplanare:
+\begin{equation}
+    d_{220} = \frac{2\pi}{\frac{4\pi\sqrt{2}}{a}} = a \frac{\sqrt{2}}{4}
+\end{equation}
+Calcolando numericamente (sfruttando il valore di $a$ precedentemente dedotto), si ottiene un valore di circa:
+\begin{equation}
+    d_{220} \approx 0.127 \, \text{nm}
+\end{equation}
+
+\textbf{c)}
+Per poter calcolare l'angolo richiesto, è necessario ricavare prima il vettore reciproco relativo alla seconda famiglia di piani $\vec{G}_{211}$ e il suo rispettivo modulo, procedendo in modo analogo:
+\begin{equation}
+    \vec{G}_{211} = 2\vec{b}_1 + 1\vec{b}_2 + 1\vec{b}_3 = \frac{2\pi}{a} (2\hat{x} + \hat{y} + \hat{z})
+\end{equation}
+
+Il calcolo del modulo fornisce:
+\begin{equation}
+    |\vec{G}_{211}| = \left( \frac{4\pi^2}{a^2} (2^2 + 1^2 + 1^2) \right)^{1/2} = \left( \frac{24\pi^2}{a^2} \right)^{1/2} = 2\sqrt{6} \frac{\pi}{a}
+\end{equation}
+
+Sfruttando la relazione di ortogonalità $\vec{b}_i \cdot \vec{b}_j = \delta_{ij} \frac{4\pi^2}{a^2}$, l'angolo $\theta$ si calcola in un unico passaggio tramite il prodotto scalare tra i vettori del reticolo reciproco $\vec{G}_{220}$ e $\vec{G}_{211}$:
+
+\begin{equation}
+    \theta = \arccos \left( \frac{\vec{G}_{220} \cdot \vec{G}_{211}}{|\vec{G}_{220}| |\vec{G}_{211}|} \right) = \arccos \left( \frac{ \frac{4\pi^2}{a^2} (2\cdot 2 + 2\cdot 1 + 0\cdot 1) }{ \left( \frac{2\pi}{a} \sqrt{8} \right) \left( \frac{2\pi}{a} \sqrt{6} \right) } \right)
+\end{equation}
+
+Semplificando direttamente i termini comuni a numeratore e denominatore:
+
+\begin{equation}
+    \theta = \arccos \left( \frac{24}{8\sqrt{12}} \right) = \arccos \left( \frac{3}{2\sqrt{3}} \right) = \arccos \left( \frac{\sqrt{3}}{2} \right) = 30^\circ
+\end{equation}
+
+\end{solution}
+\end{exercise}
+
+
+\begin{note}{Fattore di Struttura ed Estinzioni nel reticolo FCC}{}
+Valutiamo quali sono le estinzioni sistematiche attese per il reticolo FCC calcolando il fattore di struttura rispetto alla cella cartesiana. 
+
+Definiamo innanzitutto i 4 atomi di base $\{\vec{d}_j\}$ che caratterizzano la cella unitaria del cristallo. Ricordando i vettori primitivi precedentemente ricavati, le posizioni sono:
+\begin{equation}
+\begin{cases}
+    \vec{d}_1 = \vec{0} & \text{(atomo nell'origine)} \\
+    \vec{d}_2 = a(0, \frac{1}{2}, \frac{1}{2}) = \frac{\vec{a}_2 + \vec{a}_3}{2} & \text{(vettore primitivo } \vec{a}'_1 \text{)} \\
+    \vec{d}_3 = a(\frac{1}{2}, 0, \frac{1}{2}) = \frac{\vec{a}_1 + \vec{a}_3}{2} & \text{(vettore primitivo } \vec{a}'_2 \text{)} \\
+    \vec{d}_4 = a(\frac{1}{2}, \frac{1}{2}, 0) = \frac{\vec{a}_1 + \vec{a}_2}{2} & \text{(vettore primitivo } \vec{a}'_3 \text{)}
+\end{cases}
+\end{equation}
+
+Costruiamo la sommatoria del fattore di struttura sui 4 atomi, espandendo i termini. Trattandosi di un cristallo monoelementale, i fattori di forma atomici sono identici per tutti i siti ($f_j \approx f_Z$):
+\begin{equation}
+    S_{hkl} = \sum_{j=1}^{4} f_j e^{-i\vec{G}_{hkl} \cdot \vec{d}_j} = f_Z \left( e^{-i\vec{G}_{hkl} \cdot \vec{d}_1} + e^{-i\vec{G}_{hkl} \cdot \vec{d}_2} + e^{-i\vec{G}_{hkl} \cdot \vec{d}_3} + e^{-i\vec{G}_{hkl} \cdot \vec{d}_4} \right)
+\end{equation}
+
+Esplicitando i prodotti scalari con il vettore del reticolo reciproco $\vec{G}_{hkl} = \frac{2\pi}{a}(h\hat{x} + k\hat{y} + l\hat{z})$ e semplificando i termini comuni $\frac{2\pi}{a}$ con $\frac{a}{2}$, otteniamo direttamente le fasi in funzione degli indici di Miller:
+\begin{equation}
+    S_{hkl} = f_Z \left\{ 1 + e^{-i\pi(k+l)} + e^{-i\pi(h+l)} + e^{-i\pi(h+k)} \right\}
+\end{equation}
+
+Analizzando gli esponenti di questa equazione finale, si deducono le regole di selezione dei picchi di diffrazione per il reticolo FCC:
+\begin{itemize}
+    \item $S_{hkl} = \text{max}$: se gli indici $(h,k,l)$ sono \textbf{tutti pari o tutti dispari}. In questo caso gli esponenziali valgono tutti $+1$, l'interferenza è totalmente costruttiva e si osserva il picco.
+    \item $S_{hkl} = 0$: se si hanno \textbf{indici misti} (es. un indice pari e gli altri dispari, o viceversa). In questo caso le fasi si elidono causando interferenza distruttiva; la geometria della cella "spegne" il picco di diffrazione generando le \textbf{ESTINZIONI}.
+\end{itemize}
+\end{note}
+
+
+\textbf{Atomi a più elettroni} \\
+Per descrivere sistemi complessi a \( n \) elettroni, l'Hamiltoniana completa assume la forma:
+\begin{equation}
+    H = T + V_{eN} + V_{NN} + V_{ee} + \Delta H_{\text{correz.}}
+\end{equation}
+L'equazione di Schrödinger stazionaria associata è \( H\Psi_E = E\Psi_E \), dove la funzione d'onda complessiva dipende dalle coordinate spaziali di tutti gli elettroni e dei nuclei, oltre che dallo spin:
+\begin{equation}
+    \Psi_E = \Psi_E(\{ \vec{r}_{e,i} \}_{i=1,\dots,N_e}, \{ \vec{R}_{N,j} \}_{j=1,\dots,N_N}, \text{SPIN})
+\end{equation}
+Affinché sia fisicamente accettabile, tale funzione d'onda \( \Psi_E \) deve essere \textbf{antisimmetrica} per rispettare il Principio di esclusione di Pauli.
+
+\textbf{Approccio a componenti} \\
+Un approccio alternativo consiste nell'osservare la risposta del sistema scomponendo l'Hamiltoniana nei suoi diversi contributi fisici:
+\begin{equation}
+    H = \underbrace{H_N}_{\text{contrib. nucleare}} + \underbrace{H_{e,\text{valenza}}}_{\text{elettroni esterni}} + \underbrace{H_{e,\text{core}}}_{\text{elettroni interni}} + \Delta H_{\text{residuo}}
+\end{equation}
+
+Analizzando il ruolo delle diverse componenti elettroniche:
+\begin{itemize}
+    \item \textbf{Elettroni di valenza} (\( H_{e,\text{valenza}} \)): sono gli elettroni più esterni e risentono in misura minore dell'attrazione nucleare. Di conseguenza, possono allontanarsi dal nucleo padre e "giocare" (interagire) con l'ambiente circostante. L'interazione con un campo elettromagnetico (CEM) ordinario dipende prevalentemente dalla loro dinamica.
+    \item \textbf{Elettroni di core} (\( H_{e,\text{core}} \)): sono gli elettroni dei gusci più profondi, i quali risultano fortemente localizzati in prossimità del nucleo.
+\end{itemize}
+
+Mentre le interazioni ottiche convenzionali coinvolgono primariamente gli elettroni di valenza, l'utilizzo dei \textbf{raggi X} cambia lo scenario. Essendo radiazioni estremamente energetiche (da \( 100 \, \text{eV} \) fino a \( 10^5 \, \text{eV} \)), i raggi X sono in grado di penetrare nel materiale e intervenire direttamente sugli elettroni di core.
+
+A seconda della specifica categoria di proprietà fisiche che si intende studiare, ci si può concentrare solo su una determinata porzione dell'Hamiltoniana \( H \) e della funzione d'onda \( \Psi \); il resto dei gradi di libertà viene trattato in modo approssimato come un "contributo medio" di fondo, concettualmente in linea con l'approssimazione di Hartree-Fock.
+
+\textbf{Periodicità del potenziale} \\
+Focalizzando l'attenzione sull'Hamiltoniana di un sistema cristallino, si evidenzia una fondamentale proprietà di simmetria:
+\begin{equation}
+    H = T + V_{ee} + V_{eN} + V_{NN}
+\end{equation}
+I termini di potenziale \( V_{eN} \) (interazione elettrone-nucleo) e \( V_{NN} \) (interazione nucleo-nucleo) sono \textbf{periodici} in virtù della rigorosa disposizione degli atomi nel reticolo spaziale, definito dai vettori di traslazione \( \vec{R} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3 \). Come diretta conseguenza di questa periodicità del potenziale imposto dalla struttura, la funzione d'onda \( \Psi_E \) che descrive gli elettroni nel cristallo andrà inevitabilmente a "ereditare" tale periodicità.
+
 

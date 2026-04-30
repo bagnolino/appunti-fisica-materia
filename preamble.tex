@@ -73,7 +73,7 @@
 \graphicspath{{figures/}}        % Cartella di default per le immagini
 \usepackage{subcaption}          % Sotto-didascalie per le figure
 \usepackage{tikz}                % Per il disegno vettoriale
-\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.pathmorphing,calc}
 \usepackage{pgfplots}            % Per i grafici con TikZ
 \pgfplotsset{compat=1.18}         % Imposta la versione di pgfplots
 \usepackage[most]{tcolorbox}     % Per creare box colorati
@@ -127,7 +127,7 @@
     description font=\bfseries,
     coltitle=black,
     separator sign none,
-    description delimiters={}{},
+    description delimiters={},
     attach title to upper,
     after title={\par\medskip},
     left=2mm, right=2mm, top=2mm, bottom=2mm,
