@@ -26,18 +26,26 @@ Il progetto è in italiano. La trascrizione parte dagli appunti a mano di Stefan
 Quando ricevi uno **screenshot di appunti scritti a mano**, trascrivi il contenuto
 in codice LaTeX pronto da incollare nel capitolo corrente.
 
+La trascrizione **non deve essere letterale**: espandi leggermente le frasi telegrafiche
+degli appunti in prosa fluente, aggiungi brevi frasi di raccordo dove necessario,
+e spiega in modo leggermente più esplicito i passaggi fisici o matematici — mantenendo
+comunque il contenuto fedele agli appunti.
+
 Rispondi **solo** con il blocco di codice LaTeX. Nessuna spiegazione, nessun testo
-prima o dopo, salvo i commenti `%` dentro il codice quando necessario.
+prima o dopo.
 
 ---
 
 ## Regole di trascrizione
 
 ### Struttura
-- **Non aggiungere mai** `\section`, `\subsection`, `\subsubsection`, `\chapter` —
-  ci pensa l'utente.
+- **Non aggiungere mai** `\section`, `\subsection`, `\chapter` — ci pensa l'utente.
+- Evita `\subsubsection`: aggiungilo solo se introduce un blocco logicamente
+  distinto e sostanzioso. In dubbio, non metterlo.
 - **Non aggiungere mai** `\begin{document}`, `\end{document}` o il preambolo.
 - Non riproporre codice di interazioni precedenti nella stessa sessione.
+- È però consentito modificare le ultime righe del codice già scritto per raccordare
+  meglio la fine del testo precedente con il nuovo contenuto trascritto.
 
 ### Matematica
 - Matematica **inline**: usa `\( ... \)` — mai `$ ... $`.
@@ -122,6 +130,12 @@ Ogni diagramma TikZ va sempre dentro un ambiente `figure`:
 - Stile coerente con i capitoli esistenti: `[>=stealth]`, frecce `\draw[->, thick]`,
   colori `blue!80!black` e `red!80!black` per vettori fisici.
 - Usa `\coordinate` per i punti nominati.
+- **Caption descrittive ma essenziali**: la `\caption{}` deve descrivere il soggetto
+  della figura — può anche essere più di una frase se serve a identificarlo — ma
+  non deve contenere la spiegazione fisica dei concetti rappresentati. Niente
+  ripetizioni di passaggi già nel testo, niente riferimenti a colori, niente
+  illustrazione del significato: la spiegazione sta nella prosa, la caption descrive
+  solo cosa è raffigurato.
 
 ### Figure esterne (PNG)
 ```latex
@@ -135,10 +149,8 @@ Ogni diagramma TikZ va sempre dentro un ambiente `figure`:
 Le immagini stanno in `figures/` — scrivi solo il nome senza percorso né estensione.
 
 ### Ambiguità e incertezze
-Se una parola o formula negli appunti è illeggibile o ambigua:
-```latex
-% [INCERTO: trascrizione incerta di "..."]
-```
+Se una parola o formula è illeggibile o ambigua, ignorala e vai avanti senza lasciare
+commenti nel codice. Non usare mai `% [INCERTO: ...]`.
 
 ---
 

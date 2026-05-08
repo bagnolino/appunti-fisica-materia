@@ -750,8 +750,8 @@ Questa equazione esprime un concetto fondamentale: il prodotto scalare tra il mo
     \draw[thick, blue] (-1.2, 0) arc (180:{180-\theta}:1.2) node[midway, left=2pt] {$\theta$};
 
     % Simboli di angolo retto per i fronti d'onda
-    \draw[teal, thin] ($(ProjIn)!0.15!(O)$) -- ($(ProjIn)!0.15!(O)!0.15!(B)$) -- ($(ProjIn)!0.15!(B)$);
-    \draw[teal, thin] ($(ProjOut)!0.15!(O)$) -- ($(ProjOut)!0.15!(O)!0.15!(B)$) -- ($(ProjOut)!0.15!(B)$);
+    \draw[teal, thin] ($(ProjIn)!0.4!(O)$) -- ($(ProjIn)!0.4!(O)!0.4!(B)$) -- ($(ProjIn)!0.4!(B)$);
+    \draw[teal, thin] ($(ProjOut)!0.4!(O)$) -- ($(ProjOut)!0.4!(O)!0.4!(B)$) -- ($(ProjOut)!0.4!(B)$);
 
 \end{tikzpicture}
     \caption{Rappresentazione schematica dell'equivalenza tra Bragg e Laue.}
@@ -1532,4 +1532,764 @@ Ricordando che la caratteristica velocità di gruppo di un pacchetto d'onde unid
     \vec{v}_g = \frac{\nabla_{\vec{k}} E_{\vec{k},n}}{\hbar}
 \end{equation}
 
-Questa equazione dimostra un concetto cruciale: la velocità di gruppo dipende strettamente dalla "forma" (il gradiente) della banda di appartenenza. Di conseguenza, adottiamo la notazione $\vec{v}_{g,n}$ per indicare esplicitamente che l'elettrone non si propaga come una generica onda piana nello spazio vuoto, ma il suo moto è interamente governato dalla specifica struttura a bande in cui è collocato.
+Questa equazione dimostra un concetto cruciale: la velocità di gruppo dipende strettamente dalla "forma" (il gradiente) della banda di appartenenza. Di conseguenza, adottiamo la notazione \( \vec{v}_{g,n}\) per indicare esplicitamente che l'elettrone non si propaga come una generica onda piana nello spazio vuoto, ma il suo moto è interamente governato dalla specifica struttura a bande in cui è collocato.
+
+\section{Modello di gas di \texorpdfstring{\(N\)}{N} elettroni in una scatola}
+\lezione{18}{04/05/2026}
+
+Ottimo modello per approssimare gli elettroni che risentono di un potenziale \(V \approx \text{costante}\) (qui posto uguale a zero), valido in particolare per gli elettroni più esterni. Si utilizza il \textbf{modello di Fermi} come modello di riferimento. Nel 1920, Sommerfeld lo impiegò per spiegare la conduttività elettrica nei metalli.
+
+Il sistema è composto da \(N\) elettroni \textbf{liberi ma confinati} in una scatola cubica di volume \(V\). Si assume che il volume sia così grande da poter applicare il limite per \(V \to \infty\), riducendo il problema a quello a \(N\) elettroni liberi.
+
+Poiché il potenziale è assunto nullo all'interno della scatola, l'Hamiltoniana del sistema è puramente cinetica:
+\begin{equation}
+    H = \sum_{i=1}^{N} \left( -\frac{\hbar^2}{2m_e} \nabla^2_{\vec{r}_i} \right)
+\end{equation}
+Questa si fattorizza come somma di Hamiltoniane monoelettroniche \(H = \sum_{i=1}^{N} H_i\), con:
+\begin{equation}
+    H_i = -\frac{\hbar^2}{2m_e} \nabla^2_{\vec{r}_i}
+\end{equation}
+
+La funzione d'onda totale \(\Psi_E(\tilde{r})\), con \(\tilde{r} = (\vec{r}_1, \ldots, \vec{r}_N)\), soddisfa \(H \Psi_E(\tilde{r}) = E \Psi_E(\tilde{r})\). Grazie alla separabilità delle variabili, il problema si riduce a \(N\) equazioni indipendenti — una per ciascun elettrone — della forma:
+\begin{equation}
+    H_i \Psi_E(\vec{r}_i) = E_i \Psi_E(\vec{r}_i)
+\end{equation}
+È sufficiente quindi risolvere il problema per un singolo elettrone e poi costruire la soluzione totale come produttoria. Da qui in poi adottiamo la notazione \(\vec{r}_i \equiv \vec{r}\).
+
+Ogni \(\Psi_E(\vec{r})\) soddisfa il teorema di Bloch nella forma \(\Psi_E(\vec{r}) = e^{i\vec{k}\cdot\vec{r}}\, u_E(\vec{r})\), dove la parte periodica \(u_E(\vec{r})\) si annulla fuori dalla scatola. Nel limite in cui il potenziale è identicamente zero, la soluzione è semplicemente un'\textbf{onda piana}:
+\begin{equation}
+    \Psi_E(\vec{r}) = A\, e^{i\vec{k}\cdot\vec{r}}
+\end{equation}
+Il confinamento è imposto dalle \textbf{condizioni al contorno}: la funzione d'onda deve annullarsi fuori da una scatola cubica di lato \(L\),
+\begin{equation}
+    \Psi_E(\vec{r}) = 0 \qquad \forall\, \vec{r} \notin \text{scatola}
+\end{equation}
+
+La soluzione fisica non è un'onda piana pura, ma un'onda stazionaria, ottenuta come combinazione di onda progressiva e regressiva:
+\begin{equation}
+    \Psi_E \propto \left[ e^{i\vec{k}\cdot\vec{r}} + e^{-i\vec{k}\cdot\vec{r}} \right]
+    \implies
+    \Psi_E(\vec{r}) = A \sin(k_x x)\sin(k_y y)\sin(k_z z)
+\end{equation}
+con \(\vec{k} = (k_x, k_y, k_z)\). Le condizioni al contorno richiedono che \(\Psi_E\) si annulli su tutte le facce della scatola:
+\begin{equation}
+    \Psi_E(\vec{r}) = 0 \quad \text{per } x = 0, L; \quad y = 0, L; \quad z = 0, L
+\end{equation}
+
+La condizione in \(x = 0\) è automaticamente soddisfatta dal seno. Quella in \(x = L\) impone \(\sin(k_x L) = 0\), da cui \(k_x\) deve essere un multiplo intero di \(\pi/L\). Lo stesso vale per le altre direzioni, quindi:
+\begin{equation}
+    k_x = n_x \frac{\pi}{L}, \quad k_y = n_y \frac{\pi}{L}, \quad k_z = n_z \frac{\pi}{L}, \qquad n_x, n_y, n_z \in \mathbb{N}
+\end{equation}
+Il modulo del vettore d'onda \(\abs{\vec{k}} = k(n_x, n_y, n_z)\) è quindi \textbf{discreto}. Soluzioni distinte corrispondono a diverse terne di interi \((n_x, n_y, n_z)\); è però possibile che terne diverse producano la stessa soluzione, contando più volte lo stesso stato.
+
+Sostituendo l'onda piana \(\Psi_E(\vec{r}_i) \propto e^{i\vec{k}\cdot\vec{r}_i}\) nell'equazione di Schrödinger monoelettronica, si ottiene immediatamente:
+\begin{equation}
+    E_i = \frac{\hbar^2 k^2}{2m_e}, \qquad k^2 = k_x^2 + k_y^2 + k_z^2
+\end{equation}
+Lo spettro energetico del singolo elettrone è quindi discreto, e di conseguenza lo è anche l'energia totale \(E = \sum_{i=1}^{N} E_i\). La funzione d'onda totale si costruisce come prodotto:
+\begin{equation}
+    \Psi_E = \prod_{i=1}^{N} \Psi_E(\vec{r}_i)
+\end{equation}
+
+\begin{remark}
+Nel calcolo degli stati ammessi occorre tenere conto dello spin e rispettare l'antisimmetria per stati fermionici (principio di Pauli, ecc.).
+\end{remark}
+
+La relazione di dispersione è parabolica, \(E_i(\vec{k}) = \hbar^2 k^2 / 2m_e\). Nel limite \(L \to \infty\) la spaziatura tra i valori permessi di \(\vec{k}\) tende a zero, e il vettore d'onda può essere trattato come una variabile continua.
+
+Quando applichiamo il modello del gas di Fermi per descrivere elettroni molto debolmente legati ai nuclei — come fece Sommerfeld attorno al 1920--1927 — ci aspettiamo di ritrovare la periodicità tipica delle funzioni di Bloch. La funzione d'onda mantiene la forma:
+\begin{equation}
+    \Psi_E(\vec{r}_i) = e^{i\vec{k}\cdot\vec{r}_i}\, u_E(\vec{r}_i) \approx e^{i\vec{k}\cdot\vec{r}_i}
+\end{equation}
+e sotto traslazione di un vettore \(\vec{R}\) del reticolo diretto si comporta come:
+\begin{equation}
+    \Psi_E(\vec{r}_i + \vec{R}) = e^{i\vec{k}\cdot\vec{R}}\, \Psi_E(\vec{r}_i)
+\end{equation}
+da cui segue la \textbf{periodicità in \(\vec{k}\)}: ogni autofunzione deve essere invariante per traslazioni di un vettore \(\vec{G}\) del reticolo reciproco, e di conseguenza anche \(E_i\) è periodica in \(\vec{k}\).
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0]
+        % Assi
+        \draw[->, thick] (-4.5, 0) -- (4.5, 0) node[below right] {\(k_x\)};
+        \draw[->, thick] (0, -0.3) -- (0, 4) node[left] {\(E_i\)};
+
+        % Parabole della struttura a bande (zona ridotta)
+        \draw[thick, teal!70!black, domain=-3.5:3.5, samples=80] plot (\x, {0.4*\x*\x});
+        \draw[thick, teal!70!black, domain=-1.5:3.5, samples=80] plot (\x, {0.4*(\x-2)*(\x-2)});
+        \draw[thick, teal!70!black, domain=-3.5:1.5, samples=80] plot (\x, {0.4*(\x+2)*(\x+2)});
+
+        % Prima zona di Brillouin
+        \draw[thick, violet] (-1, -0.3) -- (-1, 3.8);
+        \draw[thick, violet] (1, -0.3) -- (1, 3.8);
+        \draw[<->, thick, violet] (-1, -1) -- (1, -1) node[midway, below] {\footnotesize zona di Brillouin};
+
+        % Riempimento livelli a k_x fissato, uno per ciascuna parabola
+        \filldraw[red] (0.4, {0.4*0.4*0.4}) circle (1pt);
+        \node[red, font=\tiny] at (0.65, {0.4*0.4*0.4+0.1}) {\(\uparrow\downarrow\)};
+        \filldraw[red] (0.4, {0.4*(0.4-2)*(0.4-2)}) circle (1pt);
+        \node[red, font=\tiny] at (0.65, {0.4*(0.4-2)*(0.4-2)+0.1}) {\(\uparrow\downarrow\)};
+        \filldraw[red] (0.4, {0.4*(0.4+2)*(0.4+2)}) circle (1pt);
+        \node[red, font=\tiny] at (0.65, {0.4*(0.4+2)*(0.4+2)+0.1}) {\(\uparrow\)};
+
+        \node[below, font=\small] at (0, -0.3) {\(k_x\)};
+    \end{tikzpicture}
+    \caption{Struttura a bande nel modello del gas di Fermi.}
+    \label{fig:bande_gas_fermi}
+\end{figure}
+
+Grazie alla periodicità in \(\vec{k}\), è sufficiente considerare il singolo elettrone con energia \(E_i\) all'interno della prima zona di Brillouin (\textbf{schema in zona ridotta}). Quando si passa al sistema completo, ciascuna banda contiene molti stati \(\vec{k}\) ammessi e su ognuno di essi il principio di Pauli consente di accomodare al più due elettroni, con spin opposto. La banda risulta perciò complessivamente \(N\)-volte degenere, dove \(N\) tiene conto sia del numero di valori di \(\vec{k}\) ammessi sia del fattore due dovuto allo spin.
+
+Il riempimento procede secondo il \textbf{principio di Aufbau}: si parte dal livello energetico più basso e si sale, collocando una coppia \(\uparrow\downarrow\) su ogni stato \(\vec{k}\) prima di passare al livello successivo.
+
+\subsection{Quantificazione del numero di stati elettronici}
+
+Per un sistema di \(N\) elettroni liberi in una scatola, il numero totale di stati elettronici accessibili si ottiene moltiplicando per due (molteplicità di spin) il numero di stati indicizzati dal vettore d'onda \(\vec{k}\):
+\begin{equation}
+    N_{\text{stati elettronici}} = 2 \cdot N_{k}
+\end{equation}
+
+Il problema si riduce dunque a contare \(N_{{k}}\), cioè il numero di \(\vec{k}\) ammessi. Nello spazio reciproco gli stati formano un reticolo cubico con passo \(\pi/L\) lungo ciascuna direzione: due valori adiacenti di \(k_x\) distano \(\pi/L\), e analogamente per \(k_y\) e \(k_z\). Si considerano solo i \(\vec{k}\) appartenenti al \textbf{primo ottante} (\(k_x, k_y, k_z > 0\)): i valori negativi non rappresentano soluzioni indipendenti, ma corrispondono a sfasamenti delle stesse onde stazionarie già conteggiate nel settore positivo, e devono quindi essere esclusi dal conteggio.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0]
+        % Proiezione 3D in cabinet: k_x foreshortened (fattore 0.5) verso basso-sinistra
+        \def\xX{-0.433}
+        \def\yX{-0.25}
+        \def\Ri{2.0}
+        \def\Ro{2.5}
+
+        % Assi
+        \draw[->, thick] (0,0) -- ({\xX*4}, {\yX*4}) node[below left] {\(k_x\)};
+        \draw[->, thick] (0,0) -- (3.4, 0) node[right] {\(k_y\)};
+        \draw[->, thick] (0,0) -- (0, 3.2) node[above] {\(k_z\)};
+
+        % Sfera interna (raggio Ri): tre archi sui piani coordinati
+        \draw[thick, teal!70!black, domain=0:90, samples=50, smooth]
+            plot ({\Ri*cos(\x)}, {\Ri*sin(\x)});
+        \draw[thick, teal!70!black, domain=0:90, samples=50, smooth]
+            plot ({\xX*\Ri*cos(\x)}, {\Ri*sin(\x) + \yX*\Ri*cos(\x)});
+        \draw[thick, teal!70!black, domain=0:90, samples=50, smooth]
+            plot ({\Ri*sin(\x) + \xX*\Ri*cos(\x)}, {\yX*\Ri*cos(\x)});
+
+        % Sfera esterna (raggio Ro)
+        \draw[thick, teal!70!black, domain=0:90, samples=50, smooth]
+            plot ({\Ro*cos(\x)}, {\Ro*sin(\x)});
+        \draw[thick, teal!70!black, domain=0:90, samples=50, smooth]
+            plot ({\xX*\Ro*cos(\x)}, {\Ro*sin(\x) + \yX*\Ro*cos(\x)});
+        \draw[thick, teal!70!black, domain=0:90, samples=50, smooth]
+            plot ({\Ro*sin(\x) + \xX*\Ro*cos(\x)}, {\yX*\Ro*cos(\x)});
+
+        % Connettori radiali sui tre assi
+        \draw[thick, teal!70!black] (\Ri, 0) -- (\Ro, 0);
+        \draw[thick, teal!70!black] (0, \Ri) -- (0, \Ro);
+        \draw[thick, teal!70!black] ({\xX*\Ri}, {\yX*\Ri}) -- ({\xX*\Ro}, {\yX*\Ro});
+
+        % Vettore k indicativo
+        \draw[->, thick, violet!80!black] (0,0) -- ({\Ri*cos(55)}, {\Ri*sin(55)})
+            node[midway, above left, font=\footnotesize] {\(\vec{k}\)};
+
+        % Stati k ammessi nel primo ottante
+        \foreach \pt in {(0.5,1.6), (1.4,1.2), (1.8,0.5), (0.9,0.9), (1.5,1.7), (0.4,2.2), (2.2,0.7), (1.7,1.4)} {
+            \filldraw[violet!70] \pt circle (1pt);
+        }
+
+        % Etichetta
+        \node[teal!70!black, font=\footnotesize, align=center] at (3.4, 2.7) {guscio sferico\\\([k, k + dk]\)};
+    \end{tikzpicture}
+    \caption{Conteggio degli stati \(\vec{k}\) nel primo ottante.}
+    \label{fig:conteggio_stati_k}
+\end{figure}
+
+Per contare il numero di vettori \(\vec{k}\) il cui modulo cade nell'intervallo \([k, k + dk]\), si considera la \textbf{corteccia} (guscio) sferica di spessore \(dk\) nel primo ottante. Il volume di un guscio sferico completo è \(4\pi k^2\, dk\); restringendolo al primo ottante si ottiene un fattore \(1/8\). Dividendo per il volumetto \((\pi/L)^3\) occupato da ogni singolo \(\vec{k}\) nello spazio reciproco si ottiene il numero di stati \(\vec{k}\) presenti nella corteccia:
+\begin{equation}
+    dN_{\vec{k}} = \frac{1}{8} \cdot \frac{4\pi k^2\, dk}{(\pi/L)^3} = \frac{L^3}{\pi^2} \cdot \frac{k^2\, dk}{2}
+\end{equation}
+
+Tenendo conto del fattore due dovuto allo spin, il numero di stati elettronici nel guscio diventa:
+\begin{equation}
+    dN_{\text{stati}} = 2 \cdot dN_{\vec{k}} = \frac{V}{\pi^2}\, k^2\, dk \qquad \text{con } V = L^3
+\end{equation}
+Si definisce allora la \textbf{densità degli stati elettronici} in \(\vec{k}\) come:
+\begin{equation}
+    g(k) = \dv{N_{\text{stati}}}{k} = \frac{V}{\pi^2}\, k^2
+\end{equation}
+\begin{tcolorbox}[colback=blue!5, colframe=blue!50, sharp corners, boxrule=0.5pt]
+    \begin{equation}
+        g(k) \propto k^2
+    \end{equation}
+\end{tcolorbox}
+In questo modo si \emph{bypassa} l'uso esplicito del determinante di Slater per la costruzione dello stato a molti elettroni.
+
+Per esprimere \(g\) in funzione dell'energia, si usa la regola di derivazione:
+\begin{equation}
+    g(E_i) = g(k(E_i)) \cdot \dv{k}{E}
+\end{equation}
+dalla relazione di dispersione \(E_i = \hbar^2 k^2 / 2m_e\) si ricava \(k = \sqrt{2 m_e E_i / \hbar^2}\), da cui:
+\begin{equation}
+    g(E_i) = \frac{V}{\pi^2} \underbrace{\left(\frac{2 m_e E_i}{\hbar^2}\right)}_{k^2} \sqrt{\frac{2 m_e}{\hbar^2}}\, \frac{1}{\sqrt{E_i}}
+\end{equation}
+Raccogliendo le costanti:
+\begin{importantbox}
+    \begin{equation}
+        g(E_i) = B\, V\, \sqrt{E_i}
+    \end{equation}
+\end{importantbox}
+dove \(B\) è una costante di proporzionalità che ingloba anche la molteplicità di spin.
+
+
+In un gas di Fermi confinato in una scatola di volume \(V\), la densità degli stati elettronici per unità di energia è:
+\begin{equation}
+    g_{\text{stati elett.}}(E) = B\, V\, \sqrt{E}
+\end{equation}
+L'esistenza di uno stato elettronico a una data energia \emph{non} implica che esso sia occupato: \(g(E)\) descrive solamente quanti stati sono disponibili, non quanti sono effettivamente popolati dagli elettroni.
+
+\subsubsection{Distribuzione di Fermi-Dirac e energia di Fermi}
+
+Per un sistema di \(N\) elettroni il riempimento dei livelli segue il principio di Pauli e il principio di Aufbau: si parte dai livelli a energia più bassa e si procede verso l'alto, occupando ciascuno con due elettroni di spin opposto (la molteplicità di spin è già contenuta in \(B\)). Il numero totale di elettroni si esprime come:
+\begin{equation}
+    N = \int_0^{\infty} \underbrace{\left[\frac{1}{e^{(E-\mu)/k_B T} + 1}\right]}_{f_{FD}(E)} g_{\text{stati elett.}}(E)\, dE
+\end{equation}
+dove la quantità tra parentesi è la \textbf{distribuzione di Fermi-Dirac}:
+\begin{equation}
+    f_{FD}(E) = \frac{1}{e^{(E - \mu)/k_B T} + 1}
+\end{equation}
+
+Si definisce \textbf{energia di Fermi} \(E_F\) il valore del potenziale chimico a temperatura nulla:
+\begin{equation}
+    E_F \coloneqq \mu(T = 0\,\text{K})
+\end{equation}
+
+A \(T = 0\,\text{K}\) la distribuzione di Fermi-Dirac assume la forma di una funzione a gradino:
+\begin{equation}
+    f_{FD}(E) = \begin{cases} 1 & E \leq E_F \\ 0 & E > E_F \end{cases}
+\end{equation}
+\begin{attention}
+A temperatura nulla, tutti gli stati con energia \(E < E_F\) sono occupati; quelli con \(E > E_F\) sono completamente vuoti.
+\end{attention}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0]
+        % Assi
+        \draw[->, thick] (0, 0) -- (5.5, 0) node[below right] {\(E\)};
+        \draw[->, thick] (0, -0.2) -- (0, 2.6) node[left] {\(f_{FD}\)};
+
+        % Livelli di riferimento
+        \node[left, font=\small] at (0, 2) {\(1\)};
+        \node[left, font=\small] at (0, 1) {\(\tfrac{1}{2}\)};
+        \draw[dashed, gray!60] (0, 1) -- (3, 1);
+        \node[below, font=\small] at (3, 0) {\(E_F\)};
+
+        % T = 0 K: gradino
+        \draw[thick, blue!80!black] (0, 2) -- (3, 2) -- (3, 0);
+        \node[blue!80!black, font=\footnotesize] at (1.6, 2.2) {\(T = 0\,\text{K}\)};
+
+        % T > 0 K: curva regolare attraverso (E_F, 1/2)
+        \draw[thick, teal!70!black, smooth, samples=80, domain=0:5.4]
+            plot (\x, {2/(1 + exp(2.5*(\x - 3)))});
+        \node[teal!70!black, font=\footnotesize] at (4.3, 1.0) {\(T > 0\,\text{K}\)};
+    \end{tikzpicture}
+    \caption{Distribuzione di Fermi-Dirac a \(T = 0\,\text{K}\) e a \(T > 0\,\text{K}\).}
+    \label{fig:fermi_dirac}
+\end{figure}
+
+A \(T > 0\,\text{K}\), invece, la transizione tra stati pieni e stati vuoti diventa graduale: alcuni stati con \(E > E_F\) risultano occupati e, in modo complementare, alcuni stati con \(E < E_F\) sono lasciati vuoti. La temperatura promuove gli elettroni verso energie superiori, ma il numero totale di elettroni \(N\) si conserva: l'area sottesa dalla \(f_{FD}\) ponderata da \(g(E)\) resta invariata.
+
+A temperatura nulla la distribuzione di Fermi-Dirac vale \(1\) per \(E \leq E_F\) e \(0\) altrove, quindi l'integrale per \(N\) si tronca a \(E_F\):
+\begin{equation}
+    N = \int_0^{E_F} g(E)\, dE = \int_0^{E_F} B\, V\, \sqrt{E}\, dE = B\, V\, \frac{2}{3}\, E_F^{3/2}
+\end{equation}
+Il numero di elettroni dipende dunque dal volume della scatola. Dividendo entrambi i membri per \(V\) si ottiene la \textbf{densità di elettroni liberi} \(n = N/V\):
+\begin{importantbox}
+    \begin{equation}
+        n = \frac{N}{V} = \frac{2}{3}\, B\, E_F^{3/2}
+    \end{equation}
+\end{importantbox}
+Questa relazione lega direttamente la densità di elettroni liberi all'energia di Fermi del materiale.
+
+L'energia media del sistema di \(N\) elettroni liberi nella scatola si ottiene contando tutti gli stati occupati e pesandoli per il rispettivo valore di energia:
+\begin{equation}
+    E_{\text{media}} = \expval{E} = \int_0^{\infty} E\, f_{FD}(E)\, g_{\text{stati elett.}}(E)\, dE
+\end{equation}
+
+A \(T = 0\,\text{K}\), sfruttando ancora il fatto che \(f_{FD} = 1\) per \(E \leq E_F\) e zero altrove, l'integrale si tronca a \(E_F\):
+\begin{equation}
+    E_{\text{media}} = \int_0^{E_F} E\, g_{\text{stati elett.}}(E)\, dE = \int_0^{E_F} E\, B\, V\, \sqrt{E}\, dE = B\, V\, \frac{2}{5}\, E_F^{5/2}
+\end{equation}
+
+L'energia media \emph{per elettrone} si ottiene dividendo per \(N\):
+\begin{equation}
+    E_0 = \frac{E_{\text{media}}}{N} = \frac{B\, V\, \frac{2}{5}\, E_F^{5/2}}{B\, V\, \frac{2}{3}\, E_F^{3/2}}
+\end{equation}
+\begin{importantbox}
+    \begin{equation}
+        E_0 = \frac{3}{5}\, E_F
+    \end{equation}
+\end{importantbox}
+Il risultato fornisce l'ordine di grandezza dell'energia media per elettrone in un metallo, ed è una conseguenza diretta del principio di Aufbau applicato al riempimento progressivo dei livelli fino a \(E_F\).
+
+\subsubsection{Applicazione di un campo elettrico}
+
+Cosa succede se si applica un campo elettrico \(\vec{E}\) al sistema di \(N\) elettroni liberi nella scatola? Ci si aspetta che ogni elettrone sia soggetto alla forza elettrica:
+\begin{equation}
+    \vec{F}_{\text{el}} = -e\, \vec{E}_{\text{el}}
+\end{equation}
+nella sua descrizione classica. D'altra parte, trattando l'elettrone come particella quantistica, ne conosciamo l'impulso e l'energia tramite \(\vec{p} = \hbar \vec{k}\) e \(E = \frac{p^2}{2m_e} = \frac{\hbar^2 k^2}{2m_e}\).
+
+Per descrivere l'effetto del campo occorre raccordare il formalismo classico con quello quantistico: dalla seconda legge di Newton, applicata all'impulso \(\vec{p} = \hbar \vec{k}\), si ottiene:
+\begin{equation}
+    \vec{F}_{\text{el}} = -e\, \vec{E}_{\text{el}} = \dv{\vec{p}}{t} = \hbar\, \dv{\vec{k}}{t}
+\end{equation}
+da cui l'equazione di evoluzione del vettore d'onda:
+\begin{importantbox}
+    \begin{equation}
+        \dv{\vec{k}}{t} = -\frac{e\, \vec{E}_{\text{el}}}{\hbar}
+    \end{equation}
+\end{importantbox}
+che, integrata nel tempo, fornisce:
+\begin{equation}
+    \vec{k}(t) = \vec{k}_0 - \frac{e\, \vec{E}_{\text{el}}}{\hbar}\, t
+\end{equation}
+Occorre però fare attenzione alla scala dei tempi: \(\vec{k}\) non può crescere indefinitamente. Quando gli elettroni si spostano in una direzione (ad esempio a destra) riempiono i vuoti lasciati dagli altri elettroni, i quali a loro volta rientrano dal lato opposto della zona di Brillouin (\textbf{effetto pacman}).
+
+\subsection{Sfera di Fermi}
+\lezione{19}{05/05/2026}
+
+Vediamo ora il significato fisico di quanto ricavato. A \(T = 0\,\text{K}\) la distribuzione di Fermi-Dirac è una funzione a gradino: tutti gli stati con energia inferiore a \(E_F\) sono occupati e quelli al di sopra sono vuoti. Esiste allora un modulo del vettore d'onda \(k_F\), detto \textbf{vettore d'onda di Fermi}, tale che:
+\begin{equation}
+    E_F = \frac{\hbar^2 k_F^2}{2 m_e}
+\end{equation}
+\(E_F\) è l'energia al di sotto della quale ogni stato è occupato; equivalentemente, \(k_F\) delimita nello spazio reciproco una superficie di separazione tra stati pieni e stati vuoti.
+
+In tre dimensioni, l'insieme dei vettori \(\vec{k}\) con \(\abs{\vec{k}} \leq k_F\) forma una sfera centrata nell'origine dello spazio reciproco, detta \textbf{sfera di Fermi}: tutti gli stati al suo interno sono occupati, tutti quelli all'esterno sono vuoti.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0]
+        \draw[->, thick] (-2.6, 0) -- (2.8, 0) node[below right] {\(k_x\)};
+        \draw[->, thick] (0, -2.6) -- (0, 2.8) node[left] {\(k_y\)};
+
+        % Sfera di Fermi (sezione)
+        \draw[thick, violet] (0,0) circle (1.8);
+
+        % Vettore k_F
+        \draw[->, thick, violet!80!black] (0,0) -- ({1.8*cos(40)}, {1.8*sin(40)})
+            node[midway, above left, font=\small] {\(\vec{k}_F\)};
+
+        % Stati occupati all'interno (segni +)
+        \foreach \pos in {(0.5, 0.4), (-0.6, 0.5), (0.7, -0.5), (-0.5, -0.4),
+                         (1.2, 0.2), (-1.0, 0.8), (0.3, 1.1), (-0.2, -1.1),
+                         (1.0, -0.9), (-1.1, -0.6), (0.0, 0.0), (1.4, -0.3),
+                         (-1.4, 0.1), (0.6, 1.4), (-0.7, 1.3), (1.5, 0.7)} {
+            \node[teal!70!black, font=\small] at \pos {\(+\)};
+        }
+
+        \node[violet, font=\footnotesize] at (2.4, -2.2) {sfera di Fermi};
+    \end{tikzpicture}
+    \caption{Sezione della sfera di Fermi nello spazio reciproco a \(T = 0\,\text{K}\).}
+    \label{fig:sfera_fermi}
+\end{figure}
+
+Vediamo ora cosa accade alla sfera di Fermi quando, partendo da \(T = 0\,\text{K}\), si accende un campo elettrico \(\vec{E}_{\text{el}}\). Per quanto visto nel paragrafo precedente, ogni vettore d'onda subisce uno spostamento:
+\begin{equation}
+    \delta \vec{k} = -\frac{e\, \vec{E}_{\text{el}}}{\hbar}\, t
+\end{equation}
+L'intera sfera di Fermi trasla quindi rigidamente di \(\delta \vec{k}\) nello spazio reciproco. Il risultato è una nuova sfera, sovrapposta in larga parte alla sfera originale ma traslata: nella regione di intersezione tra le due sfere gli stati restano occupati (per il \textbf{principio di indistinguibilità degli elettroni}), nella zona da cui la sfera si è spostata gli stati risultano liberati, mentre nella zona in cui si è spostata gli stati diventano occupati a seguito della modifica indotta da \(\vec{E}_{\text{el}}\).
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0]
+        \draw[->, thick] (-3.0, 0) -- (3.2, 0) node[below right] {\(k_x\)};
+        \draw[->, thick] (0, -2.6) -- (0, 2.8) node[left] {\(k_y\)};
+
+        % Sfera originale (a E=0)
+        \draw[thick, dashed, violet] (0,0) circle (1.8);
+        % Sfera traslata di delta_k (verso destra, perché elettroni hanno carica -e e campo positivo)
+        \def\dk{0.5}
+        \draw[thick, blue!70!black] (\dk, 0) circle (1.8);
+
+        % Spostamento delta k
+        \draw[->, thick, teal!70!black] (-1.5, -0.2) -- ({-1.5+\dk}, -0.2)
+            node[midway, below, font=\footnotesize] {\(\delta \vec{k}\)};
+
+        % Stati occupati nell'intersezione (segni +)
+        \foreach \pos in {(0.4, 0.4), (-0.5, 0.4), (0.7, -0.4), (-0.4, -0.5),
+                         (1.0, 0.2), (-0.6, 0.9), (0.3, 1.0), (0.1, -0.9),
+                         (1.0, -0.7), (-0.3, -0.3), (0.0, 0.0), (0.6, 0.8)} {
+            \node[red, font=\small] at \pos {\(+\)};
+        }
+        % Nuovi stati occupati (zona destra, fuori dalla sfera originale)
+        \foreach \pos in {(2.0, 0.3), (1.95, -0.4), (2.1, 0.0), (1.85, 0.8)} {
+            \node[teal!70!black, font=\small] at \pos {\(+\)};
+        }
+        % Stati liberati (zona sinistra, fuori dalla sfera traslata)
+        \foreach \pos in {(-1.5, 0.3), (-1.6, -0.3), (-1.7, 0.0), (-1.4, 0.8)} {
+            \node[violet, font=\tiny] at \pos {\(\circ\)};
+        }
+
+        % Etichette
+        \node[violet, font=\footnotesize, align=center] at (-3.2, 1.6) {stati\\liberati};
+        \draw[->, violet, thin] (-2.6, 1.4) -- (-1.7, 0.5);
+        \node[red, font=\footnotesize, align=center] at (3.4, 1.8) {stati rimasti\\occupati};
+        \draw[->, red, thin] (2.7, 1.5) -- (0.6, 0.6);
+        \node[teal!70!black, font=\footnotesize, align=center] at (3.6, -1.5) {stati occupati\\dopo \(\vec{E}_{\text{el}}\)};
+        \draw[->, teal!70!black, thin] (3.0, -1.2) -- (2.0, -0.3);
+    \end{tikzpicture}
+    \caption{Traslazione rigida della sfera di Fermi sotto l'azione di un campo elettrico.}
+    \label{fig:sfera_fermi_traslata}
+\end{figure}
+
+\begin{remark}
+L'\emph{indistinguibilità degli stati} è un concetto distinto dall'\emph{indistinguibilità degli elettroni}: qui si afferma che alcuni stati restano occupati nell'intersezione delle due sfere, indipendentemente da \emph{quali} elettroni li occupino. Per descrivere la conduzione bisogna allora identificare quali stati siano \textbf{vicini alla superficie di Fermi}, perché solo questi possono essere modificati dal campo (se invece la temperatura è non nulla, occorre considerare anche l'energia interna termica degli elettroni).
+\end{remark}
+
+La sfera di Fermi è dunque il parametro di riferimento naturale del sistema. A partire dal vettore d'onda di Fermi \(k_F\), definito da \(E_F = \hbar^2 k_F^2 / 2 m_e\), si introducono altre grandezze caratteristiche del gas di elettroni. Anzitutto, la dipendenza dalla temperatura entra attraverso la distribuzione di Fermi-Dirac:
+\begin{equation}
+    f_{FD}(E) = \frac{1}{e^{(E - \mu)/k_B T} + 1}
+\end{equation}
+\begin{remark}
+La probabilità di occupazione di uno stato segue la \textbf{statistica di Fermi}.
+\end{remark}
+
+Si definiscono inoltre le seguenti grandezze caratteristiche:
+\begin{itemize}
+    \item la \textbf{temperatura di Fermi} \(T_F\), tale che:
+    \begin{equation}
+        E_F = k_B T_F
+    \end{equation}
+    \item la \textbf{velocità di Fermi} \(v_F\), tale che:
+    \begin{equation}
+        \frac{1}{2} m_e v_F^2 = E_F
+    \end{equation}
+    \item la \textbf{lunghezza caratteristica di Fermi} \(\ell_F\), tale che:
+    \begin{equation}
+        v_F = \frac{\ell_F}{\tau}
+    \end{equation}
+    dove \(\tau\) è l'intervallo di tempo in cui non si verificano interazioni o collisioni.
+\end{itemize}
+
+Quando il gas è confinato in una scatola, \(\ell_F\) rappresenta la lunghezza massima che un elettrone può raggiungere prima di urtare contro le pareti. Per un materiale generico, prendendo gli ordini di grandezza:
+\begin{equation*}
+    v_F \sim 10^6\,\text{m/s}, \qquad \tau \sim 1\,\text{ns} \;\implies\; \ell_F \sim 0.3\,\text{cm}
+\end{equation*}
+È sufficiente quindi un intervallo di \(1\,\text{ns}\) perché un elettrone percorra un tragitto significativamente lungo.
+
+\begin{exercise}
+Calcolare l'ordine di grandezza dello spazio \(s\) percorso da un elettrone sottoposto a una differenza di potenziale di \(1\,\text{V}\), all'interno di una scatola di lato \(10\,\text{cm}\). Ripetere poi il calcolo considerando \(N_A = 10^{23}\) elettroni.
+\end{exercise}
+
+L'evoluzione \(\vec{k}(t) = \vec{k}_0 - e \vec{E}_{\text{el}} t / \hbar\) prevederebbe una crescita illimitata del modulo di \(\vec{k}\): un risultato matematicamente possibile ma fisicamente non accettabile. In una scatola reale (di volume finito) gli elettroni urtano contro le pareti, e ad ogni urto il vettore d'onda viene di fatto resettato: \(\vec{k}\) non cresce indefinitamente perché prima o poi gli elettroni urtano la parete.
+
+\subsubsection{Capacità termica del gas di elettroni}
+
+Vediamo ora cosa accade a \(T > 0\,\text{K}\). L'energia media del sistema è:
+\begin{equation}
+    \expval{E} = \int_0^{\infty} E\, g(E)\, f_{FD}(E)\, dE
+\end{equation}
+dove la dipendenza dalla temperatura entra unicamente attraverso \(f_{FD}(E)\). Identifichiamo \(\expval{E}\) con l'\textbf{energia interna del gas}, \(u_{\text{INT}}\).
+
+Poiché ogni elettrone contribuisce all'energia termica del sistema, e poiché gli elettroni possono scambiare energia, il sistema è in grado di immagazzinare e rilasciare calore. La \textbf{capacità termica a volume costante} per il gas di elettroni liberi nella scatola è dunque:
+\begin{equation}
+    C_V = \pdv{u_{\text{INT}}}{T} \bigg|_{V = \text{cost}}
+        = \pdv{T} \left\{ \int_0^{\infty} E\, g(E)\, f_{FD}(E)\, dE \right\}_{V = \text{cost}}
+\end{equation}
+Tenendo \(V\) (volume della scatola) costante, l'unico fattore che dipende da \(T\) è \(f_{FD}\), per cui:
+\begin{equation}
+    C_V = \int_0^{\infty} E\, g(E)\, \pdv{f_{FD}(E)}{T}\, dE
+\end{equation}
+
+Nel limite di basse temperature (\(T \to 0\,\text{K}\), ma \(T > 0\)) si trova che la capacità termica è proporzionale a \(T\):
+\begin{equation}
+    C_V \simeq \frac{\pi^2}{3}\, k_B^2\, g(E_F)\, T, \qquad g(E_F) = B\, V\, E_F^{1/2}
+\end{equation}
+    \begin{equation}
+        C_V \propto T
+    \end{equation}
+
+\begin{remark}
+Il risultato è \emph{controintuitivo}: classicamente ci si aspetterebbe che \(C_V\) fosse una costante (equipartizione dell'energia). La dipendenza lineare \(C_V \propto T\) è invece una conseguenza diretta della statistica di Fermi-Dirac, ed è caratteristica del gas di elettroni liberi nella scatola. A bassa temperatura compare quindi una componente in più dovuta al fatto che gli elettroni contribuiscono anche con energia termica, oltre che alla conducibilità.
+\end{remark}
+
+Si può riscrivere \(C_V\) in forma più compatta sfruttando le sostituzioni:
+\begin{equation}
+    \begin{cases}
+        N_{T = 0\,\text{K}} = \dfrac{2}{3}\, E_F\, g(E_F) \\[4pt]
+        N_{T = 0\,\text{K}} = \dfrac{2}{3}\, B\, V\, E_F^{3/2}
+    \end{cases}
+\end{equation}
+da cui:
+\begin{importantbox}
+    \begin{equation}
+        C_V = \frac{\pi^2}{2}\, k_B\, N_{T = 0\,\text{K}}\, \frac{T}{T_F}
+    \end{equation}
+\end{importantbox}
+
+\subsubsection{Pressione del gas di Fermi}
+
+Il gas di Fermi confinato in una scatola esercita inoltre una \textbf{pressione} \(P\) sulle pareti, di cui si può stimare l'ordine di grandezza. In prima approssimazione, ad alta temperatura \(T > 0\,\text{K}\), si assume:
+\begin{equation}
+    \expval{E} = \frac{3}{2}\, k_B T
+\end{equation}
+notando che anche nella descrizione quantistica l'energia termica viene considerata in modo analogo. Usando la legge dei gas perfetti \(PV = nRT\) e ricordando che \(R = N_A\, k_B\) (con \(N_A\) il numero di Avogadro), si ottiene:
+\begin{importantbox}
+    \begin{equation}
+        P \propto \frac{2}{3}\, \frac{\expval{E}}{V} \simeq \frac{2}{5}\, \frac{N_{T = 0\,\text{K}}\, E_F}{V}
+    \end{equation}
+\end{importantbox}
+che fornisce l'ordine di grandezza della pressione esercitata dal gas di elettroni.
+
+Se la parete non permette di realizzare urti elastici, dopo un certo tempo il gas di Fermi cede energia e \(\vec{k}\) non potrà più crescere indefinitamente: questo è il meccanismo fisico che limita l'evoluzione \(\vec{k}(t)\) discussa in precedenza.
+
+\subsubsection{Gas di Fermi in un cristallo}
+
+Noto il comportamento del gas di Fermi confinato in una scatola, ci chiediamo ora cosa accada quando la scatola è in realtà un \textbf{cristallo}: vedremo che lo spettro energetico mantiene una struttura periodica, e questo ci permetterà sia di descrivere il cristallo nel suo complesso, sia di mettere in luce i limiti del modello del gas di Fermi nel descrivere la realtà.
+
+L'Hamiltoniana del sistema mantiene la stessa forma del caso precedente:
+\begin{equation}
+    H = \sum_{i=1}^{N} H_i = \sum_{i=1}^{N} \left( -\frac{\hbar^2}{2 m_e}\, \nabla^2_{\vec{r}_i} \right)
+\end{equation}
+con l'equazione di Schrödinger \(H \Psi_E(\tilde{r}_e) = E_e \Psi_E(\tilde{r}_e)\), e la funzione d'onda totale costruita come prodotto delle soluzioni monoelettroniche:
+\begin{equation}
+    \Psi_E(\tilde{r}_e) = \prod_{i=1}^{N} \Psi_{E_i}(\vec{r}_i)
+\end{equation}
+
+Come per il gas in scatola, ci aspettiamo soluzioni dell'equazione monoelettronica nella forma di onde piane:
+\begin{equation}
+    \Psi_E(\vec{r}_i) = A\, e^{i \vec{k} \cdot \vec{r}_i}
+\end{equation}
+ma poiché il sistema è ora un cristallo, deve valere il \textbf{teorema di Bloch}: sotto traslazione di un vettore \(\vec{R}\) del reticolo diretto, la funzione d'onda monoelettronica acquista un fattore di fase,
+\begin{equation}
+    \Psi_{E_i}(\vec{r}_i + \vec{R}) = e^{i \vec{k} \cdot \vec{R}}\, \Psi_E(\vec{r}_i)
+\end{equation}
+e si scrive nella forma:
+\begin{equation}
+    \Psi_E(\vec{r}_i) = e^{i \vec{k} \cdot \vec{r}_i}\, u_E(\vec{r}_i)
+\end{equation}
+con \(\vec{R} = n_1 \vec{a}_1 + n_2 \vec{a}_2 + n_3 \vec{a}_3\) (combinazione intera dei vettori primitivi \(\{\vec{a}_i\}_{i=1,2,3}\)) e parte periodica:
+\begin{equation}
+    u_E(\vec{r}_i) = u_E(\vec{r}_i + \vec{R})
+\end{equation}
+
+\begin{remark}
+Per semplicità si pone \(u_E = 1\) all'interno del cristallo, e si considera il cristallo come infinitamente esteso. È un'assunzione poco intuitiva ma permette di trattare analiticamente il sistema.
+\end{remark}
+
+Per imporre concretamente la \textbf{periodicità} della funzione d'onda, scegliamo una cella nel reticolo diretto. Per semplicità prendiamo una cella cartesiana di lato \(a\), che può anche non coincidere con la cella primitiva a volume minimo.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0]
+        \def\xX{-0.433}
+        \def\yX{-0.25}
+        \def\a{2.0}
+
+        % Assi
+        \draw[->, thick] (0,0) -- ({\xX*\a*1.5}, {\yX*\a*1.5}) node[below left] {\(x\)};
+        \draw[->, thick] (0,0) -- ({\a*1.5}, 0) node[right] {\(y\)};
+        \draw[->, thick] (0,0) -- (0, {\a*1.5}) node[above] {\(z\)};
+
+        % Cubo di lato a
+        \coordinate (O) at (0,0);
+        \coordinate (Y) at (\a, 0);
+        \coordinate (Z) at (0, \a);
+        \coordinate (X) at ({\xX*\a}, {\yX*\a});
+        \coordinate (YZ) at (\a, \a);
+        \coordinate (XY) at ({\a + \xX*\a}, {\yX*\a});
+        \coordinate (XZ) at ({\xX*\a}, {\a + \yX*\a});
+        \coordinate (XYZ) at ({\a + \xX*\a}, {\a + \yX*\a});
+
+        \draw[thick, blue!70!black] (O) -- (Y) -- (YZ) -- (Z) -- cycle;
+        \draw[thick, blue!70!black] (X) -- (XY) -- (XYZ) -- (XZ) -- cycle;
+        \draw[thick, blue!70!black] (O) -- (X);
+        \draw[thick, blue!70!black] (Y) -- (XY);
+        \draw[thick, blue!70!black] (Z) -- (XZ);
+        \draw[thick, blue!70!black] (YZ) -- (XYZ);
+
+        % Etichette del lato a
+        \node[red, font=\small] at ({\a/2}, -0.25) {\(a\)};
+        \node[red, font=\small] at (-0.25, {\a/2}) {\(a\)};
+        \node[red, font=\small] at ({\xX*\a/2 - 0.2}, {\yX*\a/2}) {\(a\)};
+    \end{tikzpicture}
+    \caption{Cella cartesiana di lato \(a\) nel reticolo diretto.}
+    \label{fig:cella_cartesiana}
+\end{figure}
+
+Le condizioni di periodicità si scrivono allora:
+\begin{equation}
+    \begin{cases}
+        \Psi_{E_i}(0, y, z) = \Psi_{E_i}(a, y, z) & \forall\, y, z \\
+        \Psi_{E_i}(x, 0, z) = \Psi_{E_i}(x, a, z) & \forall\, x, z \\
+        \Psi_{E_i}(x, y, 0) = \Psi_{E_i}(x, y, a) & \forall\, x, y
+    \end{cases}
+\end{equation}
+
+Cercando soluzioni della forma \(\Psi_E = A\, e^{i \vec{k} \cdot \vec{r}_i}\), le condizioni di periodicità si traducono nei tre vincoli \(e^{i \cdot 0} = e^{i k_\ell a}\) per \(\ell = x, y, z\), da cui:
+\begin{equation}
+    k_\ell = m_\ell\, \frac{2\pi}{a}, \qquad m_\ell \in \mathbb{Z}
+\end{equation}
+
+\begin{remark}
+Le onde progressiva e regressiva, \(e^{+i\vec{k}\cdot\vec{r}}\) e \(e^{-i\vec{k}\cdot\vec{r}}\), corrispondono a soluzioni \emph{distinte}: la soluzione non è un'onda stazionaria, ma una vera onda piana, individuata univocamente dal vettore \(\vec{k}\). Nel modello del gas di Fermi in scatola, invece, le condizioni al contorno (annullamento alle pareti) forzavano le soluzioni a essere onde stazionarie, ottenute come combinazione di onde progressive e regressive.
+\end{remark}
+
+Ogni \(\vec{k}\) occupa nello spazio reciproco un volumetto pari a \((2\pi/a)^3\). Il numero di vettori d'onda con modulo inferiore a \(k\) si ottiene dividendo il volume della sfera di raggio \(k\) per quello del volumetto associato a un singolo stato:
+\begin{equation}
+    N_{\vec{k}} = \frac{\tfrac{4}{3}\pi k^3}{(2\pi/a)^3} = \frac{a^3\, k^3}{6\pi^2}
+\end{equation}
+\begin{remark}
+A differenza del caso della scatola, qui non compare il fattore \(1/8\) perché \(\vec{k}\) può assumere valori interi sia positivi sia negativi (\(m_\ell \in \mathbb{Z}\)): si integra sull'intera sfera, non solo sul primo ottante.
+\end{remark}
+
+Derivando rispetto a \(k\) si ottiene la \textbf{densità degli stati} in \(\vec{k}\):
+\begin{equation}
+    g_{\text{stati}}(k) = \dv{N_{\vec{k}}}{k} = \frac{1}{2\pi^2}\, a^3\, k^2
+\end{equation}
+e tenendo conto della molteplicità di spin:
+\begin{equation}
+    g_{\text{stati elett.}}(k) = 2 \cdot \frac{1}{2\pi^2}\, a^3\, k^2 = \frac{1}{\pi^2}\, a^3\, k^2
+\end{equation}
+
+Per esprimere \(g\) in funzione dell'energia, si usa la relazione di dispersione \(E_{e_i} = \hbar^2 k^2 / 2 m_e\), da cui \(k = \sqrt{2 m_e E_{e_i}/\hbar^2}\) e:
+\begin{equation}
+    \dv{k}{E} = \sqrt{\frac{2 m_e}{\hbar^2}} \cdot \frac{1}{2\sqrt{E_{e_i}}}
+\end{equation}
+Sostituendo:
+\begin{equation}
+    g_{\text{stati elett.}}(E) = \frac{1}{2\pi^2}\, a^3 \left(\frac{2 m_e}{\hbar^2}\right)^{3/2} \sqrt{E_{e_i}}
+\end{equation}
+che si riscrive in forma compatta:
+\begin{importantbox}
+    \begin{equation}
+        g_{\text{stati elett.}} = B\, V_{\text{cella}}\, \sqrt{E_{e_i}}, \qquad B = \frac{1}{2\pi^2}\left(\frac{2 m_e}{\hbar^2}\right)^{3/2}
+    \end{equation}
+\end{importantbox}
+La forma è identica a quella ottenuta per il gas di Fermi nella scatola, con la sostituzione \(V \to V_{\text{cella}}\): il volume di riferimento è ora la cella cristallina. Ci si aspetta dunque che le grandezze \(\expval{E}\) e \(N_{T = 0\,\text{K}}\) calcolate in precedenza valgano in maniera analoga, sostituendo \(V = V_{\text{cella}}\).
+
+Il teorema di Bloch impone che la funzione d'onda sotto traslazione di un vettore \(\vec{R}\) del reticolo diretto si trasformi come:
+\begin{equation}
+    \Psi_E(\vec{r} + \vec{R}) = e^{i \vec{k}\cdot \vec{R}}\, \Psi_E(\vec{r}) = e^{i (\vec{k} + \vec{G})\cdot \vec{R}}\, \Psi_E(\vec{r}) \qquad \forall\, \vec{G} \in \mathbb{R}\mathbb{R}
+\end{equation}
+dove \(\vec{G}\) è un generico vettore del reticolo reciproco coniugato al diretto, esprimibile come combinazione intera dei vettori primitivi del reticolo reciproco \(\{\vec{b}_i\}_{i=1,2,3}\):
+\begin{equation}
+    \vec{G} = h\, \vec{b}_1 + k\, \vec{b}_2 + \ell\, \vec{b}_3, \qquad \vec{b}_1 = \frac{2\pi}{\vec{a}_1 \cdot (\vec{a}_2 \wedge \vec{a}_3)}\, (\vec{a}_2 \wedge \vec{a}_3), \quad \text{ecc.}
+\end{equation}
+
+Ne discendono tre proprietà fondamentali dello spettro energetico:
+\begin{equation}
+    \begin{cases}
+        E(\vec{k}) = E(\vec{k} + \vec{G}) & \text{periodica} \\[2pt]
+        E(\vec{k}) = \dfrac{\hbar^2 k^2}{2 m_e} & \text{discreta} \\[6pt]
+        k_\ell = \dfrac{2\pi\, m_\ell}{a}, \quad \ell = x, y, z & \text{discreto}
+    \end{cases}
+\end{equation}
+
+\begin{remark}
+Le celle del reticolo diretto e di quello reciproco devono essere coniugate: una cella cubica di lato \(a\) nel reticolo diretto ha come coniugata una cella cubica di lato \(2\pi/a\) nel reticolo reciproco.
+\end{remark}
+
+Vediamo ora come questi risultati portino, dal modello del gas di Fermi in un cristallo, all'emergere dello \textbf{schema a bande}. La relazione di dispersione \(E(\vec{k}) = \hbar^2 k^2 / 2 m_e\) è una parabola periodica nello spazio reciproco: ripiegando le diverse repliche centrate in \(\vec{k} + \vec{G}\) all'interno della prima zona di Brillouin si ottiene una struttura a parabole sovrapposte, ognuna delle quali individua una \textbf{banda di energia} indicizzata dall'\textbf{indice di banda} \(n\), \(E_n(\vec{k})\).
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0]
+        \draw[->, thick] (-4.5, 0) -- (4.7, 0) node[below right] {\(k_\ell\)};
+        \draw[->, thick] (0, -0.3) -- (0, 4.0) node[above] {\(E\)};
+
+        % Parabola centrale
+        \draw[thick, teal!70!black, domain=-2.5:2.5, samples=80] plot (\x, {0.5*\x*\x});
+        % Parabola traslata di +2π/a (a destra)
+        \draw[thick, violet, domain=-0.5:4.0, samples=80] plot (\x, {0.5*(\x-2.5)*(\x-2.5)});
+        % Parabola traslata di -2π/a (a sinistra)
+        \draw[thick, blue!70!black, domain=-4.0:0.5, samples=80] plot (\x, {0.5*(\x+2.5)*(\x+2.5)});
+
+        % Prima zona di Brillouin
+        \draw[dashed, thick, violet] (-1.25, -0.3) -- (-1.25, 3.9);
+        \draw[dashed, thick, violet] (1.25, -0.3) -- (1.25, 3.9);
+        \node[below, font=\small] at (-1.25, 0) {\(-\tfrac{\pi}{a}\)};
+        \node[below, font=\small] at (1.25, 0) {\(\tfrac{\pi}{a}\)};
+
+        % Bande ripiegate (in rosso)
+        \draw[thick, red, domain=-1.25:1.25, samples=60] plot (\x, {0.5*\x*\x});
+        \draw[thick, red, domain=-1.25:0, samples=60] plot (\x, {0.5*(\x+2.5)*(\x+2.5)});
+        \draw[thick, red, domain=0:1.25, samples=60] plot (\x, {0.5*(\x-2.5)*(\x-2.5)});
+        \draw[thick, red, domain=-0.5:0, samples=60] plot (\x, {0.5*(\x-2.5)*(\x-2.5)});
+        \draw[thick, red, domain=0:0.5, samples=60] plot (\x, {0.5*(\x+2.5)*(\x+2.5)});
+
+        % Indicatore zona di Brillouin
+        \draw[<->, thick, violet] (-1.25, -0.7) -- (1.25, -0.7) node[midway, below] {\footnotesize \(\tfrac{2\pi}{a}\)};
+
+        % Etichetta dispersione
+        \node[violet, font=\small] at (3.6, 3.4) {\(\dfrac{\hbar^2 k^2}{2 m_e}\)};
+    \end{tikzpicture}
+    \caption{Schema a bande del gas di Fermi in un cristallo: parabole \(E(\vec{k}) = \hbar^2 k^2 / 2 m_e\) centrate nei punti del reticolo reciproco, con la struttura ripiegata nella prima zona di Brillouin (in rosso).}
+    \label{fig:bande_gas_fermi_cristallo}
+\end{figure}
+
+\subsubsection{Densità di corrente nel cristallo}
+
+Se applichiamo un campo elettrico \(\vec{E}_{\text{el}}\) al cristallo, valgono le solite relazioni:
+\begin{equation}
+    \begin{cases}
+        \vec{p} = \hbar \vec{k} \\
+        m \vec{v} = \vec{p}
+    \end{cases}
+\end{equation}
+Poiché \(\vec{k}\) è discreto, anche la velocità \(\vec{v}\) è discreta: è la rappresentazione del fatto che ci troviamo in un sistema periodico (la banda è simmetrica). Ripetendo il ragionamento del caso in scatola si ottiene:
+\begin{equation}
+    e\, \vec{E}_{\text{el}} = \dv{\vec{p}}{t} = \hbar\, \dv{\vec{k}}{t}
+    \implies
+    \vec{k}(t) = \vec{k}(0) - \frac{e\, \vec{E}_{\text{el}}}{\hbar}\, t
+\end{equation}
+
+Per quantificare la conduzione contiamo i contributi di tutti gli elettroni, tenendo presente che \emph{non tutti} avranno lo stesso effetto: ogni banda contribuisce in modo diverso.
+
+La \textbf{densità di corrente} \(\vec{J}\) si ottiene sommando sui contributi delle singole bande:
+\begin{equation}
+    \vec{J} = \sum_i (-e)\, n_{\text{pc}, i}\, \vec{v}_i
+\end{equation}
+dove:
+\begin{itemize}
+    \item \(n_{\text{pc}, i}\) è la densità di portatori di carica nella banda \(i\)-esima;
+    \item \(\vec{v}_i\) è la velocità degli elettroni nella banda \(i\)-esima;
+    \item \(q = -e\) è la carica dell'elettrone.
+\end{itemize}
+Il contributo della singola banda è dunque:
+\begin{equation}
+    \vec{J}_i = (-e)\, n_{\text{pc}, i}\, \vec{v}_i
+\end{equation}
+La velocità degli elettroni è diversa in ciascuna banda. Questa proprietà non è esclusiva del modello: vale anche nei materiali reali in cui gli elettroni sono debolmente legati ai nuclei e risentono di un'energia potenziale bassa.
+
+Il conto analitico di \(\vec{J}\) si esegue più convenientemente nello spazio \(\vec{k}\): invece di contare gli elettroni si contano gli stati, aggiungendo poi la molteplicità di spin. Bisogna però fare attenzione a un punto fondamentale: la velocità di banda soddisfa
+\begin{equation}
+    \vec{v}_n(-\vec{k}) = -\vec{v}_n(\vec{k})
+\end{equation}
+proprietà che deriva direttamente dalla simmetria
+\begin{importantbox}
+    \begin{equation}
+        E(\vec{k}) = E(-\vec{k})
+    \end{equation}
+\end{importantbox}
+Di conseguenza, le \textbf{bande piene non contribuiscono} a \(\vec{J}\): i contributi degli elettroni con \(\vec{k}\) e \(-\vec{k}\) si compensano esattamente. Solo gli elettroni nelle bande parzialmente occupate danno un contributo netto alla corrente.
+
+\begin{remark}
+È questa la ragione fisica per cui la conducibilità di un metallo non è infinita o enorme come il numero totale di elettroni: solo una piccola frazione (gli elettroni nelle bande parzialmente occupate, vicini al livello di Fermi) partecipa effettivamente alla conduzione.
+\end{remark}
+
+Sfruttando le relazioni \(d\vec{p}/dt = \hbar\, d\vec{k}/dt = m\, d\vec{v}/dt\) (e quindi \(m \vec{v} = \hbar \vec{k}\)), il contributo di banda \(\vec{J}_i = -e\, n_{\text{pc}, i}\, \vec{v}_i\) risulta proporzionale al campo applicato. Sommando su tutte le bande:
+\begin{equation}
+    \vec{J} = \sum_i \vec{J}_i \propto \vec{E}_{\text{el}}
+\end{equation}
+Il fattore di proporzionalità è la \textbf{conducibilità elettrica} \(\sigma_e\), per cui:
+\begin{importantbox}
+    \begin{equation}
+        \vec{J} = \sigma_e\, \vec{E}_{\text{el}}
+    \end{equation}
+\end{importantbox}
+in cui il contributo viene unicamente dagli elettroni di conduzione (non tutti gli elettroni del cristallo).
+
+\begin{remark}
+Un elettrone nel cristallo non si limita a urtare i nuclei: incontra prima le impurezze e le contaminazioni del materiale, e successivamente risponde alle vibrazioni dei nuclei (fononi) attraverso processi di scattering, senza in genere collidere direttamente con i nuclei.
+\end{remark}
+
