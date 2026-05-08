@@ -335,12 +335,6 @@ Esistono diverse metodologie per identificare una \textbf{cella primitiva}, la q
 A partire da una convenzionale cella cartesiana definita dai vettori \( \{\vec{a}_1, \vec{a}_2, \vec{a}_3\} \) (paralleli ai versori \( \vec{u}_x, \vec{u}_y, \vec{u}_z \) e di modulo \( a \)), è possibile ricavare le relazioni per i vettori primitivi nelle diverse configurazioni cubiche.
 
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/primitive_cell_fcc.png}
-    \caption{Rappresentazione della cella primitiva per il reticolo Cubico a Facce Centrate (FCC).}
-    \label{fig:primitive_cell_fcc}
-\end{figure}
 
 \textbf{Reticolo Cubico a Facce Centrate (FCC)} \\
 Nel sistema FCC, i vettori di base primitivi vengono costruiti assumendo un nodo della cella cartesiana come origine degli assi e tracciando i collegamenti verso i centri di tre facce adiacenti non complanari della cella stessa. Le espressioni che li definiscono sono:
@@ -359,9 +353,9 @@ Questa specifica cella primitiva racchiude al suo interno un solo nodo equivalen
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/primitive_cell_bcc.png}
-    \caption{Rappresentazione della cella primitiva per il reticolo Cubico a Corpo Centrato (BCC).}
-    \label{fig:primitive_cell_bcc}
+    \includegraphics[width=0.7\textwidth]{figures/primitive_cell_fcc.png}
+    \caption{Rappresentazione della cella primitiva per il reticolo Cubico a Facce Centrate (FCC).}
+    \label{fig:primitive_cell_fcc}
 \end{figure}
 
 \textbf{Reticolo Cubico a Corpo Centrato (BCC)} \\
@@ -377,6 +371,13 @@ Così come per la struttura FCC, anche questa cella primitiva contiene un solo n
 \begin{equation}
     V_{\text{cell}} = \frac{a^3}{2}
 \end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/primitive_cell_bcc.png}
+    \caption{Rappresentazione della cella primitiva per il reticolo Cubico a Corpo Centrato (BCC).}
+    \label{fig:primitive_cell_bcc}
+\end{figure}
+
 
 \subsubsection{Periodicità}Fissato un sistema di riferimento basato sui vettori generatori delle traslazioni \( \{\vec{a}_1, \vec{a}_2, \vec{a}_3\} \), è possibile definire un generico vettore del reticolo cristallino come:
 \begin{equation}
