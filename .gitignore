@@ -10,3 +10,4 @@ build/
 *.synctex.gz
 *DS_Store
 *output.md
+.claude/

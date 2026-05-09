@@ -16,7 +16,6 @@ Per descrivere rigorosamente la struttura di un cristallo, è utile separare la 
 
 In sintesi, un cristallo può essere descritto concettualmente come un insieme di punti nello spazio (il reticolo) a ciascuno dei quali alleghiamo un elemento fisico materiale.
 
-
 Il reticolo è caratterizzato da una fondamentale invarianza per traslazioni. I \textbf{vettori di traslazione primitivi}, indicati tipicamente con l'insieme \( \{ \vec{a}_1, \vec{a}_2, \vec{a}_3 \} \), fungono da generatori delle traslazioni e devono costituire un set di vettori linearmente indipendenti tra loro.
 
 Questi vettori permettono di coprire e descrivere tutto il cristallo tramite una loro combinazione lineare, definendo così il \textbf{vettore del reticolo cristallino} (o vettore traslazione):
@@ -83,9 +82,6 @@ Per \textbf{struttura} si intende la modalità con cui i costituenti si dispongo
 
 \end{itemize}
 
-
-
-
 \begin{table}[H]
 \centering
 \begin{tabular}{lll}
@@ -124,6 +120,8 @@ Per ogni nodo del reticolo è possibile identificare gli \textbf{atomi primi vic
 
 Un esempio fondamentale di cella primitiva è la \textbf{cella di Wigner-Seitz}. Essa è definita come il luogo dei punti nello spazio più vicini a un determinato nodo rispetto a qualunque altro nodo del reticolo. La sua costruzione prevede di collegare un nodo ai suoi primi vicini e tracciare i piani ortogonali che passano per il punto medio di ciascun segmento di collegamento. Il poliedro risultante dall'intersezione di questi piani è una cella unitaria a volume minimo che, per costruzione, presenta il nodo esattamente al centro.
 
+\section{Struttura del cristallo e diffrazione}
+
 \subsection{Reticoli di Bravais}
 
 La teoria dei reticoli di Bravais stabilisce che, nello spazio tridimensionale, è possibile identificare 14 configurazioni topologicamente distinte, organizzate in 7 sistemi cristallini derivanti dai gruppi di simmetria puntuale. Sebbene in natura esista un numero infinito di reticoli teorici, questo insieme minimo di 14 configurazioni è sufficiente a descrivere la struttura di tutti i cristalli conosciuti. In uno spazio bidimensionale, tale varietà si riduce a soli 5 reticoli distinti.
@@ -134,7 +132,6 @@ La teoria dei reticoli di Bravais stabilisce che, nello spazio tridimensionale, 
     \caption{I 14 reticoli di Bravais nello spazio tridimensionale.}
     \label{fig:bravais_lattices}
 \end{figure}
-
 
 Ogni reticolo di Bravais in 3D è univocamente definito da tre vettori reticolari \( \vec{a}_1, \vec{a}_2, \vec{a}_3 \). Le loro lunghezze, indicate come \( a, b, c \), e gli angoli compresi \( \alpha, \beta, \gamma \) costituiscono i cosiddetti \textbf{parametri di cella}, i quali ne determinano le dimensioni e l'orientamento spaziale. All'interno di una struttura periodica, ogni nodo posto su un vertice della cella è condiviso da 8 celle adiacenti.
 
@@ -159,9 +156,6 @@ Data la sua rilevanza, il sistema cubico viene spesso analizzato attraverso tre 
 \end{itemize}
 
 La realtà naturale mostra strutture spesso più complesse dei singoli reticoli ideali. Molti cristalli risultano dalla combinazione di più reticoli appartenenti anche a sistemi differenti, tra loro traslati nello spazio (come nel caso della struttura del diamante). Altri materiali, come il \textbf{quarzo} (silice cristallina), presentano strutture non cubiche a causa della diversa natura delle forze e dei legami atomici che ne determinano la stabilità.
-
-
-
 
 \begin{figure}[htbp]
     \centering
@@ -199,7 +193,6 @@ La realtà naturale mostra strutture spesso più complesse dei singoli reticoli 
             % Atomi anteriori
             \node[atom] at (0,0,0) {}; \node[atom] at (1,0,0) {};
             \node[atom] at (0,1,0) {}; \node[atom] at (1,1,0) {};
-
 
             % Didascalia
             \node[below=1cm, font=\sffamily\bfseries, align=center] at (0.5,0,0.5) {Cubico Semplice\\(SC)};
@@ -315,15 +308,12 @@ Per identificare in modo univoco un piano all'interno di un reticolo, risulta es
     \item Il piano viene infine indicizzato dalla terna racchiusa tra parentesi tonde \( (hkl) \), dove \( h = \frac{\text{mcm}}{n_1} \), \( k = \frac{\text{mcm}}{n_2} \) e \( l = \frac{\text{mcm}}{n_3} \). Tale terna definisce la normale \( \vec{n}_{hkl} \) al piano.
 \end{enumerate}
 
-
-
 Un esempio pratico: se un piano interseca gli assi in \( (3, 2, 2) \), i rispettivi reciproci sono \( \left( \frac{1}{3}, \frac{1}{2}, \frac{1}{2} \right) \). Moltiplicando per il minimo comune multiplo (pari a 6), si ottengono i valori interi 2, 3 e 3. Il piano sarà quindi indicato come \( (233) \).
 
 L'intero insieme di piani paralleli a quello appena calcolato costituisce una famiglia, la quale viene denotata utilizzando le parentesi graffe: \( \{hkl\} \). Nel caso in cui un indice assuma valore negativo (ad esempio un'intercetta sul semiasse negativo), la convenzione prevede di scrivere una barra al di sopra del numero. Se si considera un reticolo cubico allineato agli assi cartesiani, il piano \( (\bar{1}00) \) è parallelo al piano \( (100) \), ma la sua normale punta nel verso opposto rispetto all'asse \( x \).
 
 \textbf{Direzioni Cristallografiche} \\
 Il formalismo si estende anche alle direzioni all'interno del cristallo. Una specifica direzione viene indicata utilizzando le parentesi quadre \( [n_1 n_2 n_3] \) e rappresenta il vettore risultante dalla combinazione lineare \( n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3 \). Per fare un esempio, la simbologia \( [100] \) identifica esattamente il vettore \( \vec{a}_1 \), mentre \( [\bar{1}00] \) corrisponde al vettore \( -\vec{a}_1 \). Infine, una famiglia che raggruppa tutte le direzioni cristallografiche equivalenti per simmetria viene indicata con le parentesi angolate \( \langle n_1 n_2 n_3 \rangle \).
-
 
 \subsubsection{Cella primitiva}
 
@@ -333,8 +323,6 @@ Esistono diverse metodologie per identificare una \textbf{cella primitiva}, la q
 \end{equation*}
 
 A partire da una convenzionale cella cartesiana definita dai vettori \( \{\vec{a}_1, \vec{a}_2, \vec{a}_3\} \) (paralleli ai versori \( \vec{u}_x, \vec{u}_y, \vec{u}_z \) e di modulo \( a \)), è possibile ricavare le relazioni per i vettori primitivi nelle diverse configurazioni cubiche.
-
-
 
 \textbf{Reticolo Cubico a Facce Centrate (FCC)} \\
 Nel sistema FCC, i vettori di base primitivi vengono costruiti assumendo un nodo della cella cartesiana come origine degli assi e tracciando i collegamenti verso i centri di tre facce adiacenti non complanari della cella stessa. Le espressioni che li definiscono sono:
@@ -349,7 +337,6 @@ Questa specifica cella primitiva racchiude al suo interno un solo nodo equivalen
 \begin{equation}
     V_{\text{cell}} = \frac{a^3}{4}
 \end{equation}
-
 
 \begin{figure}[H]
     \centering
@@ -378,8 +365,9 @@ Così come per la struttura FCC, anche questa cella primitiva contiene un solo n
     \label{fig:primitive_cell_bcc}
 \end{figure}
 
+\subsubsection{Periodicità}
 
-\subsubsection{Periodicità}Fissato un sistema di riferimento basato sui vettori generatori delle traslazioni \( \{\vec{a}_1, \vec{a}_2, \vec{a}_3\} \), è possibile definire un generico vettore del reticolo cristallino come:
+Fissato un sistema di riferimento basato sui vettori generatori delle traslazioni \( \{\vec{a}_1, \vec{a}_2, \vec{a}_3\} \), è possibile definire un generico vettore del reticolo cristallino come:
 \begin{equation}
     \vec{R} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3
 \end{equation}
@@ -485,7 +473,6 @@ Conoscendo le direzioni normali, è immediato calcolare l'angolo \( \theta \) d'
 
 In sintesi, il costrutto matematico del reticolo reciproco gode di proprietà geometriche di estrema utilità, in quanto consente di descrivere analiticamente distanze e angoli interplanari, fornendo così la base necessaria per comprendere l'impatto della periodicità strutturale sul comportamento dei solidi cristallini.
 
-
 \subsection{Diffrazione da raggi X}
 Quando un campo elettromagnetico (CEM) incide su un cristallo, è fondamentale conoscere i parametri caratteristici dell'onda incidente, in particolare la lunghezza d'onda \( \lambda \) e la frequenza \( \nu \). Affinché la struttura cristallina possa agire da \textbf{reticolo di diffrazione}, è strettamente necessario che la lunghezza d'onda della radiazione sia comparabile con il parametro di cella \( a \); essi devono cioè possedere il medesimo ordine di grandezza (\( \lambda \approx a \)). 
 
@@ -518,27 +505,26 @@ Nel caso specifico in cui si utilizzino raggi X, la risposta del singolo atomo r
         \draw[fill=cyan!10, draw=cyan!70!black] plot[smooth cycle, tension=0.7] coordinates {(2.5, 3.2) (3.8, 2.7) (4.5, 3.8) (3.6, 4.6) (2.8, 4.2)};
         
         % Punto P e volumetto dV
-        \filldraw[cyan!70!black] (P) circle (1.5pt) node[above right, text=cyan!70!black] {$P = \text{punto del cristallo in posizione } \vec{r}$};
-        \node[right=0.3cm,below = 0.7cm ,font=\small, text=teal!80!black] at (P) {$dV$};
+        \filldraw[cyan!70!black] (P) circle (1.5pt) node[above right, text=cyan!70!black] {\(P = \text{punto del cristallo in posizione } \vec{r}\)};
+        \node[right=0.3cm,below = 0.7cm ,font=\small, text=teal!80!black] at (P) {\(dV\)};
 
         % --- SORGENTE ---
-        \filldraw (S) circle (2pt) node[below=0.1cm] {$S$};
+        \filldraw (S) circle (2pt) node[below=0.1cm] {\(S\)};
         \node[align=center, below=0.5cm] at (S) {Sorgente raggi X};
 
         % --- OSSERVATORE / RIVELATORE ---
-        \filldraw (B) circle (2pt) node[right=0.2cm] {$B$};
+        \filldraw (B) circle (2pt) node[right=0.2cm] {\(B\)};
         \node[align= center , right=0.6cm, below=0.5cm,text=purple!80!black] at (B) {Osservatore Rivelatore};
 
         % --- VETTORI ---
-        \draw[->, blue!80!black] (S) -- (P) node[midway, above left] {$\vec{r}$};
-        \draw[->, purple!70!black] (S) -- (B) node[midway, below=0.1cm] {$\vec{R}'$};
-        \draw[->, red!80!black] (P) -- (B) node[midway, above right] {$\vec{R}' - \vec{r}$};
+        \draw[->, blue!80!black] (S) -- (P) node[midway, above left] {\(\vec{r}\)};
+        \draw[->, purple!70!black] (S) -- (B) node[midway, below=0.1cm] {\(\vec{R}'\)};
+        \draw[->, red!80!black] (P) -- (B) node[midway, above right] {\(\vec{R}' - \vec{r}\)};
 
     \end{tikzpicture}
     \caption{Rappresentazione schematica della geometria di un esperimento di diffrazione da raggi X.}
     \label{fig:xray_diffraction_setup}
 \end{figure}
-
 
 Consideriamo un punto \( P \) all'interno del cristallo, individuato dal vettore posizione \( \vec{r} \). L'interazione con il campo elettromagnetico (CEM) incidente genera in \( P \) una risposta caratterizzata da un'ampiezza \( A_P \), proporzionale alla fase dell'onda incidente:
 \begin{equation}
@@ -618,9 +604,9 @@ Pertanto, affinché l'ampiezza totale non si annulli (\( A_{B,TOT} \neq 0 \)), d
     \Delta\vec{k} = \vec{G}_{hkl}
 \end{equation}
 
-Come conseguenza della condizione di diffrazione, la variazione del vettore d'onda $\Delta\vec{k}$ può assumere valori appartenenti unicamente a un sottoinsieme discreto di vettori $\vec{G}$. Questi vettori variano a passi interi e costituiscono il \textbf{reticolo reciproco}, il quale è interamente contenuto all'interno del più ampio spazio reciproco.
+Come conseguenza della condizione di diffrazione, la variazione del vettore d'onda \(\Delta\vec{k}\) può assumere valori appartenenti unicamente a un sottoinsieme discreto di vettori \(\vec{G}\). Questi vettori variano a passi interi e costituiscono il \textbf{reticolo reciproco}, il quale è interamente contenuto all'interno del più ampio spazio reciproco.
 
-Considerando che la variazione del vettore d'onda è la differenza tra il vettore d'onda diffuso $\vec{k}'$ e quello incidente $\vec{k}$:
+Considerando che la variazione del vettore d'onda è la differenza tra il vettore d'onda diffuso \(\vec{k}'\) e quello incidente \(\vec{k}\):
 \begin{equation}
     \Delta\vec{k} = \vec{k}' - \vec{k}
 \end{equation}
@@ -628,7 +614,7 @@ Si possono distinguere due principali regimi di interazione tra il campo elettro
 
 \begin{itemize}
     \item \textbf{a) Interazione Elastica (Diffusione Elastica):} \\
-    È un'interazione tale per cui il modulo del vettore d'onda si conserva inalterato. Non essendoci trasferimento netto di energia, la lunghezza d'onda $\lambda$ rimane costante:
+    È un'interazione tale per cui il modulo del vettore d'onda si conserva inalterato. Non essendoci trasferimento netto di energia, la lunghezza d'onda \(\lambda\) rimane costante:
     \begin{equation}
         |\vec{k}| = |\vec{k}'| = \frac{2\pi}{\lambda}
     \end{equation}
@@ -640,7 +626,6 @@ Si possono distinguere due principali regimi di interazione tra il campo elettro
     \end{equation}
     In questo scenario, una parte dell'energia della radiazione incidente viene ceduta al cristallo oppure assorbita da esso. Tale "scambio di energia" è tipicamente mediato da specifici canali di interazione interni al materiale, come ad esempio l'eccitazione delle vibrazioni reticolari (fenomeno che verrà analizzato più avanti nel corso).
 \end{itemize}
-
 
 La condizione vettoriale appena ricavata prende il nome di \textbf{Legge di Laue} e governa il fenomeno della diffusione dei raggi X da parte di un cristallo:
 \begin{equation}
@@ -663,7 +648,6 @@ Nonostante le differenze concettuali di partenza, \textbf{le due visioni sono pe
     \item L'approccio di \textbf{Bragg} ragiona in modo pragmatico sui \textbf{picchi di intensità}, fornendo una relazione scalare (\( 2d_{hkl}\sin\theta = m\lambda \)) che individua in modo diretto la posizione angolare a cui si manifestano.
     \item L'approccio vettoriale di \textbf{Laue} (\( \Delta\vec{k} = \vec{G}_{hkl} \)) risulta invece una trattazione più rigorosa e generale: essa prevede intrinsecamente sia le direzioni in cui si verificano i massimi di intensità, sia le cosiddette estinzioni (ovvero le direzioni in cui l'interferenza è distruttiva).
 \end{itemize}
-
 
 \lezione{16}{27/04/2026}
 
@@ -717,18 +701,18 @@ Questa equazione esprime un concetto fondamentale: il prodotto scalare tra il mo
     \coordinate (OutBot) at ($(OutTop) + (0,-\d)$);
 
     % Piani reticolari
-    \draw[thick] (-3.5, 0) -- (3.5, 0) node[right, font=\Large] {$hkl$};
+    \draw[thick] (-3.5, 0) -- (3.5, 0) node[right, font=\Large] {\(hkl\)};
     \draw[thick] (-3.5, -\d) -- (3.5, -\d);
 
     % Normale al piano
     \draw[ultra thick] (0, 0) -- (0, 1.5);
     
     % Vettore distanza interplanare d_hkl
-    \draw[<->, thick, violet] (0, -0.05) -- (0, -\d+0.05) node[midway, right] {$d_{hkl}$};
+    \draw[<->, thick, violet] (0, -0.05) -- (0, -\d+0.05) node[midway, right] {\(d_{hkl}\)};
 
     % Raggi sul piano superiore
-    \draw[thick, blue, ->] (InTop) -- (O) node[midway, above left, font=\Large] {$\vec{K}$};
-    \draw[thick, blue, ->] (O) -- (OutTop) node[midway, above right, font=\Large] {$\vec{K}'$};
+    \draw[thick, blue, ->] (InTop) -- (O) node[midway, above left, font=\Large] {\(\vec{K}\)};
+    \draw[thick, blue, ->] (O) -- (OutTop) node[midway, above right, font=\Large] {\(\vec{K}'\)};
     
     % Raggi sul piano inferiore
     \draw[thick, blue, ->] (InBot) -- (B);
@@ -743,11 +727,11 @@ Questa equazione esprime un concetto fondamentale: il prodotto scalare tra il mo
     \draw[thick, teal] (O) -- (ProjOut);
 
     % Differenza di cammino ottico evidenziata (2d sin(theta))
-    \draw[ultra thick, teal] (ProjIn) -- (B) node[midway, below left] {$\sim$};
-    \draw[ultra thick, teal] (B) -- (ProjOut) node[midway, below right] {$\sim$};
+    \draw[ultra thick, teal] (ProjIn) -- (B) node[midway, below left] {\(\sim\)};
+    \draw[ultra thick, teal] (B) -- (ProjOut) node[midway, below right] {\(\sim\)};
 
     % Angolo di incidenza theta
-    \draw[thick, blue] (-1.2, 0) arc (180:{180-\theta}:1.2) node[midway, left=2pt] {$\theta$};
+    \draw[thick, blue] (-1.2, 0) arc (180:{180-\theta}:1.2) node[midway, left=2pt] {\(\theta\)};
 
     % Simboli di angolo retto per i fronti d'onda
     \draw[teal, thin] ($(ProjIn)!0.4!(O)$) -- ($(ProjIn)!0.4!(O)!0.4!(B)$) -- ($(ProjIn)!0.4!(B)$);
@@ -811,9 +795,9 @@ Sotto questa approssimazione, il \textbf{fattore dominante} che governa l'intens
 
 Fisicamente, all'interno di ogni singola cella, sono gli elettroni a subire i processi di scattering e a generare il pattern di diffrazione. Per calcolare esplicitamente questo integrale per un materiale reale, è necessario prima identificare la base associata al reticolo, ovvero determinare il numero minimo di atomi abbinati alla cella unitaria in grado di rappresentare in modo completo la struttura del cristallo.
 
-Consideriamo ad esempio un reticolo cubico a corpo centrato (BCC): pur presentando atomi su tutti gli 8 vertici e uno al centro, la sua base è costituita da soli $s = 2$ atomi (convenzionalmente, un atomo nell'origine e uno posizionato al centro del cubo). Traslando questa coppia di atomi lungo i nodi del reticolo di Bravais associato, si coprono perfettamente tutti i vertici e tutti i centri. Una scelta errata della base, ad esempio prendendo due vertici, porterebbe a sovrastimare alcune posizioni a causa delle condivisioni e a omettere del tutto gli atomi centrali.
+Consideriamo ad esempio un reticolo cubico a corpo centrato (BCC): pur presentando atomi su tutti gli 8 vertici e uno al centro, la sua base è costituita da soli \(s = 2\) atomi (convenzionalmente, un atomo nell'origine e uno posizionato al centro del cubo). Traslando questa coppia di atomi lungo i nodi del reticolo di Bravais associato, si coprono perfettamente tutti i vertici e tutti i centri. Una scelta errata della base, ad esempio prendendo due vertici, porterebbe a sovrastimare alcune posizioni a causa delle condivisioni e a omettere del tutto gli atomi centrali.
 
-Denotando con $\vec{d}_j$ il vettore posizione del $j$-esimo atomo della base rispetto all'origine della cella unitaria, la densità elettronica totale $n(\vec{r})$ all'interno della cella può essere espressa come la somma dei contributi locali $n_j$ dei singoli $s$ atomi:
+Denotando con \(\vec{d}_j\) il vettore posizione del \(j\)-esimo atomo della base rispetto all'origine della cella unitaria, la densità elettronica totale \(n(\vec{r})\) all'interno della cella può essere espressa come la somma dei contributi locali \(n_j\) dei singoli \(s\) atomi:
 \begin{equation}
     n(\vec{r}) = \sum_{j=1}^{s} n_j(\vec{r} - \vec{d}_j)
 \end{equation}
@@ -823,12 +807,12 @@ Sostituendo questa scomposizione all'interno dell'integrale che definisce il fat
     I = \int_{V_{\text{cella}}} n(\vec{r}) e^{-i \Delta\vec{k} \cdot \vec{r}} d^3r = \sum_{j=1}^{s} \int_{V_{\text{cella}}} n_j(\vec{r} - \vec{d}_j) e^{-i \Delta\vec{k} \cdot \vec{r}} d^3r
 \end{equation}
 
-Per agevolare la risoluzione, si opera un cambio di variabile definendo un vettore posizione locale per ogni atomo: $\vec{\rho} = \vec{r} - \vec{d}_j$, da cui banalmente $\vec{r} = \vec{\rho} + \vec{d}_j$. Riscrivendo l'esponenziale per tenere conto del cambio di coordinate e portando fuori dall'integrale i termini indipendenti dalla variabile d'integrazione, la formula diviene:
+Per agevolare la risoluzione, si opera un cambio di variabile definendo un vettore posizione locale per ogni atomo: \(\vec{\rho} = \vec{r} - \vec{d}_j\), da cui banalmente \(\vec{r} = \vec{\rho} + \vec{d}_j\). Riscrivendo l'esponenziale per tenere conto del cambio di coordinate e portando fuori dall'integrale i termini indipendenti dalla variabile d'integrazione, la formula diviene:
 \begin{equation}
     I = \sum_{j=1}^{s} e^{-i \Delta\vec{k} \cdot \vec{d}_j} \int_{V_{\text{cella}}} n_j(\vec{\rho}) e^{-i \Delta\vec{k} \cdot \vec{\rho}} d^3\rho
 \end{equation}
 
-Analizzando quest'ultima espressione, l'integrale al suo interno dipende unicamente dalla distribuzione di densità elettronica locale $n_j(\vec{\rho})$ dell'atomo $j$-esimo. 
+Analizzando quest'ultima espressione, l'integrale al suo interno dipende unicamente dalla distribuzione di densità elettronica locale \(n_j(\vec{\rho})\) dell'atomo \(j\)-esimo. 
 Il termine appena individuato prende il nome di \textbf{fattore di forma} ed è definito analiticamente come:
 \begin{equation}
     f_j = \int_{\text{atomo } j\text{-esimo}} n_j(\vec{\rho}) e^{-i \Delta\vec{k} \cdot \vec{\rho}} d^3\rho
@@ -851,7 +835,6 @@ Il fattore di struttura è la quantità fisica fondamentale che determina l'inte
     \item \textbf{Se} \( S_{hkl} \neq 0 \): i contributi non si annullano, si ha interferenza costruttiva e si osserva un netto picco di \textbf{diffrazione}.
 \end{itemize}
 
-
 \begin{exercise}
     
 \textbf{da Esame} \\
@@ -867,7 +850,6 @@ Si consideri un cristallo di Rame (Cu) caratterizzato da una struttura FCC. Dai 
     \item[b)] Calcolare la distanza interplanare \( d_{hkl} \) per la famiglia di piani (220).
     \item[c)] Calcolare l'angolo \( \theta \) compreso tra i piani (220) e (211).
 \end{enumerate}
-
 
 \begin{solution}
     \textbf{a)}
@@ -908,7 +890,7 @@ Sostituendo l'espressione analitica della densità atomica, otteniamo l'equazion
 \begin{equation}
     \rho_{\text{massa}} = 8.9 \, \text{g/cm}^3 = \frac{P_{Cu}}{N_A} \cdot \frac{4}{a^3} \implies a \simeq 0.36 \, \text{nm}
 \end{equation}
-L'ordine di grandezza  di \(10^{-10} \, \text{m}\) è quello che ci aspettiamo.
+L'ordine di grandezza di \(10^{-10} \, \text{m}\) è quello che ci aspettiamo.
 
 \textbf{b)} 
 La distanza interplanare (intesa come distanza minima tra i piani della famiglia) è legata al modulo del vettore del reticolo reciproco corrispondente dalla relazione:
@@ -916,7 +898,7 @@ La distanza interplanare (intesa come distanza minima tra i piani della famiglia
     d_{220} = \frac{2\pi}{|\vec{G}_{220}|}
 \end{equation}
 
-Per ricavare tale vettore, è necessario prima esplicitare i vettori di base del reticolo reciproco $\{\vec{b}_1, \vec{b}_2, \vec{b}_3\}$, coniugati alla base del reticolo diretto $\{\vec{a}_1, \vec{a}_2, \vec{a}_3\}$. Sapendo dal punto precedente che $V_{\text{cella}} = a^3$:
+Per ricavare tale vettore, è necessario prima esplicitare i vettori di base del reticolo reciproco \(\{\vec{b}_1, \vec{b}_2, \vec{b}_3\}\), coniugati alla base del reticolo diretto \(\{\vec{a}_1, \vec{a}_2, \vec{a}_3\}\). Sapendo dal punto precedente che \(V_{\text{cella}} = a^3\):
 \begin{equation}
 \begin{cases}
     \vec{b}_1 = \frac{2\pi}{V_{\text{cella}}} (\vec{a}_2 \wedge \vec{a}_3) = \frac{2\pi}{a^3} (a\hat{y} \wedge a\hat{z}) = \frac{2\pi}{a} \hat{x} \\
@@ -925,7 +907,7 @@ Per ricavare tale vettore, è necessario prima esplicitare i vettori di base del
 \end{cases}
 \end{equation}
 
-Possiamo ora costruire il vettore reciproco $\vec{G}_{220}$ tramite la combinazione lineare indicata dagli indici di Miller:
+Possiamo ora costruire il vettore reciproco \(\vec{G}_{220}\) tramite la combinazione lineare indicata dagli indici di Miller:
 \begin{equation}
     \vec{G}_{220} = 2\vec{b}_1 + 2\vec{b}_2 + 0\vec{b}_3 = 2 \cdot \frac{2\pi}{a} (\hat{x} + \hat{y})
 \end{equation}
@@ -939,13 +921,13 @@ Sostituendo il modulo appena trovato nella formula per la distanza interplanare:
 \begin{equation}
     d_{220} = \frac{2\pi}{\frac{4\pi\sqrt{2}}{a}} = a \frac{\sqrt{2}}{4}
 \end{equation}
-Calcolando numericamente (sfruttando il valore di $a$ precedentemente dedotto), si ottiene un valore di circa:
+Calcolando numericamente (sfruttando il valore di \(a\) precedentemente dedotto), si ottiene un valore di circa:
 \begin{equation}
     d_{220} \approx 0.127 \, \text{nm}
 \end{equation}
 
 \textbf{c)}
-Per poter calcolare l'angolo richiesto, è necessario ricavare prima il vettore reciproco relativo alla seconda famiglia di piani $\vec{G}_{211}$ e il suo rispettivo modulo, procedendo in modo analogo:
+Per poter calcolare l'angolo richiesto, è necessario ricavare prima il vettore reciproco relativo alla seconda famiglia di piani \(\vec{G}_{211}\) e il suo rispettivo modulo, procedendo in modo analogo:
 \begin{equation}
     \vec{G}_{211} = 2\vec{b}_1 + 1\vec{b}_2 + 1\vec{b}_3 = \frac{2\pi}{a} (2\hat{x} + \hat{y} + \hat{z})
 \end{equation}
@@ -955,7 +937,7 @@ Il calcolo del modulo fornisce:
     |\vec{G}_{211}| = \left( \frac{4\pi^2}{a^2} (2^2 + 1^2 + 1^2) \right)^{1/2} = \left( \frac{24\pi^2}{a^2} \right)^{1/2} = 2\sqrt{6} \frac{\pi}{a}
 \end{equation}
 
-Sfruttando la relazione di ortogonalità $\vec{b}_i \cdot \vec{b}_j = \delta_{ij} \frac{4\pi^2}{a^2}$, l'angolo $\theta$ si calcola in un unico passaggio tramite il prodotto scalare tra i vettori del reticolo reciproco $\vec{G}_{220}$ e $\vec{G}_{211}$:
+Sfruttando la relazione di ortogonalità \(\vec{b}_i \cdot \vec{b}_j = \delta_{ij} \frac{4\pi^2}{a^2}\), l'angolo \(\theta\) si calcola in un unico passaggio tramite il prodotto scalare tra i vettori del reticolo reciproco \(\vec{G}_{220}\) e \(\vec{G}_{211}\):
 
 \begin{equation}
     \theta = \arccos \left( \frac{\vec{G}_{220} \cdot \vec{G}_{211}}{|\vec{G}_{220}| |\vec{G}_{211}|} \right) = \arccos \left( \frac{ \frac{4\pi^2}{a^2} (2\cdot 2 + 2\cdot 1 + 0\cdot 1) }{ \left( \frac{2\pi}{a} \sqrt{8} \right) \left( \frac{2\pi}{a} \sqrt{6} \right) } \right)
@@ -970,11 +952,10 @@ Semplificando direttamente i termini comuni a numeratore e denominatore:
 \end{solution}
 \end{exercise}
 
-
 \begin{note}{Fattore di Struttura ed Estinzioni nel reticolo FCC}{}
 Valutiamo quali sono le estinzioni sistematiche attese per il reticolo FCC calcolando il fattore di struttura rispetto alla cella cartesiana. 
 
-Definiamo innanzitutto i 4 atomi di base $\{\vec{d}_j\}$ che caratterizzano la cella unitaria del cristallo. Ricordando i vettori primitivi precedentemente ricavati, le posizioni sono:
+Definiamo innanzitutto i 4 atomi di base \(\{\vec{d}_j\}\) che caratterizzano la cella unitaria del cristallo. Ricordando i vettori primitivi precedentemente ricavati, le posizioni sono:
 \begin{equation}
 \begin{cases}
     \vec{d}_1 = \vec{0} & \text{(atomo nell'origine)} \\
@@ -984,24 +965,22 @@ Definiamo innanzitutto i 4 atomi di base $\{\vec{d}_j\}$ che caratterizzano la c
 \end{cases}
 \end{equation}
 
-Costruiamo la sommatoria del fattore di struttura sui 4 atomi, espandendo i termini. Trattandosi di un cristallo monoelementale, i fattori di forma atomici sono identici per tutti i siti ($f_j \approx f_Z$):
+Costruiamo la sommatoria del fattore di struttura sui 4 atomi, espandendo i termini. Trattandosi di un cristallo monoelementale, i fattori di forma atomici sono identici per tutti i siti (\(f_j \approx f_Z\)):
 \begin{equation}
     S_{hkl} = \sum_{j=1}^{4} f_j e^{-i\vec{G}_{hkl} \cdot \vec{d}_j} = f_Z \left( e^{-i\vec{G}_{hkl} \cdot \vec{d}_1} + e^{-i\vec{G}_{hkl} \cdot \vec{d}_2} + e^{-i\vec{G}_{hkl} \cdot \vec{d}_3} + e^{-i\vec{G}_{hkl} \cdot \vec{d}_4} \right)
 \end{equation}
 
-Esplicitando i prodotti scalari con il vettore del reticolo reciproco $\vec{G}_{hkl} = \frac{2\pi}{a}(h\hat{x} + k\hat{y} + l\hat{z})$ e semplificando i termini comuni $\frac{2\pi}{a}$ con $\frac{a}{2}$, otteniamo direttamente le fasi in funzione degli indici di Miller:
+Esplicitando i prodotti scalari con il vettore del reticolo reciproco \(\vec{G}_{hkl} = \frac{2\pi}{a}(h\hat{x} + k\hat{y} + l\hat{z})\) e semplificando i termini comuni \(\frac{2\pi}{a}\) con \(\frac{a}{2}\), otteniamo direttamente le fasi in funzione degli indici di Miller:
 \begin{equation}
     S_{hkl} = f_Z \left\{ 1 + e^{-i\pi(k+l)} + e^{-i\pi(h+l)} + e^{-i\pi(h+k)} \right\}
 \end{equation}
 
 Analizzando gli esponenti di questa equazione finale, si deducono le regole di selezione dei picchi di diffrazione per il reticolo FCC:
 \begin{itemize}
-    \item $S_{hkl} = \text{max}$: se gli indici $(h,k,l)$ sono \textbf{tutti pari o tutti dispari}. In questo caso gli esponenziali valgono tutti $+1$, l'interferenza è totalmente costruttiva e si osserva il picco.
-    \item $S_{hkl} = 0$: se si hanno \textbf{indici misti} (es. un indice pari e gli altri dispari, o viceversa). In questo caso le fasi si elidono causando interferenza distruttiva; la geometria della cella "spegne" il picco di diffrazione generando le \textbf{ESTINZIONI}.
+    \item \(S_{hkl} = \text{max}\): se gli indici \((h,k,l)\) sono \textbf{tutti pari o tutti dispari}. In questo caso gli esponenziali valgono tutti \(+1\), l'interferenza è totalmente costruttiva e si osserva il picco.
+    \item \(S_{hkl} = 0\): se si hanno \textbf{indici misti} (es. un indice pari e gli altri dispari, o viceversa). In questo caso le fasi si elidono causando interferenza distruttiva; la geometria della cella "spegne" il picco di diffrazione generando le \textbf{ESTINZIONI}.
 \end{itemize}
 \end{note}
-
-
 
 \section{Soluzione quantistica del sistema cristallino}
 
@@ -1031,29 +1010,28 @@ Mentre le interazioni ottiche convenzionali coinvolgono primariamente gli elettr
 
 A seconda della specifica categoria di proprietà fisiche che si intende studiare, ci si può concentrare solo su una determinata porzione dell'Hamiltoniana \( H \) e della funzione d'onda \( \Psi \); il resto dei gradi di libertà viene trattato in modo approssimato come un "contributo medio" di fondo, concettualmente in linea con l'approssimazione di Hartree-Fock.
 
-
 \subsection{Teorema di Bloch}
 
 \lezione{17}{28/04/2026f}
 
-Consideriamo un sistema quantistico descritto da un'Hamiltoniana $H$ in cui l'energia potenziale è una funzione periodica dello spazio, riflettendo la simmetria traslazionale di un reticolo cristallino:
+Consideriamo un sistema quantistico descritto da un'Hamiltoniana \(H\) in cui l'energia potenziale è una funzione periodica dello spazio, riflettendo la simmetria traslazionale di un reticolo cristallino:
 \begin{equation}
     V(\vec{r}) = V(\vec{r} + \vec{R})
 \end{equation}
-dove $\vec{R}$ è un generico vettore del reticolo di Bravais, definito come combinazione lineare a coefficienti interi dei vettori base $\{\vec{a}_i\}_{i=1..3}$: $\vec{R} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3$ con $n_i \in \mathbb{Z}$.
+dove \(\vec{R}\) è un generico vettore del reticolo di Bravais, definito come combinazione lineare a coefficienti interi dei vettori base \(\{\vec{a}_i\}_{i=1..3}\): \(\vec{R} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3\) con \(n_i \in \mathbb{Z}\).
 
 \textbf{Enunciati} \\
-Il Teorema di Bloch stabilisce le proprietà fondamentali delle autofunzioni $\Psi_E$ dell'equazione di Schrödinger $H\Psi_E = E\Psi_E$ per un potenziale periodico. Esso può essere formulato in due modi equivalenti:
+Il Teorema di Bloch stabilisce le proprietà fondamentali delle autofunzioni \(\Psi_E\) dell'equazione di Schrödinger \(H\Psi_E = E\Psi_E\) per un potenziale periodico. Esso può essere formulato in due modi equivalenti:
 
 \begin{itemize}
     \item \textbf{Formulazione (a):} \\
-    Sotto l'azione di una traslazione reticolare $\vec{R}$, l'autofunzione $\Psi_E$ non cambia la sua forma funzionale, ma acquisisce semplicemente un \textbf{fattore di fase} moltiplicativo dipendente dal vettore d'onda $\vec{k}$:
+    Sotto l'azione di una traslazione reticolare \(\vec{R}\), l'autofunzione \(\Psi_E\) non cambia la sua forma funzionale, ma acquisisce semplicemente un \textbf{fattore di fase} moltiplicativo dipendente dal vettore d'onda \(\vec{k}\):
     \begin{equation}
         \Psi_E(\vec{r} + \vec{R}) = e^{i\vec{k}\cdot\vec{R}} \Psi_E(\vec{r})
     \end{equation}
 
     \item \textbf{Formulazione (b) (equivalente):} \\
-    Le autofunzioni $\Psi_E(\vec{r})$ possono essere espresse come il prodotto di un'onda piana $e^{i\vec{k}\cdot\vec{r}}$ e di una funzione modulante $u_E(\vec{r})$, definita \textit{funzione di Bloch}, la quale possiede la medesima periodicità del reticolo spaziale:
+    Le autofunzioni \(\Psi_E(\vec{r})\) possono essere espresse come il prodotto di un'onda piana \(e^{i\vec{k}\cdot\vec{r}}\) e di una funzione modulante \(u_E(\vec{r})\), definita \textit{funzione di Bloch}, la quale possiede la medesima periodicità del reticolo spaziale:
     \begin{equation}
         \exists \, u_E(\vec{r}) \quad \text{tale che} \quad u_E(\vec{r}) = u_E(\vec{r} + \vec{R})
     \end{equation}
@@ -1063,14 +1041,13 @@ Il Teorema di Bloch stabilisce le proprietà fondamentali delle autofunzioni $\P
     \end{equation}
 \end{itemize}
 
-
 L'approccio per la dimostrazione del Teorema di Bloch si articolerà nei seguenti passaggi:
 \begin{enumerate}
     \item Giustificare la validità della formulazione (a).
-    \item Dimostrare l'implicazione (a) $\Rightarrow$ (b).
-    \item Dimostrare l'implicazione inversa (b) $\Rightarrow$ (a).
+    \item Dimostrare l'implicazione (a) \(\Rightarrow\) (b).
+    \item Dimostrare l'implicazione inversa (b) \(\Rightarrow\) (a).
 \end{enumerate}
-Questo permetterà di concludere la perfetta equivalenza logica: (a) $\Leftrightarrow$ (b).
+Questo permetterà di concludere la perfetta equivalenza logica: (a) \(\Leftrightarrow\) (b).
 
 Sebbene le due formulazioni siano matematicamente equivalenti, esse mettono in risalto proprietà fisiche distinte:
 \begin{itemize}
@@ -1083,45 +1060,45 @@ Sebbene le due formulazioni siano matematicamente equivalenti, esse mettono in r
 \begin{itemize}
     \item Per semplicità, ci concentreremo inizialmente sullo studio di un \textbf{singolo elettrone}. I risultati ottenuti potranno poi essere estesi a sistemi a più elettroni.
     \item Applicheremo il metodo della \textbf{separazione delle variabili}.
-    \item Il teorema di Bloch si fonda sull'ipotesi fondamentale della presenza di una periodicità spaziale del potenziale (si noti che nel termine di interazione elettrone-elettrone $V_{ee}$ tale periodicità non è esplicitamente espressa).
+    \item Il teorema di Bloch si fonda sull'ipotesi fondamentale della presenza di una periodicità spaziale del potenziale (si noti che nel termine di interazione elettrone-elettrone \(V_{ee}\) tale periodicità non è esplicitamente espressa).
 \end{itemize}
 \end{remark}
 
 \subsubsection{Dimostrazione formulazione (a)}
-Si parte dall'osservazione fisica fondamentale riguardante la \textbf{densità di probabilità}. Affinché il sistema sia fisicamente coerente con l'invarianza traslazionale del cristallo, la densità di probabilità di trovare un elettrone in una posizione $\vec{r}$ deve essere identica a quella di trovarlo in una posizione traslata di un generico vettore reticolare $\vec{R}$:
+Si parte dall'osservazione fisica fondamentale riguardante la \textbf{densità di probabilità}. Affinché il sistema sia fisicamente coerente con l'invarianza traslazionale del cristallo, la densità di probabilità di trovare un elettrone in una posizione \(\vec{r}\) deve essere identica a quella di trovarlo in una posizione traslata di un generico vettore reticolare \(\vec{R}\):
 \begin{equation}
     |\Psi_E(\vec{r} + \vec{R})|^2 = |\Psi_E(\vec{r})|^2
 \end{equation}
-Questa uguaglianza è un'applicazione diretta del \textbf{Principio di Neumann}, il quale stabilisce che qualsiasi proprietà osservabile del cristallo (inclusa la densità elettronica) deve presentare la medesima periodicità del reticolo spaziale: $F(\vec{r}) = F(\vec{r} + \vec{R}) \quad \forall \vec{R}$.
+Questa uguaglianza è un'applicazione diretta del \textbf{Principio di Neumann}, il quale stabilisce che qualsiasi proprietà osservabile del cristallo (inclusa la densità elettronica) deve presentare la medesima periodicità del reticolo spaziale: \(F(\vec{r}) = F(\vec{r} + \vec{R}) \quad \forall \vec{R}\).
 
 Basandoci sull'uguaglianza dei moduli quadri, possiamo invocare un importante risultato matematico derivante dal \textbf{Teorema di Floquet}. Esso stabilisce che:
-se è vero che $|\Psi_E(\vec{r} + \vec{R})|^2 = |\Psi_E(\vec{r})|^2$, allora deve esistere una costante complessa $\gamma_{\vec{R}}$ di modulo unitario ($|\gamma_{\vec{R}}| = 1$) tale per cui l'azione dell'operatore (o generatore) di traslazione determini semplicemente l'aggiunta di tale fattore di fase:
+se è vero che \(|\Psi_E(\vec{r} + \vec{R})|^2 = |\Psi_E(\vec{r})|^2\), allora deve esistere una costante complessa \(\gamma_{\vec{R}}\) di modulo unitario (\(|\gamma_{\vec{R}}| = 1\)) tale per cui l'azione dell'operatore (o generatore) di traslazione determini semplicemente l'aggiunta di tale fattore di fase:
 \begin{equation}
     \exists \, \gamma_{\vec{R}} \quad \text{t.c.} \quad |\gamma_{\vec{R}}| = 1 \quad \text{e} \quad \Psi_E(\vec{r} + \vec{R}) = \gamma_{\vec{R}} \Psi_E(\vec{r})
 \end{equation}
 
-\textbf{Proprietà della fase $\gamma_{\vec{R}}$} \\
-Per analizzare formalmente l'azione delle traslazioni reticolari, introduciamo l'operatore di traslazione $T_{\vec{R}}$, definito dalla sua azione sulla funzione d'onda:
+\textbf{Proprietà della fase \(\gamma_{\vec{R}}\)} \\
+Per analizzare formalmente l'azione delle traslazioni reticolari, introduciamo l'operatore di traslazione \(T_{\vec{R}}\), definito dalla sua azione sulla funzione d'onda:
 \begin{equation}
     T_{\vec{R}} \Psi_E(\vec{r}) = \Psi_E(\vec{r} + \vec{R})
 \end{equation}
 
-Consideriamo l'applicazione in sequenza di due operatori di traslazione, $T_{\vec{R}}$ e $T_{\vec{R}'}$. Applicando prima $T_{\vec{R}'}$ e poi $T_{\vec{R}}$, otteniamo:
+Consideriamo l'applicazione in sequenza di due operatori di traslazione, \(T_{\vec{R}}\) e \(T_{\vec{R}'}\). Applicando prima \(T_{\vec{R}'}\) e poi \(T_{\vec{R}}\), otteniamo:
 \begin{equation}
     T_{\vec{R}} T_{\vec{R}'} \Psi_E(\vec{r}) = T_{\vec{R}} \Psi_E(\vec{r} + \vec{R}') = \Psi_E(\vec{r} + \vec{R} + \vec{R}') = T_{\vec{R}+\vec{R}'} \Psi_E(\vec{r})
 \end{equation}
-Questa relazione dimostra che l'operatore $T_{\vec{R}}$ è \textbf{commutativo}: invertire l'ordine delle traslazioni non altera il risultato finale. In termini di commutatore, questo si esprime come $[T_{\vec{R}}, T_{\vec{R}'}] = 0$.
+Questa relazione dimostra che l'operatore \(T_{\vec{R}}\) è \textbf{commutativo}: invertire l'ordine delle traslazioni non altera il risultato finale. In termini di commutatore, questo si esprime come \([T_{\vec{R}}, T_{\vec{R}'}] = 0\).
 
-Basandoci sulla conclusione tratta dal Teorema di Floquet (per cui $T_{\vec{R}} \Psi_E = \gamma_{\vec{R}} \Psi_E$), l'applicazione di due traslazioni in serie implica un prodotto tra i rispettivi fattori di fase:
+Basandoci sulla conclusione tratta dal Teorema di Floquet (per cui \(T_{\vec{R}} \Psi_E = \gamma_{\vec{R}} \Psi_E\)), l'applicazione di due traslazioni in serie implica un prodotto tra i rispettivi fattori di fase:
 \begin{equation}
     \gamma_{\vec{R}} \gamma_{\vec{R}'} \Psi_E(\vec{r}) = \gamma_{\vec{R}+\vec{R}'} \Psi_E(\vec{r})
 \end{equation}
-Da cui si ricava un'importante proprietà algebrica per i coefficienti $\gamma$:
+Da cui si ricava un'importante proprietà algebrica per i coefficienti \(\gamma\):
 \begin{equation}
     \gamma_{\vec{R}+\vec{R}'} = \gamma_{\vec{R}} \cdot \gamma_{\vec{R}'} = \gamma_{\vec{R}'} \cdot \gamma_{\vec{R}}
 \end{equation}
 
-Inoltre, sfruttando la definizione del vettore di traslazione come combinazione lineare intera dei vettori base ($\vec{R} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3$), l'operatore di traslazione macroscopica $T_{\vec{R}}$ può essere scomposto nel prodotto di operatori di traslazione elementari lungo le tre direzioni cristallografiche:
+Inoltre, sfruttando la definizione del vettore di traslazione come combinazione lineare intera dei vettori base (\(\vec{R} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3\)), l'operatore di traslazione macroscopica \(T_{\vec{R}}\) può essere scomposto nel prodotto di operatori di traslazione elementari lungo le tre direzioni cristallografiche:
 \begin{equation}
     T_{\vec{R}} = T_{n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3} = \underbrace{T_{\vec{a}_1} \dots T_{\vec{a}_1}}_{n_1 \text{ volte}} + \underbrace{T_{\vec{a}_2} \dots T_{\vec{a}_2}}_{n_2 \text{ volte}} + \underbrace{T_{\vec{a}_3} \dots T_{\vec{a}_3}}_{n_3 \text{ volte}}
 \end{equation}
@@ -1129,19 +1106,19 @@ Di conseguenza, l'azione complessiva sulla funzione d'onda equivale all'applicaz
 \begin{equation}
     T_{\vec{R}} \Psi_E(\vec{r}) = (T_{\vec{a}_1})^{n_1} (T_{\vec{a}_2})^{n_2} (T_{\vec{a}_3})^{n_3} \Psi_E(\vec{r})
 \end{equation}
-Essendo per definizione $T_{\vec{R}} \Psi_E(\vec{r}) = \Psi_E(\vec{r} + \vec{R}) = \gamma_{\vec{R}} \Psi_E(\vec{r})$, e associando a ogni traslazione base $T_{\vec{a}_i}$ il rispettivo fattore di fase $\gamma_{\vec{a}_i}$, si deduce la relazione:
+Essendo per definizione \(T_{\vec{R}} \Psi_E(\vec{r}) = \Psi_E(\vec{r} + \vec{R}) = \gamma_{\vec{R}} \Psi_E(\vec{r})\), e associando a ogni traslazione base \(T_{\vec{a}_i}\) il rispettivo fattore di fase \(\gamma_{\vec{a}_i}\), si deduce la relazione:
 \begin{equation}
     \gamma_{\vec{R}} \Psi_E(\vec{r}) = (\gamma_{\vec{a}_1})^{n_1} (\gamma_{\vec{a}_2})^{n_2} (\gamma_{\vec{a}_3})^{n_3} \Psi_E(\vec{r})
 \end{equation}
-con il vincolo, ereditato dalla condizione di normalizzazione della probabilità, che tutti i moduli debbano essere unitari: $|\gamma_{\vec{a}_i}| = |\gamma_{\vec{R}}| = 1 \quad \forall i$.
+con il vincolo, ereditato dalla condizione di normalizzazione della probabilità, che tutti i moduli debbano essere unitari: \(|\gamma_{\vec{a}_i}| = |\gamma_{\vec{R}}| = 1 \quad \forall i\).
 
-L'unica forma matematica in grado di soddisfare contemporaneamente queste stringenti proprietà (nello specifico la regola del prodotto $\gamma_{\vec{R}+\vec{R}'} = \gamma_{\vec{R}} \cdot \gamma_{\vec{R}'}$ e l'unitarietà del modulo) è l'esponenziale complesso. Pertanto, possiamo concludere che deve esistere un certo parametro reale $\beta_{\vec{R}}$ tale per cui il fattore di fase assuma l'espressione:
+L'unica forma matematica in grado di soddisfare contemporaneamente queste stringenti proprietà (nello specifico la regola del prodotto \(\gamma_{\vec{R}+\vec{R}'} = \gamma_{\vec{R}} \cdot \gamma_{\vec{R}'}\) e l'unitarietà del modulo) è l'esponenziale complesso. Pertanto, possiamo concludere che deve esistere un certo parametro reale \(\beta_{\vec{R}}\) tale per cui il fattore di fase assuma l'espressione:
 \begin{equation}
     \exists \, \beta_{\vec{R}} \in \mathbb{R} \quad \text{t.c.} \quad \gamma_{\vec{R}} = e^{i\beta_{\vec{R}}}
 \end{equation}
 
 \textbf{Linearità della fase ed espressione finale} \\
-Raccogliendo a sistema tutte le stringenti proprietà individuate finora per i fattori di fase $\gamma$:
+Raccogliendo a sistema tutte le stringenti proprietà individuate finora per i fattori di fase \(\gamma\):
 \begin{equation}
 \begin{cases}
     \gamma_{\vec{R}} = (\gamma_{\vec{a}_1})^{n_1} (\gamma_{\vec{a}_2})^{n_2} (\gamma_{\vec{a}_3})^{n_3} \\
@@ -1151,22 +1128,22 @@ Raccogliendo a sistema tutte le stringenti proprietà individuate finora per i f
 \end{cases}
 \end{equation}
 
-Da questo sistema si deduce in primo luogo che anche per le traslazioni di base vale l'espressione $\gamma_{\vec{a}_i} = e^{i\beta_{\vec{a}_i}} \quad \forall i$.
-Sostituendo l'espressione esponenziale nella prima equazione del sistema e ricordando che $\vec{R} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3$, otteniamo:
+Da questo sistema si deduce in primo luogo che anche per le traslazioni di base vale l'espressione \(\gamma_{\vec{a}_i} = e^{i\beta_{\vec{a}_i}} \quad \forall i\).
+Sostituendo l'espressione esponenziale nella prima equazione del sistema e ricordando che \(\vec{R} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3\), otteniamo:
 \begin{equation}
     e^{i\beta_{\vec{R}}} = e^{i\beta_{\vec{a}_1}n_1} e^{i\beta_{\vec{a}_2}n_2} e^{i\beta_{\vec{a}_3}n_3}
 \end{equation}
-Questa scomposizione ci porta a una conclusione fondamentale: il parametro $\beta_{\vec{R}}$ è \textbf{lineare in $\vec{R}$} (più precisamente, è lineare rispetto alle componenti scalari della traslazione).
+Questa scomposizione ci porta a una conclusione fondamentale: il parametro \(\beta_{\vec{R}}\) è \textbf{lineare in \(\vec{R}\)} (più precisamente, è lineare rispetto alle componenti scalari della traslazione).
 
-Possiamo rappresentare matematicamente e in modo elegante tale linearità introducendo un vettore $\vec{k}$ (appartenente allo spazio reciproco), che ci permette di esprimere $\beta_{\vec{R}}$ come un semplice prodotto scalare:
+Possiamo rappresentare matematicamente e in modo elegante tale linearità introducendo un vettore \(\vec{k}\) (appartenente allo spazio reciproco), che ci permette di esprimere \(\beta_{\vec{R}}\) come un semplice prodotto scalare:
 \begin{equation}
     \beta_{\vec{R}} = \vec{k} \cdot \vec{R}
 \end{equation}
 \begin{remark}
     Da un punto di vista strettamente algebrico, queste proprietà derivano dal fatto che:
     \begin{itemize}
-        \item Gli operatori di traslazione $\{T_{\vec{R}}\}$ costituiscono un gruppo.
-        \item L'operatore $T_{\vec{R}}$ ammette l'esponenziale $e^{i\vec{k}\cdot\vec{R}}$ come sua rappresentazione irriducibile.
+        \item Gli operatori di traslazione \(\{T_{\vec{R}}\}\) costituiscono un gruppo.
+        \item L'operatore \(T_{\vec{R}}\) ammette l'esponenziale \(e^{i\vec{k}\cdot\vec{R}}\) come sua rappresentazione irriducibile.
     \end{itemize}
     Una dimostrazione rigorosa e formale del Teorema di Bloch richiederebbe l'impiego completo della Teoria dei Gruppi, tuttavia in questo contesto tale formalismo matematico viene deliberatamente tralasciato per concentrarsi sul significato fisico.
 \end{remark}
@@ -1175,7 +1152,7 @@ Alla luce del percorso fatto, riprendiamo l'espressione originata dal Teorema di
 \begin{equation}
     \Psi_E(\vec{r} + \vec{R}) = \gamma_{\vec{R}} \Psi_E(\vec{r}) = e^{i\beta_{\vec{R}}} \Psi_E(\vec{r})
 \end{equation}
-Inserendo la forma lineare $\beta_{\vec{R}} = \vec{k} \cdot \vec{R}$, abbiamo ricavato ed esplicitato l'\textbf{enunciato (a)} del Teorema di Bloch:
+Inserendo la forma lineare \(\beta_{\vec{R}} = \vec{k} \cdot \vec{R}\), abbiamo ricavato ed esplicitato l'\textbf{enunciato (a)} del Teorema di Bloch:
 \begin{equation}
     \Psi_E(\vec{r} + \vec{R}) = e^{i\vec{k}\cdot\vec{R}} \Psi_E(\vec{r})
 \end{equation}
@@ -1187,22 +1164,22 @@ Assumiamo come vera la formulazione (a):
     \Psi_E(\vec{r} + \vec{R}) = e^{i\vec{k}\cdot\vec{R}} \Psi_E(\vec{r})
 \end{equation}
 
-Dobbiamo dimostrare che esiste una funzione $u_E(\vec{r})$ che possiede la stessa periodicità dell'energia potenziale del reticolo. Definiamo tale funzione nel modo seguente:
+Dobbiamo dimostrare che esiste una funzione \(u_E(\vec{r})\) che possiede la stessa periodicità dell'energia potenziale del reticolo. Definiamo tale funzione nel modo seguente:
 \begin{equation}
     u_E(\vec{r}) := e^{-i\vec{k}\cdot\vec{r}} \Psi_E(\vec{r})
 \end{equation}
 
-Calcoliamo ora il valore di questa funzione in una posizione traslata $\vec{r} + \vec{R}$:
+Calcoliamo ora il valore di questa funzione in una posizione traslata \(\vec{r} + \vec{R}\):
 \begin{equation}
     u_E(\vec{r} + \vec{R}) = e^{-i\vec{k}\cdot(\vec{r} + \vec{R})} \Psi_E(\vec{r} + \vec{R})
 \end{equation}
 
-Applicando le proprietà degli esponenziali e sostituendo l'espressione di $\Psi_E(\vec{r} + \vec{R})$ data dall'ipotesi (a) (che consideriamo valida), otteniamo:
+Applicando le proprietà degli esponenziali e sostituendo l'espressione di \(\Psi_E(\vec{r} + \vec{R})\) data dall'ipotesi (a) (che consideriamo valida), otteniamo:
 \begin{equation}
     u_E(\vec{r} + \vec{R}) = e^{-i\vec{k}\cdot\vec{r}} e^{-i\vec{k}\cdot\vec{R}} \left[ e^{i\vec{k}\cdot\vec{R}} \Psi_E(\vec{r}) \right]
 \end{equation}
 
-I due termini esponenziali in $\vec{R}$ di segno opposto si elidono perfettamente ($e^{-i\vec{k}\cdot\vec{R}} e^{i\vec{k}\cdot\vec{R}} = 1$), restituendoci per definizione la funzione originaria:
+I due termini esponenziali in \(\vec{R}\) di segno opposto si elidono perfettamente (\(e^{-i\vec{k}\cdot\vec{R}} e^{i\vec{k}\cdot\vec{R}} = 1\)), restituendoci per definizione la funzione originaria:
 \begin{equation}
     u_E(\vec{r} + \vec{R}) = e^{-i\vec{k}\cdot\vec{r}} \Psi_E(\vec{r}) = u_E(\vec{r})
 \end{equation}
@@ -1219,56 +1196,54 @@ Assumiamo ora come vera la formulazione (b):
     \exists \, u_E(\vec{r}) \quad \text{t.c.} \quad u_E(\vec{r}) = u_E(\vec{r} + \vec{R}) \quad \text{e} \quad \Psi_E(\vec{r}) = e^{i\vec{k}\cdot\vec{r}} u_E(\vec{r})
 \end{equation}
 
-Vediamo cosa capita alla funzione d'onda quando applichiamo una traslazione di un vettore reticolare $\vec{R}$:
+Vediamo cosa capita alla funzione d'onda quando applichiamo una traslazione di un vettore reticolare \(\vec{R}\):
 \begin{equation}
     \Psi_E(\vec{r} + \vec{R}) = e^{i\vec{k}\cdot(\vec{r} + \vec{R})} u_E(\vec{r} + \vec{R})
 \end{equation}
 
-Dato che per ipotesi la funzione $u_E$ è periodica ($u_E(\vec{r}) = u_E(\vec{r} + \vec{R})$), possiamo sostituirla direttamente:
+Dato che per ipotesi la funzione \(u_E\) è periodica (\(u_E(\vec{r}) = u_E(\vec{r} + \vec{R})\)), possiamo sostituirla direttamente:
 \begin{equation}
     \Psi_E(\vec{r} + \vec{R}) = e^{i\vec{k}\cdot\vec{r}} e^{i\vec{k}\cdot\vec{R}} u_E(\vec{r})
 \end{equation}
 
-Riordinando i termini esponenziali e riconoscendo che il prodotto $e^{i\vec{k}\cdot\vec{r}} u_E(\vec{r})$ corrisponde per definizione a $\Psi_E(\vec{r})$, ricaviamo così l'enunciato (a):
+Riordinando i termini esponenziali e riconoscendo che il prodotto \(e^{i\vec{k}\cdot\vec{r}} u_E(\vec{r})\) corrisponde per definizione a \(\Psi_E(\vec{r})\), ricaviamo così l'enunciato (a):
 \begin{equation}
     \Psi_E(\vec{r} + \vec{R}) = e^{i\vec{k}\cdot\vec{R}} \left[ e^{i\vec{k}\cdot\vec{r}} u_E(\vec{r}) \right] = e^{i\vec{k}\cdot\vec{R}} \Psi_E(\vec{r})
 \end{equation}
 
-
-
 \subsubsection{Osservazioni sulle formulazioni (a) e (b)}
 
-Dalla formulazione (a) del Teorema di Bloch si evince un'importante proprietà di periodicità nello spazio reciproco. Essendo nota la relazione fondamentale per cui $e^{i\vec{G}\cdot\vec{R}} = 1$ per qualsiasi vettore $\vec{G}$ appartenente al reticolo reciproco e per qualsiasi vettore di traslazione $\vec{R}$, è sempre possibile sommare un vettore $\vec{G}$ al vettore d'onda $\vec{k}$ senza alterare il fattore di fase:
+Dalla formulazione (a) del Teorema di Bloch si evince un'importante proprietà di periodicità nello spazio reciproco. Essendo nota la relazione fondamentale per cui \(e^{i\vec{G}\cdot\vec{R}} = 1\) per qualsiasi vettore \(\vec{G}\) appartenente al reticolo reciproco e per qualsiasi vettore di traslazione \(\vec{R}\), è sempre possibile sommare un vettore \(\vec{G}\) al vettore d'onda \(\vec{k}\) senza alterare il fattore di fase:
 \begin{equation}
     \Psi_E(\vec{r} + \vec{R}) = e^{i\vec{k}\cdot\vec{R}} \Psi_E(\vec{r}) = e^{i(\vec{k} + \vec{G})\cdot\vec{R}} \Psi_E(\vec{r}) \quad \forall \vec{G} \in RR
 \end{equation}
-Questo significa che il vettore d'onda $\vec{k}$ è definito a meno di un vettore del reticolo reciproco, implicando che tutte le informazioni fisicamente rilevanti si ripetono periodicamente nello spazio reciproco.
+Questo significa che il vettore d'onda \(\vec{k}\) è definito a meno di un vettore del reticolo reciproco, implicando che tutte le informazioni fisicamente rilevanti si ripetono periodicamente nello spazio reciproco.
 
-Passando all'analisi della formulazione (b), calcoliamo l'azione dell'operatore quantità di moto $\vec{p} = -i\hbar\nabla_{\vec{r}}$ sulla funzione d'onda di Bloch $\Psi_E(\vec{r}) = e^{i\vec{k}\cdot\vec{r}} u_E(\vec{r})$:
+Passando all'analisi della formulazione (b), calcoliamo l'azione dell'operatore quantità di moto \(\vec{p} = -i\hbar\nabla_{\vec{r}}\) sulla funzione d'onda di Bloch \(\Psi_E(\vec{r}) = e^{i\vec{k}\cdot\vec{r}} u_E(\vec{r})\):
 \begin{equation}
     \nabla \Psi = i\vec{k}e^{i\vec{k}\cdot\vec{r}} u_E(\vec{r}) + e^{i\vec{k}\cdot\vec{r}} \nabla u_E(\vec{r}) = e^{i\vec{k}\cdot\vec{r}} (i\vec{k} + \nabla) u_E(\vec{r})
 \end{equation}
-Applicando l'operatore $\vec{p}$, si ottiene:
+Applicando l'operatore \(\vec{p}\), si ottiene:
 \begin{equation}
     \vec{p} \Psi_E(\vec{r}) = -i\hbar \nabla_{\vec{r}} \Psi_E(\vec{r}) = e^{i\vec{k}\cdot\vec{r}} [\hbar\vec{k} - i\hbar\nabla_{\vec{r}}] u_E(\vec{r})
 \end{equation}
-Reiterando l'operazione per trovare il quadrato dell'impulso $p^2$, necessario per l'energia cinetica, si ricava:
+Reiterando l'operazione per trovare il quadrato dell'impulso \(p^2\), necessario per l'energia cinetica, si ricava:
 \begin{equation}
     p^2 \Psi_E(\vec{r}) = e^{i\vec{k}\cdot\vec{r}} [\hbar\vec{k} - i\hbar\nabla_{\vec{r}}]^2 u_E(\vec{r})
 \end{equation}
 
-Dividendo per $2m_e$, esprimiamo l'operatore energia cinetica applicato alla funzione di Bloch:
+Dividendo per \(2m_e\), esprimiamo l'operatore energia cinetica applicato alla funzione di Bloch:
 \begin{equation}
     \frac{p^2}{2m_e} \Psi_E(\vec{r}) = \frac{1}{2m_e} e^{i\vec{k}\cdot\vec{r}} [\hbar\vec{k} - i\hbar\nabla_{\vec{r}}]^2 u_E(\vec{r})
 \end{equation}
 Sviluppando il quadrato del binomio all'interno delle parentesi quadre, l'operatore si espande nei seguenti termini:
 \begin{itemize}
-    \item Il termine $-\frac{\hbar^2\nabla_{\vec{r}}^2}{2m_e}$, che rappresenta l'operatore energia cinetica standard di una particella libera.
-    \item Il termine $\frac{\hbar^2k^2}{2m_e}$ più altri termini incrociati. Questi contributi aggiuntivi derivano intrinsecamente dalla presenza del reticolo cristallino periodico.
+    \item Il termine \(-\frac{\hbar^2\nabla_{\vec{r}}^2}{2m_e}\), che rappresenta l'operatore energia cinetica standard di una particella libera.
+    \item Il termine \(\frac{\hbar^2k^2}{2m_e}\) più altri termini incrociati. Questi contributi aggiuntivi derivano intrinsecamente dalla presenza del reticolo cristallino periodico.
 \end{itemize}
-Fisicamente, l'elettrone risente dell'effetto dell'ambiente strutturato in cui si muove. Il termine $\hbar\vec{k}$, che si aggiunge all'operatore impulso standard $-i\hbar\nabla$, viene identificato come il \textbf{momento cristallino dell'elettrone} (o pseudo-momento).
+Fisicamente, l'elettrone risente dell'effetto dell'ambiente strutturato in cui si muove. Il termine \(\hbar\vec{k}\), che si aggiunge all'operatore impulso standard \(-i\hbar\nabla\), viene identificato come il \textbf{momento cristallino dell'elettrone} (o pseudo-momento).
 
-Infine, ricordando la definizione della funzione modulante periodica $u_E(\vec{r}) = u_E(\vec{r} + \vec{R})$, è possibile riscrivere l'uguaglianza mettendo in evidenza la relazione tra i punti traslati dello spazio diretto:
+Infine, ricordando la definizione della funzione modulante periodica \(u_E(\vec{r}) = u_E(\vec{r} + \vec{R})\), è possibile riscrivere l'uguaglianza mettendo in evidenza la relazione tra i punti traslati dello spazio diretto:
 \begin{equation}
     \frac{\Psi_E(\vec{r})}{e^{i\vec{k}\cdot\vec{r}}} = u(\vec{r}) = u(\vec{r} + \vec{R}) = \frac{\Psi_E(\vec{r} + \vec{R})}{e^{i\vec{k}\cdot(\vec{r} + \vec{R})}}
 \end{equation}
@@ -1283,17 +1258,16 @@ Inoltre, considerando i moduli di queste quantità e sapendo che l'esponenziale 
     |\Psi_E(\vec{r})| = |u_E(\vec{r})|
 \end{equation}
 
-Fisicamente, la funzione d'onda totale $\Psi_E(\vec{r})$ può essere interpretata come la convoluzione (o prodotto di modulazione) di un'\textbf{onda piana} $e^{i\vec{k}\cdot\vec{r}}$, modulata dall'inviluppo della \textbf{funzione periodica} $u_E(\vec{r})$.
+Fisicamente, la funzione d'onda totale \(\Psi_E(\vec{r})\) può essere interpretata come la convoluzione (o prodotto di modulazione) di un'\textbf{onda piana} \(e^{i\vec{k}\cdot\vec{r}}\), modulata dall'inviluppo della \textbf{funzione periodica} \(u_E(\vec{r})\).
 
 L'effetto di questa modulazione è drasticamente diverso a seconda del tipo di elettrone considerato:
-
 
 \begin{example}{\textbf{Elettroni di core}}
 \begin{itemize}
     \item L'onda piana di base ha un normale andamento oscillatorio (seno o coseno).
-    \item La funzione periodica $u_E(\vec{r})$ risulta \textbf{intensa} e presenta forti picchi localizzati in corrispondenza dei siti reticolari.
-    \item Il prodotto genera una funzione d'onda per l'elettrone vicino al nucleo (di core) che ha una densità di probabilità $|\Psi|^2$ "molto piccata". Questo significa che l'elettrone risente in modo preponderante del potenziale del singolo ione.
-    \item Questa spiccata periodicità $V(\vec{r}) = V(\vec{r} + \vec{R})$ e forte localizzazione giustifica l'adozione di modelli specifici, come i \textbf{Modelli Tight-Binding} (a legame stretto).
+    \item La funzione periodica \(u_E(\vec{r})\) risulta \textbf{intensa} e presenta forti picchi localizzati in corrispondenza dei siti reticolari.
+    \item Il prodotto genera una funzione d'onda per l'elettrone vicino al nucleo (di core) che ha una densità di probabilità \(|\Psi|^2\) "molto piccata". Questo significa che l'elettrone risente in modo preponderante del potenziale del singolo ione.
+    \item Questa spiccata periodicità \(V(\vec{r}) = V(\vec{r} + \vec{R})\) e forte localizzazione giustifica l'adozione di modelli specifici, come i \textbf{Modelli Tight-Binding} (a legame stretto).
 \end{itemize}
 \end{example}
 
@@ -1311,17 +1285,17 @@ L'effetto di questa modulazione è drasticamente diverso a seconda del tipo di e
         % 1. Onda piana base
         \draw[axis] (0,8) -- (10,8);
         \draw[wave] plot (\x, {sin(25*\x) + 8});
-        \node[anchor=west, font=\small, text=teal!50!black] at (10.5, 8) {Onda piana ($e^{i\vec{k}\cdot\vec{r}}$)};
+        \node[anchor=west, font=\small, text=teal!50!black] at (10.5, 8) {Onda piana (\(e^{i\vec{k}\cdot\vec{r}}\))};
 
         % 2. Funzione periodica u(r) - Molto intensa/piccata
         \draw[axis] (0,5.5) -- (10,5.5);
         \draw[wave] plot (\x, {1.5*cos(90*\x)^10 + 5.5});
-        \node[anchor=west, font=\small, text=teal!50!black] at (10.5, 5.5) {Funz. periodica $u_E(\vec{r})$ (intensa)};
+        \node[anchor=west, font=\small, text=teal!50!black] at (10.5, 5.5) {Funz. periodica \(u_E(\vec{r})\) (intensa)};
 
         % 3. Funzione d'onda Psi(r) - Modulazione netta
         \draw[axis] (0,3) -- (10,3);
         \draw[wave] plot (\x, {sin(25*\x) * 1.5*cos(90*\x)^10 + 3});
-        \node[anchor=west, font=\small, text=teal!50!black] at (10.5, 3) {Funz. d'onda $\Psi_E(\vec{r})$ (fortemente piccata)};
+        \node[anchor=west, font=\small, text=teal!50!black] at (10.5, 3) {Funz. d'onda \(\Psi_E(\vec{r})\) (fortemente piccata)};
     \end{tikzpicture}
     \caption{Rappresentazione qualitativa dell'onda piana, della funzione periodica e della funzione d'onda complessiva per gli elettroni di core.}
     \label{fig:elettroni_core}
@@ -1330,14 +1304,13 @@ L'effetto di questa modulazione è drasticamente diverso a seconda del tipo di e
 \begin{example}{\textbf{Elettroni di valenza}}   
 \begin{itemize}
     \item Anche in questo caso si parte da un'onda piana base (seno o coseno).
-    \item Per gli elettroni più esterni, tuttavia, la funzione modulante periodica $u_E(\vec{r})$ è \textbf{debolmente intensa}, ovvero quasi piatta con oscillazioni minime.
+    \item Per gli elettroni più esterni, tuttavia, la funzione modulante periodica \(u_E(\vec{r})\) è \textbf{debolmente intensa}, ovvero quasi piatta con oscillazioni minime.
     \item Di conseguenza, l'azione di modulazione è trascurabile e la funzione d'onda complessiva approssima fedelmente l'onda piana della particella libera:
     \begin{equation}
         \Psi_E(\vec{r}) = e^{i\vec{k}\cdot\vec{r}} u_E(\vec{r}) \approx e^{i\vec{k}\cdot\vec{r}}
     \end{equation}
 \end{itemize}
 \end{example}
-
 
 \begin{figure}[H]
     \centering
@@ -1353,17 +1326,17 @@ L'effetto di questa modulazione è drasticamente diverso a seconda del tipo di e
         % 1. Onda piana base
         \draw[axis] (0,8) -- (10,8);
         \draw[wave] plot (\x, {sin(25*\x) + 8});
-        \node[anchor=west, font=\small, text=teal!50!black] at (10.5, 8) {Onda piana ($e^{i\vec{k}\cdot\vec{r}}$)};
+        \node[anchor=west, font=\small, text=teal!50!black] at (10.5, 8) {Onda piana (\(e^{i\vec{k}\cdot\vec{r}}\))};
 
         % 2. Funzione periodica u(r) - Debolmente intensa/piatta
         \draw[axis] (0,5.5) -- (10,5.5);
         \draw[wave] plot (\x, {0.2*cos(90*\x) + 5.5});
-        \node[anchor=west, font=\small, text=teal!50!black] at (10.5, 5.5) {Funz. periodica $u_E(\vec{r})$ (debolmente intensa)};
+        \node[anchor=west, font=\small, text=teal!50!black] at (10.5, 5.5) {Funz. periodica \(u_E(\vec{r})\) (debolmente intensa)};
 
         % 3. Funzione d'onda Psi(r) - Simile all'onda piana
         \draw[axis] (0,3) -- (10,3);
         \draw[wave] plot (\x, {sin(25*\x) * (1 + 0.2*cos(90*\x)) + 3});
-        \node[anchor=west, font=\small, text=teal!50!black] at (10.5, 3) {Funz. d'onda $\Psi_E(\vec{r}) \approx e^{i\vec{k}\cdot\vec{r}}$};
+        \node[anchor=west, font=\small, text=teal!50!black] at (10.5, 3) {Funz. d'onda \(\Psi_E(\vec{r}) \approx e^{i\vec{k}\cdot\vec{r}}\)};
     \end{tikzpicture}
     \caption{Rappresentazione qualitativa dell'onda piana, della funzione periodica e della funzione d'onda complessiva per gli elettroni di valenza.}
     \label{fig:elettroni_valenza}
@@ -1372,24 +1345,24 @@ L'effetto di questa modulazione è drasticamente diverso a seconda del tipo di e
 Le differenze morfologiche delle funzioni d'onda dimostrano chiaramente che \textbf{elettroni di valenza e di core devono essere trattati in modi diversi} all'interno della teoria dei solidi, 
 richiedendo approcci matematici e fisici distinti.
 
-\begin{remark} Un possibile modo di trattare gli elettroni di valenza è  il
- \textbf{modello a gas di elettroni liberi} in cui gli elettroni di valenza vengono descritti come particelle libere (non interagenti tra loro) confinate all'interno di una buca di potenziale (la "scatola"), che modella macroscopicamente il volume del metallo in cui si trovano.
+\begin{remark}
+    Un possibile modo di trattare gli elettroni di valenza è il \textbf{modello a gas di elettroni liberi} in cui gli elettroni di valenza vengono descritti come particelle libere (non interagenti tra loro) confinate all'interno di una buca di potenziale (la "scatola"), che modella macroscopicamente il volume del metallo in cui si trovano.
 \end{remark}
 
 \subsubsection{Spettro Energetico}
 
-Approfondiamo il significato fisico-matematico della periodicità nello spazio reciproco. Ripartendo dall'enunciato del Teorema di Bloch e sfruttando la nota proprietà degli esponenziali complessi sui nodi del reticolo ($e^{i\vec{G}\cdot\vec{R}} = 1$), la funzione d'onda valutata in un punto traslato è:
+Approfondiamo il significato fisico-matematico della periodicità nello spazio reciproco. Ripartendo dall'enunciato del Teorema di Bloch e sfruttando la nota proprietà degli esponenziali complessi sui nodi del reticolo (\(e^{i\vec{G}\cdot\vec{R}} = 1\)), la funzione d'onda valutata in un punto traslato è:
 \begin{equation}
     \Psi_E(\vec{r} + \vec{R}) = e^{i\vec{k}\cdot\vec{R}} \Psi_E(\vec{r}) = e^{i(\vec{k} + \vec{G})\cdot\vec{R}} \Psi_E(\vec{r})
 \end{equation}
 
-Tale relazione indica che gli stati quantistici caratterizzati dal vettore d'onda $\vec{k}$ e dal vettore d'onda $\vec{k} + \vec{G}$ soddisfano le medesime condizioni al contorno imposte dal reticolo. Inserendo queste autofunzioni nell'equazione di Schrödinger stazionaria ($H\Psi_E = E\Psi_E$), si evince che a stati equivalenti debbano corrispondere autovalori di energia identici.
+Tale relazione indica che gli stati quantistici caratterizzati dal vettore d'onda \(\vec{k}\) e dal vettore d'onda \(\vec{k} + \vec{G}\) soddisfano le medesime condizioni al contorno imposte dal reticolo. Inserendo queste autofunzioni nell'equazione di Schrödinger stazionaria (\(H\Psi_E = E\Psi_E\)), si evince che a stati equivalenti debbano corrispondere autovalori di energia identici.
 
-Ne consegue il risultato fondamentale per cui la relazione di dispersione (o struttura a bande) $E(\vec{k})$ eredita una rigorosa periodicità nello spazio reciproco:
+Ne consegue il risultato fondamentale per cui la relazione di dispersione (o struttura a bande) \(E(\vec{k})\) eredita una rigorosa periodicità nello spazio reciproco:
 \begin{equation}
     \boxed{E(\vec{k}) = E(\vec{k} + \vec{G})} \quad \forall \vec{G} \in RR
 \end{equation}
-(dove $RR$ rappresenta l'insieme dei vettori del Reticolo Reciproco).
+(dove \(RR\) rappresenta l'insieme dei vettori del Reticolo Reciproco).
 
 \begin{figure}[htbp]
     \centering
@@ -1405,8 +1378,8 @@ Ne consegue il risultato fondamentale per cui la relazione di dispersione (o str
         \clip (-2.2, -1) rectangle (2.2, 4.5);
 
         % Assi
-        \draw[axis] (-2.1, 0) -- (2.1, 0) node[right] {$k_i$};
-        \draw[axis] (0, -0.2) -- (0, 4.2) node[above] {$E$};
+        \draw[axis] (-2.1, 0) -- (2.1, 0) node[right] {\(k_i\)};
+        \draw[axis] (0, -0.2) -- (0, 4.2) node[above] {\(E\)};
 
         % Confini della Prima Zona di Brillouin (Cella Primitiva)
         % Poniamo G = 2, quindi i confini sono a +/- 1
@@ -1427,56 +1400,56 @@ Ne consegue il risultato fondamentale per cui la relazione di dispersione (o str
         \def\kstar{0.45} % Valore di k* scelto per l'esempio
         
         % Linea verticale per k*
-        \draw[kline] (\kstar, 0) node[below right, teal!90!black, yshift=-2pt] {$k^*$} -- (\kstar, 4);
+        \draw[kline] (\kstar, 0) node[below right, teal!90!black, yshift=-2pt] {\(k^*\)} -- (\kstar, 4);
 
         % Intersezioni (Livelli di energia discreti)
         % E1 (sulla parabola centrale)
         \fill[teal!90!black] (\kstar, {0.6*\kstar*\kstar}) circle (2pt) 
-            node[right, font=\small, xshift=2pt] {$E_1(k^*)$};
+            node[right, font=\small, xshift=2pt] {\(E_1(k^*)\)};
             
         % E2 (sulla parabola traslata a destra)
         \fill[teal!90!black] (\kstar, {0.6*(\kstar-2)*(\kstar-2)}) circle (2pt) 
-            node[right, font=\small, xshift=2pt] {$E_2(k^*)$};
+            node[right, font=\small, xshift=2pt] {\(E_2(k^*)\)};
             
         % E3 (sulla parabola traslata a sinistra)
         \fill[teal!90!black] (\kstar, {0.6*(\kstar+2)*(\kstar+2)}) circle (2pt) 
-            node[right, font=\small, xshift=2pt] {$E_3(k^*)$};
+            node[right, font=\small, xshift=2pt] {\(E_3(k^*)\)};
 
         % --- ETICHETTE DI BASE ---
-        \node[below left] at (0,0) {$O$};
-        \node[below, yshift=-2pt] at (2,0) {$+G$};
-        \node[below, yshift=-2pt] at (-2,0) {$-G$};
+        \node[below left] at (0,0) {\(O\)};
+        \node[below, yshift=-2pt] at (2,0) {\(+G\)};
+        \node[below, yshift=-2pt] at (-2,0) {\(-G\)};
 
         % Indicazione Cella Primitiva
         \draw[<->, violet] (-1, -0.5) -- (1, -0.5) node[midway, below, font=\small] {Cella Primitiva RR};
         
         % Titolo in alto a sinistra
-        \node[anchor=south west, font=\large] at (-2.1, 3.8) {$E(\vec{k}) = E(\vec{k}+\vec{G})$};
+        \node[anchor=south west, font=\large] at (-2.1, 3.8) {\(E(\vec{k}) = E(\vec{k}+\vec{G})\)};
 
     \end{tikzpicture}
-    \caption{Rappresentazione della struttura a bande nello schema a zona ridotta. La periodicità dell'energia nello spazio reciproco genera uno spettro discreto di livelli energetici $E_n(k^*)$ per un fissato vettore d'onda $k^*$.}
+    \caption{Rappresentazione della struttura a bande nello schema a zona ridotta. La periodicità dell'energia nello spazio reciproco genera uno spettro discreto di livelli energetici \(E_n(k^*)\) per un fissato vettore d'onda \(k^*\).}
     \label{fig:bande_zona_ridotta}
 \end{figure}
 
 Consideriamo una cella nel reticolo diretto (RD) e la sua coniugata nel reticolo reciproco (RR). In questo contesto, gioca un ruolo fondamentale la \textbf{cella primitiva} (ovvero la cella di volume minimo).
 
-Tracciando l'energia in funzione del vettore d'onda $\vec{k} = (k_x, k_y, k_z)$, la relazione $E(\vec{k}) = E(\vec{k} + \vec{G})$ implica che l'energia è periodica in $\vec{k}$. Come mostrato graficamente dall'intersezione delle parabole traslate di multipli di $\vec{G}$, per un preciso e fissato valore del vettore d'onda $k^*$ esistono molteplici stati energetici possibili ($E_1, E_2, E_3 \dots$).
+Tracciando l'energia in funzione del vettore d'onda \(\vec{k} = (k_x, k_y, k_z)\), la relazione \(E(\vec{k}) = E(\vec{k} + \vec{G})\) implica che l'energia è periodica in \(\vec{k}\). Come mostrato graficamente dall'intersezione delle parabole traslate di multipli di \(\vec{G}\), per un preciso e fissato valore del vettore d'onda \(k^*\) esistono molteplici stati energetici possibili (\(E_1, E_2, E_3 \dots\)).
 
-Risulta quindi sufficiente limitare lo studio a ciò che accade all'interno di un singolo lato della cella primitiva del reticolo reciproco, lungo una generica direzione cristallografica $i = (\hat{x}, \hat{y}, \hat{z})$.
+Risulta quindi sufficiente limitare lo studio a ciò che accade all'interno di un singolo lato della cella primitiva del reticolo reciproco, lungo una generica direzione cristallografica \(i = (\hat{x}, \hat{y}, \hat{z})\).
 
-Sebbene $E(\vec{k})$ sia una funzione continua del vettore d'onda $\vec{k}$, la periodicità imposta dal cristallo introduce di fatto uno \textbf{spettro discreto} di energie sovrapposte per ogni singolo $\vec{k}$. Questo spettro viene indicizzato da un numero intero $n \in \mathbb{N}$:
+Sebbene \(E(\vec{k})\) sia una funzione continua del vettore d'onda \(\vec{k}\), la periodicità imposta dal cristallo introduce di fatto uno \textbf{spettro discreto} di energie sovrapposte per ogni singolo \(\vec{k}\). Questo spettro viene indicizzato da un numero intero \(n \in \mathbb{N}\):
 \begin{equation}
     E_n(\vec{k})
 \end{equation}
-dove $n$ prende il nome di \textbf{indice di banda}, e $\vec{k}$ è il vettore d'onda di Bloch associato alla funzione $\Psi_E(\vec{r}) = e^{i\vec{k}\cdot\vec{r}} u_E(\vec{r})$.
+dove \(n\) prende il nome di \textbf{indice di banda}, e \(\vec{k}\) è il vettore d'onda di Bloch associato alla funzione \(\Psi_E(\vec{r}) = e^{i\vec{k}\cdot\vec{r}} u_E(\vec{r})\).
 
 Nello spazio reciproco, il reticolo viene descritto geometricamente dalla sua cella primitiva, in particolare nel reticolo reciproco prende il nome di \textbf{cella di Brillouin}.\\
-Si definisce \textbf{Prima Zona di Brillouin} la cella centrata nell'origine, ovvero in $\vec{k} = 0$. 
+Si definisce \textbf{Prima Zona di Brillouin} la cella centrata nell'origine, ovvero in \(\vec{k} = 0\). 
 All'interno di questa zona, lo spettro energetico gode della fondamentale simmetria per inversione (o parità spaziale):
 \begin{equation}
     E_n(\vec{k}) = E_n(-\vec{k})
 \end{equation}
-dove $n$ rappresenta l'indice di banda.
+dove \(n\) rappresenta l'indice di banda.
 
 \begin{figure}[htbp]
     \centering
@@ -1486,16 +1459,16 @@ dove $n$ rappresenta l'indice di banda.
         \clip (-1.6, -1.2) rectangle (1.6, 5.5);
         
         % Assi cartesiani
-        \draw[->, thick] (-1.4, 0) -- (1.4, 0) node[below right] {$k_i = x,y,z$};
+        \draw[->, thick] (-1.4, 0) -- (1.4, 0) node[below right] {\(k_i = x,y,z\)};
         \draw[->, thick] (0, -0.8) -- (0, 5.3);
-        \node[below left] at (0,0) {$O$};
+        \node[below left] at (0,0) {\(O\)};
         
         % Limiti verticali della 1ª Zona di Brillouin
         \draw[thick, violet] (-1, -0.8) -- (-1, 5.2);
         \draw[thick, violet] (1, -0.8) -- (1, 5.2);
         
         % Indicazione di larghezza della 1ª zona
-        \draw[<->, thick, violet] (-1, -0.5) -- (1, -0.5) node[midway, below] {$1^\circ$ zona};
+        \draw[<->, thick, violet] (-1, -0.5) -- (1, -0.5) node[midway, below] {\(1^\circ\) zona};
         
         % Linea tratteggiata di raccordo ai bordi zona
         \draw[dashed, thick, violet] (-1, 1) -- (1, 1);
@@ -1504,30 +1477,29 @@ dove $n$ rappresenta l'indice di banda.
         
         % Banda n=1 (Parabola centrale originale)
         \draw[thick, cyan!80!blue, domain=-1:1, samples=100] plot (\x, {\x*\x});
-        \node[right, cyan!80!blue, font=\small] at (0.4, 0.4) {$n=1$};
+        \node[right, cyan!80!blue, font=\small] at (0.4, 0.4) {\(n=1\)};
         
         % Banda n=2 (Rami traslati da +/- G)
         \draw[thick, cyan!80!blue, domain=0:1, samples=100] plot (\x, {(\x-2)*(\x-2)});
         \draw[thick, cyan!80!blue, domain=-1:0, samples=100] plot (\x, {(\x+2)*(\x+2)});
-        \node[right, cyan!80!blue, font=\small] at (0.4, 2.5) {$n=2$};
+        \node[right, cyan!80!blue, font=\small] at (0.4, 2.5) {\(n=2\)};
         
         % Banda n=3 (Rami traslati ulteriori)
         \draw[thick, cyan!80!blue, domain=0:1, samples=100] plot (\x, {(\x+2)*(\x+2)});
         \draw[thick, cyan!80!blue, domain=-1:0, samples=100] plot (\x, {(\x-2)*(\x-2)});
-        \node[right, cyan!80!blue, font=\small] at (0.2, 4.8) {$n=3$};
+        \node[right, cyan!80!blue, font=\small] at (0.2, 4.8) {\(n=3\)};
         
     \end{tikzpicture}
     \caption{Spettro energetico a bande indicizzate per il modello a elettroni liberi, rappresentato nello schema in zona ridotta (all'interno della Prima Zona di Brillouin).}
     \label{fig:prima_zona_brillouin_ripiegata}
 \end{figure}
 
-
-Contestualmente all'energia, si definisce la pulsazione $\omega_{n\vec{k}} = \omega_n(\vec{k})$. Energia e pulsazione assumono identico significato fisico e sono legate dalla relazione:
+Contestualmente all'energia, si definisce la pulsazione \(\omega_{n\vec{k}} = \omega_n(\vec{k})\). Energia e pulsazione assumono identico significato fisico e sono legate dalla relazione:
 \begin{equation}
     E_n(\vec{k}) = E_{n,\vec{k}} = \hbar \omega_{n\vec{k}}
 \end{equation}
 
-Ricordando che la caratteristica velocità di gruppo di un pacchetto d'onde unidimensionale è definita come $v_g = \frac{d\omega_k}{dk}$, è possibile generalizzare questo concetto al caso tridimensionale. Sostituendo la pulsazione con l'energia, la velocità di gruppo si esprime in funzione del gradiente:
+Ricordando che la caratteristica velocità di gruppo di un pacchetto d'onde unidimensionale è definita come \(v_g = \frac{d\omega_k}{dk}\), è possibile generalizzare questo concetto al caso tridimensionale. Sostituendo la pulsazione con l'energia, la velocità di gruppo si esprime in funzione del gradiente:
 \begin{equation}
     \vec{v}_g = \frac{\nabla_{\vec{k}} E_{\vec{k},n}}{\hbar}
 \end{equation}
@@ -1737,7 +1709,6 @@ Raccogliendo le costanti:
     \end{equation}
 \end{importantbox}
 dove \(B\) è una costante di proporzionalità che ingloba anche la molteplicità di spin.
-
 
 In un gas di Fermi confinato in una scatola di volume \(V\), la densità degli stati elettronici per unità di energia è:
 \begin{equation}
@@ -2042,7 +2013,7 @@ che fornisce l'ordine di grandezza della pressione esercitata dal gas di elettro
 
 Se la parete non permette di realizzare urti elastici, dopo un certo tempo il gas di Fermi cede energia e \(\vec{k}\) non potrà più crescere indefinitamente: questo è il meccanismo fisico che limita l'evoluzione \(\vec{k}(t)\) discussa in precedenza.
 
-\subsubsection{Gas di Fermi in un cristallo}
+\subsection{Gas di Fermi in un cristallo}
 
 Noto il comportamento del gas di Fermi confinato in una scatola, ci chiediamo ora cosa accada quando la scatola è in realtà un \textbf{cristallo}: vedremo che lo spettro energetico mantiene una struttura periodica, e questo ci permetterà sia di descrivere il cristallo nel suo complesso, sia di mettere in luce i limiti del modello del gas di Fermi nel descrivere la realtà.
 

@@ -105,7 +105,9 @@ Definiamo in modo contratto tali stati con il simbolo \(\Psi_{E, \pm}^{(0)}(\vec
     \item \(\Psi_{E, -}^{(0)}\): combinazione \textbf{antisimmetrica} rispetto allo scambio \(\vec{r}_1 \leftrightarrow \vec{r}_2\).
 \end{itemize}
 
-\subsection{Autofunzioni di Spin}Consideriamo la funzione d'onda di spin complessiva \(\chi(1, 2)\). Per ogni elettrone (\(i=1,2\)), definiamo l'operatore di spin di singola particella \(\vec{S}_i\) tramite le sue componenti:
+\subsection{Autofunzioni di Spin}
+
+Consideriamo la funzione d'onda di spin complessiva \(\chi(1, 2)\). Per ogni elettrone (\(i=1,2\)), definiamo l'operatore di spin di singola particella \(\vec{S}_i\) tramite le sue componenti:
 \begin{equation}
     \vec{S}_i = (S_{ix}, S_{iy}, S_{iz})
 \end{equation}
@@ -188,7 +190,6 @@ Si osserva che gli stati \(\chi_1, \chi_+\) e \(\chi_4\) formano il \textbf{trip
 \end{figure}
 
 \section{Autofunzioni Spaziali}
-
 
 Applicando l'Hamiltoniana imperturbata alla funzione d'onda totale dello stato fondamentale, otteniamo l'energia totale come somma dei singoli contributi:
 \begin{equation}
@@ -347,7 +348,6 @@ Sommando i termini, otteniamo il funzionale energia complessivo:
     E[Z_{\text{eff}}] = \mel{\psi_{Z_{\text{eff}}}}{H}{\psi_{Z_{\text{eff}}}} = Z_{\text{eff}}^2 - 2 Z Z_{\text{eff}} + \frac{5}{8} Z_{\text{eff}} [Hartree]
 \end{equation}
 
-
 Applichiamo la condizione di minimo per trovare il valore ottimale del parametro variazionale:
 \begin{equation}
     \dv{E}{Z_{\text{eff}}} = 0 \implies 2 Z_{\text{eff}} - 2 Z + \frac{5}{8} = 0
@@ -359,7 +359,6 @@ Il valore ottimale della carica nucleare efficace risulta quindi:
         Z_{\text{eff}}^* = Z - \frac{5}{16}
     \end{equation}
 \end{importantbox}
-
 
 Il termine \(\frac{5}{16} \approx 0.31\) rappresenta fisicamente l'\textbf{effetto di schermo} esercitato da un elettrone sull'altro. 
 
@@ -382,7 +381,6 @@ L'utilizzo di funzioni d'onda simmetrizzate (\(\Psi_{E+}^{(0)}\)) o antisimmetri
 
 dove \(K\) è la costante di normalizzazione. 
 
-
 \begin{note}{Stati genuinamente discreti}{gen-disc}
 Si definisce \textbf{stato genuinamente discreto} uno stato dell'atomo di Elio tale per cui un elettrone rimane vincolato nello stato fondamentale, mentre il secondo occupa un livello eccitato:
 \begin{equation}
@@ -393,7 +391,7 @@ Si definisce \textbf{stato genuinamente discreto} uno stato dell'atomo di Elio t
     \end{cases}
 \end{equation}
 
-Queste configurazioni (come ad esempio $1s 2s$, $1s 2p$, ecc.) appartengono allo \textbf{spettro discreto} dell'atomo, poiché l'energia totale del sistema rimane negativa:
+Queste configurazioni (come ad esempio \(1s 2s\), \(1s 2p\), ecc.) appartengono allo \textbf{spettro discreto} dell'atomo, poiché l'energia totale del sistema rimane negativa:
 \begin{equation}
     E_{n_1, n_2} =: E_{1n} < 0
 \end{equation}   
@@ -453,11 +451,11 @@ Il segno positivo corrisponde alla soluzione spaziale simmetrica (Paraelio), men
 
     % --- 1. STATO IMPERTURBATO (H0) ---
     % Linea di base (energia H0 degeneri)
-    \draw[level] (0, 3) -- (2, 3) node[midway, above] {$1s 2s$ e $1s 2p$};
-    \node[below, align=center] at (1, 2.8) {Stati degeneri in $H^{(0)}$ \\ $\expval{H^{(0)}}$};
+    \draw[level] (0, 3) -- (2, 3) node[midway, above] {\(1s 2s\) e \(1s 2p\)};
+    \node[below, align=center] at (1, 2.8) {Stati degeneri in \(H^{(0)}\) \\ \(\expval{H^{(0)}}\)};
     
     % Stato fondamentale di riferimento (molto più in basso)
-    \draw[level] (0, 0) -- (2, 0) node[midway, above] {$1s^2$ (Stato Fond.)};
+    \draw[level] (0, 0) -- (2, 0) node[midway, above] {\(1s^2\) (Stato Fond.)};
     \draw[dashed, gray] (2, 0) -- (10, 0);
 
     % --- 2. INTERAZIONE DI COULOMB (Shift) ---
@@ -466,12 +464,12 @@ Il segno positivo corrisponde alla soluzione spaziale simmetrica (Paraelio), men
     \draw[connect] (2, 3) -- (3, 6.5); % Verso 1s 2p
     
     % Livelli shiftati (J20 e J21)
-    \draw[level] (3, 4.5) -- (5, 4.5) node[midway, above] {$1s 2s$};
-    \draw[level] (3, 6.5) -- (5, 6.5) node[midway, above] {$1s 2p$};
+    \draw[level] (3, 4.5) -- (5, 4.5) node[midway, above] {\(1s 2s\)};
+    \draw[level] (3, 6.5) -- (5, 6.5) node[midway, above] {\(1s 2p\)};
     
     % Frecce Coulomb
-    \draw[coulomb_arrow] (3.8, 3) -- (3.8, 4.5) node[midway, right] {$J_{20}$};
-    \draw[coulomb_arrow] (3.2, 3) -- (3.2, 6.5) node[midway, left] {$J_{21}$};
+    \draw[coulomb_arrow] (3.8, 3) -- (3.8, 4.5) node[midway, right] {\(J_{20}\)};
+    \draw[coulomb_arrow] (3.2, 3) -- (3.2, 6.5) node[midway, left] {\(J_{21}\)};
     
     % Didascalia Coulomb
     \node[below, align=center, violet] at (5, 2.8) {\textbf{Termine di Coulomb} \\ (Shift energetico)};
@@ -487,14 +485,14 @@ Il segno positivo corrisponde alla soluzione spaziale simmetrica (Paraelio), men
     \draw[connect] (5, 6.5) -- (6, 5.7); % Tripletto
 
     % Livelli splittati 1s 2s
-    \draw[level] (6, 5.2) -- (8.5, 5.2) node[right] {Singoletto ($J_{20} + K_{20}$)};
-    \draw[level] (6, 3.8) -- (8.5, 3.8) node[right] {Tripletto ($J_{20} - K_{20}$)};
-    \draw[exchange_arrow] (8, 3.8) -- (8, 5.2) node[midway, left] {$2K_{20}$};
+    \draw[level] (6, 5.2) -- (8.5, 5.2) node[right] {Singoletto (\(J_{20} + K_{20}\))};
+    \draw[level] (6, 3.8) -- (8.5, 3.8) node[right] {Tripletto (\(J_{20} - K_{20}\))};
+    \draw[exchange_arrow] (8, 3.8) -- (8, 5.2) node[midway, left] {\(2K_{20}\)};
     
     % Livelli splittati 1s 2p
-    \draw[level] (6, 7.3) -- (8.5, 7.3) node[right] {Singoletto ($J_{21} + K_{21}$)};
-    \draw[level] (6, 5.7) -- (8.5, 5.7) node[right] {Tripletto ($J_{21} - K_{21}$)};
-    \draw[exchange_arrow] (8, 5.7) -- (8, 7.3) node[midway, left] {$2K_{21}$};
+    \draw[level] (6, 7.3) -- (8.5, 7.3) node[right] {Singoletto (\(J_{21} + K_{21}\))};
+    \draw[level] (6, 5.7) -- (8.5, 5.7) node[right] {Tripletto (\(J_{21} - K_{21}\))};
+    \draw[exchange_arrow] (8, 5.7) -- (8, 7.3) node[midway, left] {\(2K_{21}\)};
     
     % Didascalia Scambio
     \node[below, align=center, teal] at (9.25, 2.8) {\textbf{Termine di Scambio} \\ (Rimozione degenerazione)};
@@ -503,7 +501,6 @@ Il segno positivo corrisponde alla soluzione spaziale simmetrica (Paraelio), men
 \end{tikzpicture}
 \caption{Separazione dei livelli energetici per l'atomo di elio}
 \end{figure}
-
 
 \section{Altre correzioni}
 
@@ -627,7 +624,6 @@ Considerando l'atomo di Elio (He) come esempio, si osserva come l'introduzione d
         % Titolo sopra la sezione finale
         \node[blue!80!black, above, font=\footnotesize\bfseries] at (6.5, 2.1) {\( T + V_{e-n} + V_{ee} + \Delta H_{so} \)};
 
-
     \end{tikzpicture}
     \caption{Diagramma dettagliato della rimozione della degenerazione energetica nell'atomo di Elio.}
 \end{figure}
@@ -704,16 +700,16 @@ Gli orbitali atomici si riempiono secondo questo schema:
 \end{figure}
 \end{note}
 
-
 \begin{exercise}
  
 Esprimere giustificando la risposta i termini spettroscopici per He associati alla configurazione dello stato fondamentale \( 1s^2 \) e degli stati eccitati: \( 1s 2s \) e \( 1s 2p \).
 Nota: \( E_{1s^2} < E_{1s 2s} \) e  \( E_{1s^2} < E_{1s 2p} \).
 
-
 \begin{solution}
 Per la configurazione \( 1s^2 \):
-\[ n_1 = 1, \ell_1 = 0, s_1 = \frac{1}{2} \qquad n_2 = 1, \ell_2 = 0, s_2 = \frac{1}{2} \]
+\begin{equation*}
+    n_1 = 1, \ell_1 = 0, s_1 = \frac{1}{2} \qquad n_2 = 1, \ell_2 = 0, s_2 = \frac{1}{2}
+\end{equation*}
 Si tratta di elettroni equivalenti, in quanto possiedono lo stesso numero quantico principale \( n \) e orbitale \( \ell \).\\
 Il momento angolare orbitale totale \( L \) è dato da:
 \begin{equation}
@@ -894,14 +890,9 @@ Per comprendere fisicamente tale ordinamento, è necessario analizzare la simmet
 
 Questo comportamento è formalizzato dalla prima \textbf{regola di Hund}, una regola empirica e fenomenologica che stabilisce che, per una data configurazione elettronica, il termine spettroscopico a energia minore è quello caratterizzato dalla massima molteplicità di spin (\( 2S+1 \)). Sebbene la regola di Hund sia strettamente definita per determinare lo stato fondamentale in presenza di elettroni equivalenti, lo stesso principio di minimizzazione dell'energia coulombiana tramite l'antisimmetrizzazione spaziale governa anche gli stati eccitati costituiti da elettroni non equivalenti.
 
-
 \end{solution}
 
-
 \end{exercise}
-
-
-
 
 \begin{exercise}
 
@@ -979,10 +970,7 @@ Identificando l'integrale radiale con il parametro \( \tilde{A}_1 \) (essendo \(
 
 \end{solution}
 
-
 \end{exercise}
-
-
 
 \subsection{Effetto Zeeman}
 
@@ -1283,10 +1271,7 @@ La notazione convenzionale utilizzata per identificare un termine è:
 ^{2S+1}L_J
 \end{equation}
 
-
-
 \end{note}
-
 
 \section{Atomo ad N elettroni}
 \lezione{10}{24/03/2026}
@@ -1349,8 +1334,7 @@ La demarcazione tra i regimi di accoppiamento non costituisce una soglia netta, 
 
 \end{note}
 
-
-\subsection{Interazione elettronica}   
+\subsection{Interazione elettronica}
 
 Il problema dei molti corpi in meccanica quantistica è intrinsecamente non separabile a causa del termine di repulsione coulombiana interelettronica esatta. L'approssimazione di Hartree affronta questo ostacolo assumendo che l'interazione repulsiva globale possa essere approssimata come la somma di contributi individuali dipendenti unicamente dalle coordinate del singolo elettrone:
 
@@ -1391,7 +1375,7 @@ Tale funzione è costruita affinché ogni singolo orbitale sia soluzione dell'eq
 Il prodotto di Hartree tratta gli elettroni come distinguibili, violando il Principio di Pauli. Per i fermioni, la funzione d'onda deve essere rigorosamente antisimmetrica rispetto allo scambio delle coordinate generalizzate (spazio e spin) \(\vec{q}_i\). Si introduce quindi il determinante di Slater:
 
 \begin{equation}
-    \Psi_{E,e}(\vec{q}_1, \dots, \vec{q}_N) = \frac{1}{\sqrt{N!}}  \begin{vmatrix}
+    \Psi_{E,e}(\vec{q}_1, \dots, \vec{q}_N) = \frac{1}{\sqrt{N!}} \begin{vmatrix}
 \psi_{E,e,1}(\vec{q}_1) & \cdots & \psi_{E,e,N}(\vec{q}_1) \\
 \vdots & \ddots & \vdots \\
 \psi_{E,e,1}(\vec{q}_N) & \cdots & \psi_{E,e,N}(\vec{q}_N)
@@ -1526,8 +1510,6 @@ Il ciclo iterativo si ferma quando la differenza tra i contributi calcolati al p
 \end{equation}
 All'\( n \)-esimo passo, ovvero al termine dell'algoritmo, si ottiene il set definitivo di autofunzioni ottimali per i singoli elettroni \( \{ \psi_{E,i}^{(n)} \} \). 
 
-
-
 \lezione{11}{30/03/2026}
 
 \begin{note}{Tavola periodica}{tav_per}
@@ -1592,9 +1574,7 @@ Gli \( e^- \) esterni sono meno vincolati al nucleo, è sufficiente un campo ele
     \end{itemize}
 \end{enumerate}
 
-
 \end{note} 
-
 
 \subsection{Interazione con CEM}
 
@@ -1610,13 +1590,11 @@ L'operatore momento di dipolo elettrico totale per il sistema è:
     \vec{D} = -e \sum_{i=1}^{N_e} \vec{r}_i = -e\vec{R}
 \end{equation}
 
-
 La probabilità che un atomo effettui una transizione di dipolo elettrico da uno stato iniziale \(\ket{i}\) a uno finale \(\ket{f}\) è governata dall'elemento di matrice \(\mel{f}{\vec{D}}{i}\):
 \begin{itemize}
     \item \(\mel{f}{\vec{D}}{i} = 0 \implies\) Transizione \textbf{inibita} (proibita).
     \item \(\mel{f}{\vec{D}}{i} \neq 0 \implies\) Transizione \textbf{permessa}.
 \end{itemize}
-
 
 Calcolare esplicitamente l'elemento di matrice per sistemi a molti elettroni è complesso. Ci si affida a regole di selezione che dipendono dal tipo di accoppiamento (es. \(LS\) per atomi leggeri, \(JJ\) per atomi pesanti).
 
@@ -1631,13 +1609,10 @@ Per il predominante \textbf{accoppiamento LS}, le transizioni ammesse richiedono
     Una transizione di dipolo elettrico richiede un cambiamento di parità, che è legata alla parte angolare della funzione d'onda (le armoniche sferiche \(Y_\ell^m\)). Una transizione in cui cambia solo la funzione radiale (\(R_{n\ell}\)), ad esempio da \(R_{10}Y_0^0\) a \(R_{20}Y_0^0\), non è ammessa poiché non varia la distribuzione angolare (\(\Delta \ell = 0\)).
 \end{remark}
 
-
 Se l'atomo è immerso in un campo magnetico esterno, subentra la quantizzazione spaziale legata a \(J\). Le regole di selezione per i salti tra i sottolivelli magnetici diventano:
 \begin{equation}
     \Delta J = 0 \qquad \Delta M_J = 0, \pm 1
 \end{equation}
-
-
 
 \begin{exercise}
     Per l'atomo di Elio (He), consideriamo il primo elettrone nello stato \( 1s \) con coordinata spaziale \( \vec{r}_1 \) (lo identifichiamo numericamente per semplicità di notazione, pur ricordando che gli elettroni sono quantisticamente indistinguibili).
@@ -1725,7 +1700,7 @@ Di conseguenza, il potenziale totale percepito dal secondo elettrone nell'atomo 
 \end{exercise}
 
 \begin{note}{Teorema del Viriale}{teorema_viriale}
-    Per giustificare il calcolo del valore di $-108.8 \text{ eV}$, consideriamo un \textbf{atomo idrogenoide} descritto dalla base di autostati \( \{ \ket{n, \ell, m_\ell, m_s} \} \). 
+    Per giustificare il calcolo del valore di \(-108.8 \text{ eV}\), consideriamo un \textbf{atomo idrogenoide} descritto dalla base di autostati \( \{ \ket{n, \ell, m_\ell, m_s} \} \). 
     Dal teorema del viriale si trova che vale la seguente relazione tra il valore di aspettazione dell'energia cinetica \( T \) e dell'energia potenziale \( V \):
     
     \begin{equation}
@@ -1754,8 +1729,6 @@ Di conseguenza, il potenziale totale percepito dal secondo elettrone nell'atomo 
         \mel{1, \ell, m_\ell, m_s}{V}{1, \ell, m_\ell, m_s} = 2 E_1^{(0)} \simeq -108.8 \text{ eV}
     \end{equation}
 \end{note}
-
-
 
 \begin{exercise}
     Stimare il potenziale cui è sottoposto un elettrone in \( 2s \), se altri 2 elettroni sono in \( 1s \) (configurazione \( 1s^2 \)), come nel caso dell'atomo di Litio (\( Z=3 \)).
