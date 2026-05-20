@@ -1522,7 +1522,7 @@ Questa si fattorizza come somma di Hamiltoniane monoelettroniche \(H = \sum_{i=1
     H_i = -\frac{\hbar^2}{2m_e} \nabla^2_{\vec{r}_i}
 \end{equation}
 
-La funzione d'onda totale \(\Psi_E(\tilde{r})\), con \(\tilde{r} = (\vec{r}_1, \ldots, \vec{r}_N)\), soddisfa \(H \Psi_E(\tilde{r}) = E \Psi_E(\tilde{r})\). Grazie alla separabilità delle variabili, il problema si riduce a \(N\) equazioni indipendenti — una per ciascun elettrone — della forma:
+La funzione d'onda totale \(\Psi_E(\tilde{r})\), con \(\tilde{r} = (\vec{r}_1, \ldots, \vec{r}_N)\), soddisfa \(H \Psi_E(\tilde{r}) = E \Psi_E(\tilde{r})\). Grazie alla separabilità delle variabili, il problema si riduce a \(N\) equazioni indipendenti, una per ciascun elettrone, della forma:
 \begin{equation}
     H_i \Psi_E(\vec{r}_i) = E_i \Psi_E(\vec{r}_i)
 \end{equation}
@@ -1569,7 +1569,7 @@ Nel calcolo degli stati ammessi occorre tenere conto dello spin e rispettare l'a
 
 La relazione di dispersione è parabolica, \(E_i(\vec{k}) = \hbar^2 k^2 / 2m_e\). Nel limite \(L \to \infty\) la spaziatura tra i valori permessi di \(\vec{k}\) tende a zero, e il vettore d'onda può essere trattato come una variabile continua.
 
-Quando applichiamo il modello del gas di Fermi per descrivere elettroni molto debolmente legati ai nuclei — come fece Sommerfeld attorno al 1920--1927 — ci aspettiamo di ritrovare la periodicità tipica delle funzioni di Bloch. La funzione d'onda mantiene la forma:
+Quando applichiamo il modello del gas di Fermi per descrivere elettroni molto debolmente legati ai nuclei, come fece Sommerfeld attorno al 1920--1927, ci aspettiamo di ritrovare la periodicità tipica delle funzioni di Bloch. La funzione d'onda mantiene la forma:
 \begin{equation}
     \Psi_E(\vec{r}_i) = e^{i\vec{k}\cdot\vec{r}_i}\, u_E(\vec{r}_i) \approx e^{i\vec{k}\cdot\vec{r}_i}
 \end{equation}
@@ -2263,4 +2263,485 @@ in cui il contributo viene unicamente dagli elettroni di conduzione (non tutti g
 \begin{remark}
 Un elettrone nel cristallo non si limita a urtare i nuclei: incontra prima le impurezze e le contaminazioni del materiale, e successivamente risponde alle vibrazioni dei nuclei (fononi) attraverso processi di scattering, senza in genere collidere direttamente con i nuclei.
 \end{remark}
+
+
+
+\subsubsection{Tight Binding}
+\lezione{20}{11/05/2026}                                                                   
+                                                                                            
+Vogliamo studiare cosa succede agli elettroni che risentono di     
+  un'energia potenziale periodica del cristallo, ovvero che soddisfa                         
+  \begin{equation}                                                                           
+      V(\vec{r}) = V(\vec{r} + \vec{R}) \qquad \forall \vec{R} \in \text{RD}                
+  \end{equation}                                                                             
+  dove \( \vec{R} \) è un qualsiasi vettore del reticolo diretto.                            
+                                                                                             
+  Per comodità useremo un potenziale a gradino, anche se in generale problemi di questo tipo 
+  si risolvono al computer e non in maniera analitica.
+                                                                                             
+  \begin{example} 
+  Consideriamo un esempio molto importante: una cella cartesiana, con problema
+  unidimensionale lungo l'asse \( x \) nel caso isotropo. Il potenziale all'interno della    
+  cella è dato da
+  \begin{equation}                                                                           
+      u(x) = \begin{cases}
+          0 & \forall x \in [0, a] \\                                                        
+          u_0 & \forall x \in [-b, 0]
+      \end{cases}                                                                            
+  \end{equation}  
+  e si ripete periodicamente con periodo \( a + b \).
+                                                                                             
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0]
+        % Parametri geometrici
+        \def\aw{1.8}   % larghezza buca  (u = 0), in [0, a]
+        \def\bw{1.1}   % larghezza barriera (u = u_0), in [-b, 0]
+        \def\h{1.7}    % altezza u_0
+
+        % Periodo p = a + b
+        % Barriere centrate in: [-b, 0], [a, a+b], [-(a+b)-b, -(a+b)], ...
+        % cioè in [k(a+b) - b, k(a+b)] per k = ..., -1, 0, 1, 2, ...
+
+        % Riempimento leggero delle barriere visibili
+        \fill[blue!10] (-2*\aw-3*\bw, 0) rectangle (-2*\aw-2*\bw, \h); % k=-2
+        \fill[blue!10] (-\aw-2*\bw, 0) rectangle (-\aw-\bw, \h);       % k=-1
+        \fill[blue!10] (-\bw, 0) rectangle (0, \h);                     % k=0 (la centrale: [-b,0])
+        \fill[blue!10] (\aw, 0) rectangle (\aw+\bw, \h);                % k=1 ([a, a+b])
+        \fill[blue!10] (2*\aw+\bw, 0) rectangle (2*\aw+2*\bw, \h);      % k=2
+
+        % Assi
+        \draw[->, thick] (-2*\aw-3*\bw-0.4, 0) -- (2*\aw+2*\bw+0.6, 0) node[right] {\( x \)};
+        \draw[->, thick] (0, -0.4) -- (0, \h+0.8) node[above] {\( u(x) \)};
+
+        % Profilo del potenziale periodico
+        \draw[blue!80!black, thick]
+            (-2*\aw-3*\bw-0.3, 0)
+            -- (-2*\aw-3*\bw, 0) -- (-2*\aw-3*\bw, \h) -- (-2*\aw-2*\bw, \h) -- (-2*\aw-2*\bw, 0)
+            -- (-\aw-2*\bw, 0) -- (-\aw-2*\bw, \h) -- (-\aw-\bw, \h) -- (-\aw-\bw, 0)
+            -- (-\bw, 0) -- (-\bw, \h) -- (0, \h) -- (0, 0)
+            -- (\aw, 0) -- (\aw, \h) -- (\aw+\bw, \h) -- (\aw+\bw, 0)
+            -- (2*\aw+\bw, 0) -- (2*\aw+\bw, \h) -- (2*\aw+2*\bw, \h) -- (2*\aw+2*\bw, 0)
+            -- (2*\aw+2*\bw+0.4, 0);
+
+        % Tacche e label sull'asse x
+        \draw (-\bw, 0.1) -- (-\bw, -0.1) node[below] {\( -b \)};
+        \node[below right] at (0.02, -0.05) {\( 0 \)};
+        \draw (\aw, 0.1) -- (\aw, -0.1) node[below] {\( a \)};
+        \draw (\aw+\bw, 0.1) -- (\aw+\bw, -0.1) node[below] {\( a+b \)};
+
+        % Livello u_0
+        \draw[dashed, gray!70] (-2*\aw-3*\bw-0.3, \h) -- (2*\aw+2*\bw+0.3, \h);
+        \draw[<->, thick] (-\bw/2, 0) -- (-\bw/2, \h);
+        \node[left] at (-\bw/2, \h/2) {\( u_0 \)};
+    \end{tikzpicture}
+    \caption{Potenziale periodico a gradino unidimensionale di periodo \( a+b \).}
+    \label{fig:potenziale_gradino_periodico}
+\end{figure}                                                                             
+                  
+  Risolviamo l'equazione di Schrödinger \( H \Psi_E = E \Psi_E \), dove l'Hamiltoniana si    
+  scrive a tratti come
+  \begin{equation}                                                                           
+      H \Psi_E = \begin{cases}
+          \displaystyle -\frac{\hbar^2}{2 m_e} \pdv[2]{}{x} \Psi_E + u_0 \Psi_E = E \Psi_E & 
+  \forall x \in [-b, 0] \\[8pt]                                                              
+          \displaystyle -\frac{\hbar^2}{2 m_e} \pdv[2]{}{x} \Psi_E + 0 = E \Psi_E & \forall x
+   \in [0, a]                                                                                
+      \end{cases}
+  \end{equation}
+
+Il risultato per la funzione d'onda nelle due regioni è una combinazione lineare di onde piane (nella buca, dove l'energia cinetica è positiva) e di esponenziali reali (nella barriera, dove \( E < u_0 \) e quindi la soluzione è classicamente proibita):
+\begin{equation}
+    \Psi_E(x) = \begin{cases}
+        A\, e^{i \vec{k} \cdot \vec{r}} + B\, e^{-i \vec{k} \cdot \vec{r}} & \forall x \in [0, a], \quad \vec{k} = (k_x, 0, 0) \\[4pt]
+        C\, e^{\vec{q} \cdot \vec{r}} + D\, e^{-\vec{q} \cdot \vec{r}} & \forall x \in [-b, 0], \quad \vec{q} = (q_x, 0, 0)
+    \end{cases}
+\end{equation}
+e dato che il problema è unidimensionale lungo \( x \) si riduce a
+\begin{equation}
+    \Psi_E(x) = \begin{cases}
+        A\, e^{i k_x x} + B\, e^{-i k_x x} & \forall x \in [0, a] \\[4pt]
+        C\, e^{q_x x} + D\, e^{-q_x x} & \forall x \in [-b, 0]
+    \end{cases}
+\end{equation}
+dove i vettori d'onda nelle due regioni valgono
+\begin{equation}
+    k_x = \sqrt{\frac{2 m_e E}{\hbar^2}} \qquad q_x = \sqrt{\frac{2 m_e (u_0 - E)}{\hbar^2}}
+\end{equation}
+
+Dato che il materiale è periodico, dobbiamo imporre le opportune \textbf{condizioni al contorno}. In primo luogo richiediamo la continuità della funzione d'onda e della sua derivata prima nei punti di raccordo \( x = 0 \) e \( x = a \) all'interno della cella:
+\begin{equation}
+    \begin{cases}
+        \Psi_E(a^+) = \Psi_E(a^-) \\
+        \Psi_E(0^+) = \Psi_E(0^-) \\
+        \Psi_E'(a^+) = \Psi_E'(a^-) \\
+        \Psi_E'(0^+) = \Psi_E'(0^-)
+    \end{cases}
+\end{equation}
+A queste si aggiunge la \textbf{condizione di periodicità} imposta dalla periodicità del potenziale, ovvero il teorema di Bloch:
+\begin{equation}
+    \Psi_E(x + \vec{R}) = e^{i \vec{k}_B \cdot \vec{R}}\, \Psi_E(x)
+\end{equation}
+dove \( \vec{k}_B \) è un vettore dello spazio reciproco (vettore di Bloch).
+
+A seconda di quale regione consideriamo, la funzione d'onda deve sempre rispettare la condizione di Bloch, ma \( \vec{k}_B \) dipende da dove ci troviamo. La periodicità deve essere rispettata sia dalla soluzione oscillante (dove non c'è potenziale) sia da quella ``evanescente'' (dove invece il potenziale è presente). Abbiamo quindi \textbf{due condizioni da rispettare}.
+
+\textbf{Periodicità.} Scegliamo i vettori di base del reticolo diretto e di quello reciproco per la cella unidimensionale di periodo \( a + b \):
+\begin{equation}
+    \vec{a}_1 = (a + b)\, \hat{x} \quad \to \text{cella RD} \qquad \vec{b}_1 = \frac{2\pi}{a+b}\, \hat{x} \quad \to \text{cella RR}
+\end{equation}
+che soddisfano la relazione di ortonormalità \( \vec{a}_i \cdot \vec{b}_j = 2\pi\, \delta_{ij} \). I generici vettori del reticolo diretto e di quello reciproco si scrivono allora come
+\begin{equation}
+    \vec{R} = n_1\, \vec{a}_1 \quad n_1 \in \mathbb{Z} \quad \vec{R} \in \text{RD} \qquad
+    \vec{G} = h\, \vec{b}_1 \quad h \in \mathbb{Z} \quad \vec{G} \in \text{RR}
+\end{equation}
+
+La condizione di Bloch \( \Psi_E(\vec{x} + \vec{R}) = e^{i \vec{k}_B \cdot \vec{R}}\, \Psi_E(\vec{x}) \), con \( \vec{x} = x\, \hat{x} \), applicata al nostro caso lungo \( x \) con \( x = -b \) diventa:
+\begin{equation}
+    \Psi(x + (a + b)) = e^{i k_{b,x} (a + b)}\, \Psi_E(x) 
+\end{equation}
+\begin{importantbox}
+\begin{equation}
+     x= -b \implies \, \Psi(a) = e^{i k_{b,x} (a + b)}\, \Psi_E(-b)
+\end{equation}
+\end{importantbox}
+
+In sintesi: troviamo le soluzioni nelle due regioni, imponiamo le condizioni di continuità al contorno e il teorema di Bloch.
+
+Risolvendo il sistema sopra menzionato (condizioni al contorno + condizione di periodicità) si ottiene, dopo manipolazioni algebriche, una singola equazione trascendente:
+\begin{importantbox}
+\begin{equation}
+    \underbrace{\frac{q_x^2 - k_x^2}{2\, q_x\, k_x}\, \sinh(q_x b)\, \sin(k_x a) + \cosh(q_x b)\, \cos(k_x a)}_{\displaystyle := Y(k_x, q_x)} = \underbrace{\cos\bigl(k_{b,x} (a + b)\bigr)}_{\in [-1,\, 1]}
+    \label{eq:kronig_penney}
+\end{equation}
+\end{importantbox}
+Il membro di destra è limitato in \([-1, 1]\), mentre \( Y(k_x, q_x) \) può in generale assumere valori arbitrari al variare di \( E \). L'uguaglianza è dunque possibile solo dove \( |Y| \le 1 \): \( Y \) agisce da ''buttafuori'' per gli elettroni nel cristallo, selezionando le energie ammesse e scartando le altre.
+
+Da questa equazione discendono \textbf{tre informazioni importanti}:
+\begin{itemize}
+    \item la soluzione non è analitica e dipende dai parametri \( k_x, q_x, k_b \);
+    \item non tutti i valori di \( k_x, q_x \) sono ammessi: la condizione \( |Y| \le 1 \) genera bande di energia permesse separate da gap proibiti, è l'origine microscopica della struttura a bande;
+    \item \( k_x \), e quindi l'autovalore \( E \), risulta limitato dalla stessa condizione.
+\end{itemize}
+
+\textbf{Caso particolare: pettine di Dirac.} Nel limite \( u_0 \to \infty \) e \( b \to 0 \) (con \( q_x^2\, ab/2 \) finito), le barriere rettangolari collassano in delta di Dirac di passo \( a \). È un caso ideale che rende trasparente l'impatto di \eqref{eq:kronig_penney}.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0]
+        \draw[->, thick] (-0.3, 0) -- (6.0, 0) node[right] {\( x \)};
+        \foreach \i in {0,1,2,3,4,5} {
+            \draw[->, thick] (\i*0.9, 0) -- (\i*0.9, 1.3);
+        }
+        \draw[<->] (0, -0.35) -- (0.9, -0.35) node[midway, below] {\( a \)};
+    \end{tikzpicture}
+    \caption{Pettine di Dirac: potenziale periodico ideale costituito da delta di Dirac distanziate di un periodo \( a \).}
+    \label{fig:pettine_dirac}
+\end{figure}
+
+In questo limite \( Y \) diventa funzione della sola variabile \( k_x a \), periodica e simmetrica. Gli intervalli in cui \( |Y| \le 1 \) individuano le bande permesse, quelli in cui \( |Y| > 1 \) i gap proibiti.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0]
+        % Assi
+        \draw[->, thick] (-0.3, 0) -- (7.0, 0) node[right] {\( k_x a \)};
+        \draw[->, thick] (0, -2.2) -- (0, 2.4) node[above] {\( Y \)};
+
+        % Strisce permesse: |Y| <= 1
+        \draw[blue!70, thick] (-0.2, 1) -- (7, 1);
+        \draw[blue!70, thick] (-0.2, -1) -- (7, -1);
+        \node[blue!70, left] at (-0.05, 1) {\scriptsize \( 1 \)};
+        \node[blue!70, left] at (-0.05, -1) {\scriptsize \( -1 \)};
+
+        % Funzione Y(k_x a) — qualitativa, periodica e con ampiezza crescente
+        \draw[teal, thick, domain=0.05:6.8, samples=200, smooth]
+            plot (\x, {1.3*cos(deg(2.2*\x)) + 0.15*\x*cos(deg(2.2*\x))});
+
+        \node[teal] at (3.3, 2.1) {\small periodica e simmetrica};
+    \end{tikzpicture}
+    \caption{Andamento qualitativo di \( Y(k_x a) \) nel limite del pettine di Dirac: gli intervalli in cui \( |Y| \le 1 \) individuano le bande di energia permesse.}
+    \label{fig:Y_kronig_penney}
+\end{figure}
+
+Di conseguenza \( k_x \) è limitato e, sostituendo le \( \Psi_E \) nell'equazione \( H \Psi_E = E \Psi_E \), lo stesso vale per l'autovalore di energia:
+\begin{equation}
+    \begin{cases}
+        \displaystyle E = u_0 - \frac{\hbar^2 q_x^2}{2 m_e} & \forall x \in [-b, 0] \\[8pt]
+        \displaystyle E = \frac{\hbar^2 k_x^2}{2 m_e} & \forall x \in [0, a]
+    \end{cases}
+\end{equation}
+La conclusione, bande permesse e gap proibiti, vale in generale anche per \( b \neq 0 \), non solo per il pettine di Dirac.
+  \end{example}
+
+Non possiamo dunque avere continuità in \( E \): esistono valori di energia non permessi, corrispondenti ai valori di \( k_x \) esclusi dalla condizione \( |Y| \le 1 \). Tali intervalli proibiti si chiamano \textbf{gap di energia} e sono presenti in tutti i problemi di tight binding: la relazione di dispersione \( E(k_x) \) presenta sistematicamente delle interruzioni. Quanto ricavato per il pettine di Dirac si generalizza a un qualunque potenziale periodico.
+
+In generale, la relazione di dispersione \( E(k_x) \) di un problema di tight binding si può comprendere come una deformazione della parabola libera dell'energia cinetica del gas di Fermi: l'energia potenziale del cristallo agisce come una perturbazione che modifica le bande e apre dei gap di energia ai bordi della prima zona di Brillouin e nei punti in cui due rami della parabola libera, ripiegati nello schema delle zone ridotte, vengono a coincidere. Il confronto fra le due dispersioni è il seguente:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[>=stealth, xscale=1.4, yscale=1.0]
+        \clip (-4.2, -1.9) rectangle (4.5, 5.8);
+
+        % Assi
+        \draw[->, thick] (-3.8, 0) -- (3.9, 0) node[right] {\( k_x \)};
+        \draw[->, thick] (0, -0.5) -- (0, 5.6);
+        \node at (0.18, 5.6) [right] {\( E \)};
+
+        % Bordi 1a zona di Brillouin
+        \draw[violet!80, very thick] (-2.5, -0.35) -- (-2.5, 5.45);
+        \draw[violet!80, very thick] ( 2.5, -0.35) -- ( 2.5, 5.45);
+        \node[violet!80, below] at (-2.5, -0.4) {\scriptsize \( -\pi/a \)};
+        \node[violet!80, below] at ( 2.5, -0.4) {\scriptsize \(  \pi/a \)};
+        \draw[<->, violet!80, thick] (-2.5, -1.2) -- (2.5, -1.2);
+        \node[violet!80, below] at (0, -1.25) {\small 1\textsuperscript{a} zona di Brillouin};
+
+        % --- Parabole del gas di Fermi (tratteggiate, verde tenue) ---
+        % coefficiente piccolo (0.10) per abbassare l'incrocio delle parabole a k=0
+        \draw[teal!55, thick, dashed, domain=-2.5:2.5, samples=120, smooth]
+            plot (\x, {0.10*\x*\x});
+        \draw[teal!55, thick, dashed, domain=-2.5:2.5, samples=120, smooth]
+            plot (\x, {0.10*(\x-5)*(\x-5)});
+        \draw[teal!55, thick, dashed, domain=-2.5:2.5, samples=120, smooth]
+            plot (\x, {0.10*(\x+5)*(\x+5)});
+
+        % --- Bande effettive del cristallo (blu solido) ---
+        % Banda 1: parabola 0 abbassata al bordo BZ
+        \draw[blue!80!black, very thick, domain=-2.5:2.5, samples=160, smooth]
+            plot (\x, {0.10*\x*\x - 0.20*exp(-12*(abs(\x)-2.5)*(abs(\x)-2.5))});
+        % Banda 2 (centrale, schiacciata): pert positiva al bordo BZ, pert negativa intensa a k=0
+        \draw[blue!80!black, very thick, domain=-2.5:-0.03, samples=140, smooth]
+            plot (\x, {0.10*(\x+5)*(\x+5) + 0.20*exp(-12*(abs(\x)-2.5)*(abs(\x)-2.5)) - 0.30*exp(-14*\x*\x)});
+        \draw[blue!80!black, very thick, domain=0.03:2.5, samples=140, smooth]
+            plot (\x, {0.10*(\x-5)*(\x-5) + 0.20*exp(-12*(abs(\x)-2.5)*(abs(\x)-2.5)) - 0.30*exp(-14*\x*\x)});
+        % Banda 3 (superiore, aperta): pert positiva intensa a k=0, pert negativa al bordo BZ (gap con banda 4 non disegnata)
+        \draw[blue!80!black, very thick, domain=-2:-0.03, samples=140, smooth]
+            plot (\x, {0.10*(\x-5)*(\x-5) + 0.30*exp(-14*\x*\x) - 0.20*exp(-12*(abs(\x)-2.5)*(abs(\x)-2.5))});
+        \draw[blue!80!black, very thick, domain=0.03:2, samples=140, smooth]
+            plot (\x, {0.10*(\x+5)*(\x+5) + 0.30*exp(-14*\x*\x) - 0.20*exp(-12*(abs(\x)-2.5)*(abs(\x)-2.5))});
+
+        % --- Etichetta gas di Fermi (a sinistra, fuori dalla BZ) ---
+        \node[teal!55!black, anchor=east] at (-2.7, 1.5) {\scriptsize gas di Fermi};
+        \draw[teal!55!black, ->, thin] (-2.7, 1.5 ) to[bend left=20] (-0.2, 2.4);
+
+        % --- Etichetta bande del cristallo (a destra, fuori dalla BZ) ---
+        \node[blue!80!black, anchor=west] at (2.7, 2.0) {\scriptsize bande del cristallo};
+        \draw[blue!80!black, ->, thin] (2.7, 2) to[bend right=20] (1.5, 1.3);
+
+        % --- Gap al bordo BZ (destra, basso) ---
+        % Banda 1 a k=2.5: 0.625 - 0.20 = 0.425; Banda 2 a k=2.5: 0.625 + 0.20 = 0.825
+        \draw[red!70!black, thin] (2.5, 0.425) -- (3.45, 0.425);
+        \draw[red!70!black, thin] (2.5, 0.825) -- (3.45, 0.825);
+        \draw[<->, red!70!black, very thick] (3.3, 0.445) -- (3.3, 0.805);
+        \node[red!70!black, right] at (3.4, 0.625) {\scriptsize gap};
+
+        % --- Gap al centro (k=0, sinistra), abbassato grazie al coefficiente minore ---
+        % Banda 2 a k=0+: 2.5 - 0.30 = 2.20; Banda 3 a k=0+: 2.5 + 0.30 = 2.80
+        \draw[red!70!black, thin] (0, 2.20) -- (-3.45, 2.20);
+        \draw[red!70!black, thin] (0, 2.80) -- (-3.45, 2.80);
+        \draw[<->, red!70!black, very thick] (-3.3, 2.22) -- (-3.3, 2.78);
+        \node[red!70!black, left] at (-3.4, 2.5) {\scriptsize gap};
+    \end{tikzpicture}
+    \caption{Relazione di dispersione \( E(k_x) \) di un cristallo nello schema delle zone ridotte: le parabole tratteggiate corrispondono all'energia cinetica del gas di Fermi, le curve solide alle bande effettive del cristallo.}
+    \label{fig:bande_cristallo}
+\end{figure}
+
+La presenza di questi gap differenzia in modo drammatico le proprietà dei materiali: a seconda di posizione e ampiezza degli intervalli proibiti, lo stesso schema generale di bande può descrivere un metallo, un semiconduttore o un isolante.
+
+A seconda di quanti e quali elettroni sono presenti nel cristallo, le bande si avvicinano fra loro fino a ridurre o chiudere del tutto il gap: nel limite in cui l'interazione con il reticolo è trascurabile si recupera il comportamento di elettroni completamente liberi. In questo senso l'energia potenziale del cristallo rappresenta l'interazione del ``mondo esterno'', il reticolo, con il singolo elettrone.
+
+Gli elettroni del cristallo occupano questi stati dal basso verso l'alto, secondo il \textbf{principio di Aufbau}: si riempiono in ordine crescente di energia tutti i livelli disponibili, fino a esaurimento degli elettroni del sistema. Lo schema risultante è il seguente:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0]
+        % Geometria
+        \def\xL{0.0}
+        \def\xR{4.0}
+
+        % Asse energia
+        \draw[->, thick] (\xL-0.5, -0.2) -- (\xL-0.5, 7.0) node[above] {\( E \)};
+
+        % --- BANDA DI VALENZA: rettangoli pieni (occupati) ---
+        \foreach \yb/\yt in {0.20/0.55, 0.95/1.30, 1.70/2.05, 2.45/2.85} {
+            \fill[teal!30] (\xL, \yb) rectangle (\xR, \yt);
+            \draw[teal!60!black, thick] (\xL, \yb) rectangle (\xR, \yt);
+        }
+
+        % Etichetta BV
+        \node[teal!50!black, right] at (\xR+0.25, 1.55) {\textbf{BV}};
+
+        % --- GAP: spazio vuoto evidenziato da doppia freccia centrale ---
+        \draw[gray!50, dashed, thin] (\xL, 2.85) -- (\xR+1.4, 2.85);
+        \draw[gray!50, dashed, thin] (\xL, 4.55) -- (\xR+1.4, 4.55);
+
+        \draw[<->, red!70!black, very thick] (\xR/2, 2.95) -- (\xR/2, 4.45);
+        \node[red!70!black, fill=white, inner sep=2pt] at (\xR/2, 3.70)
+            {\small \textbf{gap}};
+
+        % --- BANDA DI CONDUZIONE: rettangoli vuoti (non occupati) ---
+        \draw[teal!60!black, thick] (\xL, 4.55) rectangle (\xR, 4.90);
+        \draw[teal!60!black, thick] (\xL, 5.45) rectangle (\xR, 5.80);
+        \draw[teal!60!black, thick] (\xL, 6.30) -- (\xR, 6.30);
+        \draw[teal!60!black, thick] (\xL, 6.55) -- (\xR, 6.55);
+
+        % Etichetta BC
+        \node[teal!50!black, right] at (\xR+0.25, 5.20) {\textbf{BC}};
+    \end{tikzpicture}
+    \caption{Schema dei livelli di un cristallo: le bande inferiori, completamente piene (in tinta), formano la banda di valenza (BV); sopra il gap si trovano le bande della banda di conduzione (BC), vuote o parzialmente piene.}
+    \label{fig:bande_BC_BV}
+\end{figure}
+
+Le bande completamente piene non danno alcun contributo alla conduzione: i loro elettroni non dispongono di stati liberi a energia vicina e per cambiare stato dovrebbero compiere un salto attraverso il gap, di fatto irraggiungibile in risposta a un campo elettrico ordinario. La conduzione è invece resa possibile dagli stati della prima banda non completamente piena, la \textbf{banda di conduzione}, nei quali gli elettroni trovano livelli liberi a energia arbitrariamente vicina e possono ridistribuirsi senza ostacoli.
+
+È dunque la prima banda vuota o parzialmente vuota a determinare il carattere elettrico del materiale:
+
+\begin{itemize}
+    \item se tale banda è \emph{completamente vuota}, gli elettroni non hanno stati accessibili immediatamente sopra il livello di Fermi e il materiale si comporta come un \textbf{isolante};
+    \item se invece è \emph{parzialmente piena}, gli elettroni possono spostarsi liberamente verso stati a energia poco superiore e il materiale si comporta come un \textbf{metallo} (conduttore).
+\end{itemize}
+
+In quest'ultimo caso il livello di Fermi cade all'interno della banda parzialmente occupata e gli elettroni a energia immediatamente inferiore possono essere promossi a stati liberi appena sopra. Si introduce così l'\textbf{energia di Fermi} \( E_F \), definita come l'energia dell'ultimo stato quantico occupato a \( T = 0 \) K, una soglia di natura statistica che separa i livelli pieni da quelli vuoti nel limite di temperatura nulla:
+\begin{itemize}
+    \item per ogni \( E \le E_F \) i livelli sono occupati (almeno parzialmente);
+    \item per ogni \( T \ge 0 \) si trovano elettroni in banda di conduzione, dato che già a \( T = 0 \) la BC contiene stati occupati che possono contribuire al trasporto.
+\end{itemize}
+
+Nel caso isolante, invece, la prima banda non occupata, la banda di conduzione, è completamente vuota, mentre tutti i livelli della banda di valenza sono pieni; il gap \( E_g \) separa le due bande e questa configurazione resta valida per qualunque temperatura \( T \ge 0 \) K, nei limiti in cui l'agitazione termica non sia sufficiente a promuovere apprezzabilmente elettroni attraverso il gap.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0,
+        band/.style={blue!70!black, thick},
+        full/.style={fill=blue!15},
+        level/.style={blue!70!black, thick}]
+
+        % ========= ISOLANTE =========
+        \def\xLi{0.0}
+        \def\xRi{3.4}
+        \def\xMi{1.7}
+
+        \node[violet!70!black, font=\bfseries, anchor=south] at (\xMi, 4.7) {Isolante};
+
+        % BV piena
+        \draw[band, full] (\xLi, 0.0) rectangle (\xRi, 1.3);
+        \foreach \y in {0.25, 0.55, 0.85, 1.15} {
+            \draw[level] (\xLi+0.25, \y) -- (\xRi-0.25, \y);
+        }
+        \node[blue!70!black, anchor=west] at (\xRi+0.15, 0.65) {BV};
+
+        % BC vuota
+        \draw[band] (\xLi, 3.2) rectangle (\xRi, 4.5);
+        \node[blue!70!black, anchor=west] at (\xRi+0.15, 3.85) {BC};
+
+        % Gap
+        \draw[<->, teal!60!black, very thick] (\xMi, 1.4) -- (\xMi, 3.1);
+        \node[teal!60!black, fill=white, inner sep=2pt] at (\xMi, 2.25) {\( E_g \)};
+
+        % ========= METALLO =========
+        \def\xLm{7.0}
+        \def\xRm{10.4}
+        \def\xMm{8.7}
+
+        \node[violet!70!black, font=\bfseries, anchor=south] at (\xMm, 4.7) {Metallo};
+
+        % BV piena
+        \draw[band, full] (\xLm, 0.0) rectangle (\xRm, 1.3);
+        \foreach \y in {0.25, 0.55, 0.85, 1.15} {
+            \draw[level] (\xLm+0.25, \y) -- (\xRm-0.25, \y);
+        }
+        \node[blue!70!black, anchor=west] at (\xRm+0.15, 0.65) {BV};
+
+        % BC parzialmente piena
+        \fill[blue!15] (\xLm, 3.2) rectangle (\xRm, 3.9);
+        \draw[band] (\xLm, 3.2) rectangle (\xRm, 4.5);
+        \draw[level] (\xLm+0.25, 3.45) -- (\xRm-0.25, 3.45);
+        \draw[level] (\xLm+0.25, 3.75) -- (\xRm-0.25, 3.75);
+        \node[blue!70!black, anchor=west] at (\xRm+0.15, 3.85) {BC};
+
+        % Livello di Fermi
+        \draw[teal!70!black, very thick, dashed] (\xLm-0.5, 3.9) -- (\xRm+0.2, 3.9);
+        \node[teal!70!black, fill=white, inner sep=1.5pt, anchor=west] at (\xLm-0.8, 3.9) {\( E_F \)};
+
+        % Gap (piccolo, indicativo)
+        \draw[<->, red!70!black, very thick] (\xMm, 1.4) -- (\xMm, 3.1);
+        \node[red!70!black, fill=white, inner sep=2pt] at (\xMm, 2.25) {\( E_g \)};
+
+    \end{tikzpicture}
+    \caption{Schema delle bande di un isolante e di un metallo.}
+    \label{fig:isolante_metallo}
+\end{figure}
+
+\subsubsection{Semiconduttori}
+
+Esiste una terza classe di materiali, i \textbf{semiconduttori}, che a \( T = 0 \) K hanno la stessa struttura di un isolante, banda di valenza completamente piena e banda di conduzione completamente vuota, ma con un gap \( E_g \) molto più piccolo, tipicamente compreso nell'intervallo
+\begin{equation}
+    E_g \sim 0{,}1 \divisionsymbol 1{,}6 \ \text{eV}
+\end{equation}
+A tutti gli effetti un semiconduttore a temperatura nulla si comporta come un isolante a piccolo gap. La differenza diventa rilevante a temperatura finita: l'agitazione termica fornisce un'energia dell'ordine di \( k_B T \) che, pur non bastando in genere a superare il gap di un isolante vero, è sufficiente a promuovere in banda di conduzione un numero apprezzabile di elettroni della banda di valenza.
+
+Ogni elettrone promosso lascia dietro di sé, nella banda di valenza, uno stato vuoto che si comporta come una particella di carica positiva e che prende il nome di \textbf{lacuna}. L'elettrone promosso può contribuire alla conduzione nella BC, mentre la lacuna lasciata nella BV permette agli altri elettroni della stessa banda di ridistribuirsi: entrambi i portatori, elettroni in BC e lacune in BV, partecipano dunque al trasporto di carica.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0]
+        % --- T = 0 (a sinistra) ---
+        \def\xLz{0.0}
+        \def\xRz{3.0}
+        \def\xMz{1.5}
+
+        \node[violet!70!black, anchor=south] at (\xMz, 4.7) {\( T = 0 \) K};
+
+        % BV piena
+        \fill[blue!15] (\xLz, 0.0) rectangle (\xRz, 1.3);
+        \draw[blue!70!black, thick] (\xLz, 0.0) rectangle (\xRz, 1.3);
+        \foreach \y in {0.25, 0.55, 0.85, 1.15} {
+            \draw[blue!70!black, thick] (\xLz+0.25, \y) -- (\xRz-0.25, \y);
+        }
+        \node[blue!70!black, anchor=west] at (\xRz+0.15, 0.65) {BV};
+
+        % BC vuota
+        \draw[blue!70!black, thick] (\xLz, 3.2) rectangle (\xRz, 4.5);
+        \node[blue!70!black, anchor=west] at (\xRz+0.15, 3.85) {BC};
+
+        % Gap
+        \draw[<->, teal!60!black, very thick] (\xMz, 1.4) -- (\xMz, 3.1);
+        \node[teal!60!black, fill=white, inner sep=2pt] at (\xMz, 2.25) {\( E_g \)};
+
+        % --- T > 0 (a destra) ---
+        \def\xLt{7.0}
+        \def\xRt{10.0}
+        \def\xMt{8.5}
+
+        \node[violet!70!black, anchor=south] at (\xMt, 4.7) {\( T > 0 \)};
+
+        % BV con una lacuna in cima
+        \fill[blue!15] (\xLt, 0.0) rectangle (\xRt, 1.3);
+        \draw[blue!70!black, thick] (\xLt, 0.0) rectangle (\xRt, 1.3);
+        \foreach \y in {0.25, 0.55, 0.85} {
+            \draw[blue!70!black, thick] (\xLt+0.25, \y) -- (\xRt-0.25, \y);
+        }
+        \draw[blue!70!black, thick] (\xLt+0.25, 1.15) -- (\xLt+1.35, 1.15);
+        \draw[blue!70!black, thick] (\xLt+1.65, 1.15) -- (\xRt-0.25, 1.15);
+        \draw[blue!70!black, thick] (\xLt+1.5, 1.15) circle (0.08);
+        \node[blue!70!black, anchor=west] at (\xRt+0.15, 0.65) {BV};
+
+        % BC con un elettrone promosso
+        \draw[blue!70!black, thick] (\xLt, 3.2) rectangle (\xRt, 4.5);
+        \fill[blue!70!black] (\xLt+1.5, 3.45) circle (0.09);
+        \node[blue!70!black, anchor=west] at (\xRt+0.15, 3.85) {BC};
+
+        % Gap
+        \draw[<->, red!70!black, very thick] (\xLt+0.4, 1.4) -- (\xLt+0.4, 3.1);
+        \node[red!70!black, fill=white, inner sep=2pt] at (\xLt+0.4, 2.25) {\( E_g \)};
+
+        % Freccia di promozione
+        \draw[->, teal!60!black, thick] (\xLt+1.5, 1.25) to[bend right=25] (\xLt+1.5, 3.4);
+
+    \end{tikzpicture}
+    \caption{Schema delle bande di un semiconduttore a \( T = 0 \) K e a \( T > 0 \).}
+    \label{fig:semiconduttori}
+\end{figure}
+
+In questo senso i semiconduttori si possono pensare come \emph{isolanti a piccolo gap}: a temperatura nulla sono indistinguibili dagli isolanti, ma già a temperatura ambiente la frazione di elettroni promossi in banda di conduzione è abbastanza grande da renderli conduttori, sebbene con conducibilità molto inferiore a quella dei metalli.
 

@@ -19,6 +19,14 @@ Il progetto è in italiano. La trascrizione parte dagli appunti a mano di Stefan
 └── figures/              ← immagini PNG incluse con \includegraphics
 ```
 
+## Compilazione
+
+Per compilare usa **sempre** il Makefile, non invocare `pdflatex` direttamente:
+
+- `make` o `make pdf` → build standard con `latexmk -pdf -bibtex -quiet main.tex`
+- `make watch` → ricompilazione continua (`latexmk -pvc`)
+- `make clean` → pulizia artefatti
+
 ---
 
 ## Compito principale
@@ -26,10 +34,33 @@ Il progetto è in italiano. La trascrizione parte dagli appunti a mano di Stefan
 Quando ricevi uno **screenshot di appunti scritti a mano**, trascrivi il contenuto
 in codice LaTeX pronto da incollare nel capitolo corrente.
 
-La trascrizione **non deve essere letterale**: espandi leggermente le frasi telegrafiche
-degli appunti in prosa fluente, aggiungi brevi frasi di raccordo dove necessario,
-e spiega in modo leggermente più esplicito i passaggi fisici o matematici — mantenendo
-comunque il contenuto fedele agli appunti.
+La trascrizione **non deve essere letterale**: lo scopo è ottenere un testo che
+abbia senso compiuto e si legga bene, non una copia fedele dell'originale.
+Pertanto:
+
+- espandi le frasi telegrafiche degli appunti in prosa fluente;
+- **riscrivi liberamente le frasi** quando la forma originale è frammentaria,
+  ambigua o suona male — privilegia chiarezza e scorrevolezza rispetto alla
+  fedeltà letterale;
+- aggiungi brevi frasi di raccordo dove necessario;
+- esplicita un po' di più i passaggi fisici o matematici;
+- mantieni comunque il contenuto e la sostanza fedeli agli appunti: non
+  introdurre concetti che non ci sono e non distorcere quelli presenti.
+
+### Controllo anti-ripetizione (obbligatorio)
+
+**Prima di trascrivere una nuova immagine**, leggi le ultime righe del file
+del capitolo corrente (tipicamente le ultime ~40–80 righe, quanto basta per
+inquadrare il discorso in corso). Confronta il contenuto dello screenshot con
+quanto già scritto e:
+
+- se l'immagine riprende concetti già presenti nelle ultime righe, **non
+  ripeterli**: parti direttamente dal primo concetto nuovo;
+- se serve, **modifica le ultime righe già scritte** per raccordare meglio
+  il testo precedente con il nuovo materiale (è consentito, vedi
+  ``Struttura'' sotto);
+- evita in particolare di reintrodurre definizioni, figure o passaggi
+  appena trattati anche se compaiono nell'immagine.
 
 Rispondi **solo** con il blocco di codice LaTeX. Nessuna spiegazione, nessun testo
 prima o dopo.
