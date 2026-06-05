@@ -45,7 +45,14 @@ Pertanto:
 - aggiungi brevi frasi di raccordo dove necessario;
 - esplicita un po' di più i passaggi fisici o matematici;
 - mantieni comunque il contenuto e la sostanza fedeli agli appunti: non
-  introdurre concetti che non ci sono e non distorcere quelli presenti.
+  introdurre concetti che non ci sono e non distorcere quelli presenti;
+- **non scrivere cose che non ti sono state inviate**: limitati al materiale
+  dello screenshot, non aggiungere risultati ulteriori (es. leggi successive,
+  conseguenze fisiche, "celebri" risultati) anche se sembrano un'estensione
+  naturale dell'argomento;
+- **ignora i riquadri con sfondo nero** eventualmente presenti negli
+  screenshot: sono note/box inseriti a margine, non fanno parte del discorso
+  principale.
 
 ### Controllo anti-ripetizione (obbligatorio)
 
@@ -61,6 +68,15 @@ quanto già scritto e:
   ``Struttura'' sotto);
 - evita in particolare di reintrodurre definizioni, figure o passaggi
   appena trattati anche se compaiono nell'immagine.
+
+### Raccordo con contenuto precedente
+
+Quando il nuovo materiale **estende, raffina o contraddice** quanto già
+scritto (es. "due fenomeni" che diventano "tre", una conclusione provvisoria
+che viene riformulata), **modifica il paragrafo precedente** per integrare il
+nuovo contenuto in modo coerente. Non lasciare affermazioni in conflitto nello
+stesso capitolo: il nuovo materiale va fatto convivere con il vecchio,
+ristrutturando il finale già scritto se necessario.
 
 Rispondi **solo** con il blocco di codice LaTeX. Nessuna spiegazione, nessun testo
 prima o dopo.
@@ -130,6 +146,14 @@ Oppure la sintassi inline con tcolorbox (come nei capitoli esistenti):
 \end{tcolorbox}
 ```
 
+**Quando NON usare `importantbox` o `note`:**
+- `importantbox` serve solo per **equazioni** importanti, mai per blocchi di
+  prosa o "sintesi";
+- riassunti, conclusioni, considerazioni finali che fanno parte del normale
+  flusso del discorso vanno **in prosa**, non in box;
+- niente note/sottorighe a piè di tabella: se serve un commento, va in prosa
+  prima o dopo la tabella.
+
 ### Testo
 - Usa `\textbf{}` per il grassetto, `\textit{}` per il corsivo.
 - Usa `\emph{}` per enfasi semantica.
@@ -167,6 +191,15 @@ Ogni diagramma TikZ va sempre dentro un ambiente `figure`:
   ripetizioni di passaggi già nel testo, niente riferimenti a colori, niente
   illustrazione del significato: la spiegazione sta nella prosa, la caption descrive
   solo cosa è raffigurato.
+- **Accuratezza qualitativa delle curve**: le funzioni plottate devono
+  riflettere fedelmente l'andamento descritto. Una legge \( \propto T^{3} \)
+  deve apparire genuinamente cubica vicino all'origine (es. \( 1 - e^{-c T^3} \),
+  non \( 1 - e^{-c T} \) che è lineare); una Lorentziana deve avere il giusto
+  profilo di dispersione; ecc.
+- **Reticoli con droganti o sostituzionali**: l'atomo drogante deve occupare
+  un sito del reticolo (un vertice o una posizione atomica reale),
+  **non il centro** di una cella. La sostituzione è un sito-per-sito, non un
+  inserimento interstiziale al centro.
 
 ### Figure esterne (PNG)
 ```latex
@@ -200,6 +233,14 @@ Osserva i capitoli esistenti e rispetta queste convenzioni:
 
 ---
 
+## Ricompilazione
+
+Dopo ogni modifica al codice, ricompila con `make` per verificare che non ci
+siano errori LaTeX. Se la compilazione fallisce, leggi `build/main.log` per
+individuare l'errore e correggi prima di proseguire.
+
+---
+
 ## Cosa NON fare
 
 - Non usare `$$...$$` o `$...$` per la matematica.
@@ -208,3 +249,7 @@ Osserva i capitoli esistenti e rispetta queste convenzioni:
 - Non usare ambienti non definiti in `preamble.tex`.
 - Non modificare file diversi da quello del capitolo corrente.
 - Non riformattare codice già scritto nelle sessioni precedenti.
+- Non racchiudere in `importantbox` o `note` contenuti che fanno parte del
+  normale flusso del discorso (riassunti, conclusioni, considerazioni finali).
+- Non aggiungere materiale fisico (formule, conseguenze, "celebri" risultati)
+  che non sia presente negli appunti inviati.

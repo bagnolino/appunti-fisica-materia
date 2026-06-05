@@ -9,6 +9,10 @@ Il fenomeno costituisce al tempo stesso un \emph{problema} e un \emph{vantaggio}
     \item d'altra parte, le vibrazioni reticolari sono responsabili della propagazione delle onde meccaniche e sonore nel materiale, e ne determinano molte proprietà termiche.
 \end{itemize}
 
+\section{Catene lineari e fononi}
+
+\subsection{Catena monoatomica}
+
 Per analizzare il problema sfruttiamo in modo essenziale la struttura periodica del cristallo. Consideriamo una famiglia di piani cristallini paralleli, indicati con \( \pi \), separati da una distanza interplanare \( a \).
 
 \begin{figure}[htbp]
@@ -177,7 +181,7 @@ il sistema risponde oscillando con la pulsazione \( \omega(k) \) fissata dalla r
 
         % Tick marks at -pi/a, pi/a, -2pi/a hidden
         \draw[dashed, gray] (-1.75, 0) -- (-1.75, 2.2);
-        \draw[dashed, gray] (1.75, 0) -- (1.75, 2.2);
+        \draw[dashed, gray]  (1.75, 0) -- (1.75, 2.2);
         \draw[dashed, gray] (-4, 2.2) -- (4, 2.2);
 
         \node[anchor=north, font=\small] at (-1.75, -0.05) {\( -\pi/a \)};
@@ -269,7 +273,7 @@ Gli elettroni si muovono dunque \emph{più rapidamente} dei nuclei: localmente s
 
 Questi dipoli oscillanti sono il meccanismo che permette alla radiazione elettromagnetica di accoppiarsi con il materiale: un campo elettromagnetico esterno può mettere in oscillazione i dipoli, trasferendo energia al reticolo, e viceversa vibrazioni reticolari di carattere dipolare possono emettere radiazione elettromagnetica. In sintesi: un campo elettromagnetico applicato genera vibrazioni del reticolo, che a loro volta generano nuovo campo elettromagnetico.
 
-\section{Catena biatomica: un modello più ricco}
+\subsection{Catena biatomica: un modello più ricco}
 
 Il modello della catena monoatomica cattura l'essenza delle vibrazioni reticolari, ma è troppo semplice per descrivere cristalli reali, in cui la cella primitiva contiene tipicamente più atomi e i legami fra di essi possono avere rigidità diverse. Generalizziamo allora il modello considerando una catena lineare con \textbf{due masse diverse} \( m_1 \) e \( m_2 \) per cella, collegate da molle con \emph{costanti elastiche diverse} \( C \) e \( K \), corrispondenti ai due tipi di legame chimico presenti.
 
@@ -446,7 +450,7 @@ I due rami della dispersione hanno una netta interpretazione fisica. Il ramo \( 
 
 Tra i due rami si apre un intervallo di pulsazioni, fra \( \sqrt{2C/m_1} \) e \( \sqrt{2C/m_2} \), in cui la relazione di dispersione \emph{non ammette soluzioni}: si tratta di una \textbf{regione proibita di pulsazioni}, del tutto analoga al gap energetico che incontreremo per gli elettroni in un cristallo. Se si tenta di indurre nel reticolo una vibrazione con pulsazione \( \omega \) interna a questo gap, l'eccitazione non potrà propagarsi come moto collettivo degli atomi, né in fase né in controfase: nessun modo normale della catena ha quella pulsazione, e l'energia introdotta resta confinata invece di trasformarsi in un'onda viaggiante.
 
-\subsection{Il caso speculare: stesse masse, molle diverse}
+\subsubsection{Il caso speculare: stesse masse, molle diverse}
 
 Si può ora considerare il limite opposto del modello biatomico: una catena in cui tutte le masse sono \emph{uguali}, ma i legami chimici hanno costanti elastiche \emph{diverse}, alternate lungo la catena. Riprendiamo la geometria della Figura~\ref{fig:catena_biatomica} ponendo \( m_1 = m_2 \equiv m \) e rinominando per chiarezza le due costanti elastiche \( C \) e \( G \), con \( C \neq G \).
 
@@ -553,13 +557,11 @@ Nel massimo del ramo ottico (\( k_x = 0 \)) e ai bordi della prima zona di Brill
 
 
 
-\section{Sovrapposizione di modi normali}
+\subsection{Modi normali e quantizzazione: il fonone}
 
 A ogni valore di \( k_x \) nella prima zona di Brillouin corrispondono, nei modelli biatomici, \emph{due} pulsazioni distinte: una sul ramo acustico e una sul ramo ottico. È naturale chiedersi se esistano moti reticolari più generali, in cui contributi associati a \emph{più valori} di \( k_x \) coesistono nello stesso istante: la risposta è affermativa, e porta direttamente al concetto di \textbf{decomposizione in modi normali}.
 
 In generale, ogni vibrazione del reticolo si può rappresentare come una \textbf{sovrapposizione di modi normali} di oscillazione, ciascuno identificato da una coppia (\( k_x \), ramo) e quindi da una specifica pulsazione \( \omega \). Ogni modo normale si comporta come un \emph{oscillatore armonico ideale} indipendente, e i diversi modi normali sono fra loro disaccoppiati: il moto vibrazionale del cristallo equivale dunque ad un'assemblea di oscillatori indipendenti, ognuno con la propria pulsazione propria. Questa proprietà ha una conseguenza pratica fondamentale: una vibrazione arbitraria del reticolo si può sempre scomporre nelle sue componenti modali tramite l'\textbf{analisi di Fourier}, e la dinamica del cristallo si riconduce così allo studio dei singoli modi normali.
-
-\section{Quantizzazione delle vibrazioni: il fonone}
 
 Avendo ridotto le vibrazioni del reticolo a un'assemblea di oscillatori armonici indipendenti, possiamo applicare a ciascuno di essi il risultato standard della meccanica quantistica per l'oscillatore armonico: l'energia non assume valori arbitrari, ma soltanto multipli interi di una quantità elementare. Per il modo normale di pulsazione \( \omega_0 \) e vettore d'onda \( k \) si ha:
 
@@ -663,7 +665,9 @@ I processi di assorbimento ed emissione di fononi hanno conseguenze immediate su
 \textbf{Caso (c): \( h\nu < E_g \) a \( T > 0\,\text{K} \).} Il fotone, da solo, non avrebbe energia sufficiente per superare il gap. A temperatura finita, però, il cristallo è popolato da fononi termicamente eccitati: l'assorbimento simultaneo di un fotone e di un fonone (\textbf{assorbimento di fonone}) fornisce all'elettrone l'energia mancante, e ne consente la transizione BV \( \to \) BC. Anche qui la luce riemessa nella successiva ricombinazione avrà in generale energia diversa da quella del fotone incidente.
 \end{example}
 
-\section{Energia interna, polarizzazioni e statistica dei fononi}
+\section{Energia interna e calore specifico del reticolo}
+
+\lezione{24}{25/05/2026}
 
 Le vibrazioni del reticolo non sono il prodotto di un'unica sorgente: possono essere indotte da onde di pressione (vibrazioni acustiche imposte dall'esterno), dall'agitazione termica del materiale a temperatura finita, o ancora dall'interazione con la radiazione elettromagnetica vista nel paragrafo precedente. In tutti questi casi, l'energia complessivamente immagazzinata nel reticolo si ottiene sommando i contributi di tutti i modi normali eccitati.
 
@@ -687,9 +691,7 @@ I fononi sono particelle a spin intero (in particolare, hanno spin nullo): si co
 Questo risultato è ricavato in dettaglio nella meccanica statistica, e qui lo assumiamo come noto.
 \end{note}
 
-\section{Condizioni periodiche di Born-von Kármán}
-
-Il modello di catena lineare considerato finora è formalmente infinito: ma nella realtà ogni cristallo ha dimensioni finite. Per gestire questo aspetto senza introdurre complicazioni dovute alla presenza di superfici, si adottano le \textbf{condizioni periodiche di Born-von Kármán}: si immagina di richiudere la catena su sé stessa, identificando l'atomo \( N+1 \) con l'atomo \( 1 \). In tre dimensioni, equivale a considerare il cristallo come un toro di lato pari alla sua dimensione fisica \( L \).
+\textbf{Condizioni periodiche di Born-von Kármán.} Prima di sfruttare il passaggio dalla somma all'integrale, conviene capire perché la rappresentazione del cristallo come catena di lunghezza \( L = N a \) (con \( N \) celle di lato \( a \)) sia legittima. Il punto fisico è che il cristallo è \emph{invariante per traslazioni} di un numero intero di celle: questa simmetria deve essere rispettata anche dalle soluzioni ondulatorie che vi si propagano. Il modello di catena lineare considerato finora è formalmente infinito, ma nella realtà ogni cristallo ha dimensioni finite. Per gestire questo aspetto senza introdurre complicazioni dovute alla presenza di superfici, si adottano le \emph{condizioni periodiche di Born-von Kármán}: si immagina di richiudere la catena su sé stessa, identificando l'atomo \( N+1 \) con l'atomo \( 1 \). In tre dimensioni, equivale a considerare il cristallo come un toro di lato pari alla sua dimensione fisica \( L \). In questo modo la periodicità intrinseca del reticolo viene codificata direttamente nella geometria del problema, senza che le soluzioni ne risentano ai bordi.
 
 \begin{figure}[htbp]
     \centering
@@ -712,10 +714,12 @@ Il modello di catena lineare considerato finora è formalmente infinito: ma nell
     \label{fig:born_von_karman}
 \end{figure}
 
-L'imposizione della periodicità rende la funzione d'onda invariante per una traslazione di \( L = N a \), e ciò significa che la sua fase deve essere riprodotta dopo aver percorso un'intera lunghezza della catena:
+L'imposizione della periodicità rende la funzione d'onda invariante per una traslazione di \( L = N a \), e ciò significa che il suo valore in \( x = 0 \) deve coincidere con quello dopo aver percorso un'intera lunghezza della catena, in \( x = N a \):
 
 \begin{equation}
-    e^{i k_x \cdot a} = e^{i k_x N a} = 1.
+    \left. e^{i k_x x} \right|_{x=0} = \left. e^{i k_x x} \right|_{x=N a}
+    \quad \Longrightarrow \quad
+    e^{i k_x N a} = 1.
 \end{equation}
 
 Questa condizione \textbf{quantizza} i valori ammessi di \( k_x \), che possono assumere solo i valori discreti:
@@ -727,7 +731,7 @@ Questa condizione \textbf{quantizza} i valori ammessi di \( k_x \), che possono 
 Nella prima zona di Brillouin si contano dunque esattamente \( N \) valori distinti di \( k_x \): tanti quanti gli atomi (o, in generale, le celle) della catena.
 
 \begin{note}{Dal discreto al continuo}{nota:somma_integrale}
-Per un materiale \emph{macroscopicamente esteso}, \( N \) è enorme e i valori ammessi di \( k_x \) sono talmente fitti e vicini fra loro da poter essere trattati come una variabile continua. La somma sui modi si converte allora naturalmente in un integrale:
+Per un materiale \emph{macroscopicamente esteso}, \( N \) è enorme (per una mole \( N \sim 10^{23} \)) e la separazione \( \Delta k_x = 2\pi/(N a) \) fra valori successivi tende a zero: i \( k_x \) ammessi risultano allora talmente fitti da poter essere trattati come una variabile continua. La somma sui modi si converte naturalmente in un integrale,
 
 \begin{equation}
     \sum_{\vec{k}} \;\longrightarrow\; \frac{V}{(2\pi)^d} \int \dd^d k,
@@ -735,4 +739,851 @@ Per un materiale \emph{macroscopicamente esteso}, \( N \) è enorme e i valori a
 
 dove \( V \) è il volume del cristallo e \( d \) la dimensionalità. Operativamente, per un materiale infinitamente esteso conviene contare gli \emph{stati che una particella può occupare} (cioè i valori ammessi di \( \vec{k} \)) piuttosto che le particelle stesse: è il punto di vista naturale della meccanica statistica nello spazio dei modi.
 \end{note}
+
+\subsection{Modello di Debye}
+
+Tenendo conto del passaggio dal discreto al continuo, possiamo finalmente riscrivere l'energia interna vibrazionale del cristallo come integrale sui modi. All'equilibrio termico a temperatura \( T \), il numero medio di fononi in ciascun modo è fissato dalla distribuzione di Bose-Einstein, e \( U_{\text{int}} \) assume la forma compatta:
+
+\begin{importantbox}
+    \begin{equation}
+        U_{\text{int}}(T) = \int \dd^{3} k \, g(\vec{k}) \, \hbar \omega(\vec{k}) \, \frac{1}{e^{\hbar \omega(\vec{k}) / k_B T} - 1},
+    \end{equation}
+\end{importantbox}
+
+dove ciascun fattore ha una lettura fisica precisa:
+
+\begin{itemize}
+    \item \( g(\vec{k}) \) è la \textbf{densità di stati} nello spazio dei vettori d'onda, ovvero il numero di modi accessibili per unità di volume del \( k \)-spazio;
+    \item il fattore di Bose-Einstein \( 1/(e^{\hbar \omega / k_B T} - 1) \) rappresenta il \emph{numero medio di fononi} nel modo di pulsazione \( \omega \), e si interpreta naturalmente come il prodotto del numero di stati concessi per la probabilità che ciascuno sia effettivamente occupato.
+\end{itemize}
+
+Spesso è più conveniente esprimere la densità di stati come funzione della pulsazione \( \omega \) anziché del vettore d'onda, scrivendo \( g(\omega) \). Tenuto conto del fatto che i fononi sono bosoni e che nel limite di grandi lunghezze d'onda la loro relazione di dispersione è approssimativamente lineare (\( \omega \simeq v_s k \)), ci si aspetta un andamento quadratico:
+
+\begin{equation}
+    g(\omega) \propto \omega^{2}.
+\end{equation}
+
+Resta aperta una questione cruciale: su quale intervallo di pulsazioni va eseguita l'integrazione? Il numero totale di modi vibrazionali del cristallo deve essere finito, perché il numero di atomi è finito, e deve coincidere con l'integrale della densità di stati su tutto lo spettro accessibile:
+
+\begin{equation}
+    N_{\text{tot}} = \int_{0}^{?} g(\omega) \, \dd \omega.
+\end{equation}
+
+L'estremo superiore non può essere \( \infty \): se lo fosse, l'integrale divergerebbe per via dell'andamento \( g(\omega) \propto \omega^{2} \), e con esso anche l'energia interna. Deve quindi esistere una pulsazione massima \( \omega_D \), detta \textbf{pulsazione di Debye}, oltre la quale lo spettro fononico si arresta. Questa è l'ipotesi centrale del \textbf{modello di Debye}, che fissa il taglio dello spettro richiedendo che il numero totale di modi accessibili eguagli esattamente il numero finito di gradi di libertà vibrazionali del cristallo.
+
+L'argomento fisico a sostegno di questa ipotesi è intuitivo. In un reticolo con periodicità \( a \) non ha senso considerare onde di lunghezza d'onda \( \lambda < a \): vibrazioni di quel tipo non potrebbero essere risolte dalla struttura discreta del cristallo e non avrebbero modo di propagarsi. Esiste quindi una frequenza massima, dell'ordine di \( v_s / a \), oltre la quale nessun modo collettivo della catena può sostenersi: la struttura atomica del materiale impone naturalmente un cut-off, che rimuove le divergenze altrimenti presenti nello spettro vibrazionale.
+
+Ci si chiede ora: dei due rami della dispersione, acustico ed ottico, quale è effettivamente responsabile dell'assorbimento e della cessione di calore da parte del reticolo? I modi che contribuiscono sono solo quelli la cui pulsazione coincide con quella delle \emph{onde sonore} nel materiale, ossia i \textbf{modi acustici} che, nel limite di grandi lunghezze d'onda, seguono la dispersione lineare
+
+\begin{equation}
+    \omega = k \, v_s.
+\end{equation}
+
+Il ramo ottico, infatti, ha pulsazioni decisamente più alte e gap energetici dell'ordine di \( \hbar \omega_{\text{ott}} \gg k_B T \) alle temperature di interesse: a meno di non scaldare fortemente il cristallo, l'agitazione termica non basta a popolarne i modi, che restano dunque pressoché inattivi nel bilancio energetico. Sono i modi acustici, di bassa energia, a essere termicamente eccitabili e a fungere da serbatoio di calore del reticolo.
+
+Restringendoci ai soli modi acustici e tenendo conto del cut-off di Debye, l'energia interna assume la forma
+
+\begin{equation}
+    U_{\text{int}}(T) = \int_0^{\omega_D} \dd \omega \, g(\omega) \, \frac{\hbar \omega}{e^{\hbar \omega / k_B T} - 1},
+\end{equation}
+
+in cui riconosciamo, nell'ordine, la densità di stati \( g(\omega) \), l'energia \( \hbar \omega \) di un singolo fonone, e il numero medio di fononi nel modo, fissato dalla distribuzione di Bose-Einstein.
+
+Per scrivere correttamente l'energia interna, però, occorre considerare un ulteriore livello di dettaglio: per ogni vettore d'onda \( \vec{k} \) esistono \textbf{tre polarizzazioni} indipendenti \( P \), una \emph{longitudinale} (L) e due \emph{trasversali} (T), ciascuna con una propria velocità del suono e quindi con una propria densità di stati \( g_P(\omega) \). Per i modi acustici la relazione di dispersione è approssimativamente lineare \( \omega \simeq v_P k \), che in tre dimensioni produce un andamento quadratico
+
+\begin{equation}
+    g_P(\omega) = A_P \, \omega^{2},
+\end{equation}
+
+dove la costante di proporzionalità \( A_P \) dipende dalla polarizzazione attraverso la sua velocità del suono. L'energia interna totale si ottiene sommando i contributi di tutte le polarizzazioni:
+
+\begin{equation}
+    U_{\text{int}}(T) = \sum_{P} \int_0^{\omega_D} \dd \omega \, A_P \, \omega^{2} \, \frac{\hbar \omega}{e^{\hbar \omega / k_B T} - 1}.
+\end{equation}
+
+Per studiare l'andamento di \( U_{\text{int}} \) con la temperatura conviene effettuare il \textbf{cambio di variabile adimensionale}
+
+\begin{equation}
+    x = \frac{\hbar \omega}{k_B T}, \qquad \dd x = \frac{\hbar}{k_B T} \, \dd \omega,
+\end{equation}
+
+che concentra tutta la dipendenza da \( T \) negli estremi di integrazione e in un prefattore globale. Sostituendo \( \omega = k_B T \, x / \hbar \) e raccogliendo le potenze di \( T \), si ottiene
+
+\begin{equation}
+    U_{\text{int}}(T) = \sum_{P} A_P \, \frac{(k_B T)^{4}}{\hbar^{3}} \int_{0}^{\hbar \omega_D / k_B T} \frac{x^{3}}{e^{x} - 1} \, \dd x.
+\end{equation}
+
+Tutto il contenuto fisico è ora condensato in due elementi: il prefattore \( T^{4} \) e l'integrale adimensionale, che dipende da \( T \) solo tramite il suo estremo superiore.
+
+\subsubsection{Limite di bassa temperatura: le leggi \texorpdfstring{\( T^{4} \)}{T\^{}4} e \texorpdfstring{\( T^{3} \)}{T\^{}3}}
+
+Cosa succede quando \( T \to 0 \, \text{K} \)? L'estremo superiore dell'integrale diverge,
+
+\begin{equation}
+    \frac{\hbar \omega_D}{k_B T} \;\xrightarrow{T \to 0}\; \infty,
+\end{equation}
+
+ma l'integrando \( x^{3}/(e^{x} - 1) \) decade esponenzialmente per \( x \) grande, quindi l'integrale tende a un valore \emph{finito} e tabulato:
+
+\begin{equation}
+    \int_{0}^{\hbar \omega_D / k_B T} \frac{x^{3}}{e^{x} - 1} \, \dd x \;\xrightarrow{T \to 0}\; \int_{0}^{\infty} \frac{x^{3}}{e^{x} - 1} \, \dd x = \frac{\pi^{4}}{15}.
+\end{equation}
+
+In questo regime l'integrale contribuisce dunque solo con una costante, e tutta la dipendenza dalla temperatura resta concentrata nel prefattore prodotto dal cambio di variabile:
+
+\begin{importantbox}
+    \begin{equation}
+        U_{\text{int}}(T) \;\xrightarrow{T \to 0}\; \frac{\pi^{4}}{15} \, \frac{(k_B T)^{4}}{\hbar^{3}} \sum_{P} A_P \;\propto\; T^{4}.
+    \end{equation}
+\end{importantbox}
+
+L'unica dipendenza da \( T \) che sopravvive è dunque quella che proviene dal cambio di variabile, e fornisce la celebre \textbf{legge \( T^{4} \)} per l'energia interna del reticolo a bassa temperatura. Scrivendo in forma compatta \( U_{\text{int}} = K \, T^{4} \), con \( K \) un'opportuna costante, otteniamo immediatamente il \textbf{calore specifico} a volume costante derivando rispetto a \( T \):
+
+\begin{importantbox}
+    \begin{equation}
+        C_V = \left. \pdv{U_{\text{int}}}{T} \right|_V \;\propto\; T^{3}.
+    \end{equation}
+\end{importantbox}
+
+Questa è la celebre legge \( T^{3} \) di Debye per il calore specifico vibrazionale a bassa temperatura. Sperimentalmente, la dipendenza misurata di \( C_V \) dalla temperatura è non lineare in prossimità di \( T = 0 \) e satura a un valore costante alle alte temperature, in netto disaccordo con il principio di equipartizione dell'energia (che predirebbe un \( C_V \) costante a tutte le temperature).
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0]
+        \draw[->, thick] (-0.3, 0) -- (4.5, 0) node[anchor=west, font=\small] {\( T \)};
+        \draw[->, thick] (0, -0.3) -- (0, 2.7) node[anchor=south, font=\small] {\( C_V \)};
+        \draw[thick, teal!70!black, smooth, samples=120, domain=0:4.2] plot (\x, {2.2*(1 - exp(-0.12*\x*\x*\x))});
+        \draw[red!70!black, thick] (0.45, 0.08) ellipse (0.5 and 0.32);
+        \node[anchor=west, font=\scriptsize, red!70!black] at (1.0, 0.35) {non lineare};
+        \node[anchor=south west, font=\small, teal!70!black] at (3.0, 2.2) {dai dati};
+    \end{tikzpicture}
+    \caption{Andamento sperimentale del calore specifico in funzione della temperatura: non lineare vicino all'origine, satura a temperature elevate.}
+    \label{fig:cv_sperimentale}
+\end{figure}
+
+Il contributo \( C_V \propto T^{3} \) appena ricavato rappresenta proprio il \textbf{contributo vibrazionale} al calore specifico: è l'energia immagazzinata dalle oscillazioni collettive degli atomi del reticolo, che si muovono insieme in modo trasversale o longitudinale. In forma esplicita:
+
+\begin{equation}
+    C_V^{\text{vib}} = \gamma \, T^{3}.
+\end{equation}
+
+Nei \textbf{metalli}, al contributo vibrazionale si aggiunge una \textbf{componente elettronica} dovuta al gas di elettroni di conduzione, che è lineare nella temperatura:
+
+\begin{equation}
+    C_V^{\text{el}} = \alpha \, T.
+\end{equation}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=0.95,
+        declare function={
+            fvib(\x) = 2.2*(1 - exp(-0.12*\x*\x*\x));
+            fmet(\x) = 2.2*(1 - exp(-0.12*\x*\x*\x)) + 0.22*\x;
+        }]
+        % Insulators
+        \begin{scope}[xshift=0cm]
+            \draw[->, thick] (-0.3, 0) -- (4.5, 0) node[anchor=west, font=\small] {\( T \)};
+            \draw[->, thick] (0, -0.3) -- (0, 2.9) node[anchor=south, font=\small] {\( C_V \)};
+            \node[font=\small, teal!70!black] at (2.5, 3.0) {ISOLANTI};
+            \draw[thick, teal!70!black, smooth, samples=120, domain=0:4.2] plot (\x, {fvib(\x)});
+            \draw[red!70!black, thick] (0.45, 0.08) ellipse (0.55 and 0.35);
+            \node[anchor=west, font=\scriptsize, teal!70!black] at (1.1, 0.4) {\( C_V \propto T^{3} \)};
+        \end{scope}
+        % Metals
+        \begin{scope}[xshift=7cm]
+            \draw[->, thick] (-0.3, 0) -- (4.5, 0) node[anchor=west, font=\small] {\( T \)};
+            \draw[->, thick] (0, -0.3) -- (0, 2.9) node[anchor=south, font=\small] {\( C_V \)};
+            \node[font=\small, violet!70!black] at (2.5, 3.0) {METALLI};
+            % vibrational reference (dashed)
+            \draw[thick, teal!70!black, dashed, smooth, samples=120, domain=0:4.2] plot (\x, {fvib(\x)});
+            % total = vibrational + linear electronic
+            \draw[thick, violet!70!black, smooth, samples=120, domain=0:4.2] plot (\x, {fmet(\x)});
+            \draw[red!70!black, thick] (0.5, 0.18) ellipse (0.6 and 0.4);
+            \node[anchor=west, font=\scriptsize, violet!70!black] at (1.3, 1.4) {\( C_V = \gamma T^{3} + \alpha T \)};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{Calore specifico in funzione della temperatura per isolanti e per metalli: nel limite \( T \to 0 \), gli isolanti esibiscono il solo termine \( T^{3} \) vibrazionale, mentre nei metalli compare in più la componente elettronica lineare \( \alpha T \). La curva tratteggiata nel pannello di destra rappresenta il solo contributo vibrazionale.}
+    \label{fig:cv_isolanti_metalli}
+\end{figure}
+
+A basse temperature, comunque, è la componente vibrazionale a dominare il calore specifico.
+
+\subsubsection{Limite di alta temperatura: legge di Dulong-Petit}
+
+Cosa succede invece quando \( T \to \infty \)? In questo regime la variabile adimensionale tende a zero,
+
+\begin{equation}
+    x = \frac{\hbar \omega}{k_B T} \;\xrightarrow{T \to \infty}\; 0,
+\end{equation}
+
+e su tutto l'intervallo di integrazione l'argomento dell'esponenziale è piccolo. Possiamo allora sviluppare in serie di Taylor il denominatore \( e^{x} - 1 \simeq x \), e l'integrando si semplifica:
+
+\begin{equation}
+    \frac{x^{3}}{e^{x} - 1} \;\simeq\; \frac{x^{3}}{x} = x^{2}.
+\end{equation}
+
+L'integrale diventa allora elementare:
+
+\begin{equation}
+    I \simeq \int_{0}^{\hbar \omega_D / k_B T} x^{2} \, \dd x = \frac{1}{3} \left( \frac{\hbar \omega_D}{k_B T} \right)^{3}.
+\end{equation}
+
+Sostituendo nell'espressione di \( U_{\text{int}} \) e raccogliendo le potenze di \( T \):
+
+\begin{equation}
+    U_{\text{int}}(T) \;\propto\; (k_B T)^{4} \, \cdot \, \frac{1}{3} \, \frac{(\hbar \omega_D)^{3}}{(k_B T)^{3}} \;\propto\; T,
+\end{equation}
+
+ossia \( U_{\text{int}} \) scala linearmente con la temperatura. Derivando si ottiene immediatamente
+
+\begin{equation}
+    C_V = \left. \pdv{U_{\text{int}}}{T} \right|_V = \text{costante},
+\end{equation}
+
+risultato noto come \textbf{modello di Dulong-Petit}: a temperature elevate il calore specifico vibrazionale del reticolo satura a un valore costante, indipendente da \( T \).
+
+I due regimi sono riassunti nella tabella seguente.
+
+\begin{center}
+\begin{tabular}{c|cc}
+ & \( T \sim 0 \) & \( T \to \infty \) \\
+\hline
+\( U_{\text{int}}(T) \) & \( \propto T^{4} \) & \( \propto T \) \\
+\( C_V \) & \( \propto T^{3} \) & \( = \) costante \\
+\end{tabular}
+\end{center}
+
+\subsubsection{Temperatura di Debye e identificazione dei regimi}
+
+In particolare, per un \textbf{isolante a basse temperature} il calcolo esplicito porta alla forma
+
+\begin{equation}
+    C_V = \frac{12 \pi^{4}}{5} \, N k_B \left( \frac{T}{\Theta_D} \right)^{3},
+\end{equation}
+
+dove \( \Theta_D \) è la \textbf{temperatura di Debye}, definita come
+
+\begin{equation}
+    \Theta_D = \frac{\hbar \omega_D}{k_B}.
+\end{equation}
+
+Vicino a \( 0 \, \text{K} \), essendo il \( C_V \) elettronico lineare in \( T \), nei metalli quest'ultimo predomina rispetto al \( C_V \) fononico, che invece va come \( T^{3} \).
+
+La temperatura di Debye fornisce inoltre il termometro naturale per capire in quale regime ci si trovi:
+
+\begin{itemize}
+    \item per \( T \gg \Theta_D \), il contributo fononico è \( C_V \propto \) cost.: tutti i modi fononici sono eccitati e vale il teorema di equipartizione dell'energia;
+    \item per \( T \ll \Theta_D \), il contributo fononico è \( C_V \propto T^{3} \): solo i modi a bassa frequenza sono eccitati, e vale la legge di Debye.
+\end{itemize}
+
+Misurando il calore specifico in funzione della temperatura possiamo dunque risalire indirettamente alla densità di stati fononici nel materiale: i fononi, pur non avendo massa, possiedono momento e si manifestano direttamente attraverso queste proprietà termiche.
+
+Se il cristallo non è costituito da atomi singoli ma da \textbf{molecole}, oltre ai modi acustici e ottici discussi compaiono ulteriori modi vibrazionali interni alle molecole, accoppiati ai modi collettivi molecola-molecola del reticolo. La descrizione a bande, e in particolare quella della banda acustica, fornisce un quadro adeguato per descrivere sia le proprietà elettriche che quelle termiche del cristallo.
+
+\section{Interazione tra campo elettromagnetico e cristallo: regime ottico}
+
+Concludiamo il capitolo riprendendo, in modo più sistematico, l'interazione fra il cristallo e la radiazione elettromagnetica già intravista discutendo l'accoppiamento fra fononi e fotoni.
+
+Cosa succede quando un \textbf{campo elettromagnetico} (CEM) investe gli atomi di un materiale? Il comportamento dipende essenzialmente dal rapporto fra la lunghezza d'onda \( \lambda \) della radiazione e la distanza interatomica tipica \( a \):
+
+\begin{itemize}
+    \item se \( \lambda \sim a \), come accade per i \textbf{raggi X}, il CEM ``vede'' la struttura discreta del reticolo e dà luogo al fenomeno della \textbf{diffrazione};
+    \item se \( \lambda \gg a \) (pur restando inferiore alle dimensioni macroscopiche del materiale), ci si trova nel \textbf{regime ottico}, oggetto del seguito.
+\end{itemize}
+
+Nel regime ottico la radiazione ha lunghezze d'onda tali per cui, sulla scala atomica,
+
+\begin{equation}
+    e^{i (\vec{k} \cdot \vec{r} - \omega t)} \;\longrightarrow\; e^{i \vec{k} \cdot \vec{r}} \;\simeq\; 1,
+\end{equation}
+
+ossia il fattore di fase è praticamente costante su distanze dell'ordine di \( a \). Equivalentemente, dato che \( \abs{\vec{k}} = 2\pi/\lambda \), la condizione è
+
+\begin{equation}
+    \lambda \gg a \quad \text{(distanza interatomica tipica)}.
+\end{equation}
+
+Il caso del visibile, con \( \lambda \in [400 \div 800] \, \text{nm} \), rientra naturalmente in questo regime: la lunghezza d'onda è di alcuni ordini di grandezza superiore alla distanza interatomica.
+
+\begin{note}{Perché il CEM ``non vede'' i singoli atomi}{nota:cem_continuo}
+Quando \( \lambda \gg a \) la radiazione non possiede la risoluzione spaziale necessaria per percepire la natura discreta del reticolo: il CEM interagisce dunque con una \emph{distribuzione di carica spazialmente continua e mediata}, e si possono trascurare gli effetti microscopici del singolo atomo. È questo il punto di partenza dell'elettromagnetismo macroscopico nei mezzi materiali, in cui si introducono i parametri fenomenologici \( \varepsilon_0 \) (permittività elettrica) e \( \mu \) (permeabilità magnetica).
+\end{note}
+
+In questo regime il CEM si comporta dunque in maniera \textbf{ondulatoria}: i campi \( \vec{E}(\vec{r}, t) \) e \( \vec{B}(\vec{r}, t) \) possono essere trattati come campi macroscopici continui, governati dall'equazione delle onde e dalle equazioni di Maxwell nei mezzi materiali. Macroscopicamente, la propagazione della radiazione nel cristallo si traduce nei tre fenomeni classici:
+
+\begin{enumerate}
+    \item \textbf{trasmissione};
+    \item \textbf{riflessione};
+    \item \textbf{assorbimento}.
+\end{enumerate}
+
+Nei corsi di Fisica 2 ci si limita tipicamente ai materiali trasparenti, trascurando l'assorbimento perché piccolo. Qui invece, alla luce della descrizione microscopica costruita lungo il capitolo, possiamo individuare i \emph{due canali principali} attraverso cui il CEM cede effettivamente energia al materiale:
+
+\begin{itemize}
+    \item \textbf{Accoppiamento con le vibrazioni del reticolo}: parte dell'energia del campo viene trasferita ai modi fononici, aumentando l'energia interna del cristallo e quindi la sua temperatura. Una porzione del CEM viene così convertita in energia interna (calore) e il campo emergente risulta indebolito;
+    \item \textbf{Accoppiamento con gli elettroni debolmente legati}: il CEM agisce direttamente sugli elettroni meno vincolati al nucleo, mettendoli in oscillazione. Nei \emph{metalli}, in particolare, sono gli elettroni di conduzione i principali responsabili di questo canale di assorbimento.
+\end{itemize}
+
+Si osservano allora delle \textbf{oscillazioni collettive degli elettroni}, forzate dal campo elettrico del CEM. La natura di queste oscillazioni dipende anche dalla \emph{taglia} del materiale: in una nanoparticella metallica, per esempio, in cui il volume è comparabile alla superficie, i moti collettivi restano confinati sulla sua superficie e si manifestano come \textbf{plasmoni di superficie}. È questo, ad esempio, il meccanismo responsabile dei colori delle vetrate delle chiese.
+
+\subsection{Meccanismi di assorbimento}
+
+\textbf{Assorbimento interbanda.} Un secondo canale, particolarmente importante nei semiconduttori, è quello dell'\textbf{assorbimento interbanda}: un fotone di energia \( \hbar \omega \) promuove un elettrone dalla banda di valenza alla banda di conduzione purché la sua energia sia almeno pari al gap, \( \hbar \omega \geq E_g \). Successivamente l'elettrone può ricadere in banda di valenza, riemettendo un fotone della stessa energia \( \hbar \omega \).
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0,
+        photon/.style={->, thick, violet!80!black, decorate, decoration={snake, amplitude=1.2pt, segment length=4pt, post length=3pt}}]
+        \draw[blue!70!black, thick, smooth, samples=40, domain=-1.4:1.4] plot (\x, {0.4*\x*\x + 1.6});
+        \draw[blue!70!black, thick, smooth, samples=40, domain=-1.4:1.4] plot (\x, {-0.4*\x*\x});
+        \node[anchor=west, font=\small] at (1.45, 1.8) {BC};
+        \node[anchor=west, font=\small] at (1.45, -0.1) {BV};
+        \draw[->, very thick, red!80!black] (-0.15, 0) -- (-0.15, 1.55);
+        \draw[->, very thick, red!80!black] (0.15, 1.6) -- (0.15, 0.05);
+        \node[anchor=east, font=\small, red!80!black] at (-0.2, 0.8) {\( E_g = \hbar \omega \)};
+        \draw[photon] (-2.6, 0.8) -- (-1.7, 0.8);
+        \node[anchor=east, font=\small, violet!80!black] at (-2.6, 0.8) {\( \hbar \omega \)};
+        \draw[photon] (1.7, 0.8) -- (2.6, 0.8);
+        \node[anchor=west, font=\small, violet!80!black] at (2.6, 0.8) {\( \hbar \omega \)};
+        \fill (-0.15, 1.6) circle (1.7pt);
+        \draw[fill=white] (-0.15, 0) circle (1.7pt);
+    \end{tikzpicture}
+    \caption{Assorbimento interbanda in un semiconduttore: un fotone di energia \( \hbar \omega = E_g \) promuove un elettrone dalla BV alla BC; in seguito l'elettrone ricade in BV emettendo un fotone della stessa energia.}
+    \label{fig:assorbimento_interbanda}
+\end{figure}
+
+Il fenomeno si manifesta tipicamente nei \textbf{semiconduttori}, in cui \( E_g \) è dell'ordine dell'energia dei fotoni nel visibile. Lo stesso meccanismo è in linea di principio attivo anche negli isolanti, dove però \( E_g \) è così grande da non cadere nell'intervallo del visibile: per questo motivo materiali come il vetro ci appaiono trasparenti.
+
+\textbf{Assorbimento da contaminante o drogante.} Un terzo meccanismo di assorbimento è legato alla presenza, all'interno del cristallo, di \textbf{specie chimiche diverse} dal materiale ospite, introdotte intenzionalmente come \emph{droganti} oppure presenti come contaminanti. Un esempio caratteristico è quello dell'\textbf{erbio} (una terra rara) inserito sostituzionalmente in un reticolo di silicio: l'atomo di erbio si comporta sostanzialmente come un atomo isolato immerso nella matrice cristallina, ed è in grado di assorbire selettivamente fotoni a frequenze ben determinate.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.2]
+        % Cubic cell vertices: Si at corners except one replaced by Er
+        \def\dx{0.6}
+        \def\dy{0.6}
+        % Coordinates of the 8 vertices
+        \coordinate (A) at (0, 0);
+        \coordinate (B) at (2, 0);
+        \coordinate (C) at (2 + \dx, \dy);
+        \coordinate (D) at (\dx, \dy);
+        \coordinate (E) at (0, -1.6);
+        \coordinate (F) at (2, -1.6);
+        \coordinate (G) at (2 + \dx, -1.6 + \dy);
+        \coordinate (H) at (\dx, -1.6 + \dy);
+        % Edges
+        \draw[gray!60] (A) -- (B) -- (C) -- (D) -- cycle;
+        \draw[gray!60] (E) -- (F) -- (G) -- (H) -- cycle;
+        \draw[gray!60] (A) -- (E);
+        \draw[gray!60] (B) -- (F);
+        \draw[gray!60] (C) -- (G);
+        \draw[gray!60] (D) -- (H);
+        % Si atoms at 7 of the 8 vertices
+        \foreach \v in {B, C, D, E, F, G, H} {
+            \fill[blue!70!black] (\v) circle (3pt);
+        }
+        \node[font=\scriptsize, anchor=south west] at ($(B) + (0.05, 0.05)$) {Si};
+        \node[font=\scriptsize, anchor=south west] at ($(C) + (0.05, 0.05)$) {Si};
+        \node[font=\scriptsize, anchor=south west] at ($(D) + (0.05, 0.05)$) {Si};
+        \node[font=\scriptsize, anchor=north east] at ($(E) + (-0.05, -0.05)$) {Si};
+        \node[font=\scriptsize, anchor=north] at ($(F) + (0, -0.1)$) {Si};
+        \node[font=\scriptsize, anchor=west] at ($(G) + (0.1, 0)$) {Si};
+        \node[font=\scriptsize, anchor=south west] at ($(H) + (0.05, 0.05)$) {Si};
+        % Er atom replaces Si at vertex A
+        \fill[red!70!black] (A) circle (4pt);
+        \node[font=\scriptsize, anchor=north east, red!70!black] at ($(A) + (-0.05, -0.05)$) {Er};
+    \end{tikzpicture}
+    \caption{Erbio (terra rara) inserito \emph{sostituzionalmente} al posto di un atomo di silicio nel reticolo: l'atomo drogante si comporta come un atomo isolato in grado di assorbire fotoni a frequenze caratteristiche.}
+    \label{fig:silicio_erbio}
+\end{figure}
+
+\subsection{Formalismo complesso e risposta dielettrica}
+
+\textbf{Formalismo complesso per l'assorbimento.} Per descrivere quantitativamente l'assorbimento si utilizza ancora il formalismo delle equazioni di Maxwell, con la differenza che alcune grandezze caratteristiche del materiale vanno promosse a quantità \emph{complesse} anziché reali, in modo da poter descrivere coerentemente assorbimento, trasmissione e riflessione.
+
+\textbf{Permettività dielettrica complessa (relativa).} La permettività dielettrica relativa del materiale si scrive come
+
+\begin{equation}
+    \varepsilon = \varepsilon_1 + i \, \varepsilon_2, \qquad \vec{D} = \varepsilon_0 \, \varepsilon \, \vec{E},
+\end{equation}
+
+dove \( \varepsilon_1 = \operatorname{Re}(\varepsilon) \) è la parte reale ed \( \varepsilon_2 = \operatorname{Im}(\varepsilon) \) la parte immaginaria.
+
+\textbf{Indice di rifrazione complesso.} In modo del tutto analogo si introduce un indice di rifrazione complesso
+
+\begin{equation}
+    N = n + i \, \kappa,
+\end{equation}
+
+la cui parte reale \( n = \operatorname{Re}(N) \) è il consueto indice di rifrazione, mentre la parte immaginaria \( \kappa = \operatorname{Im}(N) \) è il \textbf{coefficiente di estinzione}: è proprio \( \kappa \) a rendere conto dell'attenuazione del campo elettromagnetico durante la propagazione, per cui l'intensità trasmessa risulta inferiore a quella incidente.
+
+Il comportamento del materiale dipende dalla natura del CEM incidente. Nel mondo reale i campi sono in generale \textbf{policromatici}, ossia contengono molte frequenze diverse. Tramite analisi di Fourier li scriviamo come sovrapposizione di onde piane,
+
+\begin{equation}
+    \vec{E}(\vec{r}, t) \;\propto\; \sum_{\vec{k}} \sum_{\omega} e^{i (\vec{k} \cdot \vec{r} - \omega t)}, \qquad
+    \vec{B}(\vec{r}, t) \;\propto\; \sum_{\vec{k}} \sum_{\omega} e^{i (\vec{k} \cdot \vec{r} - \omega t)},
+\end{equation}
+
+che nel regime ottico, dove \( e^{i \vec{k} \cdot \vec{r}} \simeq 1 \), si semplificano in
+
+\begin{equation}
+    \vec{E}(\vec{r}, t), \; \vec{B}(\vec{r}, t) \;\propto\; \sum_{\omega} e^{-i \omega t}.
+\end{equation}
+
+Si distinguono dunque due situazioni di riferimento: l'\emph{onda piana}, con un singolo vettore d'onda \( \vec{k} \) ben definito, e il \emph{pacchetto d'onde}, in cui contribuiscono molti \( \vec{k} \) diversi e altrettante frequenze.
+
+In regime ottico, dunque, sia la permettività dielettrica che l'indice di rifrazione vanno trattati come funzioni della frequenza:
+
+\begin{importantbox}
+    \begin{equation}
+        \begin{cases}
+            \varepsilon(\omega) = \varepsilon_1(\omega) + i \, \varepsilon_2(\omega), \\[0.4em]
+            N(\omega) = n(\omega) + i \, \kappa(\omega),
+        \end{cases}
+        \qquad \text{con} \qquad N^{2}(\omega) = \varepsilon(\omega).
+    \end{equation}
+\end{importantbox}
+
+La relazione \( N^{2}(\omega) = \varepsilon(\omega) \) lega in modo diretto le proprietà ottiche del materiale (\( n \) e \( \kappa \)) alla risposta dielettrica (\( \varepsilon_1 \) e \( \varepsilon_2 \)). Esplicitando il quadrato in termini di parte reale ed immaginaria,
+
+\begin{equation}
+    (n + i \kappa)^{2} = n^{2} - \kappa^{2} + 2 i n \kappa,
+\end{equation}
+
+si ottengono direttamente le due relazioni fondamentali fra le componenti di \( \varepsilon \) e di \( N \):
+
+\begin{importantbox}
+    \begin{equation}
+        \begin{cases}
+            \varepsilon_1(\omega) = n^{2}(\omega) - \kappa^{2}(\omega), \\[0.4em]
+            \varepsilon_2(\omega) = 2 \, n(\omega) \, \kappa(\omega).
+        \end{cases}
+    \end{equation}
+\end{importantbox}
+
+\begin{remark}
+Fuori dal regime ottico la permettività dipende in generale anche dal vettore d'onda, \( \varepsilon = \varepsilon(\omega, \vec{k}) \): è proprio l'approssimazione \( e^{i \vec{k} \cdot \vec{r}} \simeq 1 \) a permetterci di trascurare la dipendenza da \( \vec{k} \) e di trattare \( \varepsilon \) come funzione della sola frequenza.
+\end{remark}
+
+\textbf{Coefficienti di riflessione e trasmissione.} A partire da questo formalismo si definiscono il \textbf{coefficiente di riflessione} ed il \textbf{coefficiente di trasmissione} come rapporto fra il campo elettrico riflesso (o trasmesso) e quello incidente,
+
+\begin{equation}
+    r_{n,F} = \frac{E_{\text{rif}}}{E_{\text{inc}}}, \qquad t = \frac{E_t}{E_{\text{inc}}},
+\end{equation}
+
+cui corrispondono la \textbf{riflettenza} e la \textbf{trasmittanza}, che misurano le frazioni di intensità riflessa e trasmessa:
+
+\begin{equation}
+    R = r_{n,F}^{*} \, r_{n,F} = \abs{r_{n,F}}^{2}, \qquad T = t^{*} \, t = \abs{t}^{2}.
+\end{equation}
+
+\textbf{Comportamento degli isolanti.} L'andamento qualitativo delle due componenti di \( \varepsilon(\omega) \) per un isolante è illustrato nella Figura~\ref{fig:eps_isolanti}: la parte reale \( \varepsilon_1(\omega) \) presenta un profilo di dispersione con regioni positive e regioni negative attorno alle pulsazioni di risonanza, mentre la parte immaginaria \( \varepsilon_2(\omega) \) è concentrata in stretti picchi di assorbimento alle stesse pulsazioni.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0,
+        declare function={
+            eone(\x) = 1 + 1.0*(2 - \x)/( ((\x-2)*(\x-2)) + 0.18);
+            etwo(\x) = 0.4/( ((\x-2)*(\x-2)) + 0.18);
+        }]
+        % Axes
+        \draw[->, thick] (-0.3, 0) -- (4.7, 0) node[anchor=west, font=\small] {\( \omega \)};
+        \draw[->, thick] (0, -2.3) -- (0, 3.2) node[anchor=south, font=\small] {\( \varepsilon \)};
+        \node[font=\small, teal!60!black, anchor=south west] at (0.1, 3.0) {ISOLANTI};
+        % epsilon_1
+        \draw[thick, violet!70!black, smooth, samples=200, domain=0.2:4.5] plot (\x, {min(2.6, max(-2.0, eone(\x)))});
+        % epsilon_2
+        \draw[thick, blue!70!black, smooth, samples=200, domain=0.2:4.5] plot (\x, {min(2.6, etwo(\x))});
+        % Resonance line
+        \draw[gray!50, dashed] (2, -2) -- (2, 2.8);
+        \node[anchor=north, font=\small] at (2, -2.1) {\( \omega_0 \)};
+        % Labels for curves
+        \node[font=\small, violet!70!black] at (1.0, 2.2) {\( \varepsilon_1 \)};
+        \node[font=\small, blue!70!black] at (2.6, 2.4) {\( \varepsilon_2 \)};
+        % Region labels
+        \node[font=\scriptsize, teal!60!black, anchor=south] at (0.7, 0.1) {\( \varepsilon_1 \gg \varepsilon_2 \)};
+        \node[font=\scriptsize, teal!60!black, anchor=south] at (0.7, -0.6) {(regime ottico, vetri)};
+        \node[font=\scriptsize, red!70!black, anchor=north west] at (2.05, 1.4) {assorbimento};
+        \node[font=\scriptsize, red!70!black, anchor=north west] at (2.4, -0.4) {riflessione};
+    \end{tikzpicture}
+    \caption{Andamento qualitativo della parte reale \( \varepsilon_1(\omega) \) e della parte immaginaria \( \varepsilon_2(\omega) \) della permettività dielettrica per un isolante attorno a una risonanza.}
+    \label{fig:eps_isolanti}
+\end{figure}
+
+L'interpretazione fisica delle diverse regioni è immediata:
+
+\begin{itemize}
+    \item dove \( \varepsilon_1 \gg \varepsilon_2 \) (\( \varepsilon_2 \approx 0 \)) prevale la trasmissione: l'assorbimento è trascurabile e siamo nel pieno del regime ottico, situazione tipica del vetro;
+    \item dove \( \varepsilon_2 \gg \varepsilon_1 \) prevale invece l'assorbimento, e la trasmissione è piccola;
+    \item dove \( \varepsilon_1 < 0 \) l'onda non riesce a propagarsi nel mezzo e viene principalmente riflessa.
+\end{itemize}
+
+In sintesi, riassumendo le condizioni per i diversi fenomeni:
+
+\begin{itemize}
+    \item \( \varepsilon_1 > 0 \) \(\;\Longrightarrow\;\) c'è trasmissione;
+    \item \( \varepsilon_1 < 0 \) \(\;\Longrightarrow\;\) non c'è trasmissione (l'onda entra solo per pochi nanometri prima di essere respinta);
+    \item \( \varepsilon_2 \approx 0 \) \(\;\Longrightarrow\;\) \textbf{minimo assorbimento}.
+\end{itemize}
+
+\lezione{25}{26/05/2026}
+
+\textbf{Comportamento dei metalli.} Nei metalli l'andamento di \( \varepsilon(\omega) \) è sostanzialmente diverso, come illustrato in Figura~\ref{fig:eps_metalli}: a bassa frequenza \( \varepsilon_1 \) è fortemente \emph{negativa}, motivo per cui i metalli riflettono efficacemente la radiazione, e cresce monotonamente fino ad annullarsi in corrispondenza di una pulsazione caratteristica \( \omega_p \), detta \textbf{frequenza di plasma}. Per \( \omega > \omega_p \), \( \varepsilon_1 \) diventa positiva e il metallo torna sostanzialmente trasparente. La parte immaginaria \( \varepsilon_2(\omega) \) decresce monotonamente con la frequenza.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0,
+        declare function={
+            mone(\x) = 1 - 4/(\x*\x + 0.3);
+            mtwo(\x) = 1.2/(\x*(\x*\x + 0.3));
+        }]
+        % Axes
+        \draw[->, thick] (-0.3, 0) -- (4.7, 0) node[anchor=west, font=\small] {\( \omega \)};
+        \draw[->, thick] (0, -2.7) -- (0, 2.8) node[anchor=south, font=\small] {\( \varepsilon \)};
+        \node[font=\small, violet!70!black, anchor=south west] at (0.1, 2.6) {METALLI};
+        % epsilon_1 (Drude)
+        \draw[thick, violet!70!black, smooth, samples=200, domain=0.5:4.5] plot (\x, {max(-2.5, mone(\x))});
+        % epsilon_2 (Drude)
+        \draw[thick, blue!70!black, smooth, samples=200, domain=0.5:4.5] plot (\x, {min(2.5, mtwo(\x))});
+        % Plasma frequency at omega_p = 2
+        \draw[gray!50, dashed] (2, -2.5) -- (2, 2.5);
+        \node[anchor=north, font=\small] at (2, -2.6) {\( \omega_p \)};
+        % Labels
+        \node[font=\small, violet!70!black] at (3.2, 0.45) {\( \varepsilon_1 \)};
+        \node[font=\small, blue!70!black] at (1.2, 1.7) {\( \varepsilon_2 \)};
+    \end{tikzpicture}
+    \caption{Permettività dielettrica di un metallo: \( \varepsilon_1(\omega) \) è negativa per \( \omega < \omega_p \) (zona di riflessione) e si annulla alla frequenza di plasma \( \omega_p \), oltre la quale il metallo torna trasparente. \( \varepsilon_2(\omega) \) decresce monotonamente con la frequenza.}
+    \label{fig:eps_metalli}
+\end{figure}
+
+La frequenza di plasma \( \omega_p \) separa quindi due regimi nettamente diversi: per \( \omega < \omega_p \) il metallo si comporta come uno specchio efficiente (\( \varepsilon_1 < 0 \)), mentre per \( \omega > \omega_p \) la radiazione lo attraversa. Coerentemente, quando le pulsazioni in gioco sono molto alte i metalli diventano \emph{trasparenti}.
+
+Va detto che la sola meccanica quantistica non basta a spiegare tutti i comportamenti osservati, specie quando si considerano grandi insiemi (ensemble) di atomi: serve un modello classico che renda conto in modo unificato della risposta del materiale al CEM.
+
+\subsection{Modello classico dell'interazione CEM-elettroni}
+
+Cosa succede, classicamente, quando un campo elettromagnetico investe \emph{molti} atomi del materiale? Consideriamo un campo elettrico variabile nel tempo,
+
+\begin{equation}
+    \vec{E}(t) = \vec{E}_0 \, e^{-i \omega t},
+\end{equation}
+
+assumendolo monocromatico: nel caso non monocromatico questa è semplicemente una delle componenti dello sviluppo di Fourier del campo totale.
+
+Concentriamoci sugli elettroni più esterni di ciascun atomo, di massa efficace \( m_e^{*} \) e posizione \( \vec{r}(t) \) (raggio vettore istantaneo): il campo li mette in oscillazione. La loro equazione del moto è quella di un \textbf{oscillatore armonico smorzato forzato},
+
+\begin{importantbox}
+    \begin{equation}
+        m_e^{*} \, \ddot{\vec{r}} + m_e^{*} \, \gamma \, \dot{\vec{r}} + m_e^{*} \, \omega_S^{2} \, \vec{r} = \vec{F}_{\text{el}}(t),
+    \end{equation}
+\end{importantbox}
+
+in cui ciascun termine ha un significato fisico preciso:
+
+\begin{itemize}
+    \item \( m_e^{*} \gamma \dot{\vec{r}} \) è una \textbf{forza viscosa} (damping): rende conto della dissipazione dovuta agli urti dell'elettrone con i fononi, i difetti e le impurezze del materiale. La costante \( \gamma \) è il coefficiente di smorzamento;
+    \item \( m_e^{*} \omega_S^{2} \vec{r} \) è la \textbf{forza di richiamo} esercitata dal nucleo sull'elettrone, scritta nell'approssimazione armonica: \( \omega_S \) è la frequenza naturale di oscillazione dell'elettrone nel pozzo coulombiano del nucleo;
+    \item \( \vec{F}_{\text{el}}(t) \) è la forza elettrica indotta dal CEM esterno, \( \vec{F}_{\text{el}}(t) = e \vec{E}(t) \).
+\end{itemize}
+
+Trattandosi di un'equazione differenziale lineare a coefficienti costanti, la soluzione generale è la somma di un termine \emph{omogeneo} e di un termine \emph{particolare}:
+
+\begin{equation}
+    \vec{r}(t) = \underbrace{A \, e^{-\gamma t / 2} \sin(\omega_S t + \varphi_S)}_{\text{omogenea: smorzata, } \to 0} \;+\; \underbrace{\vec{B} \, e^{-i \omega t}}_{\text{a regime}}.
+\end{equation}
+
+La parte omogenea descrive un transitorio che si smorza esponenzialmente nel tempo e tende a zero per \( t \to \infty \). Restano dunque, a regime, solo le oscillazioni forzate alla pulsazione del campo, con ampiezza complessa
+
+\begin{equation}
+    \vec{B} = \frac{e \, \vec{E}_0}{m_e^{*} \, (\omega_S^{2} - \omega^{2} - i \omega \gamma)}.
+\end{equation}
+
+In definitiva, a regime, l'elettrone oscilla seguendo il campo incidente secondo
+
+\begin{importantbox}
+    \begin{equation}
+        \vec{r}(t) \;\simeq\; \frac{e \, \vec{E}_{\text{inc}}(t)}{m_e^{*} \, (\omega_S^{2} - \omega^{2} - i \omega \gamma)}.
+    \end{equation}
+\end{importantbox}
+
+\begin{remark}
+I materiali raggiungono il regime stazionario in tempi inferiori al nanosecondo: il \emph{tempo di assestamento} del transitorio è dunque del tutto trascurabile rispetto ai tempi caratteristici dei fenomeni ottici osservati.
+\end{remark}
+
+Una volta in regime, ogni elettrone debolmente legato oscilla attorno al proprio nucleo e produce un \textbf{momento di dipolo} istantaneo
+
+\begin{equation}
+    \vec{p} = e \, \vec{r}.
+\end{equation}
+
+Tutti gli elettroni non strettamente legati al nucleo (cioè quelli più esterni) partecipano a questo moto collettivo: la somma dei loro momenti di dipolo costituisce la risposta dielettrica del materiale al campo incidente.
+
+\textbf{Vettore di polarizzazione e suscettività elettrica.} Indicando con \( n_e \) la densità di elettroni con la proprietà di essere ``più esterni'' (cioè debolmente legati al nucleo), il \textbf{vettore di polarizzazione} del materiale è la somma dei momenti di dipolo per unità di volume:
+
+\begin{equation}
+    \vec{P} = n_e \, \vec{p} = \frac{n_e \, e^{2}}{m_e^{*} (\omega_S^{2} - \omega^{2} - i \omega \gamma)} \, \vec{E}(t).
+\end{equation}
+
+Poiché \( \vec{P} \propto \vec{E} \), possiamo introdurre la \textbf{suscettività elettrica} \( \chi \) attraverso la relazione
+
+\begin{equation}
+    \vec{P} = \varepsilon_0 \, \chi \, \vec{E},
+\end{equation}
+
+dalla quale, confrontando con l'espressione esplicita di \( \vec{P} \), si ricava
+
+\begin{importantbox}
+    \begin{equation}
+        \chi(\omega) = \frac{n_e \, e^{2}}{m_e^{*} \, \varepsilon_0 \, (\omega_S^{2} - \omega^{2} - i \omega \gamma)} \;=\; \chi_1(\omega) + i \, \chi_2(\omega).
+    \end{equation}
+\end{importantbox}
+
+con \( \chi_1 = \operatorname{Re}(\chi) \) e \( \chi_2 = \operatorname{Im}(\chi) \).
+
+Il legame fra suscettività e permettività dielettrica è quello noto: dato che \( \vec{D} = \varepsilon_0 \vec{E} + \vec{P} = \varepsilon_0 \vec{E} + \varepsilon_0 \chi \vec{E} = \varepsilon_0 (1 + \chi) \vec{E} \), si ha
+
+\begin{equation}
+    \varepsilon = 1 + \chi, \qquad \varepsilon_1 = 1 + \operatorname{Re}(\chi), \qquad \varepsilon_2 = \operatorname{Im}(\chi).
+\end{equation}
+
+\textbf{Casi limite.} L'espressione di \( \chi(\omega) \) include due limiti notevoli:
+
+\begin{itemize}
+    \item se l'elettrone è così esterno da non risentire della forza di richiamo del nucleo, \( \omega_S = 0 \);
+    \item se \( \gamma = 0 \), l'accoppiamento dell'elettrone con l'ambiente non altera il suo moto (assenza di smorzamento).
+\end{itemize}
+
+Sperimentalmente, nei metalli si osserva \( \omega_S \simeq 0 \), e si può quindi approssimare \( \omega_S \to 0 \): è questo il regime degli \emph{elettroni quasi liberi} di conduzione. Va tenuto presente che si tratta di un'approssimazione al primo ordine: in una descrizione più accurata bisognerebbe tenere conto anche del campo magnetico \( \vec{B} \), il cui effetto richiede però uno schema più sofisticato.
+
+Esplicitando parte reale ed immaginaria di \( \chi \):
+
+\begin{equation}
+    \operatorname{Re}(\chi) = \frac{n_e \, e^{2}}{m_e^{*} \, \varepsilon_0} \, \frac{\omega_S^{2} - \omega^{2}}{(\omega_S^{2} - \omega^{2})^{2} + \gamma^{2} \omega^{2}},
+\end{equation}
+
+\begin{equation}
+    \operatorname{Im}(\chi) = \frac{n_e \, e^{2}}{m_e^{*} \, \varepsilon_0} \, \frac{\gamma \omega}{(\omega_S^{2} - \omega^{2})^{2} + \gamma^{2} \omega^{2}}.
+\end{equation}
+
+Il prefattore comune \( n_e e^{2} / (m_e^{*} \varepsilon_0) \) ha le dimensioni del quadrato di una frequenza ed è la cosiddetta \textbf{frequenza di plasma} al quadrato:
+
+\begin{equation}
+    \omega_p^{2} = \frac{n_e \, e^{2}}{m_e^{*} \, \varepsilon_0}.
+\end{equation}
+
+Nei metalli gli elettroni di conduzione si muovono dunque in modo \emph{collettivo}, oscillando in fase fra loro: la grandezza \( \vec{P} \) (talvolta detta \emph{plasma}) tiene conto in modo macroscopico di questo moto coerente. Si tratta naturalmente di un \emph{modello}, non della realtà microscopica: ne riproduce però con accuratezza le proprietà dielettriche osservate.
+
+\textbf{Zeri di \( \varepsilon_1 \) e regione di assorbimento.} Riprendendo l'andamento di \( \varepsilon_1(\omega) \) per un isolante (Figura~\ref{fig:eps_isolanti}), si nota che la condizione \( \varepsilon_1 = 0 \) ammette in generale \emph{due soluzioni} \( \omega_1 \) e \( \omega_2 \), con \( \omega_2 > \omega_1 \), che delimitano la regione in cui la parte reale è negativa. Si ricordi inoltre che, se \( \varepsilon_2 > 0 \) in una certa banda, il materiale in quella banda assorbe.
+
+\subsubsection{Limite di elettroni quasi liberi: conducibilità ottica}
+
+Quando \( \omega_S \to 0 \), come accade nei metalli, l'espressione della posizione a regime si semplifica in
+
+\begin{equation}
+    \vec{r}(t) = \frac{e \, \vec{E}(t)}{m_e^{*} (-\omega^{2} - i \omega \gamma)} = -\frac{e \, \vec{E}(t)}{m_e^{*} (\omega^{2} + i \omega \gamma)},
+\end{equation}
+
+con \( \vec{E}(t) = \vec{E}_0 \, e^{-i\omega t} \). Diversamente dal caso \( \omega_S \neq 0 \), in cui la forza di richiamo confina gli elettroni in prossimità dei nuclei impedendone spostamenti macroscopici, con \( \omega_S = 0 \) gli elettroni si possono spostare su scale molto più grandi: la carica in moto si traduce in una \textbf{densità di corrente} macroscopica
+
+\begin{equation}
+    \vec{J} = - n_e \, e \, \vec{v}, \qquad \vec{v} = \dot{\vec{r}}.
+\end{equation}
+
+Sostituendo \( \vec{v} = -i \omega \, \vec{r} \) e la soluzione per \( \vec{r}(t) \) si ottiene
+
+\begin{importantbox}
+    \begin{equation}
+        \vec{J} = \underbrace{\frac{n_e \, e^{2} \, i \omega}{m_e^{*} \, (\omega^{2} + i \omega \gamma)}}_{\displaystyle \sigma_e(\omega)} \, \vec{E}(t),
+    \end{equation}
+\end{importantbox}
+
+ossia \( \vec{J} \propto \vec{E} \), \( \vec{J} = \sigma_e \, \vec{E} \): è la legge di Ohm in forma locale, con \( \sigma_e(\omega) \) la \textbf{conducibilità complessa} del materiale.
+
+In generale, dunque, \( \sigma \in \mathbb{C} \); la parte immaginaria si annulla nel caso di campi statici, recuperando la conducibilità reale ordinaria. Scomponendo
+
+\begin{equation}
+    \sigma = \sigma_1 + i \, \sigma_2, \qquad \sigma_1 = \operatorname{Re}(\sigma), \qquad \sigma_2 = \operatorname{Im}(\sigma),
+\end{equation}
+
+e introducendo la \textbf{conducibilità DC}
+
+\begin{equation}
+    \sigma_0 = \frac{n_e \, e^{2}}{m_e^{*} \, \gamma} = \frac{n_e \, e^{2} \, \tau}{m_e^{*}},
+\end{equation}
+
+dove \( \tau = 1/\gamma \) è il tempo medio fra urti successivi (con \( \gamma \) il coefficiente di smorzamento, \emph{damping}), si può riscrivere la conducibilità in forma compatta:
+
+\begin{importantbox}
+    \begin{equation}
+        \sigma(\omega) = \frac{\sigma_0}{1 + \omega^{2}/\gamma^{2}} \;+\; i \, \frac{\sigma_0 \, (\omega/\gamma)}{1 + \omega^{2}/\gamma^{2}}.
+    \end{equation}
+\end{importantbox}
+
+Nel limite di campo statico, \( \omega \to 0 \), la parte immaginaria si annulla e si recupera
+
+\begin{equation}
+    \sigma \;\xrightarrow{\omega \to 0}\; \sigma_0,
+\end{equation}
+
+ossia la consueta conducibilità reale dei conduttori ohmici.
+
+\textbf{Polarizzazione associata agli elettroni quasi liberi.} Anche nel limite \( \omega_S \to 0 \) il moto oscillatorio degli elettroni comporta l'insorgere di un momento di dipolo locale, e quindi di una \emph{polarizzazione} macroscopica del materiale. Con \( n_e \) la concentrazione degli elettroni quasi liberi e \( \vec{p} = e \, \vec{r}(t) \), si ha
+
+\begin{equation}
+    \vec{P} = n_e \, \vec{p} = -\frac{n_e \, e^{2}}{m_e^{*} (\omega^{2} + i \omega \gamma)} \, \vec{E}(t) = \varepsilon_0 \, \chi \, \vec{E},
+\end{equation}
+
+da cui si ricava la suscettività elettrica nel limite di elettroni quasi liberi:
+
+\begin{equation}
+    \chi(\omega) = -\frac{n_e \, e^{2}}{m_e^{*} \, \varepsilon_0 \, (\omega^{2} + i \omega \gamma)}.
+\end{equation}
+
+Esplicitando parte reale ed immaginaria, e ricordando che \( \varepsilon_1 = 1 + \operatorname{Re}(\chi) \) ed \( \varepsilon_2 = \operatorname{Im}(\chi) \):
+
+\begin{equation}
+    \operatorname{Re}(\chi) = -\frac{n_e \, e^{2} \, \omega^{2}}{m_e^{*} \, \varepsilon_0 \, (\omega^{4} + \gamma^{2} \omega^{2})} \;\sim\; -\frac{1}{\omega^{2}}, \qquad
+    \operatorname{Im}(\chi) = \frac{n_e \, e^{2}}{m_e^{*} \, \varepsilon_0} \, \frac{\gamma \omega}{\omega^{4} + \gamma^{2} \omega^{2}} \;\sim\; \frac{1}{\omega^{3}},
+\end{equation}
+
+dove i secondi membri sono le scale di grandezza nel limite di alta frequenza. Il valore esatto di \( \gamma \) (grande o piccolo) modula il comportamento del materiale e codifica gli urti degli elettroni con fononi, difetti e impurezze. L'andamento risultante per \( \varepsilon_1(\omega) \) e \( \varepsilon_2(\omega) \) è quello già discusso in Figura~\ref{fig:eps_metalli}: \( \varepsilon_1 \) è negativa al di sotto di \( \omega_p \) e diventa positiva al di sopra (regime di trasmissione), mentre \( \varepsilon_2 \) decresce monotonamente con \( \omega \).
+
+\textbf{Tre fenomeni indotti dal CEM.} Un campo elettromagnetico esterno \( \vec{E}(t) \) dà luogo, complessivamente, a tre tipi di fenomeni nel materiale.
+
+Il primo è l'\emph{oscillazione degli elettroni esterni}: gli elettroni quasi liberi (di conduzione, con \( \omega_S = 0 \)) producono sia una polarizzazione \( \vec{P} = \varepsilon_0 \chi \vec{E} \) sia una corrente macroscopica \( \vec{J} = \sigma \vec{E} \); gli elettroni esterni ma ancora legati (\( \omega_S \neq 0 \)) producono invece solo una polarizzazione \( \vec{P} = \varepsilon_0 \chi \vec{E} \), senza corrente macroscopica.
+
+Il secondo fenomeno è l'\textbf{oscillazione ionica}: il campo \( \vec{E} \) agisce anche sui nuclei e sugli elettroni più interni, che insieme formano gli \emph{ioni} del cristallo, mettendoli in oscillazione. Le pulsazioni in gioco in questo caso sono molto alte e tipicamente fuori dal regime ottico, motivo per cui a frequenze visibili il contributo ionico risulta piccolo. In un materiale isotropo e omogeneo, l'effetto ionico è descritto in modo molto efficace dalla \textbf{polarizzabilità ``atomica''} \( \alpha \) (diversa per specie chimiche diverse: ogni atomo o ione, inteso come nucleo più elettroni di core, possiede la sua) tramite la \textbf{legge di Clausius-Mossotti}:
+
+\begin{importantbox}
+    \begin{equation}
+        \frac{\varepsilon - 1}{\varepsilon + 2} = \frac{N \, \alpha}{3},
+    \end{equation}
+\end{importantbox}
+
+dove \( \varepsilon \) è la funzione dielettrica relativa ed \( N \) la densità degli atomi/ioni.
+
+Il terzo blocco di contributi raccoglie infine tutte le \emph{correzioni} più fini alla risposta dielettrica, che si sommano ai due meccanismi principali appena descritti.
+
+I tre fenomeni si sovrappongono e contribuiscono additivamente alla risposta complessiva del materiale al CEM. La suscettività elettrica finale si scrive dunque come somma dei singoli contributi:
+
+\begin{importantbox}
+    \begin{equation}
+        \chi(\omega) \;=\; \chi_{e^{-}\text{ est.}}(\omega) \;+\; \chi_{\text{ioni/atomi}}(\omega) \;+\; \chi_{\text{corr.}}(\omega), \qquad \chi(\omega) \in \mathbb{C},
+    \end{equation}
+\end{importantbox}
+
+ed è proprio questa \emph{suscettività complessa complessiva} che entra in tutte le relazioni dielettriche del materiale.
+
+\begin{exercise}
+Si consideri un campo elettromagnetico incidente \( \vec{E}_{\text{inc}} = (0, E_{y,\text{inc}}, 0) \) della forma
+
+\begin{equation}
+    E_{y,\text{inc}}(t, x) = E_{y,\text{inc},0} \, e^{i k_x x - i \omega t}.
+\end{equation}
+
+Il campo attraversa un materiale di spessore \( d \) caratterizzato dalla permettività dielettrica complessa \( \varepsilon = \varepsilon_1 + i \varepsilon_2 \), con \( \omega \) nel range ottico. Un rivelatore in trasmissione, al di là del materiale, misura il campo
+
+\begin{equation}
+    \vec{E}_t = (0, E_{y,t}, 0), \qquad E_{y,t}(t, x) = E_{y,t,0} \, e^{i k'_x x - i \omega t}.
+\end{equation}
+
+Si quantifichi l'assorbimento del materiale e l'intensità rilevata a metà spessore, \( x = d/2 \).
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[>=stealth, scale=1.0,
+        wave/.style={->, thick, blue!70!black, decorate, decoration={snake, amplitude=1.5pt, segment length=4.5pt, post length=3pt}}]
+        % x axis
+        \draw[->, thick] (-2.5, 0) -- (5.5, 0) node[anchor=west, font=\small] {\( x \)};
+        % material slab
+        \fill[teal!10] (0, -0.8) rectangle (3, 0.8);
+        \draw[teal!60!black, thick] (0, -0.8) -- (0, 0.8);
+        \draw[teal!60!black, thick] (3, -0.8) -- (3, 0.8);
+        % positions
+        \node[anchor=north, font=\small] at (0, -0.05) {\( 0 \)};
+        \node[anchor=north, font=\small] at (1.5, -0.05) {\( d/2 \)};
+        \node[anchor=north, font=\small] at (3, -0.05) {\( d \)};
+        % Incident wave
+        \draw[wave] (-2.4, 0.4) -- (-0.05, 0.4);
+        \node[anchor=south, font=\small] at (-1.5, 0.5) {\( \vec{E}_{\text{inc}} \)};
+        % Transmitted wave (smaller amplitude)
+        \draw[wave] (3.1, 0.3) -- (5.0, 0.3);
+        \node[anchor=south, font=\small] at (4.0, 0.4) {\( \vec{E}_t \)};
+    \end{tikzpicture}
+    \caption{Schema dell'esercizio: il campo incidente \( \vec{E}_{\text{inc}} \) attraversa un materiale di spessore \( d \), e viene rivelato dopo come \( \vec{E}_t \).}
+    \label{fig:esercizio_assorbimento}
+\end{figure}
+\end{exercise}
+
+\begin{solution}
+Riassumiamo le informazioni utili. Detta \( \lambda_{\text{inc}} \) la lunghezza d'onda nel vuoto e \( \lambda_t \) quella nel materiale,
+
+\begin{equation}
+    k_x = \frac{2\pi}{\lambda_{\text{inc}}}, \qquad k'_x = \frac{2\pi}{\lambda_t}, \qquad \lambda_t = \frac{\lambda_{\text{inc}}}{N(\omega)},
+\end{equation}
+
+da cui segue la relazione
+
+\begin{equation}
+    \frac{k'_x}{k_x} = N(\omega).
+\end{equation}
+
+La lunghezza d'onda cambia entrando nel materiale, mentre la pulsazione \( \omega \) si conserva. Sostituendo \( k'_x = N(\omega) k_x \) nell'espressione del campo trasmesso, e ricordando che \( N(\omega) = n(\omega) + i \kappa(\omega) \):
+
+\begin{align}
+    E_{t,y}(t, x) &= E_{t,y,0} \, e^{i N(\omega) k_x x - i \omega t} \\
+                  &= E_{t,y,0} \, e^{i [n(\omega) + i \kappa(\omega)] k_x x} \, e^{- i \omega t} \\
+                  &= E_{t,y,0} \, \underbrace{e^{i n(\omega) k_x x - i \omega t}}_{\text{onda che si propaga}} \, \underbrace{e^{- \kappa(\omega) k_x x}}_{\text{fattore di attenuazione}}.
+\end{align}
+
+La parte \( e^{i n(\omega) k_x x - i \omega t} \) ha modulo unitario e descrive la propagazione vera e propria, con velocità ridotta del fattore \( n(\omega) \); la parte \( e^{- \kappa(\omega) k_x x} \) ha invece modulo strettamente minore di uno e codifica l'\textbf{attenuazione esponenziale} dovuta al carattere assorbente del materiale (\( \kappa \) è infatti il coefficiente di estinzione).
+
+L'\textbf{intensità trasmessa} è proporzionale al modulo quadro del campo:
+
+\begin{equation}
+    I_t \;\propto\; \abs{\vec{E}_t}^{2} = \abs{E_{t,y,0}}^{2} \, e^{- 2 \kappa(\omega) k_x x},
+\end{equation}
+
+dove l'esponente individua direttamente il \textbf{coefficiente di assorbimento}
+
+\begin{importantbox}
+    \begin{equation}
+        \alpha_{\text{ASS}} = 2 \, \kappa(\omega) \, k_x,
+    \end{equation}
+\end{importantbox}
+
+in modo che l'intensità trasmessa segua la legge di Beer-Lambert,
+
+\begin{equation}
+    I_t(x) \;\propto\; \abs{E_{t,y,0}}^{2} \, e^{- \alpha_{\text{ASS}} x}.
+\end{equation}
+
+Indicando con \( C \) la costante di proporzionalità, l'intensità rilevata sul lato opposto del materiale (in \( x = d \)) e quella a metà spessore (\( x = d/2 \)) sono
+
+\begin{equation}
+    I_t(d) = C \, \abs{E_{t,y,0}}^{2} \, e^{- \alpha_{\text{ASS}} d}, \qquad I_t\!\left( \tfrac{d}{2} \right) = C \, \abs{E_{t,y,0}}^{2} \, e^{- \alpha_{\text{ASS}} d/2}.
+\end{equation}
+
+Facendo il rapporto, la costante \( C \abs{E_{t,y,0}}^{2} \) si semplifica e si ottiene direttamente
+
+\begin{equation}
+    I_t\!\left( \tfrac{d}{2} \right) = I_t(d) \, e^{\alpha_{\text{ASS}} d/2}.
+\end{equation}
+
+Resta da esprimere \( \alpha_{\text{ASS}} \) in termini di grandezze più immediate. Usando \( k_x = 2\pi/\lambda_{\text{inc}} = 2\pi \nu_{\text{inc}}/c = \omega/c \):
+
+\begin{equation}
+    \alpha_{\text{ASS}} = 2 \kappa \, k_x = 2 \kappa \, \frac{\omega}{c}.
+\end{equation}
+
+D'altra parte, dalla relazione \( \varepsilon_2 = 2 \, n(\omega) \, \kappa(\omega) \) ricaviamo \( \kappa = \varepsilon_2/(2 n) \), e sostituendo:
+
+\begin{importantbox}
+    \begin{equation}
+        \alpha_{\text{ASS}}(\omega) = \frac{\omega \, \varepsilon_2(\omega)}{c \, n(\omega)}.
+    \end{equation}
+\end{importantbox}
+
+Il coefficiente di assorbimento è dunque interamente determinato dalla parte immaginaria della permettività dielettrica \( \varepsilon_2(\omega) \) e dall'indice di rifrazione reale \( n(\omega) \), entrambi caratteristici del materiale. Quando il CEM entra nel cristallo, il risultato dipende sia dalla frequenza \( \omega \) sia dall'intensità del campo incidente.
+\end{solution}
 
