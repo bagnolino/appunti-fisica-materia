@@ -246,7 +246,7 @@ Analizziamo i vari termini che emergono dalle proiezioni:
 
 Proiettando rispetto a \( \ket{\varphi_B^{(0)}} \) si ottengono gli stessi termini analoghi (\( C_2, D_2 \)).
 
-Se la molecola è monoelementale (omonucleare), per ragioni di simmetria gli integrali relativi ai due nuclei risultano uguali: \( C_1 = C_2 = C \) e \( D_1 = D_2 = D \). % [Testo originale indica "monoatomica", ma il termine corretto è monoelementale/omonucleare]
+Se la molecola è monoelementale (omonucleare), per ragioni di simmetria gli integrali relativi ai due nuclei risultano uguali: \( C_1 = C_2 = C \) e \( D_1 = D_2 = D \).
 
 Sostituendo queste definizioni, il problema si riduce al seguente sistema lineare omogeneo:
 \begin{equation}
@@ -483,7 +483,7 @@ Per garantire l'antisimmetria della funzione d'onda totale, le combinazioni poss
     \underbrace{\Psi_{-, U}}_{\text{antisimmetrica}} \cdot \underbrace{\chi_+}_{\text{simmetrica}}
 \end{equation}
 
-Anche per le molecole, dunque, avremo stati di \textbf{SINGOLETTO} e \textbf{TRIPLETTO} molecolari, dovuti alla specifica configurazione delle autofunzioni di SPIN.
+Anche per le molecole, dunque, avremo stati di \textbf{singoletto} e \textbf{tripletto} molecolari, dovuti alla specifica configurazione delle autofunzioni di spin.
 \end{example}
 
 \section{Parte nucleare}
@@ -530,7 +530,7 @@ dove \(\vec{k}\) è il vettore d'onda associato al centro di massa. La soluzione
     \Phi_{E,N}(\vec{R}_{CM,N}) \propto e^{i \vec{k} \cdot \vec{R}_{CM,N}}
 \end{equation}
 
-\subsection{Spettro rotazionale e vibrazionali}
+\subsection{Spettro rotazionale e vibrazionale}
 
 Per quanto riguarda il moto della \textbf{massa ridotta} (che descrive la dinamica interna della molecola), l'equazione diventa:
 \begin{equation}
@@ -600,19 +600,19 @@ in cui \( E_e(R_{AB}) \) rappresenta lo specifico contributo elettronico all'ene
 Se la molecola è stabile, deve esistere un minimo del potenziale efficace \( U_{eff} \) in corrispondenza della distanza di equilibrio \( R_{AB} = R_{AB,eq} \). Questa condizione implica che la derivata prima del potenziale si annulli in tale punto:
 
 \begin{equation}
-    \left. \frac{d U_{eff}(R_{AB})}{d R_{AB}} \right|_{R_{AB,eq}} = 0
+    \left. \dv{U_{eff}(R_{AB})}{R_{AB}} \right|_{R_{AB,eq}} = 0
 \end{equation}
 
 Considerando un intervallo di tempo sufficientemente grande in cui la condizione di stabilità viene raggiunta, è possibile approssimare l'andamento del potenziale tramite uno sviluppo in serie di Taylor centrato nel punto di equilibrio:
 
 \begin{equation}
-    U_{eff}(R_{AB}) \approx \underbrace{U_{eff}(R_{AB,eq})}_{\text{pot. all'equilibrio}} + \underbrace{\frac{1}{2} \left. \frac{d^2 U_{eff}}{d R_{AB}^2} \right|_{R_{AB,eq}} (R_{AB} - R_{AB,eq})^2}_{\text{oscillatore armonico quantistico}}
+    U_{eff}(R_{AB}) \approx \underbrace{U_{eff}(R_{AB,eq})}_{\text{pot. all'equilibrio}} + \underbrace{\frac{1}{2} \left. \dv[2]{U_{eff}}{R_{AB}} \right|_{R_{AB,eq}} (R_{AB} - R_{AB,eq})^2}_{\text{oscillatore armonico quantistico}}
 \end{equation}
 
 Introduciamo quindi \( K_{mol} \), definita come la costante elastica della molecola:
 
 \begin{equation}
-    K_{mol} := \left. \frac{d^2 U_{eff}(R_{AB})}{d R_{AB}^2} \right|_{R_{AB} = R_{AB,eq}}
+    K_{mol} := \left. \dv[2]{U_{eff}(R_{AB})}{R_{AB}} \right|_{R_{AB} = R_{AB,eq}}
 \end{equation}
 
 La forza del legame chimico influisce direttamente sulla capacità dei nuclei di muoversi (oscillare) lungo l'asse che li congiunge.
@@ -711,7 +711,7 @@ Infine, per descrivere in modo univoco lo stato quantico del sistema, ogni livel
     \end{equation}
     Da questo risultato possiamo dedurre la pulsazione classica equivalente \( \omega_0 \simeq 5.471 \cdot 10^{14} \text{ rad/s} \).
 
-    In analogia con la fisica classica, la costante elastica della molecola \( K_{mol} \), definita formalmente come la derivata seconda del potenziale efficace valutata all'equilibrio (\( K_{mol} = \left. \frac{d^2 U_{eff}}{d R_{AB}^2} \right|_{R_{AB,eq}} \)), è legata alla pulsazione dalla relazione \( \omega_0 = \sqrt{\frac{K_{mol}}{\mu_{HCl}}} \). Invertendo l'espressione otteniamo il primo risultato:
+    In analogia con la fisica classica, la costante elastica della molecola \( K_{mol} \), definita formalmente come la derivata seconda del potenziale efficace valutata all'equilibrio (\( K_{mol} = \left. \dv[2]{U_{eff}}{R_{AB}} \right|_{R_{AB,eq}} \)), è legata alla pulsazione dalla relazione \( \omega_0 = \sqrt{\frac{K_{mol}}{\mu_{HCl}}} \). Invertendo l'espressione otteniamo il primo risultato:
     \begin{equation}
         K_{mol} = \mu_{HCl} \omega_0^2 \simeq 486.89 \frac{\text{N}}{\text{m}}
     \end{equation}
@@ -770,7 +770,7 @@ Infine, per descrivere in modo univoco lo stato quantico del sistema, ogni livel
 
     Per descrivere il moto vibrazionale, ricorriamo all'approssimazione di piccole oscillazioni (vibrazioni armoniche) attorno al punto di minimo del potenziale. La costante elastica \( K_{O_2} \) è definita come la derivata seconda del potenziale efficace valutata nella posizione di equilibrio \( R_{AB,eq} \):
     \begin{equation}
-        K_{O_2} = \left. \frac{d^2 U_{eff}}{d R_{AB}^2} \right|_{R_{AB,eq}}
+        K_{O_2} = \left. \dv[2]{U_{eff}}{R_{AB}} \right|_{R_{AB,eq}}
     \end{equation}
 
     Sfruttando la similitudine con l'oscillatore armonico della fisica classica, la pulsazione caratteristica del sistema è:
@@ -780,7 +780,7 @@ Infine, per descrivere in modo univoco lo stato quantico del sistema, ogni livel
 
     Eseguendo la derivata seconda della forma analitica di \( U_{eff}(R_{AB}) \), si dimostra che nel punto di minimo vale la relazione:
     \begin{equation}
-        \left. \frac{d^2 U_{eff}(R_{AB})}{d R_{AB}^2} \right|_{R_{AB,eq}} = 2\alpha^2 U_0
+        \left. \dv[2]{U_{eff}(R_{AB})}{R_{AB}} \right|_{R_{AB,eq}} = 2\alpha^2 U_0
     \end{equation}
 
     Prestando attenzione alla conversione delle unità di misura (\( \alpha = 2.78 \text{ \AA}^{-1} = 2.78 \cdot 10^{10} \text{ m}^{-1} \)), calcoliamo il valore numerico della costante elastica molecolare:

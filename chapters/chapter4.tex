@@ -2,7 +2,7 @@
 
 \lezione{14}{14/04/2026}
 
-Le proprietà fisiche dei solidi dipendono dalla composizione e dalla struttura con cui tali componenti si distribuiscono nello spazio occupato dal volume del solido. I componenti o costituenti possono esser atomi, ioni, molecole o complessi la cui interazione mediata da legami chimici può esser più o meno forte e stabile nel tempo.
+Le proprietà fisiche dei solidi dipendono dalla composizione e dalla struttura con cui tali componenti si distribuiscono nello spazio occupato dal volume del solido. I componenti o costituenti possono essere atomi, ioni, molecole o complessi la cui interazione mediata da legami chimici può essere più o meno forte e stabile nel tempo.
 
 Osservando le simmetrie presenti in natura, come ad esempio la struttura di un nido d'ape, è possibile notare la presenza di motivi (\textit{pattern}) traslati lungo determinate direzioni, andando a formare geometrie regolari, come degli esagoni.
 
@@ -64,7 +64,7 @@ Il reticolo che si riferisce alla struttura che descrive fisicamente il solido c
         \draw[->, very thick, green!60!black] (N01) -- (N00) node[midway, left, yshift = 3pt] {\(\vec{a}_2\)}; 
 
         % Nota sul vettore normale
-        \node[below left, font=\footnotesize] at (3, -0.5) {\(\vec{a}_3\) normal to the plane};
+        \node[below left, font=\footnotesize] at (3, -0.5) {\(\vec{a}_3\) normale al piano};
     \end{tikzpicture}
     \caption{Rappresentazione di un reticolo con invarianza per traslazioni. Sono evidenziate due possibili scelte differenti per i vettori di traslazione primitivi (set blu e set verde), a dimostrazione che la scelta della base non è univoca.}
 \end{figure}
@@ -92,7 +92,7 @@ Policristallino & Locale (micrometrica) & Grani, domini, bordi di grano \\
 Amorfo & Corto raggio (\AA) & Disordine globale, ordine atomico locale \\ \hline
 \end{tabular}
 \end{table}
-Noi ci concentremo principalmente sui cristalli.
+Noi ci concentreremo principalmente sui cristalli.
 
 \end{note}
 
@@ -135,8 +135,7 @@ La teoria dei reticoli di Bravais stabilisce che, nello spazio tridimensionale, 
 
 Ogni reticolo di Bravais in 3D è univocamente definito da tre vettori reticolari \( \vec{a}_1, \vec{a}_2, \vec{a}_3 \). Le loro lunghezze, indicate come \( a, b, c \), e gli angoli compresi \( \alpha, \beta, \gamma \) costituiscono i cosiddetti \textbf{parametri di cella}, i quali ne determinano le dimensioni e l'orientamento spaziale. All'interno di una struttura periodica, ogni nodo posto su un vertice della cella è condiviso da 8 celle adiacenti.
 
-\textbf{Sistemi Cristallini e Relazioni Geometriche} \\
-I 7 sistemi si differenziano per i vincoli geometrici imposti ai parametri di cella:
+\textbf{Sistemi Cristallini e Relazioni Geometriche.} I 7 sistemi si differenziano per i vincoli geometrici imposti ai parametri di cella:
 \begin{itemize}
     \item \textbf{Cubico:} \( a = b = c \) e \( \alpha = \beta = \gamma = 90^\circ \). Rappresenta il sistema più comune per i cristalli mono-elementali.
     \item \textbf{Tetragonale:} \( a = b \neq c \) e \( \alpha = \beta = \gamma = 90^\circ \).
@@ -147,8 +146,7 @@ I 7 sistemi si differenziano per i vincoli geometrici imposti ai parametri di ce
     \item \textbf{Triclino:} \( a \neq b \neq c \) e \( \alpha \neq \beta \neq \gamma \neq 90^\circ \). È la configurazione meno simmetrica, definita da 6 parametri indipendenti.
 \end{itemize}
 
-\textbf{Il Sistema Cubico} \\
-Data la sua rilevanza, il sistema cubico viene spesso analizzato attraverso tre varianti:
+\textbf{Il Sistema Cubico.} Data la sua rilevanza, il sistema cubico viene spesso analizzato attraverso tre varianti:
 \begin{itemize}
     \item \textbf{Cubico Semplice (SC):} con nodi posizionati esclusivamente sui vertici. Tale cella elementare è anche unitaria.
     \item \textbf{Cubico a Facce Centrate (FCC):} presenta nodi sui vertici e al centro di ogni faccia. Questa cella elementare non è unitaria in quanto contiene più di un nodo per cella.
@@ -278,17 +276,14 @@ Analizzando il sistema cubico, i fattori di partecipazione assumono i seguenti v
 
 Ipotizzando di disporre un elemento costitutivo (ad esempio un atomo) in ogni nodo, il cristallo risultante sarà descritto da un reticolo e da una base. È possibile calcolare il numero di \textbf{atomi equivalenti} (o nodi netti) che costituiscono la base di una specifica cella cartesiana sommando i contributi frazionari di tutti i suoi nodi.
 
-\textbf{Reticolo Cubico Semplice (SC)} \\
-La cella cubica semplice presenta nodi esclusivamente in corrispondenza degli 8 vertici. Il calcolo degli atomi equivalenti è:
+\textbf{Reticolo Cubico Semplice (SC).} La cella cubica semplice presenta nodi esclusivamente in corrispondenza degli 8 vertici. Il calcolo degli atomi equivalenti è:
 \( N = 8 \cdot \frac{1}{8} = 1 \text{ nodo/atomo} \) \\
 Poiché contiene un solo nodo netto, la cella cubica semplice è classificata come \textbf{cella unitaria}.
 
-\textbf{Reticolo Cubico a Corpo Centrato (BCC - Body Centered Cube)} \\
-Questa configurazione possiede nodi agli 8 vertici e un nodo aggiuntivo al centro geometrico del cubo. Il numero totale di atomi equivalenti risulta:
+\textbf{Reticolo Cubico a Corpo Centrato (BCC - Body Centered Cube).} Questa configurazione possiede nodi agli 8 vertici e un nodo aggiuntivo al centro geometrico del cubo. Il numero totale di atomi equivalenti risulta:
 \( N = \left( 8 \cdot \frac{1}{8} \right) + \left( 1 \cdot 1 \right) = 1 + 1 = 2 \text{ nodi/atomi} \)
 
-\textbf{Reticolo Cubico a Facce Centrate (FCC - Face Centered Cube)} \\
-La cella è caratterizzata da nodi agli 8 vertici e un nodo al centro di ciascuna delle 6 facce esterne. Il computo degli atomi equivalenti per cella è:
+\textbf{Reticolo Cubico a Facce Centrate (FCC - Face Centered Cube).} La cella è caratterizzata da nodi agli 8 vertici e un nodo al centro di ciascuna delle 6 facce esterne. Il computo degli atomi equivalenti per cella è:
 \( N = \left( 8 \cdot \frac{1}{8} \right) + \left( 6 \cdot \frac{1}{2} \right) = 1 + 3 = 4 \text{ nodi/atomi} \)
 
 \subsubsection{Piani e direzioni cristalline}
@@ -312,8 +307,7 @@ Un esempio pratico: se un piano interseca gli assi in \( (3, 2, 2) \), i rispett
 
 L'intero insieme di piani paralleli a quello appena calcolato costituisce una famiglia, la quale viene denotata utilizzando le parentesi graffe: \( \{hkl\} \). Nel caso in cui un indice assuma valore negativo (ad esempio un'intercetta sul semiasse negativo), la convenzione prevede di scrivere una barra al di sopra del numero. Se si considera un reticolo cubico allineato agli assi cartesiani, il piano \( (\bar{1}00) \) è parallelo al piano \( (100) \), ma la sua normale punta nel verso opposto rispetto all'asse \( x \).
 
-\textbf{Direzioni Cristallografiche} \\
-Il formalismo si estende anche alle direzioni all'interno del cristallo. Una specifica direzione viene indicata utilizzando le parentesi quadre \( [n_1 n_2 n_3] \) e rappresenta il vettore risultante dalla combinazione lineare \( n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3 \). Per fare un esempio, la simbologia \( [100] \) identifica esattamente il vettore \( \vec{a}_1 \), mentre \( [\bar{1}00] \) corrisponde al vettore \( -\vec{a}_1 \). Infine, una famiglia che raggruppa tutte le direzioni cristallografiche equivalenti per simmetria viene indicata con le parentesi angolate \( \langle n_1 n_2 n_3 \rangle \).
+\textbf{Direzioni Cristallografiche.} Il formalismo si estende anche alle direzioni all'interno del cristallo. Una specifica direzione viene indicata utilizzando le parentesi quadre \( [n_1 n_2 n_3] \) e rappresenta il vettore risultante dalla combinazione lineare \( n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3 \). Per fare un esempio, la simbologia \( [100] \) identifica esattamente il vettore \( \vec{a}_1 \), mentre \( [\bar{1}00] \) corrisponde al vettore \( -\vec{a}_1 \). Infine, una famiglia che raggruppa tutte le direzioni cristallografiche equivalenti per simmetria viene indicata con le parentesi angolate \( \langle n_1 n_2 n_3 \rangle \).
 
 \subsubsection{Cella primitiva}
 
@@ -324,8 +318,7 @@ Esistono diverse metodologie per identificare una \textbf{cella primitiva}, la q
 
 A partire da una convenzionale cella cartesiana definita dai vettori \( \{\vec{a}_1, \vec{a}_2, \vec{a}_3\} \) (paralleli ai versori \( \vec{u}_x, \vec{u}_y, \vec{u}_z \) e di modulo \( a \)), è possibile ricavare le relazioni per i vettori primitivi nelle diverse configurazioni cubiche.
 
-\textbf{Reticolo Cubico a Facce Centrate (FCC)} \\
-Nel sistema FCC, i vettori di base primitivi vengono costruiti assumendo un nodo della cella cartesiana come origine degli assi e tracciando i collegamenti verso i centri di tre facce adiacenti non complanari della cella stessa. Le espressioni che li definiscono sono:
+\textbf{Reticolo Cubico a Facce Centrate (FCC).} Nel sistema FCC, i vettori di base primitivi vengono costruiti assumendo un nodo della cella cartesiana come origine degli assi e tracciando i collegamenti verso i centri di tre facce adiacenti non complanari della cella stessa. Le espressioni che li definiscono sono:
 \begin{equation}
 \begin{cases}
     \vec{a}'_1 = \frac{1}{2}(\vec{a}_2 + \vec{a}_3) = \frac{1}{2}a(\vec{u}_y + \vec{u}_z) \\
@@ -345,8 +338,7 @@ Questa specifica cella primitiva racchiude al suo interno un solo nodo equivalen
     \label{fig:primitive_cell_fcc}
 \end{figure}
 
-\textbf{Reticolo Cubico a Corpo Centrato (BCC)} \\
-Per quanto riguarda il sistema BCC, i vettori di base primitivi partono sempre da un vertice della cella cartesiana, ma puntano verso i centri geometrici (dove sono situati i nodi interni) di tre celle cubiche adiacenti. Le relazioni vettoriali sono le seguenti:
+\textbf{Reticolo Cubico a Corpo Centrato (BCC).} Per quanto riguarda il sistema BCC, i vettori di base primitivi partono sempre da un vertice della cella cartesiana, ma puntano verso i centri geometrici (dove sono situati i nodi interni) di tre celle cubiche adiacenti. Le relazioni vettoriali sono le seguenti:
 \begin{equation}
 \begin{cases}
     \vec{a}'_1 = \frac{1}{2}(\vec{a}_2 + \vec{a}_3 - \vec{a}_1) = \frac{1}{2}a(\vec{u}_y + \vec{u}_z - \vec{u}_x) \\
@@ -430,7 +422,7 @@ Così come nello spazio reale, anche nel reticolo reciproco è possibile isolare
 
 L'unità di volume minimo all'interno di questo spazio è definita \textbf{cella primitiva del reticolo reciproco}. Di fondamentale importanza per la trattazione dei materiali cristallini è la \textbf{Zona di Brillouin}, la quale coincide con la cella di Wigner-Seitz costruita per i nodi del reticolo reciproco. Essa geometricamente rappresenta il volume racchiuso dai piani che bisecano ortogonalmente i segmenti congiungenti l'origine con i punti adiacenti del reticolo coniugato.
 
-\lezione{15}{21/05/2026}
+\lezione{15}{21/04/2026}
 
 È possibile dimostrare la stretta relazione tra il reticolo reciproco e i piani cristallini verificando che il vettore \( \vec{G}_{hkl} \) è ortogonale al piano individuato dagli indici di Miller \( (hkl) \). Per farlo, si definiscono tre vettori generatori giacenti sul piano a partire dalle rispettive intercette con gli assi:
 \begin{equation}
@@ -451,8 +443,7 @@ Procedendo analogamente per gli altri vettori, i prodotti scalari risultano tutt
     \hat{n}_{hkl} = \frac{\vec{G}_{hkl}}{|\vec{G}_{hkl}|}
 \end{equation}
 
-\textbf{Distanza Interplanare} \\
-La distanza \( d_{hkl} \) rispetto all'origine di un piano appartenente alla famiglia \( \{hkl\} \) è valutabile come la proiezione di un generico vettore del reticolo diretto \( \vec{R} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3 \) (che punta a tale piano) lungo la direzione normale:
+\textbf{Distanza Interplanare.} La distanza \( d_{hkl} \) rispetto all'origine di un piano appartenente alla famiglia \( \{hkl\} \) è valutabile come la proiezione di un generico vettore del reticolo diretto \( \vec{R} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3 \) (che punta a tale piano) lungo la direzione normale:
 \begin{equation}
     d_{hkl} = \vec{R} \cdot \hat{n}_{hkl} = \frac{\vec{R} \cdot \vec{G}_{hkl}}{|\vec{G}_{hkl}|}
 \end{equation}
@@ -465,8 +456,7 @@ Innestando questo risultato nella formula precedente, la \textbf{distanza minima
     d_{hkl,\text{min}} = \frac{2\pi}{|\vec{G}_{hkl}|}
 \end{equation}
 
-\textbf{Angolo tra Piani Cristallini} \\
-Conoscendo le direzioni normali, è immediato calcolare l'angolo \( \theta \) d'intersezione tra due piani cristallini definiti dagli indici \( (hkl) \) e \( (h'k'l') \). L'angolo scaturisce dalla relazione del prodotto scalare tra i due versori:
+\textbf{Angolo tra Piani Cristallini.} Conoscendo le direzioni normali, è immediato calcolare l'angolo \( \theta \) d'intersezione tra due piani cristallini definiti dagli indici \( (hkl) \) e \( (h'k'l') \). L'angolo scaturisce dalla relazione del prodotto scalare tra i due versori:
 \begin{equation}
     \theta = \arccos(\hat{n}_{hkl} \cdot \hat{n}_{h'k'l'}) = \arccos\left( \frac{\vec{G}_{hkl} \cdot \vec{G}_{h'k'l'}}{|\vec{G}_{hkl}| |\vec{G}_{h'k'l'}|} \right)
 \end{equation}
@@ -651,8 +641,7 @@ Nonostante le differenze concettuali di partenza, \textbf{le due visioni sono pe
 
 \lezione{16}{27/04/2026}
 
-\textbf{Dimostrazione dell'Equivalenza tra Bragg e Laue} \\
-Per dimostrare analiticamente che le due formulazioni descrivono la medesima condizione fisica, è sufficiente partire dal calcolo della differenza di cammino ottico tra le onde diffratte da piani reticolari consecutivi. 
+\textbf{Dimostrazione dell'Equivalenza tra Bragg e Laue.} Per dimostrare analiticamente che le due formulazioni descrivono la medesima condizione fisica, è sufficiente partire dal calcolo della differenza di cammino ottico tra le onde diffratte da piani reticolari consecutivi. 
 
 Affinché vi sia interferenza costruttiva, la variazione del percorso ottico \( \Delta s \) deve essere pari a un multiplo intero della lunghezza d'onda \( m\lambda \). Definiamo il vettore reticolare \( \vec{R}_{hkl} \), che congiunge due piani adiacenti muovendosi lungo la direzione normale, come:
 \begin{equation}
@@ -742,7 +731,7 @@ Questa equazione esprime un concetto fondamentale: il prodotto scalare tra il mo
     \label{fig:bragg_laue_equivalence}
 \end{figure}
 
-Partendo invece dalla condizione di Laue, la la dimostrazine la si può ottenere per via geometrica. Considerando la diffusione elastica, i vettori d'onda incidente \( \vec{k} \) e diffuso \( \vec{k}' \) formano un rombo con il vettore momento trasferito \( \Delta\vec{k} \). Conservandosi il modulo, abbiamo:
+Partendo invece dalla condizione di Laue, la dimostrazione la si può ottenere per via geometrica. Considerando la diffusione elastica, i vettori d'onda incidente \( \vec{k} \) e diffuso \( \vec{k}' \) formano un rombo con il vettore momento trasferito \( \Delta\vec{k} \). Conservandosi il modulo, abbiamo:
 \begin{equation}
     k = k' = \frac{2\pi}{\lambda}
 \end{equation}
@@ -837,8 +826,7 @@ Il fattore di struttura è la quantità fisica fondamentale che determina l'inte
 
 \begin{exercise}
     
-\textbf{da Esame} \\
-Si consideri un cristallo di Rame (Cu) caratterizzato da una struttura FCC. Dai dati di letteratura si ha:
+\textbf{da Esame.} Si consideri un cristallo di Rame (Cu) caratterizzato da una struttura FCC. Dai dati di letteratura si ha:
 \begin{itemize}
     \item Massa molare: \( P_{Cu} = 63.55 \, \text{g/mol} \)
     \item Densità di massa: \( \rho_{Cu} = 8.9 \, \text{g/cm}^3 \)
@@ -990,12 +978,11 @@ Per descrivere sistemi complessi a \( n \) elettroni, l'Hamiltoniana completa as
 \end{equation}
 L'equazione di Schrödinger stazionaria associata è \( H\Psi_E = E\Psi_E \), dove la funzione d'onda complessiva dipende dalle coordinate spaziali di tutti gli elettroni e dei nuclei, oltre che dallo spin:
 \begin{equation}
-    \Psi_E = \Psi_E(\{ \vec{r}_{e,i} \}_{i=1,\dots,N_e}, \{ \vec{R}_{N,j} \}_{j=1,\dots,N_N}, \text{SPIN})
+    \Psi_E = \Psi_E(\{ \vec{r}_{e,i} \}_{i=1,\dots,N_e}, \{ \vec{R}_{N,j} \}_{j=1,\dots,N_N}, \text{spin})
 \end{equation}
 Affinché sia fisicamente accettabile, tale funzione d'onda \( \Psi_E \) deve essere \textbf{antisimmetrica} per rispettare il Principio di esclusione di Pauli.
 
-\textbf{Approccio a componenti} \\
-Un approccio alternativo consiste nell'osservare la risposta del sistema scomponendo l'Hamiltoniana nei suoi diversi contributi fisici:
+\textbf{Approccio a componenti.} Un approccio alternativo consiste nell'osservare la risposta del sistema scomponendo l'Hamiltoniana nei suoi diversi contributi fisici:
 \begin{equation}
     H = \underbrace{H_N}_{\text{contrib. nucleare}} + \underbrace{H_{e,\text{valenza}}}_{\text{elettroni esterni}} + \underbrace{H_{e,\text{core}}}_{\text{elettroni interni}} + \Delta H_{\text{residuo}}
 \end{equation}
@@ -1012,7 +999,7 @@ A seconda della specifica categoria di proprietà fisiche che si intende studiar
 
 \subsection{Teorema di Bloch}
 
-\lezione{17}{28/04/2026f}
+\lezione{17}{28/04/2026}
 
 Consideriamo un sistema quantistico descritto da un'Hamiltoniana \(H\) in cui l'energia potenziale è una funzione periodica dello spazio, riflettendo la simmetria traslazionale di un reticolo cristallino:
 \begin{equation}
@@ -1020,8 +1007,7 @@ Consideriamo un sistema quantistico descritto da un'Hamiltoniana \(H\) in cui l'
 \end{equation}
 dove \(\vec{R}\) è un generico vettore del reticolo di Bravais, definito come combinazione lineare a coefficienti interi dei vettori base \(\{\vec{a}_i\}_{i=1..3}\): \(\vec{R} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3\) con \(n_i \in \mathbb{Z}\).
 
-\textbf{Enunciati} \\
-Il Teorema di Bloch stabilisce le proprietà fondamentali delle autofunzioni \(\Psi_E\) dell'equazione di Schrödinger \(H\Psi_E = E\Psi_E\) per un potenziale periodico. Esso può essere formulato in due modi equivalenti:
+\textbf{Enunciati.} Il Teorema di Bloch stabilisce le proprietà fondamentali delle autofunzioni \(\Psi_E\) dell'equazione di Schrödinger \(H\Psi_E = E\Psi_E\) per un potenziale periodico. Esso può essere formulato in due modi equivalenti:
 
 \begin{itemize}
     \item \textbf{Formulazione (a):} \\
@@ -1117,8 +1103,7 @@ L'unica forma matematica in grado di soddisfare contemporaneamente queste string
     \exists \, \beta_{\vec{R}} \in \mathbb{R} \quad \text{t.c.} \quad \gamma_{\vec{R}} = e^{i\beta_{\vec{R}}}
 \end{equation}
 
-\textbf{Linearità della fase ed espressione finale} \\
-Raccogliendo a sistema tutte le stringenti proprietà individuate finora per i fattori di fase \(\gamma\):
+\textbf{Linearità della fase ed espressione finale.} Raccogliendo a sistema tutte le stringenti proprietà individuate finora per i fattori di fase \(\gamma\):
 \begin{equation}
 \begin{cases}
     \gamma_{\vec{R}} = (\gamma_{\vec{a}_1})^{n_1} (\gamma_{\vec{a}_2})^{n_2} (\gamma_{\vec{a}_3})^{n_3} \\
@@ -1196,7 +1181,7 @@ Assumiamo ora come vera la formulazione (b):
     \exists \, u_E(\vec{r}) \quad \text{t.c.} \quad u_E(\vec{r}) = u_E(\vec{r} + \vec{R}) \quad \text{e} \quad \Psi_E(\vec{r}) = e^{i\vec{k}\cdot\vec{r}} u_E(\vec{r})
 \end{equation}
 
-Vediamo cosa capita alla funzione d'onda quando applichiamo una traslazione di un vettore reticolare \(\vec{R}\):
+Vediamo come si trasforma la funzione d'onda sotto una traslazione di un vettore reticolare \(\vec{R}\):
 \begin{equation}
     \Psi_E(\vec{r} + \vec{R}) = e^{i\vec{k}\cdot(\vec{r} + \vec{R})} u_E(\vec{r} + \vec{R})
 \end{equation}

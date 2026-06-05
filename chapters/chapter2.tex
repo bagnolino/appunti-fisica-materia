@@ -50,7 +50,7 @@ Nel sistema di riferimento del centro di massa l'atomo di He sarà perciò descr
     H = -\frac{\hbar^2}{2\mu} \nabla_{r_1}^2 - \frac{\hbar^2}{2\mu} \nabla_{r_2}^2 - \frac{Ze^2}{4\pi\epsilon_0 r_1} - \frac{Ze^2}{4\pi\epsilon_0 r_2} + \frac{e^2}{4\pi\epsilon_0 r_{12}} + \Delta H_{SF} - \frac{\hbar^2}{M_N} \vec{\nabla}_{r_1} \cdot \vec{\nabla}_{r_2}
 \end{equation}
 
-dove il termine \( -\frac{\hbar^2}{M_N} \vec{\nabla}_{r_1} \cdot \vec{\nabla}_{r_2} \) è detto \textbf{termine di polarizzazione di massa} ed emerge a seguito del cambio di coordinate. Dato che \( M_N \gg m_e \), esso contribuisce in modo poco significativo e può esser trascurato (di norma è incluso solo per correzioni di ordine superiore).
+dove il termine \( -\frac{\hbar^2}{M_N} \vec{\nabla}_{r_1} \cdot \vec{\nabla}_{r_2} \) è detto \textbf{termine di polarizzazione di massa} ed emerge a seguito del cambio di coordinate. Dato che \( M_N \gg m_e \), esso contribuisce in modo poco significativo e può essere trascurato (di norma è incluso solo per correzioni di ordine superiore).
 
 Le autofunzioni associate a \( H \):
 \begin{equation}
@@ -262,8 +262,7 @@ Il valore calcolato (\(\sim -75 \text{ eV}\)) risulta prossimo al dato speriment
 In un sistema a due elettroni, la natura dinamica delle cariche implica che l'interazione mutua crei una densità di carica spaziale che agisce schermando la carica del nucleo.
 
 \begin{attention}
-\textbf{Verifiche da effettuare:} \\
-La differenza tra il valore teorico e quello sperimentale può dipendere dai seguenti fattori:
+\textbf{Verifiche da effettuare.} La differenza tra il valore teorico e quello sperimentale può dipendere dai seguenti fattori:
 \begin{enumerate}
     \item \textbf{Principio di Pauli}: La funzione d'onda \(\Psi_E^{(0)}\) adottata in questa trattazione non soddisfa automaticamente il principio di esclusione di Pauli (ovvero il requisito di antisimmetria totale per lo scambio di particelle identiche).
     \item \textbf{Effetto di schermo}: Bisogna tenere conto dello schermaggio della carica nucleare operato dagli elettroni stessi; all'aumentare del numero di elettroni presenti nel sistema, l'efficacia di tale schermaggio cresce, riducendo la carica efficace percepita.
@@ -499,7 +498,7 @@ Il segno positivo corrisponde alla soluzione spaziale simmetrica (Paraelio), men
     
 
 \end{tikzpicture}
-\caption{Separazione dei livelli energetici per l'atomo di elio}
+\caption{Separazione dei livelli energetici per l'atomo di elio.}
 \end{figure}
 
 \section{Altre correzioni}
@@ -507,7 +506,7 @@ Il segno positivo corrisponde alla soluzione spaziale simmetrica (Paraelio), men
 \subsection{Interazione spin-orbita}
 
 \lezione{9}{23/03/2026}
-Oltre alle interazioni fondamentali, lo spettro dell'elio richiede l'inclusione del termine di accoppiamento spin-orbita \(\Delta H_{so}\). 
+Oltre alle interazioni fondamentali, lo spettro dell'elio richiede l'inclusione del termine di accoppiamento spin-orbita \(\Delta H_{SO}\). 
 I momenti angolari si combinano secondo le relazioni (indichiamo con le lettere maiuscole le combinazioni degli autovalori):
 
 \begin{equation}
@@ -522,38 +521,38 @@ I momenti angolari si combinano secondo le relazioni (indichiamo con le lettere 
 
 Gli stati sono definiti dai termini spettroscopici \(^{2S+1}L_J\). L'operatore dell'interazione spin-orbita è espresso dalla forma:
 \begin{equation}
-    \Delta H_{so} = \xi_{Z, L}(\vec{r}_1, \vec{r}_2) \vec{L} \cdot \vec{S}
+    \Delta H_{SO} = \xi_{Z, L}(\vec{r}_1, \vec{r}_2) \vec{L} \cdot \vec{S}
 \end{equation}
 
-Per lo stato fondamentale, il valore di aspettativa dell'interazione elettrone-elettrone è \(\langle \Delta V_{ee} \rangle \sim 34 \text{ eV}\). Poiché:
+Per lo stato fondamentale, il valore di aspettazione dell'interazione elettrone-elettrone è \(\expval{\Delta V_{ee}} \sim 34 \text{ eV}\). Poiché:
 \begin{equation}
-    \langle \Delta V_{ee} \rangle \gg \langle \Delta H_{so} \rangle
+    \expval{\Delta V_{ee}} \gg \expval{\Delta H_{SO}}
 \end{equation}
 l'interazione coulombiana repulsiva risulta predominante rispetto alla correzione spin-orbita.
 
 Per la descrizione dei momenti angolari \(\vec{L}\) e \(\vec{S}\), si introduce una base di autofunzioni comune. L'Hamiltoniana completa del sistema è definita come:
 
 \begin{equation}
-    H = T + V_{e-n} + V_{ee} + \Delta H_{so}
+    H = T + V_{e-n} + V_{ee} + \Delta H_{SO}
 \end{equation}
 
-La base naturale per i termini non perturbativi è costituita dagli autostati \(\{ \ket{L, S, M_L, M_S } \}\), definiti dai numeri quantici degli operatori \(L^2, S^2, L_z, S_z\). Tuttavia, l'inclusione del termine di interazione spin-orbita \(\Delta H_{so}\) richiede il passaggio alla base accoppiata \(\{ |J, M_J \rangle \}\). 
+La base naturale per i termini non perturbativi è costituita dagli autostati \(\{ \ket{L, S, M_L, M_S } \}\), definiti dai numeri quantici degli operatori \(L^2, S^2, L_z, S_z\). Tuttavia, l'inclusione del termine di interazione spin-orbita \(\Delta H_{SO}\) richiede il passaggio alla base accoppiata \(\{ \ket{J, M_J} \}\). 
 
 Tale cambio di base si effettua combinando gli stati della base precedente attraverso i coefficienti di Clebsch-Gordan. In questa rappresentazione, l'elemento di matrice dell'interazione spin-orbita assume la forma:
 
 \begin{equation}
-    \langle J, M_J | \Delta H_{so} | J, M_J \rangle = \frac{\hbar^2}{2} \left[ J(J+1) - L(L+1) - S(S+1) \right] \langle J, M_J | \xi_Z(r_1, r_2) | J, M_J \rangle
+    \mel{J, M_J}{\Delta H_{SO}}{J, M_J} = \frac{\hbar^2}{2} \left[ J(J+1) - L(L+1) - S(S+1) \right] \mel{J, M_J}{\xi_Z(r_1, r_2)}{J, M_J}
 \end{equation}
 
 Si nota che il calcolo del valore di aspettativa della funzione radiale \(\xi_Z(r_1, r_2)\) risulta analiticamente complesso.
 
 Per la quantificazione dell'interazione si ricorre spesso al confronto con i dati sperimentali, definendo il parametro:
 \begin{equation}
-    \langle J, M_J | \xi_Z(r_1, r_2) | J, M_J \rangle =: \tilde{A}_{Z, L}
+    \mel{J, M_J}{\xi_Z(r_1, r_2)}{J, M_J} =: \tilde{A}_{Z, L}
 \end{equation}
 Tale valore dipende dal numero atomico \(Z\) e dal momento angolare orbitale \(L\), variando in base al termine spettroscopico \(^{2S+1}L_J\) analizzato.
 
-L'energia di spostamento spin-orbita \(\Delta E_{so} = \langle \Delta H_{so} \rangle\) è caratterizzata dalle seguenti proprietà:
+L'energia di spostamento spin-orbita \(\Delta E_{SO} = \expval{\Delta H_{SO}}\) è caratterizzata dalle seguenti proprietà:
 \begin{itemize}
     \item Dipende strettamente dai numeri quantici \(J, L, S\).
     \item È nulla quando \(S=0\) (e conseguentemente \(J=L\)), poiché il termine cinematico si annulla:
@@ -568,7 +567,7 @@ Queste osservazioni spiegano perché le sub-shell e gli orbitali completamente o
 Considerando l'atomo di Elio (He) come esempio, si osserva come l'introduzione di termini correttivi nell'Hamiltoniana porti alla progressiva rimozione della degenerazione dei livelli energetici. Il processo segue la gerarchia:
 
 \begin{equation}
-    H^{(0)} = T + V_{e-n} \longrightarrow T + V_{e-n} + V_{ee} \longrightarrow T + V_{e-n} + V_{ee} + \Delta H_{so}
+    H^{(0)} = T + V_{e-n} \longrightarrow T + V_{e-n} + V_{ee} \longrightarrow T + V_{e-n} + V_{ee} + \Delta H_{SO}
 \end{equation}
 \begin{figure}[htbp]
     \centering
@@ -622,13 +621,13 @@ Considerando l'atomo di Elio (He) come esempio, si osserva come l'introduzione d
             };
 
         % Titolo sopra la sezione finale
-        \node[blue!80!black, above, font=\footnotesize\bfseries] at (6.5, 2.1) {\( T + V_{e-n} + V_{ee} + \Delta H_{so} \)};
+        \node[blue!80!black, above, font=\footnotesize\bfseries] at (6.5, 2.1) {\( T + V_{e-n} + V_{ee} + \Delta H_{SO} \)};
 
     \end{tikzpicture}
     \caption{Diagramma dettagliato della rimozione della degenerazione energetica nell'atomo di Elio.}
 \end{figure}
 
-La suddivisione in sottolivelli dipende dai numeri quantici \(J, L, S\) e determina lo spostamento energetico \(\Delta E_{so}\). È importante sottolineare che lo shift non è necessariamente simmetrico rispetto al livello imperturbato e la configurazione dei sottolivelli (sopra o sotto la soglia precedente) è funzione della combinazione specifica dei momenti angolari.
+La suddivisione in sottolivelli dipende dai numeri quantici \(J, L, S\) e determina lo spostamento energetico \(\Delta E_{SO}\). È importante sottolineare che lo shift non è necessariamente simmetrico rispetto al livello imperturbato e la configurazione dei sottolivelli (sopra o sotto la soglia precedente) è funzione della combinazione specifica dei momenti angolari.
 
 Le principali difficoltà teoriche risiedono nel:
 \begin{itemize}
@@ -896,20 +895,20 @@ Questo comportamento è formalizzato dalla prima \textbf{regola di Hund}, una re
 
 \begin{exercise}
 
-Per le configurazioni \( 1s^2 \), \( 1s 2s \) e \( 1s 2p \), stimare lo shift energetico spin-orbita \( \Delta E_{so} \) in funzione del parametro \( \tilde{A}_L \).
+Per le configurazioni \( 1s^2 \), \( 1s 2s \) e \( 1s 2p \), stimare lo shift energetico spin-orbita \( \Delta E_{SO} \) in funzione del parametro \( \tilde{A}_L \).
 \begin{solution}
 In via generale, l'interazione spin-orbita risulta nulla nelle seguenti condizioni:
 \begin{equation}
-    L = 0 \implies \Delta E_{so} = 0
+    L = 0 \implies \Delta E_{SO} = 0
 \end{equation}
 \begin{equation}
-    S = 0 \implies \Delta E_{so} = 0
+    S = 0 \implies \Delta E_{SO} = 0
 \end{equation}
 Di conseguenza, i termini \( ^3S_1 \) e \( ^1S_0 \) non presentano alcuno splitting spin-orbita.
 
 Analizziamo i termini che originano dalla configurazione \( 1s 2p \). L'elemento di matrice dell'Hamiltoniana di spin-orbita è definito come:
 \begin{equation}
-    \langle J, M_J | \Delta H_{so} | J, M_J \rangle = \frac{\hbar^2}{2} \left[ J(J+1) - L(L+1) - S(S+1) \right] \langle J, M_J | \xi_Z(r_1, r_2) | J, M_J \rangle
+    \mel{J, M_J}{\Delta H_{SO}}{J, M_J} = \frac{\hbar^2}{2} \left[ J(J+1) - L(L+1) - S(S+1) \right] \mel{J, M_J}{\xi_Z(r_1, r_2)}{J, M_J}
 \end{equation}
 
 Identificando l'integrale radiale con il parametro \( \tilde{A}_1 \) (essendo \( L=1 \)), possiamo determinare lo shift energetico per ogni termine del multipletto calcolando il coefficiente moltiplicativo:
@@ -919,9 +918,9 @@ Identificando l'integrale radiale con il parametro \( \tilde{A}_1 \) (essendo \(
     \renewcommand{\arraystretch}{1.5}
     \begin{tabular}{|c|l|c|}
         \hline
-        \textbf{Termine} & \textbf{Fattore} \( \frac{1}{2} \left[ J(J+1) - L(L+1) - S(S+1) \right] \) & \textbf{Shift} (\( \Delta E_{so} \)) \\
+        \textbf{Termine} & \textbf{Fattore} \( \frac{1}{2} \left[ J(J+1) - L(L+1) - S(S+1) \right] \) & \textbf{Shift} (\( \Delta E_{SO} \)) \\
         \hline
-        \( ^1P_1 \) & \( \Delta E_{so} = 0 \) (essendo \( S=0 \)) & \( 0 \) \\
+        \( ^1P_1 \) & \( \Delta E_{SO} = 0 \) (essendo \( S=0 \)) & \( 0 \) \\
         \hline
         \( ^3P_0 \) & \( \frac{1}{2} [0(1) - 1(2) - 1(2)] = -2 \) & \( -2\hbar^2\tilde{A}_1 \) \\
         \hline
@@ -974,9 +973,9 @@ Identificando l'integrale radiale con il parametro \( \tilde{A}_1 \) (essendo \(
 
 \subsection{Effetto Zeeman}
 
-Stante la presenza dell'accoppiamento spin-orbita \(\Delta H_{so}\), si applica un campo magnetico esterno \(\vec{B}_{ext}\) di entità piccola per osservare il regime Zeeman:
+Stante la presenza dell'accoppiamento spin-orbita \(\Delta H_{SO}\), si applica un campo magnetico esterno \(\vec{B}_{ext}\) di entità piccola per osservare il regime Zeeman:
 \begin{equation}
-    \langle \Delta H_{B_{ext}} \rangle \ll \langle \Delta H_{so} \rangle \quad \text{(Effetto Zeeman)}
+    \expval{\Delta H_{B_{ext}}} \ll \expval{\Delta H_{SO}} \quad \text{(Effetto Zeeman)}
 \end{equation}
 
 Per spiegare gli esperimenti, si deve assumere che l'interazione del campo \(\vec{B}_{ext}\) avvenga con i momenti angolari totali del sistema:
@@ -1018,7 +1017,7 @@ mentre i valori ammessi per il momento angolare totale \( J \) obbediscono alla 
     |L - S| \le J \le L + S
 \end{equation}
 
-Considerando ad esempio i casi precedenti per l'atomo di Elio (He) nelle configurazioni \( 1s^2 \), \( 1s 2s \) e \( 1s 2p \), in cui si considera \( [\langle \Delta H_{so} \rangle = 0] \), i valori calcolati per il fattore di Landé \( g_{JLS} \) sono riportati nella tabella seguente. Si osserva che per i termini in cui il momento angolare totale è nullo (\( J=0 \)), il fattore non è definito.
+Considerando ad esempio i casi precedenti per l'atomo di Elio (He) nelle configurazioni \( 1s^2 \), \( 1s 2s \) e \( 1s 2p \), in cui si considera \(\expval{\Delta H_{SO}} = 0\), i valori calcolati per il fattore di Landé \( g_{JLS} \) sono riportati nella tabella seguente. Si osserva che per i termini in cui il momento angolare totale è nullo (\( J=0 \)), il fattore non è definito.
 
 \begin{table}[htbp]
     \centering
@@ -1082,7 +1081,7 @@ L'introduzione di un campo magnetico esterno rimuove la degenerazione dei livell
         \draw[level] (3.5, -1.8) -- (5, -1.8) node[right=2pt] {\( -1 \)};
 
         \node[above, font=\bfseries] at (5.3, 0.1) {\( m_J \)};
-        \node[teal, right] at (6, -1) {TRIPLETTO};
+        \node[teal, right] at (6, -1) {tripletto};
 
     \end{tikzpicture}
     \caption{Schema della rimozione della degenerazione per effetto Zeeman. Il livello superiore (\( ^3P_2 \)) si suddivide in 5 sottolivelli, mentre quello inferiore (\( ^3P_1 \)) si divide in 3 sottolivelli (tripletto Zeeman).}
@@ -1132,8 +1131,8 @@ In base a questa notazione:
         % --- Intestazioni delle colonne (centrate rispetto ai nuovi blocchi) ---
         \node[label, font=\large\bfseries] at (0.9, 3.5) {\( H^{(0)} \)};
         \node[label, font=\large\bfseries] at (5.4, 3.5) {\(+ V_{ee} \)};
-        \node[label, font=\large\bfseries] at (9.9, 3.5) {\( +\Delta H_{so} \)};
-        \node[label, font=\large\bfseries] at (14.4, 3.5) {\( + \Delta H_{B,ext} \)};
+        \node[label, font=\large\bfseries] at (9.9, 3.5) {\( +\Delta H_{SO} \)};
+        \node[label, font=\large\bfseries] at (14.4, 3.5) {\( + \Delta H_{B_{ext}} \)};
 
         % ==========================================
         % STADIO 1: H(0) (Campo Centrale)
@@ -1320,14 +1319,14 @@ All'interno dell'Hamiltoniana per atomi "leggeri", il termine di repulsione inte
     \end{equation}
     Successivamente, i momenti totali si accoppiano, definendo il termine di spin-orbita:
     \begin{equation}
-        \vec{J} = \vec{L} + \vec{S} \implies \Delta H_{so} = \tilde{A}_L \vec{L} \cdot \vec{S}
+        \vec{J} = \vec{L} + \vec{S} \implies \Delta H_{SO} = \tilde{A}_L \vec{L} \cdot \vec{S}
     \end{equation}
 
     \vspace{0.3cm}
     \textbf{Atomi "pesanti" (\( Z \gtrsim 40 \)):} \\
     Prevale l'interazione \( jj \). I momenti orbitale e di spin di ciascun singolo elettrone si accoppiano per primi:
     \begin{equation}
-        \vec{j}_i = \vec{\ell}_i + \vec{s}_i \implies \Delta H_{so} = \sum_{i=1}^{N} \xi_Z(r_i) \vec{\ell}_i \cdot \vec{s}_i
+        \vec{j}_i = \vec{\ell}_i + \vec{s}_i \implies \Delta H_{SO} = \sum_{i=1}^{N} \xi_Z(r_i) \vec{\ell}_i \cdot \vec{s}_i
     \end{equation}
 
 La demarcazione tra i regimi di accoppiamento non costituisce una soglia netta, ma descrive piuttosto un comportamento prevalente dettato dagli ordini di grandezza delle interazioni in gioco.
@@ -1555,8 +1554,8 @@ Gli \( e^- \) esterni sono meno vincolati al nucleo, è sufficiente un campo ele
 
 \begin{note}{Regole di Hund (per \(e^-\) equivalenti) per gli atomi a \(N\)-elettroni}{hund}
 \begin{enumerate}
-    \item \(^{2S+1}L_J\): ha energia inferiore il termine che ha molteplicità di SPIN più alta (\(^3P_{0,1,2} < \text{singoletto}\)). \\
-    \textit{Solo per termini con \(e^-\) equivalenti (tipo per quelli di \(2p^2\), no \(2s^1\) e \(3p^1\)).} 
+    \item \(^{2S+1}L_J\): ha energia inferiore il termine che ha molteplicità di spin più alta (\(^3P_{0,1,2} < \text{singoletto}\)). \\
+    \textit{Solo per termini con \(e^-\) equivalenti (ad esempio quelli di \(2p^2\), non per \(2s^1\) o \(3p^1\)).} 
 
     \item Se \(S\) è fissato (spin totale) il valore \(L\) maggiore tende ad assumere energia minore.
 

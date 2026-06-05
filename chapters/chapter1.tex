@@ -45,7 +45,7 @@ Per atomo idrogenoide si intende un sistema legato composto da un nucleo di cari
 
 Consideriamo l'Hamiltoniano imperturbato di un atomo isolato, definito dalla somma dell'energia cinetica (\(T\)) e del potenziale (\(V\)):
 \begin{equation}
-    H^{(0)} = H_{(0)} = T + V
+    H^{(0)} = T + V
 \end{equation}
 
 Il sistema descrive un nucleo di carica \(+Ze\) e un elettrone di carica \(-e\). Introduciamo le seguenti variabili nel sistema di riferimento del laboratorio (SR LAB):
@@ -73,7 +73,7 @@ Trattandosi di un sistema stazionario, separiamo la dipendenza temporale tramite
 \end{equation}
 In questa formulazione, la funzione d'onda comprende una parte spaziale, una parte di spin (\(s\)) e la componente temporale.
 
-Poiché l'Hamiltoniano \(H^{(0)}\) non dipende dalle variabili di SPIN, possiamo fattorizzare la soluzione:
+Poiché l'Hamiltoniano \(H^{(0)}\) non dipende dalle variabili di spin, possiamo fattorizzare la soluzione:
 \begin{tcolorbox}[colback=blue!5, colframe=blue!50, sharp corners, boxrule=0.5pt]
     \begin{equation}
         \Psi_E^{(0)} = \psi_E^{(0)}(\vec{r}_e, \vec{R}_N) \chi(s) e^{-\frac{i}{\hbar}E^{(0)}t}
@@ -82,8 +82,8 @@ Poiché l'Hamiltoniano \(H^{(0)}\) non dipende dalle variabili di SPIN, possiamo
 
 Dove:
 \begin{itemize}
-    \item \(\chi(s)\) rappresenta l'autofunzione di SPIN;
-    \item \(\psi_E^{(0)}(\vec{r}_e, \vec{R}_N)\) rappresenta l'autofunzione SPAZIALE.
+    \item \(\chi(s)\) rappresenta l'autofunzione di spin;
+    \item \(\psi_E^{(0)}(\vec{r}_e, \vec{R}_N)\) rappresenta l'autofunzione spaziale.
 \end{itemize}
 
 L'equazione agli autovalori per la componente spaziale è dunque:
@@ -165,11 +165,7 @@ Esprimiamo il vettore posizione relativa \(\vec{r} = (x, y, z)\) in coordinate s
     \label{fig:coordinateCM_atomo}
 \end{figure}
 
-L'operatore Laplaciano \(\nabla_r^2\) può essere riscritto in coordinate sferiche \((r, \theta, \phi)\) per facilitare la risoluzione dell'equazione agli autovalori:
-\begin{equation}
-    H^{(0)} \psi_E^{(0)}(\vec{r}_e, \vec{R}_N) = E^{(0)} \psi_E^{(0)}(\vec{r}_e, \vec{R}_N)
-\end{equation}
-Esprimendo il sistema in termini delle coordinate del centro di massa \(\vec{R}_{CM}\) e della posizione relativa \(\vec{r} = \vec{r}_e - \vec{R}_N\), l'Hamiltoniano completo assume la forma:
+Riscrivendo l'operatore Laplaciano \(\nabla_r^2\) in coordinate sferiche \((r, \theta, \phi)\), ed esprimendo il sistema in termini delle coordinate del centro di massa \(\vec{R}_{CM}\) e della posizione relativa \(\vec{r} = \vec{r}_e - \vec{R}_N\), l'Hamiltoniano completo assume la forma:
 
 \begin{equation}
     H^{(0)} = \underbrace{\left\{ -\frac{\hbar^2}{2\mu} \frac{1}{r^2} \pdv{r} \left( r^2 \pdv{r} \right) + \frac{L^2}{2\mu r^2} - \frac{Ze^2}{4\pi\epsilon_0 r} \right\}}_{\text{Parte relativa}} \underbrace{- \frac{\hbar^2}{2M_{TOT}} \nabla_{R_{CM}}^2}_{\text{Parte CM}}
@@ -193,8 +189,7 @@ In questa espressione:
     \item \(Y_\ell^{m_\ell}(\theta, \phi)\) rappresenta la \textbf{dipendenza angolare} (armoniche sferiche).
 \end{itemize}
 
-\textbf{Natura dello spettro energetico} \\
-Il comportamento degli autovalori dell'energia \(E^{(0)}\) determina la natura dello spettro dell'atomo:
+\textbf{Natura dello spettro energetico.} Il comportamento degli autovalori dell'energia \(E^{(0)}\) determina la natura dello spettro dell'atomo:
 \begin{itemize}
     \item \textbf{Spettro continuo}: per energie \(E^{(0)} > 0\) (stati di diffusione);
     \item \textbf{Spettro discreto}: per energie \(E^{(0)} < 0\) (stati legati).
@@ -223,8 +218,7 @@ Tuttavia, per un valore di \(n\) fissato, è possibile avere tanti stati quantic
 e per ciascun \(\ell\) vi sono \(2\ell+1\) valori di \(m_\ell\). Questo fenomeno implica che più stati condividano lo stesso livello energetico, dando origine alla \textbf{degenerazione}.
 
 \vspace{0.5em}
-\textbf{Orbitale \(s\) (\(\ell=0\))} \\
-Per \(\ell=0\), l'armonica sferica è una costante (\(Y_0^0 = 1/\sqrt{4\pi}\)). Non essendoci dipendenza dagli angoli \(\theta\) e \(\phi\), la funzione d'onda ha una simmetria puramente \textbf{sferica}. L'elettrone ha la stessa probabilità di essere trovato in qualsiasi direzione a parità di distanza \(r\) dal nucleo.
+\textbf{Orbitale \(s\) (\(\ell=0\)).} Per \(\ell=0\), l'armonica sferica è una costante (\(Y_0^0 = 1/\sqrt{4\pi}\)). Non essendoci dipendenza dagli angoli \(\theta\) e \(\phi\), la funzione d'onda ha una simmetria puramente \textbf{sferica}. L'elettrone ha la stessa probabilità di essere trovato in qualsiasi direzione a parità di distanza \(r\) dal nucleo.
 
 \begin{figure}[ht]
     \centering
@@ -246,8 +240,7 @@ Per \(\ell=0\), l'armonica sferica è una costante (\(Y_0^0 = 1/\sqrt{4\pi}\)). 
 \end{figure}
 
 \vspace{0.5em}
-\textbf{Orbitale \(p\) (\(\ell=1\))} \\
-Per \(\ell=1\), il numero quantico magnetico può essere \(m_\ell = -1, 0, 1\). Le funzioni d'onda perdono la simmetria sferica e acquisiscono una dipendenza direzionale, manifestando dei \textbf{piani nodali} (piani in cui la probabilità di trovare l'elettrone è rigorosamente nulla, e che passano per il nucleo). 
+\textbf{Orbitale \(p\) (\(\ell=1\)).} Per \(\ell=1\), il numero quantico magnetico può essere \(m_\ell = -1, 0, 1\). Le funzioni d'onda perdono la simmetria sferica e acquisiscono una dipendenza direzionale, manifestando dei \textbf{piani nodali} (piani in cui la probabilità di trovare l'elettrone è rigorosamente nulla, e che passano per il nucleo). 
 Combinando linearmente le autofunzioni, si ottengono i tre orbitali reali orientati lungo i tre assi cartesiani (\(p_x, p_y, p_z\)), caratterizzati da una forma a "doppio lobo".
 
 \begin{figure}[ht]
@@ -373,15 +366,18 @@ Espressione relativistica dell'energia cinetica:
 \end{equation}
 
 \begin{remark}
-    In SR LAB vale questa. In SR CM metto \(\mu\) al posto di \(m_e\) ma \(\mu \approx m_e\), quindi è come stare nel LAB.
+    Questa espressione vale nel SR LAB. Nel SR CM occorre sostituire \(m_e\) con la massa ridotta \(\mu\), ma poiché \(\mu \approx m_e\) i due sistemi forniscono risultati equivalenti.
 \end{remark}
 
-Come riscriviamo \(T\) ora:
+Riscriviamo ora \(T\):
 \begin{align*}
-    T &= E - m_e c^2 = \left\{ \sqrt{p^2 c^2 + m_e^2 c^4} - m_e c^2 \right\} = \\[1ex]
-      &= m_e c^2 \left\{ \sqrt{\frac{p^2 c^2}{m_e^2 c^4} + 1} - 1 \right\} = m_e c^2 \left\{ \sqrt{\frac{p^2}{m_e^2 c^2} + 1} - 1 \right\} \approx \text{espandiamo} \approx \\[1ex]
-      &\approx m_e c^2 \left\{ \cancel{1} + \frac{1}{2}\frac{p^2}{m_e^2 c^2} - \frac{1}{8}\frac{p^4}{m_e^4 c^4} + \dots - \cancel{1} \right\}
+    T &= E - m_e c^2 = \sqrt{p^2 c^2 + m_e^2 c^4} - m_e c^2 = \\[1ex]
+      &= m_e c^2 \left\{ \sqrt{\frac{p^2 c^2}{m_e^2 c^4} + 1} - 1 \right\} = m_e c^2 \left\{ \sqrt{\frac{p^2}{m_e^2 c^2} + 1} - 1 \right\}.
 \end{align*}
+Sviluppando la radice in serie di Taylor per \(p \ll m_e c\):
+\begin{equation*}
+    T \approx m_e c^2 \left\{ \cancel{1} + \frac{1}{2}\frac{p^2}{m_e^2 c^2} - \frac{1}{8}\frac{p^4}{m_e^4 c^4} + \dots - \cancel{1} \right\}.
+\end{equation*}
 Otteniamo dunque:
 \begin{equation}
     \Delta H_{rel} = - \frac{p^4}{8m_e^3c^2}
@@ -465,15 +461,15 @@ Abbiamo, dunque, che la cinematica del sistema rotante introduce un'ulteriore co
     \Delta H_{\text{sist. rotante - spin}} = \vec{\omega}_T \cdot \vec{S} = - \frac{1}{2} K_Z(r) \left(\vec{L} \cdot \vec{S}\right) \frac{e}{m_e}
 \end{equation}
 
-Chiameremo più propriamente correzione (complessiva) di \text{SPIN-ORBITA}:
+Chiameremo più propriamente correzione complessiva di \textbf{spin-orbita}:
 \begin{align}
-    \Delta H_{SO} &= \Delta H_{in, \vec{B}' \cdot \vec{S}} + \Delta H_{sist. rotante - spin} = \nonumber \\
-    &= \frac{e}{m_e} \left( K_z(r) \vec{L} \cdot \vec{S} - \frac{1}{2} K_z(r) \vec{L} \cdot \vec{S} \right) =\frac{e}{m_e} \frac{1}{2} K_z(r) \vec{L} \cdot \vec{S} = \xi_z(r) \vec{L} \cdot \vec{S}
+    \Delta H_{SO} &= \Delta H_{\text{int } \vec{B}'-\vec{S}} + \Delta H_{\text{sist. rotante - spin}} = \nonumber \\
+    &= \frac{e}{m_e} \left( K_Z(r) \vec{L} \cdot \vec{S} - \frac{1}{2} K_Z(r) \vec{L} \cdot \vec{S} \right) =\frac{e}{m_e} \frac{1}{2} K_Z(r) \vec{L} \cdot \vec{S} = \xi_Z(r) \vec{L} \cdot \vec{S}
 \end{align}
 
-Calcoliamo quanto vale il valore aspettazione per un generico autostato di \(H^{(0)}\), ovvero \(R_{n\ell}(r) Y_\ell^{m_\ell}(\theta, \phi) \chi_{s, m_s}\) che descriviamo com il ket \(\ket{n, \ell, m_\ell, s, m_s}\):
+Calcoliamo quanto vale il valore di aspettazione per un generico autostato di \(H^{(0)}\), ovvero \(R_{n\ell}(r) Y_\ell^{m_\ell}(\theta, \phi) \chi_{s, m_s}\) che descriviamo con il ket \(\ket{n, \ell, m_\ell, s, m_s}\):
 \begin{equation*}
-    \expval{\Delta H_{SO}} = \mel{n, \ell, m_\ell, s, m_s}{\xi_z(r)\vec{L} \cdot \vec{S}}{n, \ell, m_\ell, s, m_s}
+    \expval{\Delta H_{SO}} = \mel{n, \ell, m_\ell, s, m_s}{\xi_Z(r)\vec{L} \cdot \vec{S}}{n, \ell, m_\ell, s, m_s}
 \end{equation*}
 Tuttavia, la presenza del termine \(\vec{L} \cdot \vec{S}\) mescola gli autostati di \(H^{(0)}\), per cui è necessario effettuare un cambio di base. \\
 Usiamo il momento angolare totale \(\vec{J} = \vec{L} + \vec{S}\) associato all'operatore \(\vec{J}\):
@@ -489,14 +485,14 @@ Sulla base O.N. \(\ket{j,m_j}\), tale che soddisfi queste condizioni:
     m_j = \underbrace{-j, -j+1, \dots, j}_{2j+1} \qquad \qquad \abs{\ell - s} \le j \le \ell + s
 \end{equation}
 
-Dato \(\vec{S} \) e \( \vec{L}\) commutano abbiamo che:
+Dato che \(\vec{S} \) e \( \vec{L}\) commutano abbiamo che:
 \begin{equation}
     \vec{J} = \vec{S} + \vec{L} \implies J^2 = S^2 + L^2 + 2 \vec{S} \cdot \vec{L} 
 \end{equation}
 
 \begin{equation}
     \vec{S} \cdot \vec{L} = \frac{J^2 - S^2 - L^2}{2}
-    \implies \Delta H_{SO} = \xi_z(r) \vec{L} \cdot \vec{S} = \xi_z(r) \left\{ \frac{J^2 - L^2 - S^2}{2} \right\} 
+    \implies \Delta H_{SO} = \xi_Z(r) \vec{L} \cdot \vec{S} = \xi_Z(r) \left\{ \frac{J^2 - L^2 - S^2}{2} \right\} 
 \end{equation}
 
 \begin{equation}
@@ -506,7 +502,7 @@ Dato \(\vec{S} \) e \( \vec{L}\) commutano abbiamo che:
 
 \lezione{3}{02/03/2026}
 
-Ricordiamo che gli autostati della base \(\left\{ \ket{j,m_j} \right\}\) (dove sono impiciti gli autovalori \(n, \ell, s\)) 
+Ricordiamo che gli autostati della base \(\left\{ \ket{j,m_j} \right\}\) (dove sono impliciti gli autovalori \(n, \ell, s\))
 possono essere ottenuti dalla base di autostati di \(H^{(0)}\) \(\left\{ \ket{n, \ell, m_{\ell}, s, m_s} \right\}\) mediante i coefficienti di Clebsch-Gordan:
 
 \begin{equation}
@@ -581,7 +577,7 @@ A partire dallo stato \( E^{(0)} \), si osserva uno \textbf{splitting}: una sepa
         % Opzionale: tratteggio per evidenziare lo spostamento
         \draw[dashed, thin, gray] (2,0) -- (5,0);
     \end{tikzpicture}
-    \caption{Splitting energetico dall'interazione SO}
+    \caption{Splitting energetico dall'interazione spin-orbita.}
 \end{figure}
 
 L'energia \( E^{(0)} \) vale:
@@ -638,7 +634,7 @@ Lo \textbf{shifting} rappresenta la variazione di energia tra un singolo sottoli
     \draw[->, teal, >=stealth] (4, -0.1) -- (4, -1.4) node[midway, left] {Shift 2};
 
 \end{tikzpicture}
-\caption{Shifting nel caso di doppietto}
+\caption{Shifting nel caso di doppietto.}
 \end{figure}
 
 Lo shift è calcolato rispetto agli autovalori imperturbati \( H^{(0)} \). 
@@ -674,7 +670,7 @@ In caso di multipletti si usa il termine shift per indicare la differenza di ene
     \draw[<->, purple, >=stealth] (8.5, -1.45) -- (8.5, 1.75) node[midway, right, align=left] {\textbf{SPLITTING} \\ \( E_{\text{MAX}} - E_{\text{MIN}} \)};
     
 \end{tikzpicture}
-\caption{Shifting nel caso di multipletto}
+\caption{Shifting nel caso di multipletto.}
 \end{figure}
 
 \begin{exercise}
@@ -979,20 +975,20 @@ dove \( \vec{M} \) rappresenta il momento torcente. Poiché la somma dei momenti
 \end{exercise}
 
 \section{Interazione con perturbazioni esterne}
-Un atomo sottoposto ad una perturbazione esterna è descritto da una Hamiltoniana \(H\) che include leffetto di
+Un atomo sottoposto ad una perturbazione esterna è descritto da una Hamiltoniana \(H\) che include l'effetto di
 tale perturbazione espressa come somma dell'Hamiltoniana descrittiva del sistema in assenza di
 perturbazione (\(H^{(0)}+ \Delta H_{SF}\)) e del termine rappresentativo della perturbazione esterna (\(\Delta H_{ext}\)):
 \begin{equation}
     H = H^{(0)} +\Delta H_{SF} + \Delta H_{ext}
 \end{equation}
-Le perturbazioni esterne possono esser statiche (ovvero non dipendere dal tempo) o dinamiche (ovvero
+Le perturbazioni esterne possono essere statiche (ovvero non dipendere dal tempo) o dinamiche (ovvero
 dipendenti dal tempo), isotrope (invarianti spazialmente) o anisotrope. A seconda del tipo di perturbazione
 (elettrica, magnetica, elettromagnetica, meccanica ecc) l'espressione di \(\Delta H_{ext}\) differisce.
 
 \subsection{Interazione con un campo magnetico statico e isotropo}
 
 In presenza di un campo magnetico esterno \( \vec{B}_{est} \), la dinamica dei momenti angolari subisce un'importante modifica. 
-I momenti magnetici intrinseci associati allo spin (\( \vec{\mu}_S \)) e al momento angolare orbitale (\( \vec{\mu}_L \)) iniziano a precedere attorno alla direzione del campo applicato.\\
+I momenti magnetici intrinseci associati allo spin (\( \vec{\mu}_S \)) e al momento angolare orbitale (\( \vec{\mu}_L \)) iniziano a precessare attorno alla direzione del campo applicato.\\
 Le loro espressioni sono:
 \begin{equation}
     \begin{cases}
@@ -1197,8 +1193,8 @@ L'interazione con il campo magnetico esterno \( \vec{B}_{\text{est}} \) separa i
 
 Il numero totale di sottolivelli generati dallo splitting è pari a \( 2j+1 \):
 \begin{itemize}
-    \item Se \( j \) è \textbf{semintero} (\( \frac{3}{2}, \frac{5}{2}, \dots \)) \(\implies\) avremo un numero \textbf{PARI} di sottolivelli.
-    \item Se \( j \) è \textbf{intero} (\( 1, 2, \dots \)) \(\implies\) avremo un numero \textbf{DISPARI} di sottolivelli.
+    \item Se \( j \) è \textbf{semintero} (\( \frac{3}{2}, \frac{5}{2}, \dots \)) \(\implies\) avremo un numero \textbf{pari} di sottolivelli.
+    \item Se \( j \) è \textbf{intero} (\( 1, 2, \dots \)) \(\implies\) avremo un numero \textbf{dispari} di sottolivelli.
 \end{itemize}
 Otteniamo inoltre che lo shift e lo splitting valgono rispettivamente:
 \begin{equation}
@@ -1218,8 +1214,7 @@ Quando si studia un sistema perturbato, il primo passo fondamentale è valutare 
 \end{equation}
 Poiché \( \Delta H_{SF} \gg \Delta H_{\text{Zeeman}} \), la correzione di struttura fine domina. Il fattore di Landé \( g_{j\ell s} \) è ben definito proprio in questo livello intermedio, poiché dipende dai numeri quantici iniziali \( \ell, s, j \) fissati dalla struttura fine. Per calcolare lo splitting di Zeeman, dobbiamo quindi sempre identificare con precisione da quale stato quantico (e con quali numeri quantici) stiamo partendo.
 
-\textbf{Evidenza sperimentale} \\
-Per osservare sperimentalmente la rimozione di questa degenerazione, si illumina un gas (approssimabile come un insieme di atomi non interagenti) con uno spettro continuo di radiazione elettromagnetica (luce bianca). Le frequenze assorbite dal gas produrranno delle righe scure nello spettro di assorbimento. 
+\textbf{Evidenza sperimentale.} Per osservare sperimentalmente la rimozione di questa degenerazione, si illumina un gas (approssimabile come un insieme di atomi non interagenti) con uno spettro continuo di radiazione elettromagnetica (luce bianca). Le frequenze assorbite dal gas produrranno delle righe scure nello spettro di assorbimento. 
 
 Attivando un campo magnetico esterno \( \vec{B}_{\text{est}} \), si osserva che quella che prima era una singola riga di assorbimento si divide in un multipletto di righe molto vicine tra loro. L'entità di questo \textit{splitting} (e del relativo \textit{shift}) varia a seconda dell'intensità di \( \vec{B}_{\text{est}} \).
 Tuttavia, se l'intensità di \( \vec{B}_{\text{est}} \) diventa eccessivamente grande, le righe si spostano in posizioni diverse da quelle previste da questo modello: il campo esterno "rompe" l'accoppiamento spin-orbita, originando un fenomeno diverso (l'effetto Paschen-Back).
@@ -1327,7 +1322,7 @@ Ricordando che per l'elettrone la carica è \( q = -e \), il termine di energia 
     In generale, l'operatore impulso e il potenziale vettore \textbf{non commutano} (\( [\vec{p}, \vec{A}] \neq 0 \)). Pertanto, i due termini misti \( \vec{p} \cdot \vec{A} \) e \( \vec{A} \cdot \vec{p} \) non possono essere fusi in un unico termine \( 2\vec{A} \cdot \vec{p} \) senza prima aver fissato esplicitamente le condizioni di gauge.
 \end{attention}
 
-\lezione{6}{10/03/2025}
+\lezione{6}{10/03/2026}
 
 Consideriamo la \textbf{Gauge di Coulomb}, che risulta particolarmente comoda per l'elettrostatica. Questa scelta consiste nell'imporre che la divergenza del potenziale vettore \( \vec{A} \) sia nulla:
 \begin{equation}
@@ -1354,8 +1349,7 @@ La condizione \( \nabla \cdot \vec{A} = 0 \) risulta essere una buona approssima
 
 Affinché la teoria sia coerente, l'operatore potenziale vettore \( \vec{A} \) deve essere compatibile con il limite classico dell'elettromagnetismo (studiato in Fisica 2). Questa compatibilità si costruisce conciliando le tre seguenti caratteristiche:
 
-\textbf{a) Descrizione ondulatoria} \\
-Si assume che l'espressione dell'energia mantenga la stessa forma sia nel limite classico che in quello quantistico. Consideriamo un'onda elettromagnetica monocromatica, ovvero con frequenza \( \omega \) fissata. L'intensità della radiazione \( I(\omega) \) è legata alla densità di energia \( \rho(\omega) \) e alla velocità della luce \( c \) dalla relazione:
+\textbf{a) Descrizione ondulatoria.} Si assume che l'espressione dell'energia mantenga la stessa forma sia nel limite classico che in quello quantistico. Consideriamo un'onda elettromagnetica monocromatica, ovvero con frequenza \( \omega \) fissata. L'intensità della radiazione \( I(\omega) \) è legata alla densità di energia \( \rho(\omega) \) e alla velocità della luce \( c \) dalla relazione:
 \begin{equation}
     I(\omega) = c \rho(\omega)
 \end{equation}
@@ -1364,8 +1358,7 @@ A sua volta, la densità di energia in funzione dell'ampiezza del potenziale vet
     \rho(\omega) = \frac{1}{2} \varepsilon_0 \omega^2 A^2(\omega)
 \end{equation}
 
-\textbf{b) Descrizione corpuscolare} \\
-Considerando la natura quantizzata del campo, la radiazione di frequenza \( \omega \) è composta da fotoni, ciascuno con energia \( E = \hbar\omega \). Se indichiamo con \( \mathcal{N}(\omega) \) il numero di fotoni aventi energia \( \hbar\omega \) all'interno di un determinato volume \( V \), la densità di energia può essere scritta come:
+\textbf{b) Descrizione corpuscolare.} Considerando la natura quantizzata del campo, la radiazione di frequenza \( \omega \) è composta da fotoni, ciascuno con energia \( E = \hbar\omega \). Se indichiamo con \( \mathcal{N}(\omega) \) il numero di fotoni aventi energia \( \hbar\omega \) all'interno di un determinato volume \( V \), la densità di energia può essere scritta come:
 \begin{equation}
     \rho(\omega) = \frac{\mathcal{N}(\omega)}{V} \hbar\omega
 \end{equation}
@@ -1375,8 +1368,7 @@ Affinché il modello sia consistente, la densità di energia calcolata con l'app
     \frac{1}{2} \varepsilon_0 \omega^2 A^2(\omega) = \frac{\mathcal{N}(\omega)}{V} \hbar\omega \implies A(\omega) = \sqrt{\frac{\mathcal{N}(\omega)}{V} \frac{2\hbar}{\varepsilon_0 \omega}}
 \end{equation}
 
-\textbf{c) Processi di interazione osservabili} \\
-Infine, la struttura matematica dell'operatore \( \vec{A} \) deve poter descrivere i reali processi di interazione tra l'atomo e il campo elettromagnetico. 
+\textbf{c) Processi di interazione osservabili.} Infine, la struttura matematica dell'operatore \( \vec{A} \) deve poter descrivere i reali processi di interazione tra l'atomo e il campo elettromagnetico. 
 Tali processi consistono nell'\textbf{assorbimento} e nell'\textbf{emissione} di radiazione, fenomeni che, come ben sappiamo dalle evidenze sperimentali, avvengono producendo uno spettro rigorosamente discreto in energia.\\
 Le transizioni in emissione (decadimento da uno stato a energia maggiore verso uno a energia minore) si dividono in due categorie principali:
 \begin{itemize}
@@ -1453,7 +1445,6 @@ In generale, la probabilità di transizione da uno stato iniziale \(\ket{i}\) a 
 \end{equation}
 
 Per garantire matematicamente questa condizione di risonanza e calcolare le probabilità di transizione non nulle, si utilizza la \textbf{Golden Rule di Fermi} (Regola d'oro di Fermi) per costruire in modo opportuno la forma dell'operatore potenziale vettore \(\vec{A}\).
-Per garantire che la transizione radiativa (sia in assorbimento che in emissione) soddisfi la condizione di risonanza \( |E_i - E_f| = \hbar\omega \), utilizziamo la \textbf{Golden Rule di Fermi} per costruire la forma matematica dell'operatore \( \vec{A} \).
 
 Consideriamo un operatore hermitiano \( O(t) \) dipendente dal tempo e sia \( H \) l'Hamiltoniana totale del sistema quantistico, definita come:
 \begin{equation}
@@ -1498,8 +1489,7 @@ La presenza della delta di Dirac (\( \delta_D \)) all'interno dei due termini ga
 
 Per conciliare la descrizione classica e quella quantistica, analizziamo la forma matematica del potenziale vettore \(\vec{A}\) per un'onda elettromagnetica monocromatica.
 
-\textbf{Limite Classico} \\
-Classicamente, un'onda monocromatica di frequenza \(\omega\) può essere scritta sfruttando la forma esponenziale del coseno:
+\textbf{Limite Classico.} Classicamente, un'onda monocromatica di frequenza \(\omega\) può essere scritta sfruttando la forma esponenziale del coseno:
 \begin{equation}
     \vec{A}(\vec{r}, t) = A(\omega) \hat{\varepsilon} \left[ \frac{e^{i(\vec{k} \cdot \vec{r} - \omega t)} + e^{-i(\vec{k} \cdot \vec{r} - \omega t)}}{2} \right]
 \end{equation}
@@ -1510,8 +1500,7 @@ Analizzando i termini di questa espressione riconosciamo:
     \item \(\vec{k}\): il vettore d'onda.
 \end{itemize}
 
-\textbf{Descrizione in Meccanica Quantistica} \\
-In Meccanica Quantistica, risulta estremamente conveniente riorganizzare i termini esponenziali isolando la dipendenza spaziale \(\vec{r}\) da quella temporale \(t\):
+\textbf{Descrizione in Meccanica Quantistica.} In Meccanica Quantistica, risulta estremamente conveniente riorganizzare i termini esponenziali isolando la dipendenza spaziale \(\vec{r}\) da quella temporale \(t\):
 \begin{equation}
     \vec{A}(\vec{r}, t) = A(\omega) \hat{\varepsilon} \left[ \frac{e^{i\vec{k} \cdot \vec{r}} e^{-i\omega t} + e^{-i\vec{k} \cdot \vec{r}} e^{i\omega t}}{2} \right]
 \end{equation}
@@ -1570,16 +1559,16 @@ L'espressione che abbiamo ricavato per \( \bar{A} \) risulta coerente con la fen
 Dobbiamo scrivere un'espressione universale per l'operatore che descriva entrambe le emissioni. Modificando l'espressione di partenza valida nel limite classico, otteniamo una formula unica:
 
 \begin{equation}
-    A(\omega) = \sqrt{\frac{N(\omega) + 1}{V} \cdot \frac{2\hbar}{\omega\varepsilon_0}}
+    A(\omega) = \sqrt{\frac{\mathcal{N}(\omega) + 1}{V} \cdot \frac{2\hbar}{\omega\varepsilon_0}}
 \end{equation}
 
 In questa formulazione:
 \begin{itemize}
-    \item \( N(\omega) \) rappresenta il numero di fotoni associati al campo elettromagnetico esterno;
+    \item \( \mathcal{N}(\omega) \) rappresenta il numero di fotoni associati al campo elettromagnetico esterno;
     \item Il termine adimensionale \( +1 \) al numeratore è fondamentale poiché tiene conto dell'\textbf{emissione spontanea}.
 \end{itemize}
 
-Infatti, in assenza di un campo elettromagnetico esterno (\( \text{CEM} = 0 \)), segue che \( N(\omega) = 0 \). In questo caso l'operatore non si annulla, ma sopravvive solo l'\( 1 \) al numeratore, il quale garantisce l'esistenza dell'emissione spontanea.
+Infatti, in assenza di un campo elettromagnetico esterno (\( \text{CEM} = 0 \)), segue che \( \mathcal{N}(\omega) = 0 \). In questo caso l'operatore non si annulla, ma sopravvive solo l'\( 1 \) al numeratore, il quale garantisce l'esistenza dell'emissione spontanea.
 
 Questa espressione tiene conto dell'intensità della luce emessa o assorbita, in quanto legata all'ampiezza del potenziale vettore. Tuttavia, sappiamo fenomenologicamente che non tutti i livelli energetici danno luogo a transizioni permesse.
 
